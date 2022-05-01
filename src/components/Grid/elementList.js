@@ -1,14 +1,18 @@
 import "./List.css";
 import Pause from '../buttons/PauseBtn';
 import Phone from '../buttons/PhoneBtn';
+import React, { Component } from 'react';
+import Counter from '../../Clock';
+
+
 
 export const items = [
     {
         id: 1,
         first: [<Pause />],
-        second: [],
+        second: [<Counter/>],
         third: [],
-        fourth: ["status"]
+        fourth: []
     },
     {
         id: 2,
