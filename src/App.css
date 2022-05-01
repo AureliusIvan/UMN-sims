@@ -1,3 +1,24 @@
+body {
+    cursor: url('components/asset/cursor/cursor_normal.png'), auto;
+    font-family: "Dimbo" !important;
+    overflow: auto;
+    overflow-x: hidden;
+
+    /*scrollbar*/
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+@font-face {
+    font-family: "Dimbo";
+    src: url(components/asset/font/Dimbo\ Regular.ttf);
+}
+
 .Body{
     background-color: rgb(255, 160, 207);
     z-index: 100;
@@ -13,6 +34,3 @@
 .gridItems{
     border: 1px solid rgb(8, 3, 3, .3);
 }
-
-
-

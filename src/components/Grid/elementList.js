@@ -1,9 +1,12 @@
 import {CreateBtn, PauseBtn} from '../buttons/cardBtn';
+
 import "./List.css";
 import Pause from '../buttons/PauseBtn';
 import Phone from '../buttons/PhoneBtn';
 import React, { Component } from 'react';
 import Counter from '../../Clock';
+import Test1 from '../TestPopUp/Test1';
+
 
 export const items = [
     {
@@ -24,7 +27,7 @@ export const items = [
     },
     {
         id: 3,
-        first: [],
+        first: [<Test1 />],
         second: [],
         third: [],
         fourth: []

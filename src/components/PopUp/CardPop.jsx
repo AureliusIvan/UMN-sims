@@ -1,6 +1,5 @@
 import { Box, Button } from "@chakra-ui/react";
 import { Pop } from "./Pop";
-import {useState} from 'react'
 
 export function CreatePop(props){
   const isOpen = props.isOpen;
@@ -14,14 +13,3 @@ export function CreatePop(props){
   }
   else return null;
 }
-
-// lg nyoba ini
-// export function CreatePop(props){
-//   const [pop, setPop] = useState(false);
-  
-//     return (
-//       <Box>
-//           <Pop />
-//       </Box>
-//     );
-// }
