@@ -1,16 +1,27 @@
-import {CreateBtn} from './buttons/cardBtn';
+import {CreateBtn, PauseBtn} from '../buttons/cardBtn';
+import { CreatePop } from '../PopUp/CardPop';
 import "./List.css";
+import { useState } from 'react';
+
+function createPop(props){
+    return(
+        <CreatePop
+            isOpen = {true}
+        />
+    );
+}
 
 export const items = [
     {
         id: 1,
         first: [<CreateBtn
+        function = {createPop}
             id = "pause"
             content='II'
         />],
         second: [],
         third: [],
-        fourth: []
+        fourth: ["status"]
     },
     {
         id: 2,
