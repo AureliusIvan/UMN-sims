@@ -4,11 +4,8 @@ import {
   theme
 } from '@chakra-ui/react';
 import "./App.css";
-import { useState } from 'react';
 import { Line } from './components/Grid/Line';
 import { items } from './components/Grid/elementList';
-
-import Test from './components/buttons/PauseBtn';
 
 function createList(x){
   return(
