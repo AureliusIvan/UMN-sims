@@ -9,13 +9,13 @@ import { items } from './components/Grid/elementList';
 
 function createList(x){
   return(
-      <Line
-          key = {x.id}
-          first={x.first}
-          second={x.second}
-          third={x.third}
-          fourth={x.fourth}
-      />
+    <Line
+      key = {x.id}
+      first={x.first}
+      second={x.second}
+      third={x.third}
+      fourth={x.fourth}
+    />
   );
 }
 

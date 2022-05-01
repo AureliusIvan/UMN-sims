@@ -1,44 +1,60 @@
-import { Box, Flex, Button, Text } from '@chakra-ui/react';
-import { useState } from 'react';
+import { Box, Button, Text, Image, Flex } from "@chakra-ui/react";
+import { useState } from "react";
 
-function Pause (props) {
-	const [pop, setPop] = useState(false);
+import Btn from '../template/tempButton'
+import Pop from '../template/tempPopUp'
 
-  return (
-    <Box>
-		<Button onClick={() => setPop(pop => !pop)}>{props.btnName}</Button>
-		{pop?
-		<Flex
-			bg='rgba(0,0,0,0.5)'
-			backdropFilter='auto'
-			backdropBlur='2px'
-			height='100%'
-			width='100%'
-			position='absolute'
-			top={0}
-			justifyContent='center'
-			alignItems='center'
-		>
-			<Box
-				backgroundColor='Black'
-				height='100px'
-				width='500px'
-				ml='auto' mr='auto'
-				color='white'
-				textAlign='center'
-				p={3}
-				>
-				<Flex>
-					<Text cursor='pointer' onClick={() => setPop(false)}>x</Text>
-					<Text ml={10}>Header</Text>
-				</Flex>
-				<Flex justifyContent='center'>
-					A Pop Up
-				</Flex>
-			</Box>
-		</Flex>:""}
-    </Box>
-  )
+import audioOn from '../asset/icon/unmute.png'
+import audioOff from '../asset/icon/mute.png'
+
+function Content() {
+	const [mute, setMute] = useState(true)
+	const toggleMute = () => setMute(mute => !mute);
+
+	return (
+		<Box>
+			<Text>Volume</Text>
+			<Flex 
+				justifyContent='center'
+				height={{base:'50px', sm:'80px'}}
+			>
+				{mute ? 
+					<Image src={audioOff} onClick={toggleMute} cursor='pointer' />
+				:
+					<Image src={audioOn} onClick={toggleMute} cursor='pointer' />
+				}
+			</Flex>
+			<Text>*belom ada efek suaranya ya :)</Text>
+			<Button 
+				size='sm'
+				backgroundColor='red.500' 
+				color='whitesmoke'
+				fontWeight='light'
+				letterSpacing={1}
+				_hover={{bg:'red.700'}}
+				// onClick={}
+			>reset game</Button>
+		</Box>
+	);
+}
+
+function Pause () {
+    const [pop, setPop] = useState(false);
+
+    return (
+        <Box>
+            <Btn 
+                btnName="| |"
+                function={() => setPop (!pop)}
+            />
+            {pop?
+            <Pop 
+                title="Menu"
+                content={<Content />}
+                function={() => setPop(false)}
+            /> : "" }
+        </Box>
+    )
 }
 
 export default Pause;

@@ -1,19 +1,15 @@
-import {CreateBtn, PauseBtn} from '../buttons/cardBtn';
-
 import "./List.css";
 import Pause from '../buttons/PauseBtn';
 import Phone from '../buttons/PhoneBtn';
 import React, { Component } from 'react';
 import Counter from '../../Clock';
-import Test1 from '../TestPopUp/Test1';
+
 
 
 export const items = [
     {
         id: 1,
-        first: [<Pause
-        btnName = "II"
-        />],
+        first: [<Pause />],
         second: [<Counter/>],
         third: [],
         fourth: []
@@ -27,7 +23,7 @@ export const items = [
     },
     {
         id: 3,
-        first: [<Test1 />],
+        first: [],
         second: [],
         third: [],
         fourth: []
@@ -79,8 +75,8 @@ export const items = [
         first: [<Phone
             btnName = "Phone"
         />],
-        second: [<CreateBtn/>],
-        third: [<CreateBtn/>],
-        fourth: [<CreateBtn/>]
+        second: [],
+        third: [],
+        fourth: []
     },
 ];

@@ -2,8 +2,8 @@ import { Button } from '@chakra-ui/react'
 
 function BtnTemplate(props) {
     return (
-        <Button onClick={props.function} id={props.id}>
-        {props.content}
+        <Button onClick={props.function}>
+        {props.btnName}
         </Button>
     )
 }
