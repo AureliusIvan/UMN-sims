@@ -1,5 +1,6 @@
 import {CreateBtn, PauseBtn} from '../buttons/cardBtn';
 import { CreatePop } from '../PopUp/CardPop';
+import Test1 from '../TestPopUp/Test1'
 import "./List.css";
 import { useState } from 'react';
 
@@ -32,7 +33,7 @@ export const items = [
     },
     {
         id: 3,
-        first: [],
+        first: [<Test1 />],
         second: [],
         third: [],
         fourth: []

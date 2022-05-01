@@ -4,17 +4,9 @@ import { useState } from 'react';
 function Test () {
 	const [pop, setPop] = useState(false);
 
-	const ClickOpen = () => {
-		setPop(!pop);
-	}
-
-	const Close = () => {
-		setPop(false);
-	}
-
   return (
     <Box>
-      <Button onClick={ClickOpen}>Try me</Button>
+      <Button onClick={() => setPop(pop => !pop)}>Try me</Button>
 			{pop?
 			<Flex
 				bg='rgba(255,0,0,0.5)'
@@ -37,7 +29,7 @@ function Test () {
 					p={3}
 					>
 					<Flex>
-						<Text cursor='pointer' onClick={Close}>x</Text>
+						<Text cursor='pointer' onClick={() => setPop(false)}>x</Text>
 						<Text ml={10}>Header</Text>
 					</Flex>
 					<Flex justifyContent='center'>
