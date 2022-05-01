@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { Line } from './components/Grid/Line';
 import { items } from './components/Grid/elementList';
 
-import Test from './components/tryButton';
+import Test from './components/buttons/PauseBtn';
 
 function createList(x){
   return(
@@ -29,7 +29,6 @@ function App() {
         <Box>
           {items.map(createList)}
         </Box>
-        <Test />
       </Box>
     </ChakraProvider>
   );
