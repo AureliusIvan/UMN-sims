@@ -1,7 +1,7 @@
 import { Box, Flex, Button, Text } from '@chakra-ui/react';
 import { useState } from 'react';
 
-function Test () {
+function Pause (props) {
 	const [pop, setPop] = useState(false);
 
 	const ClickOpen = () => {
@@ -14,10 +14,10 @@ function Test () {
 
   return (
     <Box>
-      <Button onClick={ClickOpen}>Try me</Button>
+      <Button onClick={ClickOpen}>{props.btnName}</Button>
 			{pop?
 			<Flex
-				bg='rgba(255,0,0,0.5)'
+				bg='rgba(0,0,0,0.5)'
 				backdropFilter='auto'
 				backdropBlur='2px'
 				height='100%'
@@ -28,7 +28,7 @@ function Test () {
 				alignItems='center'
 			>
 				<Box
-					backgroundColor='black'
+					backgroundColor='Black'
 					height='100px'
 					width='500px'
 					ml='auto' mr='auto'
@@ -49,4 +49,4 @@ function Test () {
   )
 }
 
-export default Test;
+export default Pause;
