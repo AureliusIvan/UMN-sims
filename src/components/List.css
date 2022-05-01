@@ -4,3 +4,7 @@
     height: 50px;
     border-radius: 50%;
 }
+
+.gridItems{
+    border: 1px solid rgb(8, 3, 3, .3);
+}

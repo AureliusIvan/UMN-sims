@@ -6,6 +6,7 @@ export function CreateBtn(x){
     return(
         <Box>
             <Btn
+                function = {x.function}
                 id = {x.id}
                 content={x.content}
             />

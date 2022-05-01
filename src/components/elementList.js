@@ -4,7 +4,7 @@ import "./List.css";
 export const items = [
     {
         id: 1,
-        first: [<CreateBtn 
+        first: [<CreateBtn
             id = "pause"
             content='II'
         />],

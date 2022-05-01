@@ -1,5 +1,9 @@
 function Btn(props) {
-  return <button id={props.id}>{props.content}</button>;
+  return <button
+          onClick={props.function}
+          id={props.id}>
+            {props.content}
+            </button>;
 }
 
 export default Btn;
