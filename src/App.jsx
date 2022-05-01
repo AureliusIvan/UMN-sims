@@ -8,6 +8,8 @@ import { useState } from 'react';
 import { Line } from './components/Grid/Line';
 import { items } from './components/Grid/elementList';
 
+import Test from './components/tryButton';
+
 function createList(x){
   return(
       <Line
@@ -24,9 +26,10 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Box className='Body'>
-      <Box>
-            {items.map(createList)}
+        <Box>
+          {items.map(createList)}
         </Box>
+        <Test />
       </Box>
     </ChakraProvider>
   );
