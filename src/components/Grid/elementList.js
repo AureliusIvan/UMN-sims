@@ -2,6 +2,8 @@ import {CreateBtn, PauseBtn} from '../buttons/cardBtn';
 import "./List.css";
 import Pause from '../buttons/PauseBtn';
 import Phone from '../buttons/PhoneBtn';
+import React, { Component } from 'react';
+import Counter from '../../Clock';
 
 export const items = [
     {
@@ -9,9 +11,9 @@ export const items = [
         first: [<Pause
         btnName = "II"
         />],
-        second: [],
+        second: [<Counter/>],
         third: [],
-        fourth: ["status"]
+        fourth: []
     },
     {
         id: 2,

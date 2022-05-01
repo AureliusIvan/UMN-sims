@@ -29,8 +29,8 @@ function Phone (props) {
 			>
 				<Box
 					backgroundColor='gray'
-					height='90%'
-					width='50%'
+					height='650px'
+					width='400px'
 					ml='auto' mr='auto'
 					color='Black'
 					textAlign='center'
@@ -47,7 +47,6 @@ function Phone (props) {
                         >
                             <Grid>
                                 <GridItem>
-                                    
                                 </GridItem>
                             </Grid>
                         </Box>
