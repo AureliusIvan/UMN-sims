@@ -1,23 +1,28 @@
-import { Box, Flex, Button, Text, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Flex, Button, CloseButton, Image, Text, Grid, GridItem, usePointerEvent } from '@chakra-ui/react';
+import { css } from '@emotion/react';
 import { useState } from 'react';
+
+import cursorImg from '../asset/cursor/cursor_point.png';
 
 function Content(props) {
 	return (
 		<Flex
-			bg='rgba(0,0,0,0.5)'
+			bg='rgb(0,0,0,0.5)'
 			backdropFilter='auto'
-			backdropBlur='2px'
+			backdropBlur='1.5px'
 			height='100%'
 			width='100%'
 			position='absolute'
 			top={0}
+			left={0}
 			justifyContent='center'
 			alignItems='center'
+			zIndex={10}
 		>
 			<Box
 				backgroundColor='gray'
 				height='90%'
-				width={{base:'50%', md:'40%', lg:'30%'}}
+				width={{base:'90%', sm:'50%', md:'40%', lg:'30%'}}
 				ml='auto' mr='auto'
 				color='Black'
 				textAlign='center'
@@ -25,7 +30,10 @@ function Content(props) {
 				p={3}
 				>
 				<Flex>
-					<Text cursor='pointer' onClick={props.close}>x</Text>
+					<CloseButton 
+						mb={2} 
+						size='sm' 
+						onClick={props.close} />
 				</Flex>
                     <Box
                     backgroundColor='Aquamarine'
@@ -43,7 +51,7 @@ function Content(props) {
 	)
 }
 
-function Phone (props) {
+function Phone () {
 	const [pop, setPop] = useState(false);
 
 	const ClickOpen = () => {
@@ -56,7 +64,7 @@ function Phone (props) {
 
 	return (
     <Box>
-		<Button onClick={ClickOpen}>{props.btnName}</Button>
+		<Button onClick={ClickOpen}>Phone</Button>
 		{pop? <Content close={Close}/> :""}
     </Box>
   	)

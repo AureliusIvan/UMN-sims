@@ -1,14 +1,24 @@
 import { Box, Button, Text, Image, Flex } from "@chakra-ui/react";
 import { useState } from "react";
 
-import Btn from '../template/tempButton'
 import Pop from '../template/tempPopUp'
+import VolSlider from "./volumeSlider";
 
 import audioOn from '../asset/icon/unmute.png'
 import audioOff from '../asset/icon/mute.png'
 
+function Pause () {
+    return (
+        <Pop 
+			btnName="| |"
+            title="Menu"
+            content={<Content />}
+        />
+    )
+}
+
 function Content() {
-	const [mute, setMute] = useState(true)
+	const [mute, setMute] = useState(false)
 	const toggleMute = () => setMute(mute => !mute);
 
 	return (
@@ -25,6 +35,7 @@ function Content() {
 				}
 			</Flex>
 			<Text>*belom ada efek suaranya ya :)</Text>
+			<VolSlider /><br />
 			<Button 
 				size='sm'
 				backgroundColor='red.500' 
@@ -38,23 +49,5 @@ function Content() {
 	);
 }
 
-function Pause () {
-    const [pop, setPop] = useState(false);
-
-    return (
-        <Box>
-            <Btn 
-                btnName="| |"
-                function={() => setPop (!pop)}
-            />
-            {pop?
-            <Pop 
-                title="Menu"
-                content={<Content />}
-                function={() => setPop(false)}
-            /> : "" }
-        </Box>
-    )
-}
 
 export default Pause;

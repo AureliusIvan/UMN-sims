@@ -1,10 +1,11 @@
 import "./List.css";
+import React, { Component } from 'react';
+
 import Pause from '../buttons/PauseBtn';
 import Phone from '../buttons/PhoneBtn';
 import React, { Component } from 'react';
-import Counter from '../Clock';
-
-
+import Counter from '../../Clock';
+import Menu from "../map";
 
 export const items = [
     {
@@ -72,11 +73,9 @@ export const items = [
     },
     {
         id: 10,
-        first: [<Phone
-            btnName = "Phone"
-        />],
+        first: [<Phone />],
         second: [],
         third: [],
-        fourth: []
+        fourth: [<Menu />]
     },
 ];
