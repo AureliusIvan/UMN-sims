@@ -2,7 +2,7 @@ import "./List.css";
 import Pause from '../buttons/PauseBtn';
 import Phone from '../buttons/PhoneBtn';
 import React, { Component } from 'react';
-import Counter from '../../Clock';
+import Counter from '../Clock';
 
 
 
