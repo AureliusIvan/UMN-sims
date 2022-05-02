@@ -22,7 +22,7 @@ function createList(x){
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Box className='Body'>
+      <Box p={3} bgColor='pink' zIndex='100'>
         <Box>
           {items.map(createList)}
         </Box>
