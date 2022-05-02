@@ -30,8 +30,8 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
+      <Box p={3} bgColor='pink' zIndex='100'>
       {pop? <PageOne play={Close}/> :""}
-      <Box className='Body'>
         <Box>
           {items.map(createList)}
         </Box>
