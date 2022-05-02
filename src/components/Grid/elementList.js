@@ -1,11 +1,9 @@
 import "./List.css";
-import React, { Component } from 'react';
-
 import Pause from '../buttons/PauseBtn';
 import Phone from '../buttons/PhoneBtn';
 import React, { Component } from 'react';
-import Counter from '../../Clock';
 import Menu from "../map";
+import Counter from "../Clock";
 
 export const items = [
     {
