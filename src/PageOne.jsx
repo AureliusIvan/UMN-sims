@@ -1,4 +1,64 @@
-import { Box, Stack, Input, Center , Flex, Button, Text, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Stack, Input, Header, Image, Center , Flex, Button, Text, Grid, GridItem } from '@chakra-ui/react';
+import React from "react";
+
+class Car extends React.Component {
+    Boy = () => {
+        this.setState({ img: require('./components/asset/avatar/boy.png'),
+                        name: 'Boy',
+                        tipe: 'Kang mukbang',
+                        desc:'Menambah kapasitas perut sebanyak +20%',
+                        lore:'Diceritakan bahwa Kang mukbang sangat suka makan, bahkan semenjak masih menjadi embrio. Kemampuannya ini mengantarkannya menjuarai lomba makan tingkat kampung.',
+                        onclick: this.Girl
+                      
+    });}
+    Girl = () => {
+        this.setState({img: require('./components/asset/avatar/girl.png'),
+                        name: 'girl',
+                        tipe: 'Anak Rajin',
+                        desc: 'Mepercepat belajar hingga +20%',
+                        lore:'Anak Rajin, Begitulan orang-orang memanggilnya. Panggilan tersebut didapatnya karena dia setiap harinya belajar ngoding (termasuk hari libur).',
+                        onclick: this.Boy
+                      
+    });}
+
+    constructor(props) {
+      super(props);
+      this.state = {
+                    img: require('./components/asset/avatar/boy.png'),
+                    name: 'Boy',
+                    tipe: 'Kang mukbang',
+                    desc:'Menambah kapasitas perut sebanyak +20%',
+                    lore:'Diceritakan bahwa Kang mukbang sangat suka makan, bahkan semenjak masih menjadi embrio. Kemampuannya ini mengantarkannya menjuarai lomba makan tingkat kampung.',
+                    onclick: this.Girl
+      };
+    }
+
+    render() {
+      return (
+          <Box>
+              <Center>
+                  <Box padding='10px' display={{base:'none',md:'block'}} h='300px' w='200px' bgColor='white' position='absolute' right='60%'>
+                        <Box>
+                            <Center>
+                            <Box pos='absolute' h='40px' w='110%' fontSize='25px' transform='translateY(-22px)' borderRadius='10px' bgColor='red' color='white' textAlign='center'><Text>{this.state.tipe}</Text></Box>
+                            </Center>
+                            <Box><Text color='Blue'>Lore: </Text>
+                            <Text>{this.state.lore}</Text>
+                            <Box><Text color='Blue'>Skill: </Text>
+                            <Text>{this.state.desc}</Text></Box>
+                            </Box>
+                        </Box>
+                  </Box>
+            <Box transform={{base:0, md:'translateX(50%)'}}>
+              <Button onClick={this.state.onclick} right='50%' transform='translateX(-120px)' top='40%' position='absolute'>{"<<"}</Button>
+              <Image boxSize='400px' positon='absolute' objectFit='Cover'  src={this.state.img}/>
+              <Button onClick={this.state.onclick} left='50%' transform='translateX(120px)' top='40%'  position='absolute'>{">>"}</Button>
+              </Box>
+              </Center>
+          </Box>
+      );
+    }
+  }
 
 function PageOne(props) {
 	return (
@@ -10,27 +70,19 @@ function PageOne(props) {
         zIndex='100'
         >
         <Grid className="Grid" h='10vh' templateRows='repeat(1, 1fr)' templateColumns='repeat(3, 1fr)' gap={0}>
-
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={3}>
         <Center mt='30px' gap='10px'>
-        <Input width='70%' maxW='400px'  variant='outline' placeholder='Masukan Nama' />
+        <Input width='100%' maxW='400px' color='white'  variant='outline' placeholder='Masukan Nama' />
         <Button>✔</Button>
         </Center>
         </GridItem>
 
     </Grid>
     <Grid className="Grid" h='60vh' templateRows='repeat(1, 1fr)' templateColumns='repeat(3, 1fr)' gap={0}>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+        <GridItem className="gridItems" rowSpan={1} colSpan={3}>
         <Center>
-        <Button transform='translateY(25vh) translateX(-100px)' position='absolute'>{"<<"}</Button>
-        <Button transform='translateY(25vh) translateX(100px)' position='absolute'>{">>"}</Button>
-        </Center>
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        <Center>
-        {props.third}
+        <Car/>
         </Center>
         </GridItem>
     </Grid>
