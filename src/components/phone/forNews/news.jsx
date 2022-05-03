@@ -1,3 +1,4 @@
+/*
 import { Box, Image, Text, Button, Flex } from '@chakra-ui/react';
 
 import React from 'react';
@@ -93,3 +94,5 @@ class News extends React.Component {
 }
 
 export default News;
+
+*/

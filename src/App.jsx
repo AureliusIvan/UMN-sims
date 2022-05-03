@@ -1,44 +1,38 @@
 import {
   ChakraProvider,
   Box,
-  theme
+  theme,
+  Text
 } from '@chakra-ui/react';
 import "./App.css";
-import PageOne from './PageOne';
-
-import { Line } from './components/Grid/Line';
-import { items } from './components/Grid/elementList';
 import { useState } from 'react';
-
-function createList(x){
-  return(
-    <Line
-      key = {x.id}
-      first={x.first}
-      second={x.second}
-      third={x.third}
-      fourth={x.fourth}
-    />
-  );
-}
+import PageOne from './Pages/PageOne';
+import Home from './Pages/Home';
 
 function App() {
-  const [pop, setPop] = useState(true);
 
-	const Close = () => {
-		setPop(false);
-	}
+  const [game, setGame] = useState('start')
+  const handleClick = (gameState) => {
+    setGame(gameState)
+  }
 
   return (
     <ChakraProvider theme={theme}>
-      {/* {pop? <PageOne play={Close}/> :""} */}
-      <Box p={3} zIndex='100'>
-        <Box>
-          {items.map(createList)}
-        </Box>
-      </Box>
+      {(() => {
+        switch (game) {
+          case 'start':
+            return <PageOne handleClick={handleClick} />
+          case 'home':
+
+          default:
+            return null
+        }
+      })()}
+ 
     </ChakraProvider>
   );
 }
 
 export default App;
+
+// {items.map(createList)}

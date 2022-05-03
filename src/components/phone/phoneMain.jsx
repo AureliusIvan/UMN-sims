@@ -2,11 +2,12 @@ import { Popover, PopoverTrigger, PopoverContent, PopoverCloseButton } from "@ch
 import { Image, Circle, Flex, Progress, Text, Box, } from "@chakra-ui/react"
 import { useState, useEffect } from "react";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' // ga ngaruh ??
+//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' // ga ngaruh ??
 
 import HomeScreen from "./homeScreen";
-import phone from '../asset/icon/hp1.png'
-import phoneHover from '../asset/icon/hp2.png'
+import phone from '../asset/icon/hp1.png';
+import phoneHover from '../asset/icon/hp2.png';
+
 
 
 function Phone() {
