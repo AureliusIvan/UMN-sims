@@ -1,11 +1,11 @@
 import { Box, Stack, Input, Header, Image, Center , Flex, Button, Text, Grid, GridItem } from '@chakra-ui/react';
 import React from "react";
-import Credit from './components/buttons/Credit';
-import Charstat from './components/character/CharStat';
+import Credit from '../components/buttons/Credit';
+import Charstat from '../components/character/CharStat';
 
 class Car extends React.Component {
     Boy = () => {
-        this.setState({ img: require('./components/asset/avatar/boy.png'),
+        this.setState({ img: require('../components/asset/avatar/boy.png'),
                         name: 'Boy',
                         tipe: 'Kang mukbang',
                         desc:'[King of Mukbang] Menambah kapasitas perut sebanyak +20%',
@@ -15,7 +15,7 @@ class Car extends React.Component {
                       
     });}
     Girl = () => {
-        this.setState({img: require('./components/asset/avatar/girl.png'),
+        this.setState({img: require('../components/asset/avatar/girl.png'),
                         name: 'girl',
                         tipe: 'Anak Rajin',
                         desc: '[Proficient Learner] Mepercepat belajar hingga +20%',
@@ -27,7 +27,7 @@ class Car extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-                    img: require('./components/asset/avatar/boy.png'),
+                    img: require('../components/asset/avatar/boy.png'),
                     name: 'Boy',
                     tipe: 'Kang mukbang',
                     desc:'[King of Mukbang] Menambah kapasitas perut sebanyak +20%',
