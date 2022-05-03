@@ -23,7 +23,7 @@ function App() {
           case 'start':
             return <PageOne handleClick={handleClick} />
           case 'home':
-            return <Home handleClick={handleClick} />
+
           default:
             return null
         }

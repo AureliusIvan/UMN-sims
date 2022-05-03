@@ -3,6 +3,7 @@ body {
     font-family: "Dimbo" !important;
     overflow: auto;
     overflow-x: hidden;
+    background-color: bisque !important;
     
     /*scrollbar*/
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
