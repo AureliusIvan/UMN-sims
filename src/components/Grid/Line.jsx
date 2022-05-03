@@ -2,9 +2,7 @@ import {
     Grid,
     GridItem,
     Center
-  } from '@chakra-ui/react';
-
-
+} from '@chakra-ui/react';
 
 export function Line(props){
     return(

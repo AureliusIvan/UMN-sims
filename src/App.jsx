@@ -5,6 +5,7 @@ import {
 } from '@chakra-ui/react';
 import "./App.css";
 import PageOne from './PageOne';
+
 import { Line } from './components/Grid/Line';
 import { items } from './components/Grid/elementList';
 import { useState } from 'react';
@@ -30,8 +31,8 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      {pop? <PageOne play={Close}/> :""}
-      <Box p={3} bgColor='pink' zIndex='100'>
+      {/* {pop? <PageOne play={Close}/> :""} */}
+      <Box p={3} zIndex='100'>
         <Box>
           {items.map(createList)}
         </Box>
