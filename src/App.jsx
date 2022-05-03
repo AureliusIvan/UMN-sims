@@ -6,8 +6,11 @@ import {
 } from '@chakra-ui/react';
 import "./App.css";
 import { useState } from 'react';
-import PageOne from './Pages/PageOne';
+import PageOne from './Pages/Start';
 import Home from './Pages/Home';
+import Car from './Pages/SelectChar';
+import SelectChar from './Pages/SelectChar';
+import Cafe from './Pages/Cafe';
 
 function App() {
 
@@ -22,8 +25,12 @@ function App() {
         switch (game) {
           case 'start':
             return <PageOne handleClick={handleClick} />
+          case 'selectchar':
+            return <SelectChar handleClick={handleClick} />
           case 'home':
-
+            return <Home handleClick={handleClick}/>
+          case 'cafe':
+              return <Cafe handleClick={handleClick}/>
           default:
             return null
         }

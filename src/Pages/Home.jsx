@@ -17,9 +17,8 @@ function createList(x){
 function Home(props) {
 
     return (
-      <div className="Lost">
+      <div className="home">
           {items.map(createList)}
-        <button onClick={ () => props.handleClick('home')}></button>
       </div>
     )
   }
