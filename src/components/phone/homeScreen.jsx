@@ -1,7 +1,7 @@
 import { Box, Text, Divider, Flex, Image, Button } from "@chakra-ui/react";
 import { useState } from "react";
 
-import Clock from "../../Clock";
+import Counter from "../Clock";
 import homeButton from '../asset/icon/homePhone.png'
 
 // list aplikasi
@@ -18,7 +18,7 @@ function HomeScreen() {
 	return (
 		<Box>
 			<Text size="xs">
-				<Clock />
+				<Counter/>
 			</Text>
 			<Divider borderColor='black' />
 			
