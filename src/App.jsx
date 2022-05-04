@@ -2,22 +2,21 @@ import {
   ChakraProvider,
   Box,
   theme,
-  Text
+  Text,
+  Button
 } from '@chakra-ui/react';
 import "./App.css";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PageOne from './Pages/Start';
 import Home from './Pages/Home';
-import Car from './Pages/SelectChar';
 import SelectChar from './Pages/SelectChar';
 import Cafe from './Pages/Cafe';
-import MapIcon from './components/buttons/Map';
 
 function App() {
-
-  const [game, setGame] = useState('start')
+  const [game , setGame] = useState('start');
   const handleClick = (gameState) => {
-    setGame(gameState)
+    setGame(gameState);
+    console.log(game);
   }
 
   return (
@@ -28,8 +27,6 @@ function App() {
             return <PageOne handleClick={handleClick} />
           case 'selectchar':
             return <SelectChar handleClick={handleClick} />
-          case 'map':
-              return <MapIcon handleClick={handleClick}/>
           case 'home':
             return <Home handleClick={handleClick}/>
           case 'cafe':
