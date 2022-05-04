@@ -2,7 +2,6 @@ import "./List.css";
 import Pause from '../buttons/PauseBtn';
 import Phone from '../phone/phoneMain';
 import Counter from '../Clock';
-import MapIcon from "../buttons/Map";
 
 export const items = [
     {
@@ -14,7 +13,7 @@ export const items = [
     },
     {
         id: 2,
-        first: [<MapIcon/>],
+        first: [],
         second: [],
         third: [],
         fourth: []
