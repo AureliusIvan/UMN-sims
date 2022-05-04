@@ -11,6 +11,7 @@ import Home from './Pages/Home';
 import Car from './Pages/SelectChar';
 import SelectChar from './Pages/SelectChar';
 import Cafe from './Pages/Cafe';
+import MapIcon from './components/buttons/Map';
 
 function App() {
 
@@ -27,6 +28,8 @@ function App() {
             return <PageOne handleClick={handleClick} />
           case 'selectchar':
             return <SelectChar handleClick={handleClick} />
+          case 'map':
+              return <MapIcon handleClick={handleClick}/>
           case 'home':
             return <Home handleClick={handleClick}/>
           case 'cafe':
