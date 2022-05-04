@@ -1,24 +1,20 @@
 import {
-    Box,
-    Stack,
-    Input,
-    Header,
-    Image,
-    Center,
-    Flex,
-    Button,
-    Text,
-    Grid,
-    GridItem,
-  } from '@chakra-ui/react';
-  import React, { useState } from 'react';
+  Box,
+  Stack,
+  Input,
+  Header,
+  Image,
+  Center,
+  Flex,
+  Button,
+  Text,
+  Grid,
+  GridItem,
+} from '@chakra-ui/react';
+import React, { useState } from 'react';
 
-
-
-
-function SelectChar(props){
-    
-class Car extends React.Component {
+function SelectChar(props) {
+  class Car extends React.Component {
     Boy = () => {
       this.setState({
         img: require('../components/asset/avatar/boy.png'),
@@ -39,7 +35,7 @@ class Car extends React.Component {
         onclick: this.Boy,
       });
     };
-  
+
     constructor(props) {
       super(props);
       this.state = {
@@ -51,9 +47,7 @@ class Car extends React.Component {
         onclick: this.Girl,
       };
     }
-  
-   
-  
+
     render() {
       return (
         <Box
@@ -82,8 +76,9 @@ class Car extends React.Component {
                   color="Black"
                   variant="outline"
                   placeholder="Masukan Nama"
+                  filter="drop-shadow(5px 5px #222)"
                 />
-                <Button>✔</Button>
+                <Button filter="drop-shadow(5px 5px #222)" color='green.500'>✔</Button>
               </Center>
             </GridItem>
             <GridItem className="gridItems" rowSpan={1} colSpan={1}>
@@ -96,8 +91,9 @@ class Car extends React.Component {
                   bgColor="white"
                   position="absolute"
                   right="60%"
+                  
                 >
-                  <Box>
+                  <Box >
                     <Center>
                       <Box
                         pos="absolute"
@@ -109,8 +105,9 @@ class Car extends React.Component {
                         bgColor="red"
                         color="white"
                         textAlign="center"
+                        
                       >
-                        <Text>{this.state.tipe}</Text>
+                        <Text >{this.state.tipe}</Text>
                       </Box>
                     </Center>
                     <Box>
@@ -124,46 +121,79 @@ class Car extends React.Component {
                   </Box>
                 </Box>
                 <Box transform={{ base: 0, md: 'translateX(50%)' }}>
-                <Center
-                        pos="absolute"
-                        zIndex={1}
-                        h="40px"
-                        w="400px"
-                        display={{ base: 'block', md: 'none' }}
-                        fontSize="25px"
-                        transform="translateY(-22px)"
-                        borderRadius="10px"
-                        bgColor="red"
-                        color="white"
-                        textAlign="center"
-                      >
-                        <Text>{this.state.tipe}</Text>
-                      </Center>
-                      <Button
+                  <Center
+                    pos="absolute"
+                    zIndex={1}
+                    h="40px"
+                    w="400px"
+                    display={{ base: 'block', md: 'none' }}
+                    fontSize="25px"
+                    transform="translateY(-22px)"
+                    borderRadius="10px"
+                    bgColor="red"
+                    color="white"
+                    textAlign="center"
+                    filter="drop-shadow(5px 5px #222)"
+                  >
+                    <Text>{this.state.tipe}</Text>
+                  </Center>
+                  <Button
                     onClick={this.state.onclick}
                     right="50%"
                     transform="translateX(-120px)"
                     top="40%"
                     position="absolute"
-                    borderRadius='50%'
-                    h='70px'
-                    w='70px'
-                    bgColor='blue.100'
+                    borderRadius="50%"
+                    h="70px"
+                    w="70px"
+                    bgColor="blue.100"
                     zIndex={1}
                   >
                     {'<<'}
                   </Button>
-                  <Box pos='absolute' bgColor='purple.300' transform='rotate(-40deg) translateY(100px) translateX(-70px)' h='200px' w='400px' borderRadius='50%'  zIndex={-1}></Box>
-                  <Box pos='absolute' bgColor='red.300' transform='rotate(40deg) translateY(10px) translateX(70px)' h='100px' w='100px' borderRadius='50%'  zIndex={-1}></Box>
-                  <Box pos='absolute' bgColor='yellow.200' transform='translateY(190px) translateX(230px)' h='170px' w='120px' borderRadius='50%'  zIndex={-1}></Box>
-                  <Box pos='absolute' bgColor='blue.200' transform='translateY(300px) translateX(60px)' h='120px' w='270px' borderRadius='50%'  zIndex={-1}></Box>
-                  
+                  <Box
+                    pos="absolute"
+                    bgColor="purple.300"
+                    transform="rotate(-40deg) translateY(100px) translateX(-70px)"
+                    h="200px"
+                    w="400px"
+                    borderRadius="50%"
+                    zIndex={-1}
+                  ></Box>
+                  <Box
+                    pos="absolute"
+                    bgColor="red.300"
+                    transform="rotate(40deg) translateY(10px) translateX(70px)"
+                    h="100px"
+                    w="100px"
+                    borderRadius="50%"
+                    zIndex={-1}
+                  ></Box>
+                  <Box
+                    pos="absolute"
+                    bgColor="yellow.200"
+                    transform="translateY(190px) translateX(230px)"
+                    h="170px"
+                    w="120px"
+                    borderRadius="50%"
+                    zIndex={-1}
+                  ></Box>
+                  <Box
+                    pos="absolute"
+                    bgColor="blue.200"
+                    transform="translateY(300px) translateX(60px)"
+                    h="120px"
+                    w="270px"
+                    borderRadius="50%"
+                    zIndex={-1}
+                  ></Box>
+
                   <Image
                     boxSize="400px"
                     positon="absolute"
                     objectFit="Cover"
                     src={this.state.img}
-                    filter='drop-shadow(10px 5px #222)'
+                    filter="drop-shadow(10px 5px #222)"
                   />
                   <Button
                     onClick={this.state.onclick}
@@ -171,10 +201,10 @@ class Car extends React.Component {
                     transform="translateX(120px)"
                     top="40%"
                     position="absolute"
-                    borderRadius='50%'
-                    h='70px'
-                    w='70px'
-                    bgColor='blue.100'
+                    borderRadius="50%"
+                    h="70px"
+                    w="70px"
+                    bgColor="blue.100"
                     zIndex={1}
                   >
                     {'>>'}
@@ -187,19 +217,25 @@ class Car extends React.Component {
       );
     }
   }
-    return(
-        <Box zIndex={1} bgColor='yellow.500' w='100%' h='100vh'>
-        <Car/>
-        <Box zIndex={1}>
-            <Center>
-        <Button zIndex='100' pos='absolute' bottom='60px' onClick={ () => props.handleClick('home')} bgColor='blue.100' border='1px solid black'>LET'S GO</Button>
+  return (
+    <Box zIndex={1} bgColor="yellow.500" w="100%" h="100vh">
+      <Car />
+      <Box zIndex={1}>
+        <Center>
+          <Button
+            zIndex="100"
+            pos="absolute"
+            bottom="60px"
+            onClick={() => props.handleClick('home')}
+            bgColor="blue.100"
+            border="1px solid black"
+          >
+            LET'S GO
+          </Button>
         </Center>
-        </Box>
-        </Box>
-    );
-
+      </Box>
+    </Box>
+  );
 }
 
-
-
-  export default SelectChar;
+export default SelectChar;
