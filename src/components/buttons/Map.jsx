@@ -7,24 +7,21 @@ import VolSlider from "./volumeSlider";
 import audioOn from '../asset/icon/unmute.png'
 import audioOff from '../asset/icon/mute.png'
 
-function MapIcon () {
+function MapIcon (props) {
     return (
         <Pop 
 			btnName="MAP"
             title="MAP"
-            content={<Content />}
+            content={<Button onClick={() => props.handleClick('')}>test</Button>}
         />
     )
 }
 
-function Content() {
-	const [mute, setMute] = useState(false)
-	const toggleMute = () => setMute(mute => !mute);
-
+function Content(props) {
 	return (
 		<Box>
             <Box>
-                
+                <Button onClick={() => props.handleClick('cafe')}>test</Button>
             </Box>
 		</Box>
 	);
