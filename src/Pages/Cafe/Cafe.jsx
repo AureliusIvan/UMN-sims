@@ -1,9 +1,9 @@
 import react from "react";
-import { Line } from "../components/Grid/Line";
+import { Line } from "../../components/Grid/Line";
 import { Grid, GridItem, Box, Center, Button, Popover, PopoverAnchor, PopoverArrow, PopoverBody, PopoverArrowProps, PopoverCloseButton, PopoverTrigger, PopoverContent, PopoverHeader } from "@chakra-ui/react";
-import Pause from "../components/buttons/PauseBtn";
-import Phone from "../components/phone/phoneMain";
-import MapPop from "../components/buttons/MapPop";
+import Pause from "../../components/buttons/PauseBtn";
+import Phone from "../../components/phone/phoneMain";
+import MapPop from "../../components/buttons/MapPop";
 
 
 function Cafe(props) {
