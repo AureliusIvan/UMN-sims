@@ -1,75 +1,79 @@
-import { Box, Flex, Button, Text, Grid, GridItem } from '@chakra-ui/react';
-import { useState } from 'react';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  Button,
+  Divider,
+  Text,
+  Box,
+  Grid,
+  GridItem,
+} from '@chakra-ui/react';
+import { useDisclosure } from '@chakra-ui/react';
+import React, { useState } from 'react';
 
-function Content(props) {
-	return (
-		<Flex
-			bg='rgba(0,0,0,0.5)'
-			backdropFilter='auto'
-			backdropBlur='2px'
-			height='100%'
-			width='100%'
-			position='absolute'
-			top={0}
-            right={0}
-			justifyContent='center'
-			alignItems='center'
-		>
-			<Box
-				backgroundColor='gray'
-				height='90%'
-				width={{base:'50%', md:'40%', lg:'30%'}}
-				ml='auto' mr='auto'
-				color='Black'
-				textAlign='center'
-                borderRadius='10px'
-				p={3}
-				>
-				<Flex>
-					<Text cursor='pointer' onClick={props.close}>x</Text>
-				</Flex>
-                    <Box
-                    backgroundColor='Aquamarine'
-                    height='95%'
-                    width='100%'
-                    >
-    <Grid className="Grid" h='100%' templateRows='repeat(4, 1fr)' templateColumns='repeat(1, 1fr)' gap={0}>
-        <GridItem padding='20px' className="gridItems" rowSpan={1} colSpan={1}>
-        <Text textAlign='left'>ivan</Text>
-        </GridItem>
-        <GridItem padding='20px' className="gridItems" rowSpan={1} colSpan={1}>
-        <Text textAlign='left'>arka</Text>
-        </GridItem>
-        <GridItem padding='20px' className="gridItems" rowSpan={1} colSpan={1}>
-        <Text textAlign='left'>mae</Text>
-        </GridItem>
-        <GridItem padding='20px' className="gridItems" rowSpan={1} colSpan={1}>
-        <Text textAlign='left'>pat</Text>
-        </GridItem>
-    </Grid>
-                    </Box>
-			</Box>
-		</Flex>
-	)
-}
+function Credit(props) {
+  const PopUp = () => (
+    <ModalOverlay
+      bg="rgba(0,0,0, 0.6)"
+      backdropFilter="blur(5px) hue-rotate(90deg)"
+    />
+  );
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [overlay, setOverlay] = useState(<PopUp />);
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setOverlay(<PopUp />);
+          onOpen();
+        }}
+      >
+        Credit
+      </Button>
 
-function Credit (props) {
-	const [pop, setPop] = useState(false);
+      <Modal isCentered isOpen={isOpen} onClose={onClose}>
+        {overlay}
+        <ModalContent width="90%" pb={3} shadow={'2px 2px 6px #fd6a6a'}>
+          <ModalHeader
+            bgColor={'red.100'}
+            textAlign="center"
+            fontWeight="normal"
+          >
+            <Box bgColor="">Credit</Box>
+          </ModalHeader>
+          <ModalCloseButton mt={2} />
+          <Divider />
+          <ModalBody margin="10px" textAlign="center" gap="10px">
+            <Grid
+              className="Grid"
+              h="80vh"
+              templateRows="repeat(4, 1fr)"
+              templateColumns="repeat(1, 1fr)"
+              gap={0}
+            >
+              <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+				  
+              </GridItem>
+              <GridItem className="gridItems" rowSpan={1} colSpan={1}>
 
-	const ClickOpen = () => {
-		setPop(!pop);
-	}
+              </GridItem>
+              <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+      
+              </GridItem>
+              <GridItem className="gridItems" rowSpan={1} colSpan={1}>
 
-	const Close = () => {
-		setPop(false);
-	}
-
-	return (
-    <Box>
-		<Button onClick={ClickOpen}>Credit</Button>
-		{pop? <Content close={Close}/> :""}
-    </Box>
-  	)
+              </GridItem>
+            </Grid>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+    </>
+  );
 }
 
 export default Credit;

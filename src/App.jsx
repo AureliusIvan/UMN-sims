@@ -1,41 +1,37 @@
-import {
-  ChakraProvider,
-  Box,
-  theme,
-  Text,
-  Button
-} from '@chakra-ui/react';
-import "./App.css";
+import { ChakraProvider, Box, theme, Text, Button } from '@chakra-ui/react';
+import './App.css';
 import { useState, useEffect } from 'react';
 import PageOne from './Pages/Start';
-import Home from './Pages/Home';
+import Home from './Pages/Home/Home';
 import SelectChar from './Pages/SelectChar';
-import Cafe from './Pages/Cafe';
+import Cafe from './Pages/Cafe/Cafe';
+import Eat from './Pages/Home/Eat';
 
 function App() {
-  const [game , setGame] = useState('start');
-  const handleClick = (gameState) => {
+  const [game, setGame] = useState('start');
+  const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
-  }
+  };
 
   return (
     <ChakraProvider theme={theme}>
       {(() => {
         switch (game) {
           case 'start':
-            return <PageOne handleClick={handleClick} />
+            return <PageOne handleClick={handleClick} />;
           case 'selectchar':
-            return <SelectChar handleClick={handleClick} />
+            return <SelectChar handleClick={handleClick} />;
           case 'home':
-            return <Home handleClick={handleClick}/>
+            return <Home handleClick={handleClick} />;
+          case 'eat':
+            return <Eat handleClick={handleClick} />;
           case 'cafe':
-              return <Cafe handleClick={handleClick}/>
+            return <Cafe handleClick={handleClick} />;
           default:
-            return null
+            return null;
         }
       })()}
- 
     </ChakraProvider>
   );
 }

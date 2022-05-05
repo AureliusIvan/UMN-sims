@@ -2,13 +2,22 @@ body {
     cursor: url('components/asset/cursor/cursor_normal.png'), auto;
     font-family: "Dimbo" !important;
     overflow: auto;
+    background-color: rgb(196, 244, 255) ;
     overflow-x: hidden;
-    background-color: bisque !important;
     
     /*scrollbar*/
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
 }
+
+.home{
+    background-color: bisque !important;
+}
+
+.cafe{
+    background-color: rgb(255, 192, 233) !important;
+}
+
 
 ::-webkit-scrollbar {
     width: 0;
