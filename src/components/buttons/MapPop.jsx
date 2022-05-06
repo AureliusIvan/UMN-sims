@@ -9,14 +9,12 @@ import {
   Button,
   Divider,
   Text,
-  Box,
-  Grid,
-  GridItem,
+  Box
 } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
 import React, { useState } from 'react';
 
-function Credit(props) {
+function MapPop(props) {
   const PopUp = () => (
     <ModalOverlay
       bg="rgba(0,0,0, 0.6)"
@@ -33,7 +31,7 @@ function Credit(props) {
           onOpen();
         }}
       >
-        Credit
+        MAP
       </Button>
 
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
@@ -44,31 +42,20 @@ function Credit(props) {
             textAlign="center"
             fontWeight="normal"
           >
-            <Box bgColor="">Credit</Box>
+            <Box bgColor=''>MAP</Box>
           </ModalHeader>
           <ModalCloseButton mt={2} />
           <Divider />
-          <ModalBody margin="10px" textAlign="center" gap="10px">
-            <Grid
-              className="Grid"
-              h="80vh"
-              templateRows="repeat(4, 1fr)"
-              templateColumns="repeat(1, 1fr)"
-              gap={0}
-            >
-              <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-				  
-              </GridItem>
-              <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-
-              </GridItem>
-              <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-      
-              </GridItem>
-              <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-
-              </GridItem>
-            </Grid>
+          <ModalBody
+            bgColor="blue.200"
+            margin="10px"
+            textAlign="center"
+            gap="10px"
+          >
+            <Button onClick={props.home}>home</Button>
+            <Button onClick={props.cafe}>cafe</Button>
+            <Button onClick={props.univ}>UMN</Button>
+            <Button onClick={props.mall}>Mall</Button>
           </ModalBody>
         </ModalContent>
       </Modal>
@@ -76,4 +63,4 @@ function Credit(props) {
   );
 }
 
-export default Credit;
+export default MapPop;

@@ -78,7 +78,9 @@ function SelectChar(props) {
                   placeholder="Masukan Nama"
                   filter="drop-shadow(5px 5px #222)"
                 />
-                <Button filter="drop-shadow(5px 5px #222)" color='green.500'>✔</Button>
+                <Button filter="drop-shadow(5px 5px #222)" color="green.500">
+                  ✔
+                </Button>
               </Center>
             </GridItem>
             <GridItem className="gridItems" rowSpan={1} colSpan={1}>
@@ -91,9 +93,8 @@ function SelectChar(props) {
                   bgColor="white"
                   position="absolute"
                   right="60%"
-                  
                 >
-                  <Box >
+                  <Box>
                     <Center>
                       <Box
                         pos="absolute"
@@ -105,9 +106,8 @@ function SelectChar(props) {
                         bgColor="red"
                         color="white"
                         textAlign="center"
-                        
                       >
-                        <Text >{this.state.tipe}</Text>
+                        <Text>{this.state.tipe}</Text>
                       </Box>
                     </Center>
                     <Box>
@@ -212,28 +212,31 @@ function SelectChar(props) {
                 </Box>
               </Center>
             </GridItem>
+            <GridItem
+              padding="20px"
+              className="gridItems"
+              rowSpan={1}
+              colSpan={1}
+            >
+              <Center>
+                <Button
+                  onClick={() => props.handleClick('home')}
+                  bgColor="blue.100"
+                  border="1px solid black"
+                >
+                  LET'S GO
+                </Button>
+              </Center>
+            </GridItem>
           </Grid>
         </Box>
       );
     }
   }
+
   return (
     <Box zIndex={1} bgColor="yellow.500" w="100%" h="100vh">
       <Car />
-      <Box zIndex={1}>
-        <Center>
-          <Button
-            zIndex="100"
-            pos="absolute"
-            bottom="60px"
-            onClick={() => props.handleClick('home')}
-            bgColor="blue.100"
-            border="1px solid black"
-          >
-            LET'S GO
-          </Button>
-        </Center>
-      </Box>
     </Box>
   );
 }
