@@ -14,19 +14,19 @@ function Phone() {
 	const [hover, setHover] = useState(false);
 
     return (
-        <Box>
+        <Box bottom={0} position='fixed'>
             <Popover placement='top-start'>
                 <PopoverTrigger>
 					<Box>
 						<Image
 							onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}
 							src={!hover ? phone : phoneHover} 
-							width={{base:'75%', sm:'50%', md:'25%'}}
+							width={{base:'20%', sm:'12%', md:'6%'}}
 							cursor='pointer'
 						/>
 					</Box>
                 </PopoverTrigger>
-                <PopoverContent borderRadius={25} color='white' bg='blue.800' borderColor='blue.800'>
+                <PopoverContent width="170%" mb="-20px" borderRadius={25} color='white' bg='blue.800' borderColor='blue.800'>
                     <Flex justifyContent='center' py={2} >
 						<Circle size='15px' bg='black'></Circle>
 						<Circle alignSelf='center' ml={2} size='5px' bg='black'></Circle>
