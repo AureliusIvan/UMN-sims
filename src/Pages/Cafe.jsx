@@ -1,4 +1,4 @@
-import react from "react";
+import React from "react";
 import { Box, Button } from "@chakra-ui/react";
 
 function Cafe(props){

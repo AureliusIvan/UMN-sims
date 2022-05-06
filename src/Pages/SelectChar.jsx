@@ -193,7 +193,7 @@ function SelectChar(props) {
                     positon="absolute"
                     objectFit="Cover"
                     src={this.state.img}
-                    filter="drop-shadow(10px 5px #222)"
+                    filter="drop-shadow(8px 5px 2px #222)"
                   />
                   <Button
                     onClick={this.state.onclick}
