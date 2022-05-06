@@ -7,6 +7,7 @@ import {
   Box,
   Center,
   Button,
+  Image,
   Popover,
   PopoverAnchor,
   PopoverArrow,
@@ -20,19 +21,9 @@ import {
 import Pause from '../../components/buttons/PauseBtn';
 import Phone from '../../components/phone/phoneMain';
 import MapPop from '../../components/buttons/MapPop';
-import Eat from './Eat';
+import Eat from './Eat/Eat';
+import Currency from '../../components/buttons/Currency';
 
-function createList(x) {
-  return (
-    <Line
-      key={x.id}
-      first={x.first}
-      second={x.second}
-      third={x.third}
-      fourth={x.fourth}
-    />
-  );
-}
 
 function Home(props) {
   return (
@@ -48,7 +39,9 @@ function Home(props) {
           <Pause />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <Currency/>
+        </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <MapPop cafe={() => props.handleClick('cafe')} />
         </GridItem>
@@ -56,7 +49,9 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Button onClick={()=> props.handleClick('eat')}>Eat</Button>
         </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+
+        </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>

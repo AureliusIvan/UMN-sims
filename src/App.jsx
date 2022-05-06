@@ -5,10 +5,10 @@ import PageOne from './Pages/Start';
 import Home from './Pages/Home/Home';
 import SelectChar from './Pages/SelectChar';
 import Cafe from './Pages/Cafe/Cafe';
-import Eat from './Pages/Home/Eat';
+import Eat from './Pages/Home/Eat/Eat';
 
 function App() {
-  const [game, setGame] = useState('start');
+  const [game, setGame] = useState('eat');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
