@@ -1,6 +1,23 @@
 import { Box, Center, Grid, GridItem, Text, Button } from '@chakra-ui/react';
 
 import { PhoneIcon, AddIcon, ArrowBackIcon } from '@chakra-ui/icons';
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import React, { useState } from 'react';
+import { DragFood } from './DragFood';
+import DnDfood from './DnDfood';
+
+
+
+function ChangeFoodBTN(){
+  const [food, setFood] = useState('burger');
+  const changeleft = () => {
+
+  }
+  return(
+      <Button onClick={changeleft}>left</Button>
+  );
+}
+
 
 function Eat(props) {
   return (
@@ -49,7 +66,7 @@ function Eat(props) {
           <Box
             width="400px"
             h={'200px'}
-            bgColor='blue.100'
+            bgColor="blue.100"
             transform="perspective(5px) rotateX(1deg)"
             margin={'auto'}
             position="absolute"
@@ -57,37 +74,30 @@ function Eat(props) {
             left={0}
             right={0}
             borderRadius="50%"
-
             shadow={'1px 1px 6px #2e2e2e'}
-            overflow='hidden'
+            overflow="hidden"
           >
-              <Box
-
-              bgColor='rgb(0, 0, 0, 0.2)'
+            <Box
+              bgColor="rgb(0, 0, 0, 0.2)"
               borderRadius={'50%'}
-              transform='translateX(200px)'
-              h='200px'
+              transform="translateX(200px)"
+              h="200px"
               w={'200px'}
-              >
-
-              </Box>
-              <Box
-                          width="200px"
-                          h={'100px'}
-                          bgColor='white'
-                          margin={'auto'}
-                          transform='translateY(50px) perspective(10px) rotateX(1deg)'
-                          position="absolute"
-                          bottom={'100px'}
-                          left={0}
-                          right={0}
-                          borderRadius="50%"
-                          border={'10px solid #dedede'}
-                          shadow={'2px 1px 6px #2e2e2e'}
-
-              >
-                  
-              </Box>
+            ></Box>
+            <Box
+              width="200px"
+              h={'100px'}
+              bgColor="white"
+              margin={'auto'}
+              transform="translateY(50px) perspective(10px) rotateX(1deg)"
+              position="absolute"
+              bottom={'100px'}
+              left={0}
+              right={0}
+              borderRadius="50%"
+              border={'10px solid #dedede'}
+              shadow={'2px 1px 6px #2e2e2e'}
+            ></Box>
           </Box>
         </GridItem>
         <GridItem
@@ -100,7 +110,27 @@ function Eat(props) {
           shadow={'2px 1px 6px #2e2e2e'}
           rowSpan={3}
           colSpan={1}
-        ></GridItem>
+        >
+          <Grid
+            className="Grid"
+            h="100%"
+            templateRows="repeat(1, 1fr)"
+            templateColumns="repeat(3, 1fr)"
+            gap={0}
+          >
+            <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+                <ChangeFoodBTN/>
+            </GridItem>
+            <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+              <Center>
+                <DnDfood/>
+              </Center>
+            </GridItem>
+            <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+              <Center></Center>
+            </GridItem>
+          </Grid>
+        </GridItem>
       </Grid>
     </Box>
   );
