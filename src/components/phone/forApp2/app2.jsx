@@ -3,7 +3,7 @@ import { Box, Text } from '@chakra-ui/react'
 function app2 () {
 	return (
 		<Box>
-			<Text>Ini App 2</Text>
+			<Text>ini rencanya buat clock (ada analog tanpa angka + digital)</Text>
 		</Box>
 	)
 }

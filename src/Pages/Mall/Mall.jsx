@@ -1,4 +1,5 @@
 import { Button, Box, Center } from "@chakra-ui/react";
+import mapIcon from "../../components/asset/icon/mapIcon.png"
 
 function Mall(props){
     return(

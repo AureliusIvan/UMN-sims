@@ -1,4 +1,6 @@
+import React from "react";
 import { Box, Text } from '@chakra-ui/react'
+import { NewsContextProvider } from "./newsContext";
 import News from "./news";
 
 // tutorial switch content
@@ -6,9 +8,12 @@ import News from "./news";
 
 function newsApp () {
 	return (
-		<Box>
-			<Text>Ini App 1</Text>
-		</Box>
+		<NewsContextProvider>
+			<Box>
+				<Text>ini aplikasi berita</Text>
+				{/* <News /> */}
+			</Box>
+		</NewsContextProvider>
 	)
 }
 
