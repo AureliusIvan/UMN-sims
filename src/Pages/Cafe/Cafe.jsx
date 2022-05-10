@@ -19,7 +19,10 @@ function Cafe(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        <MapPop cafe={() => props.handleClick('cafe')}/>
+        <MapPop
+          home={() => props.handleClick('home')}
+          cafe={() => props.handleClick('cafe')}
+        />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>

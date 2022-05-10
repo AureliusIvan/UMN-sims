@@ -1,6 +1,7 @@
 import { ChakraProvider, Box, theme, Text, Button } from '@chakra-ui/react';
-import './App.css';
 import { useState, useEffect } from 'react';
+import './App.css';
+
 import PageOne from './Pages/Start';
 import Home from './Pages/Home/Home';
 import SelectChar from './Pages/SelectChar';
