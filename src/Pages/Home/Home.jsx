@@ -43,7 +43,12 @@ function Home(props) {
           <Currency/>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <MapPop cafe={() => props.handleClick('cafe')} />
+          <MapPop home={() => props.handleClick('home')}
+                  cafe={() => props.handleClick('cafe')}
+                  univ={() => props.handleClick('univhall')}
+                  mall={() => props.handleClick('mall')}
+
+          />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
