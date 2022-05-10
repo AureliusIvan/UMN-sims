@@ -1,56 +1,60 @@
 import { Box, Text, Divider, Flex, Image, Button } from "@chakra-ui/react";
 import { useState } from "react";
 
-import Counter from "../Clock";
+import Clock from "../Clock";
 import homeButton from '../asset/icon/homePhone.png'
 
 // list aplikasi
 import NewsApp from "./forNews/newsApp";
 import App2 from "./forApp2/app2";
+import Home from "../../Pages/Home/Home";
 
 function HomeScreen() {
+	return (
+		<Box>
+			<Text size="xs">
+				<Clock />
+			</Text>
+			<Divider borderColor='black' />
+			<AppLinking />
+		</Box>
+	)
+}
+
+// UPDATE LIST APP DARI SINI (2) --------------------------
+
+const AppLinking = () => {
 	const [app, setApp] = useState('start');
 
 	const handleClick = (appState) => {
 		setApp(appState)
 	}
 
-	return (
-		<Box>
-			<Text size="xs">
-				<Counter/>
-			</Text>
-			<Divider borderColor='black' />
-			
-			{(() => {
-				switch (app) {
-					case 'start':
-						return (
-							<Box>
-								<AppList handleClick={handleClick}/>
-								<HomeButton handleClick={handleClick}/>
-							</Box>
-						)
-					case 'app1':
-						return (
-							<Box>
-								<NewsApp handleClick={handleClick}/>
-								<HomeButton handleClick={handleClick}/>
-							</Box>
-						)
-					case 'app2':
-						return (
-							<Box>
-								<App2 handleClick={handleClick}/>
-								<HomeButton handleClick={handleClick}/>
-							</Box>
-						)
-					default: 
-						return null
-				}
-			})()}
-		</Box>
-	)
+	switch (app) {
+		case 'start':
+			return (
+				<Box>
+					<AppList handleClick={handleClick}/>
+					<HomeButton handleClick={handleClick}/>
+				</Box>
+			)
+		case 'news':
+			return (
+				<Box>
+					<NewsApp handleClick={handleClick}/>
+					<HomeButton handleClick={handleClick}/>
+				</Box>
+			)
+		case 'clock':
+			return (
+				<Box>
+					<App2 handleClick={handleClick}/>
+					<HomeButton handleClick={handleClick}/>
+				</Box>
+			)
+		default: 
+			return null
+	}
 }
 
 // uda coba pake function w/ props tapi ga masuk ke AppListnya
@@ -61,18 +65,20 @@ function AppList(props) {
 				<Button 
                     fontWeight='light' 
                     colorScheme='teal'
-                    onClick={() => props.handleClick('app1')} 
+                    onClick={() => props.handleClick('news')} 
                 >News</Button>
 
 				<Button 
                     fontWeight='light' 
                     colorScheme='teal'
-                    onClick={() => props.handleClick('app2')}
-                >App 2</Button>
+                    onClick={() => props.handleClick('clock')}
+                >Clock</Button>
 			</Flex>
 		</Box>
 	)
 }
+
+// --------------------------------------------------------
 
 function HomeButton(props) {
 	return (
@@ -81,10 +87,11 @@ function HomeButton(props) {
 				src={homeButton}
 				width='10%'
 				position='fixed' 
-				bottom={5} 
+				bottom={0} 
 				size='30px' 
 				cursor='pointer'
-				_hover={{boxShadow : 'xl'}}
+				transition="0.2s"
+				_hover={{transform:"scale(1.2)"}}
 				onClick={() => props.handleClick('start')}
 			/>
 		</Flex>

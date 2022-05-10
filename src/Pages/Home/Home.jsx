@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import { Line } from '../../components/Grid/Line';
 import { items } from '../../components/Grid/elementList';
 import {
@@ -8,15 +8,6 @@ import {
   Center,
   Button,
   Image,
-  Popover,
-  PopoverAnchor,
-  PopoverArrow,
-  PopoverBody,
-  PopoverArrowProps,
-  PopoverCloseButton,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
 } from '@chakra-ui/react';
 import Pause from '../../components/buttons/PauseBtn';
 import Phone from '../../components/phone/phoneMain';
@@ -43,7 +34,10 @@ function Home(props) {
           <Currency/>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <MapPop cafe={() => props.handleClick('cafe')} />
+          <MapPop 
+            home={() => props.handleClick('home')}
+            cafe={() => props.handleClick('cafe')} 
+          />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
