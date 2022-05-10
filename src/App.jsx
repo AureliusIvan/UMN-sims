@@ -7,6 +7,8 @@ import Home from './Pages/Home/Home';
 import SelectChar from './Pages/SelectChar';
 import Cafe from './Pages/Cafe/Cafe';
 import Eat from './Pages/Home/Eat/Eat';
+import UnivHall from './Pages/Universitas/UnivHall';
+import Mall from './Pages/Mall/Mall';
 
 function App() {
   const [game, setGame] = useState('home');
@@ -29,6 +31,10 @@ function App() {
             return <Eat handleClick={handleClick} />;
           case 'cafe':
             return <Cafe handleClick={handleClick} />;
+          case 'univhall':
+            return <UnivHall handleClick={handleClick} />;
+          case 'mall':
+            return <Mall handleClick={handleClick} />;
           default:
             return null;
         }
