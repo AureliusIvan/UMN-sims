@@ -3,7 +3,6 @@ import {
   ModalOverlay,
   ModalContent,
   ModalCloseButton,
-  Button,
   Flex,
   Image
 } from '@chakra-ui/react';
@@ -58,21 +57,21 @@ function MapPop(props) {
               width = {{base: "42%", sm:"40%"}}
               left = {{base:"0", sm:"0"}}
               top = {{base:"-2", sm:"0"}}
-              function = {() => console.log("ini mall")}
+              function = {props.mall}
             />
             <Places
               icon = {umn}
               width = {{base:"45%", sm:"42%"}}
               left = {{base:"210", sm:"250"}}
               top = {{base:"-4", sm:"-2"}}
-              function = {() => console.log("ini umn")}
+              function = {props.uni}
             />
             <Places 
               icon = {cafe}
               width = {{base:"34%", sm:"32%"}}
               left = {{base:"235", sm:"270"}}
               top = {{base:"115", sm:"140"}}
-              function = {props.cafe} //belom berfungsi
+              function = {props.cafe}
             />
             <Places
               icon = {home}

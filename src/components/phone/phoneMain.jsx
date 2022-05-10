@@ -14,9 +14,12 @@ function Phone() {
 	const { isOpen, onOpen, onClose } = useDisclosure()
 
 	const [load, setLoad] = useState(true);
-
-	if (isOpen) {
-		console.log("halo")
+	
+	function Loading() {
+		setTimeout(() => {
+			setLoad(false);
+		}, 1500);
+		console.log("loading...")
 	}
 
     return (
@@ -28,7 +31,10 @@ function Phone() {
 				onClose={onClose}
 			>
                 <PopoverTrigger>
-					<Box>
+					<Box onClick={() => {
+						Loading(); 
+						setLoad(true);
+					}}>
 						<Image
 							onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}
 							src={!hover ? phone : phoneHover} 
