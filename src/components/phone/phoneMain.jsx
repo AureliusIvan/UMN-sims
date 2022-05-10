@@ -74,32 +74,4 @@ function Phone() {
     )
 }
 
-// function Content () {
-	
-
-// 	return (
-// 		<Box
-// 			overflowY='scroll'
-// 			height='420px'
-// 			mx={2}
-// 			mb={2}
-//             backgroundColor='gray.200'
-// 			p={3}
-// 			borderRadius={20}
-// 			color='black'
-// 		>
-// 			{load ? (
-// 				<Flex my='50%' direction='column' align='center' justifyContent='flex-end'>
-// 					<Text >Loading</Text>
-// 					<Progress w='60%' size='sm' isIndeterminate />
-// 				</Flex>
-// 			) : 
-// 			( <HomeScreen /> )
-// 			}
-//         </Box>
-// 	)
-// }
-
-
-
 export default Phone;

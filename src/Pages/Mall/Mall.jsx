@@ -22,7 +22,7 @@ function Mall(props){
             home={() => props.handleClick('home')}
             cafe={() => props.handleClick('cafe')}
             mall={() => props.handleClick('mall')}
-            uni={() => props.handleClick('uni')}
+            univ={() => props.handleClick('univ')}
           />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>

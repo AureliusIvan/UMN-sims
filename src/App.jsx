@@ -1,15 +1,14 @@
-import { ChakraProvider, theme } from '@chakra-ui/react';
-import { useState } from 'react';
+import { ChakraProvider, Box, theme, Text, Button } from '@chakra-ui/react';
+import { useState, useEffect } from 'react';
 import './App.css';
 
 import PageOne from './Pages/Start';
-import SelectChar from './Pages/SelectChar';
-
 import Home from './Pages/Home/Home';
-import Eat from './Pages/Home/Eat/Eat';
+import SelectChar from './Pages/SelectChar';
 import Cafe from './Pages/Cafe/Cafe';
+import Eat from './Pages/Home/Eat/Eat';
+import Univ from './Pages/Universitas/UnivHall';
 import Mall from './Pages/Mall/Mall';
-import Uni from './Pages/Universitas/UnivHall'
 
 function App() {
   const [game, setGame] = useState('home');
@@ -32,10 +31,10 @@ function App() {
             return <Eat handleClick={handleClick} />;
           case 'cafe':
             return <Cafe handleClick={handleClick} />;
+          case 'univ':
+            return <Univ handleClick={handleClick} />;
           case 'mall':
             return <Mall handleClick={handleClick} />;
-          case 'uni':
-            return <Uni handleClick={handleClick} />;
           default:
             return null;
         }

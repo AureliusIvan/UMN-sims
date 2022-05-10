@@ -18,14 +18,13 @@ body {
     background-color: rgb(255, 192, 233) !important;
 }
 
-.mall{
-    background-color: ghostwhite !important;
-}
-
 .uni{
-    background-color: aquamarine !important;
+    background-color: rgb(152, 251, 145);
 }
 
+.mall{
+    background-color: rgb(156, 245, 255);
+}
 
 ::-webkit-scrollbar {
     width: 0;

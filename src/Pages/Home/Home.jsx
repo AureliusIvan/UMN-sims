@@ -5,7 +5,9 @@ import {
   Grid,
   GridItem,
   Box,
+  Center,
   Button,
+  Image,
 } from '@chakra-ui/react';
 import Pause from '../../components/buttons/PauseBtn';
 import Phone from '../../components/phone/phoneMain';
@@ -32,11 +34,12 @@ function Home(props) {
           <Currency/>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <MapPop 
-            home={() => props.handleClick('home')}
-            cafe={() => props.handleClick('cafe')} 
-            mall={() => props.handleClick('mall')} 
-            uni={() => props.handleClick('uni')} 
+
+          <MapPop home={() => props.handleClick('home')}
+                  cafe={() => props.handleClick('cafe')}
+                  univ={() => props.handleClick('univ')}
+                  mall={() => props.handleClick('mall')}
+
           />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
