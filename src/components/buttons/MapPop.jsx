@@ -4,16 +4,7 @@ import {
   ModalContent,
   ModalCloseButton,
   Flex,
-  Image,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  PopoverFooter,
-  PopoverArrow,
-  PopoverCloseButton,
-  PopoverAnchor
+  Image
 } from '@chakra-ui/react';
 
 import { useDisclosure } from '@chakra-ui/react';
@@ -56,17 +47,11 @@ function MapPop(props) {
         <ModalContent bg="rgba(0,0,0,0)" boxShadow="none">
           <ModalCloseButton color='white' zIndex={5}/>
           <Flex alignItems='center' justifyContent='center'>
-            <Popover>
-              <PopoverTrigger>
             <Image
               src={base} 
               alt="my map"
               filter="drop-shadow(2px 2px 3px burlywood)"
             />
-            </PopoverTrigger>
-            <PopoverArrow/>
-            <PopoverContent>Test</PopoverContent>
-            </Popover>
             <Places 
               icon = {mall}
               width = {{base: "42%", sm:"40%"}}
@@ -86,7 +71,7 @@ function MapPop(props) {
               width = {{base:"34%", sm:"32%"}}
               left = {{base:"235", sm:"270"}}
               top = {{base:"115", sm:"140"}}
-              function = {props.cafe}
+              function = {props.cafe} //belom berfungsi
             />
             <Places
               icon = {home}
@@ -122,4 +107,3 @@ function Places (props) {
 }
 
 export default MapPop;
-

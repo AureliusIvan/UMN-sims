@@ -1,6 +1,6 @@
 import { Popover, PopoverTrigger, PopoverContent, PopoverCloseButton } from "@chakra-ui/react"
 import { Image, Circle, Flex, Progress, Text, Box, } from "@chakra-ui/react"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDisclosure } from '@chakra-ui/react'
 
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' // ga ngaruh ??
