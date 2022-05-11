@@ -36,13 +36,8 @@ function MapPop(props) {
   );
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-<<<<<<< Updated upstream
-  const [overlay, setOverlay] = useState(<PopUp />);
-
-=======
   const [overlay, setOverlay] = useState();
   
->>>>>>> Stashed changes
   return (
     <>
       <Image
@@ -60,13 +55,8 @@ function MapPop(props) {
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         {overlay}
         <ModalContent bg="rgba(0,0,0,0)" boxShadow="none">
-<<<<<<< Updated upstream
-          <ModalCloseButton color="white" zIndex={5} />
-          <Flex alignItems="center" justifyContent="center">
-=======
           <ModalCloseButton onClick={()=>{console.log('test')}} color='white' zIndex={5}/>
           <Flex alignItems='center' justifyContent='center'>
->>>>>>> Stashed changes
             <Image
               src={base}
               alt="my map"
