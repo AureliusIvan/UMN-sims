@@ -1,6 +1,6 @@
 import { Popover, PopoverTrigger, PopoverContent, PopoverCloseButton } from "@chakra-ui/react"
 import { Image, Circle, Flex, Progress, Text, Box, } from "@chakra-ui/react"
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDisclosure } from '@chakra-ui/react'
 
 //import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' // ga ngaruh ??
@@ -14,16 +14,22 @@ function Phone() {
 	const { isOpen, onOpen, onClose } = useDisclosure()
 
 	const [load, setLoad] = useState(true);
-
-	if (isOpen) {
-		console.log("halo")
+	
+	function Loading() {
+		setTimeout(() => {
+			setLoad(false);
+		}, 1500);
+		console.log("loading...")
 	}
 
     return (
         <Box>
             <Popover placement='top-start'>
                 <PopoverTrigger>
-					<Box>
+					<Box onClick={() => {
+						Loading(); 
+						setLoad(true);
+					}}>
 						<Image
 							onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}
 							src={!hover ? phone : phoneHover} 
