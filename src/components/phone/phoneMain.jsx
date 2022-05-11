@@ -20,18 +20,8 @@ function Phone() {
 	}
 
     return (
-<<<<<<< HEAD
-        <Box bottom={0} position='fixed'>
-            <Popover 
-				placement='top-start' 
-				isOpen={isOpen}
-				onOpen={onOpen}
-				onClose={onClose}
-			>
-=======
         <Box>
             <Popover placement='top-start'>
->>>>>>> parent of d794019 (Merge pull request #20 from maecyntha/master)
                 <PopoverTrigger>
 					<Box>
 						<Image
@@ -42,11 +32,7 @@ function Phone() {
 						/>
 					</Box>
                 </PopoverTrigger>
-<<<<<<< HEAD
-                <PopoverContent width="280px" mb="-20px" borderRadius={25} color='white' bg='blue.800' borderColor='blue.800'>
-=======
                 <PopoverContent borderRadius={25} color='white' bg='blue.800' borderColor='blue.800'>
->>>>>>> parent of d794019 (Merge pull request #20 from maecyntha/master)
                     <Flex justifyContent='center' py={2} >
 						<Circle size='15px' bg='black'></Circle>
 						<Circle alignSelf='center' ml={2} size='5px' bg='black'></Circle>
