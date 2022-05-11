@@ -36,8 +36,8 @@ function MapPop(props) {
   );
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [overlay, setOverlay] = useState();
-  
+  const [overlay, setOverlay] = useState(<PopUp />)
+
   return (
     <>
       <Image
