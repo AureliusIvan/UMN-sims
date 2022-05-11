@@ -1,6 +1,7 @@
 import react from "react";
 import { Line } from "../../components/Grid/Line";
 import { Grid, GridItem, Box } from "@chakra-ui/react";
+
 import Pause from "../../components/buttons/PauseBtn";
 import Phone from "../../components/phone/phoneMain";
 import MapPop from "../../components/buttons/MapPop";
