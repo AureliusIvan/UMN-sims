@@ -4,7 +4,7 @@ import PokeCard from './Card';
 import PokeNavbar from './Navbar';
 import { getPokemon } from './Pokeservice';
 import { Box, Button, ButtonGroup } from '@chakra-ui/react';
-import HTMLFlipBook from 'react-pageflip';
+import background from '../../../../components/background/background';
 
 function Pokemon() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -57,6 +57,7 @@ function Pokemon() {
   var pokeSliceB = pokemonData.slice(5, 10);
   var pokeSliceC = pokemonData.slice(10, 15);
   var pokeSliceD = pokemonData.slice(15, 20);
+  let bg = 'bug';
   return (
     <>
       <PokeNavbar />

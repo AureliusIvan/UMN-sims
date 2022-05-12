@@ -11,6 +11,8 @@ import Cafe from './Pages/Cafe/Cafe';
 import Mall from './Pages/Mall/Mall';
 import Ngopi from './Pages/Cafe/Ngopi/PokemonBook/Ngopi';
 import Uni from './Pages/Universitas/UnivHall'
+import Counter from './components/Clock';
+
 
 
 function App() {
