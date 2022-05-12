@@ -3,18 +3,8 @@ import {
   ModalOverlay,
   ModalContent,
   ModalCloseButton,
-  Button,
   Flex,
-  Image,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  PopoverFooter,
-  PopoverArrow,
-  PopoverCloseButton,
-  PopoverAnchor,
+  Image
 } from '@chakra-ui/react';
 
 import { useDisclosure } from '@chakra-ui/react';
@@ -62,21 +52,20 @@ function MapPop(props) {
               alt="my map"
               filter="drop-shadow(2px 2px 3px burlywood)"
             />
-
-            <Places
-              icon={mall}
-              width={{ base: '42%', sm: '40%' }}
-              left={{ base: '0', sm: '0' }}
-              top={{ base: '-2', sm: '0' }}
-              function={props.mall}
+            <Places 
+              icon = {mall}
+              width = {{base: "42%", sm:"40%"}}
+              left = {{base:"0", sm:"0"}}
+              top = {{base:"-2", sm:"0"}}
+              function = {props.mall}
             />
 
             <Places
-              icon={umn}
-              width={{ base: '45%', sm: '42%' }}
-              left={{ base: '210', sm: '250' }}
-              top={{ base: '-4', sm: '-2' }}
-              function={props.univ}
+              icon = {umn}
+              width = {{base:"45%", sm:"42%"}}
+              left = {{base:"210", sm:"250"}}
+              top = {{base:"-4", sm:"-2"}}
+              function = {props.uni}
             />
             <Places
               icon={cafe}
