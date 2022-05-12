@@ -3,7 +3,8 @@ import React from 'react';
 import Pokemon from './Pokemon';
 import Phone from '../../../../components/phone/phoneMain';
 import Pause from '../../../../components/buttons/PauseBtn';
-
+import background from '../../../../components/background/background';
+import Counter from '../../../../components/Clock';
 
 function Ngopi() {
   return (
