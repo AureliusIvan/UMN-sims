@@ -9,6 +9,7 @@ import Cafe from './Pages/Cafe/Cafe';
 import Eat from './Pages/Home/Eat/Eat';
 import UnivHall from './Pages/Universitas/UnivHall';
 import Mall from './Pages/Mall/Mall';
+import Ngopi from './Pages/Cafe/Ngopi/PokemonBook/Ngopi';
 
 function App() {
   const [game, setGame] = useState('home');
@@ -31,6 +32,8 @@ function App() {
             return <Eat handleClick={handleClick} />;
           case 'cafe':
             return <Cafe handleClick={handleClick} />;
+          case 'ngopi':
+            return <Ngopi handleClick={handleClick} />;
           case 'univhall':
             return <UnivHall handleClick={handleClick} />;
           case 'mall':
