@@ -16,7 +16,7 @@ import Counter from './components/Clock';
 
 
 function App() {
-  const [game, setGame] = useState('mall');
+  const [game, setGame] = useState('home');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
