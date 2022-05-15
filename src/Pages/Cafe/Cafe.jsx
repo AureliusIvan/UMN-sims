@@ -3,9 +3,6 @@ import Pause from "../../components/buttons/PauseBtn";
 import Phone from "../../components/phone/phoneMain";
 import MapPop from "../../components/buttons/MapPop";
 
-
-
-
 function Cafe(props) {
   return (
     <Box className="cafe">

@@ -42,7 +42,7 @@ function Phone() {
 						/>
 					</Box>
                 </PopoverTrigger>
-                <PopoverContent borderRadius={25} color='white' bg='blue.800' borderColor='blue.800'>
+                <PopoverContent bottom={-5} borderRadius={25} color='white' bg='blue.800' borderColor='blue.800'>
                     <Flex justifyContent='center' py={2} >
 						<Circle size='15px' bg='black'></Circle>
 						<Circle alignSelf='center' ml={2} size='5px' bg='black'></Circle>
