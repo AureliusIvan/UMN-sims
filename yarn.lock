@@ -8183,6 +8183,18 @@ react-remove-scroll-bar@^2.1.0:
     react-style-singleton "^2.2.0"
     tslib "^2.0.0"
 
+"react-router@^6.3.0":
+  "integrity" "sha512-7Wh1DzVQ+tlFjkeo+ujvjSqSJmkt1+8JO+T5xklPlgrh70y7ogx75ODRW0ThWhY7S+6yEDks8TYrtQe/aoboBQ=="
+  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.3.0.tgz"
+  "version" "6.3.0"
+  dependencies:
+    "history" "^5.2.0"
+
+"react-scripts@5.0.1":
+  "integrity" "sha512-8VAmEm/ZAwQzJ+GOMLbBsTdDKOpuZh7RPs0UymvBR2vRk4iZWCskjbFnxqjrzoIvlNNRZ3QJFx6/qDSi6zSnaQ=="
+  "resolved" "https://registry.npmjs.org/react-scripts/-/react-scripts-5.0.1.tgz"
+  "version" "5.0.1"
+
 react-remove-scroll@2.4.1:
   version "2.4.1"
   resolved "https://registry.npmjs.org/react-remove-scroll/-/react-remove-scroll-2.4.1.tgz"

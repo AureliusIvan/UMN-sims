@@ -1,22 +1,21 @@
-import { Box, Center, Grid, GridItem, Text, Button } from '@chakra-ui/react';
+ import { Box, Center, Grid, GridItem, Text, Button } from '@chakra-ui/react';
 
-import { PhoneIcon, AddIcon, ArrowBackIcon } from '@chakra-ui/icons';
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-import React, { useState } from 'react';
-import { DragFood } from './DragFood';
-import DnDfood from './DnDfood';
-
+ import { PhoneIcon, AddIcon, ArrowBackIcon } from '@chakra-ui/icons';
+ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+ import React, { useState } from 'react';
+ import { DragFood } from './DragFood';
 
 
-function ChangeFoodBTN(){
-  const [food, setFood] = useState('burger');
-  const changeleft = () => {
 
-  }
-  return(
-      <Button onClick={changeleft}>left</Button>
-  );
-}
+ function ChangeFoodBTN(){
+   const [food, setFood] = useState('burger');
+   const changeleft = () => {
+
+   }
+   return(
+       <Button onClick={changeleft}>left</Button>
+   );
+ }
 
 
 function Eat(props) {
@@ -55,7 +54,6 @@ function Eat(props) {
           >
             <ArrowBackIcon h="50px" w={'50px'} position={'absolute'} />
           </Button>
-
           <Text pos={'absolute'} top="0px" left={0} right={0}>
             Eat
           </Text>
@@ -119,11 +117,11 @@ function Eat(props) {
             gap={0}
           >
             <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-                <ChangeFoodBTN/>
+                
             </GridItem>
             <GridItem className="gridItems" rowSpan={1} colSpan={1}>
               <Center>
-                <DnDfood/>
+                <DragFood/>
               </Center>
             </GridItem>
             <GridItem className="gridItems" rowSpan={1} colSpan={1}>
@@ -136,4 +134,4 @@ function Eat(props) {
   );
 }
 
-export default Eat;
+ export default Eat;

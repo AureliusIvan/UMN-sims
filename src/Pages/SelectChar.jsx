@@ -14,8 +14,6 @@ import {
 import React, { useState } from 'react';
 
 function SelectChar(props) {
-  const [submit, setSubmit] = useState(false);
-
   class Car extends React.Component {
     Boy = () => {
       this.setState({
@@ -80,8 +78,8 @@ function SelectChar(props) {
                   placeholder="Masukan Nama"
                   filter="drop-shadow(5px 5px #222)"
                 />
-                <Button filter="drop-shadow(5px 5px #222)" color="green.500" onClick={() => setSubmit(!submit)}>
-                  {submit? "✔": ""}
+                <Button filter="drop-shadow(5px 5px #222)" color="green.500">
+                  ✔
                 </Button>
               </Center>
             </GridItem>
@@ -191,13 +189,11 @@ function SelectChar(props) {
                   ></Box>
 
                   <Image
-                    // boxSize={{base:"80%"}}
-                    // mt={{base:"30px"}} // malah jadi geser" gambarnya >:(
                     boxSize="400px"
                     positon="absolute"
                     objectFit="Cover"
                     src={this.state.img}
-                    filter="drop-shadow(8px 5px 2px #222)"
+                    filter="drop-shadow(10px 5px #222)"
                   />
                   <Button
                     onClick={this.state.onclick}
