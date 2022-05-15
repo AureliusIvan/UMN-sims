@@ -8,7 +8,7 @@ import SelectChar from './Pages/SelectChar';
 import Home from './Pages/Home/Home';
 import Eat from './Pages/Home/Eat/Eat';
 import Cafe from './Pages/Cafe/Cafe';
-import Mall from './Pages/Mall/Mall';
+import ToMall from './Pages/Mall/shopLinking';
 import Ngopi from './Pages/Cafe/Ngopi/PokemonBook/Ngopi';
 import Uni from './Pages/Universitas/UnivHall'
 import Counter from './components/Clock';
@@ -16,7 +16,7 @@ import Counter from './components/Clock';
 
 
 function App() {
-  const [game, setGame] = useState('home');
+  const [game, setGame] = useState('mall');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
@@ -39,7 +39,7 @@ function App() {
           case 'ngopi':
             return <Ngopi handleClick={handleClick} />;
           case 'mall':
-            return <Mall handleClick={handleClick} />;
+            return <ToMall handleClick={handleClick} />;
           case 'uni':
             return <Uni handleClick={handleClick} />;
           default:

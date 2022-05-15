@@ -8,33 +8,37 @@ import { useDisclosure } from '@chakra-ui/react'
 import HomeScreen from "./homeScreen";
 import phone from '../asset/icon/hp1.png';
 import phoneHover from '../asset/icon/hp2.png';
+import pointer from '../asset/cursor/cursor_point.png'
 
 function Phone() {
 	const [hover, setHover] = useState(false);
-	const { isOpen, onOpen, onClose } = useDisclosure()
-
 	const [load, setLoad] = useState(true);
 	
 	function Loading() {
 		setTimeout(() => {
 			setLoad(false);
-		}, 1500);
+		}, 700);
 		console.log("loading...")
 	}
 
     return (
-        <Box>
-            <Popover placement='top-start'>
+        <Box bottom={0} position='fixed'>
+            <Popover 
+				placement='top-start' 
+			>
                 <PopoverTrigger>
-					<Box onClick={() => {
-						Loading(); 
-						setLoad(true);
-					}}>
+					<Box 
+						onClick={() => {
+							Loading(); 
+							setLoad(true);
+						}}
+					>
 						<Image
 							onMouseOver={() => setHover(true)} onMouseOut={() => setHover(false)}
 							src={!hover ? phone : phoneHover} 
-							width={{base:'75%', sm:'50%', md:'25%'}}
-							cursor='pointer'
+							width={{base:'20%', sm:'12%', md:'6%'}}	
+							// className="usePointer"
+							cursor="pointer"
 						/>
 					</Box>
                 </PopoverTrigger>
@@ -68,33 +72,5 @@ function Phone() {
         </Box>
     )
 }
-
-// function Content () {
-	
-
-// 	return (
-// 		<Box
-// 			overflowY='scroll'
-// 			height='420px'
-// 			mx={2}
-// 			mb={2}
-//             backgroundColor='gray.200'
-// 			p={3}
-// 			borderRadius={20}
-// 			color='black'
-// 		>
-// 			{load ? (
-// 				<Flex my='50%' direction='column' align='center' justifyContent='flex-end'>
-// 					<Text >Loading</Text>
-// 					<Progress w='60%' size='sm' isIndeterminate />
-// 				</Flex>
-// 			) : 
-// 			( <HomeScreen /> )
-// 			}
-//         </Box>
-// 	)
-// }
-
-
 
 export default Phone;

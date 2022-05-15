@@ -1,10 +1,11 @@
 import react from "react";
-import { Grid, GridItem, Box } from "@chakra-ui/react";
+import { Grid, GridItem, Box, Button } from "@chakra-ui/react";
 import { Line } from "../../components/Grid/Line";
 
 import Pause from "../../components/buttons/PauseBtn";
 import Phone from "../../components/phone/phoneMain";
 import MapPop from "../../components/buttons/MapPop";
+import AppMall from "./testMall/appShop";
 
 function Mall(props){
   return (
@@ -17,6 +18,7 @@ function Mall(props){
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
+
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <MapPop
             home={() => props.handleClick('home')}
@@ -26,28 +28,32 @@ function Mall(props){
           />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          {/* <AppMall /> */}
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-            
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        </GridItem>
+
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
+
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+        </GridItem>
+
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Phone/>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <Button onClick={() => props.handleClick('cart')}>My Shopping Cart</Button>
         </GridItem>
 			</Grid>
     </Box>
