@@ -13,7 +13,7 @@ import ToMall from './Pages/Mall/shopLinking';
 import Uni from './Pages/Universitas/UnivHall'
 
 function App() {
-  const [game, setGame] = useState('mall');
+  const [game, setGame] = useState('home');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);

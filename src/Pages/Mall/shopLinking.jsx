@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Cart from './testMall/appShop'
+import Cart from './shoppingCart/appShop'
 import Mall from './Mall';
 
 import Home from '../Home/Home';
@@ -8,7 +8,7 @@ import Cafe from '../Cafe/Cafe';
 import Uni from '../Universitas/UnivHall';
 
 const ToMall = () => {
-	const [shop, setShop] = useState('cart');
+	const [shop, setShop] = useState('mall');
 
 	const handleClick = (mallState) => {
 		setShop(mallState)
