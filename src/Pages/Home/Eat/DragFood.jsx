@@ -137,16 +137,23 @@ export function DragFood() {
                                   >
                                     {item.content}
                                   </div>
+
+
+                                  
                                 );
                               }}
                             </Draggable>
                             
                           );
                         })}
-                        {provided.placeholder}
+                        
+                        
+                        
                       </div>
                     );
+                    
                   }}
+                  
                 </Droppable>
               </div>
             </div>
