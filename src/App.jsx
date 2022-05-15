@@ -8,11 +8,12 @@ import SelectChar from './Pages/SelectChar';
 import Home from './Pages/Home/Home';
 import Eat from './Pages/Home/Eat/Eat';
 import Cafe from './Pages/Cafe/Cafe';
-import Mall from './Pages/Mall/Mall';
+// import Mall from './Pages/Mall/Mall';
+import ToMall from './Pages/Mall/shopLinking';
 import Uni from './Pages/Universitas/UnivHall'
 
 function App() {
-  const [game, setGame] = useState('home');
+  const [game, setGame] = useState('mall');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
@@ -33,7 +34,7 @@ function App() {
           case 'cafe':
             return <Cafe handleClick={handleClick} />;
           case 'mall':
-            return <Mall handleClick={handleClick} />;
+            return <ToMall handleClick={handleClick} />;
           case 'uni':
             return <Uni handleClick={handleClick} />;
           default:

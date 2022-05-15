@@ -15,17 +15,20 @@ body {
 }
 
 .cafe{
-    background-color: rgb(255, 192, 233) !important;
+    background-color: rgb(255, 192, 233);
 }
 
 .mall{
-    background-color: ghostwhite !important;
+    background-color: ghostwhite;
 }
 
 .uni{
-    background-color: aquamarine !important;
+    background-color: aquamarine;
 }
 
+.usePointer{
+    cursor: url('components/asset/cursor/cursor_point.png') !important;
+}
 
 ::-webkit-scrollbar {
     width: 0;

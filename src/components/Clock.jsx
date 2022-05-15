@@ -10,7 +10,7 @@ function Counter() {
         setHour(hour + 1);
         setCount(0);
     }
-    if(hour >= 23 && minute == 59){
+    if(hour >= 23 && minute === 59){
         setDay(Day+1);
         setHour(0);
     }
