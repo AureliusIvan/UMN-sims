@@ -58,7 +58,6 @@ function AppShop(props) {
             </ModalFooter>
           </ModalContent>
         </Modal>
-
         <DragDrop />
       </Box>
     </DndProvider>
