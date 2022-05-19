@@ -11,9 +11,21 @@ import {
   Grid,
   GridItem,
 } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { AllContext } from '../components/Value/CoinContext';
 
 function SelectChar(props) {
+  const {nama, setNama} = useContext(AllContext);
+  const [name, setName] = useState('');
+  const [disable, setDisable] = useState(false);
+  const handleChange = event => {
+    setName(event.target.value);
+  };
+  const handleSubmit = () =>{
+    setNama(name);
+    setDisable(true);
+  }
+
   class Car extends React.Component {
     Boy = () => {
       this.setState({
@@ -70,6 +82,7 @@ function SelectChar(props) {
             <GridItem className="gridItems" rowSpan={1} colSpan={1}>
               <Center mt="30px" gap="10px">
                 <Input
+                  autoFocus
                   bgColor="White"
                   width="100%"
                   maxW="350px"
@@ -77,8 +90,15 @@ function SelectChar(props) {
                   variant="outline"
                   placeholder="Masukan Nama"
                   filter="drop-shadow(5px 5px #222)"
+                  onChange={handleChange}
+                  value={name}
+                  isDisabled={disable}
                 />
-                <Button filter="drop-shadow(5px 5px #222)" color="green.500">
+                {nama}
+                <Button
+                onClick={handleSubmit}
+                
+                filter="drop-shadow(5px 5px #222)" color="green.500">
                   ✔
                 </Button>
               </Center>
@@ -195,6 +215,7 @@ function SelectChar(props) {
                     src={this.state.img}
                     filter="drop-shadow(10px 5px #222)"
                   />
+
                   <Button
                     onClick={this.state.onclick}
                     left="50%"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext} from 'react';
 import { Line } from '../../components/Grid/Line';
 import { items } from '../../components/Grid/elementList';
 import {
@@ -6,15 +6,24 @@ import {
   GridItem,
   Box,
   Button,
+  Text,
+  Center
 } from '@chakra-ui/react';
 import Pause from '../../components/buttons/PauseBtn';
 import Phone from '../../components/phone/phoneMain';
 import MapPop from '../../components/buttons/MapPop';
 import Eat from './Eat/Eat';
 import Currency from '../../components/buttons/Currency';
+import Coin from '../../components/Value/Coin';
+import { AllContext } from '../../components/Value/CoinContext';
 
 
 function Home(props) {
+  const {nama, setNama} = useContext(AllContext);
+  const {coin, setCoin} = useContext(AllContext);
+  const add = (x) =>{
+    setCoin(coin+x);
+  }
   return (
     <div className="home">
       <Grid
@@ -27,9 +36,11 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Pause />
         </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Currency/>
+          <Center><Text >Hello {nama}</Text></Center>
+        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <Currency />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <MapPop 
@@ -54,7 +65,10 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Phone />
         </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          
+          <Button onClick={()=>{add(10)}}></Button>
+        </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
       </Grid>
     </div>
