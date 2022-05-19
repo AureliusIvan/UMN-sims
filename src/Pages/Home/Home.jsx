@@ -16,11 +16,13 @@ import Eat from './Eat/Eat';
 import Currency from '../../components/buttons/Currency';
 import Coin from '../../components/Value/Coin';
 import { AllContext } from '../../components/Value/CoinContext';
+import { CreateChar } from '../../components/character/CharacterCard';
 
 
 function Home(props) {
   const {nama, setNama} = useContext(AllContext);
   const {coin, setCoin} = useContext(AllContext);
+  const {jurusan, setJurusan} = useContext(AllContext);
   const add = (x) =>{
     setCoin(coin+x);
   }
@@ -37,7 +39,7 @@ function Home(props) {
           <Pause />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Center><Text >Hello {nama}</Text></Center>
+          <Center><Text >Hello {nama} dari jurusan {jurusan}</Text></Center>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Currency />
@@ -60,7 +62,9 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <CreateChar/>
+        </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Phone />

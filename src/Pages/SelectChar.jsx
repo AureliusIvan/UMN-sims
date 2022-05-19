@@ -10,21 +10,30 @@ import {
   Text,
   Grid,
   GridItem,
+  FormControl,
+  FormControlOptions,
+  FormControlProps,
+  Select,
+  FormLabel,
 } from '@chakra-ui/react';
 import React, { useState, useContext } from 'react';
 import { AllContext } from '../components/Value/CoinContext';
 
 function SelectChar(props) {
-  const {nama, setNama} = useContext(AllContext);
-  const [name, setName] = useState('');
+  const { nama, setNama } = useContext(AllContext);
+  const { jurusan, setJurusan } = useContext(AllContext);
   const [disable, setDisable] = useState(false);
-  const handleChange = event => {
-    setName(event.target.value);
+  const handleChange = e => {
+    e.preventDefault();
+    setNama(e.target.value);
   };
-  const handleSubmit = () =>{
-    setNama(name);
+  const handleSubmit = () => {
     setDisable(true);
-  }
+  };
+  const handleJurusan = e => {
+    setJurusan(e.target.value);
+    console.log(jurusan);
+  };
 
   class Car extends React.Component {
     Boy = () => {
@@ -75,7 +84,7 @@ function SelectChar(props) {
           <Grid
             className="Grid"
             h="100vh"
-            templateRows="repeat(3, 1fr)"
+            templateRows="repeat(5, 1fr)"
             templateColumns="repeat(1, 1fr)"
             gap={0}
           >
@@ -91,17 +100,38 @@ function SelectChar(props) {
                   placeholder="Masukan Nama"
                   filter="drop-shadow(5px 5px #222)"
                   onChange={handleChange}
-                  value={name}
+                  value={nama}
                   isDisabled={disable}
                 />
-                {nama}
                 <Button
-                onClick={handleSubmit}
-                
-                filter="drop-shadow(5px 5px #222)" color="green.500">
+                  onClick={handleSubmit}
+                  filter="drop-shadow(5px 5px #222)"
+                  color="green.500"
+                >
                   ✔
                 </Button>
               </Center>
+            </GridItem>
+            <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+              <Select
+                id=""
+                autoFocus
+                bgColor="White"
+                width="100%"
+                maxW="350px"
+                color="Black"
+                variant="outline"
+                placeholder="Masukan jurusan"
+                filter="drop-shadow(5px 5px #222)"
+                isDisabled={disable}
+                pos="absolute"
+                onChange={handleJurusan}
+                value={jurusan}
+              >
+                <option value={1}>Informatika</option>
+                <option value={2}>Ilmu Komunikasi</option>
+                <option value={3}>DKV</option>
+              </Select>
             </GridItem>
             <GridItem className="gridItems" rowSpan={1} colSpan={1}>
               <Center>
@@ -244,6 +274,7 @@ function SelectChar(props) {
                   onClick={() => props.handleClick('home')}
                   bgColor="blue.100"
                   border="1px solid black"
+                  isDisabled={disable ? false : true}
                 >
                   LET'S GO
                 </Button>

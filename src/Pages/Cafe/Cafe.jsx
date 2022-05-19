@@ -5,6 +5,7 @@ import MapPop from "../../components/buttons/MapPop";
 import { AllContext } from "../../components/Value/CoinContext";
 import { useContext } from "react";
 import Currency from "../../components/buttons/Currency";
+import { CreateChar } from "../../components/character/CharacterCard";
 
 function Cafe(props) {
   return (
@@ -27,20 +28,28 @@ function Cafe(props) {
           />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <CreateChar/>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Phone/>

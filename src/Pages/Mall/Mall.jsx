@@ -7,7 +7,7 @@ import Phone from "../../components/phone/phoneMain";
 import MapPop from "../../components/buttons/MapPop";
 import Currency from "../../components/buttons/Currency";
 import { AllContext } from "../../components/Value/CoinContext";
-
+import { CreateChar } from "../../components/character/CharacterCard";
 function Mall(props){
   
   return (
@@ -31,6 +31,7 @@ function Mall(props){
           />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
@@ -38,6 +39,7 @@ function Mall(props){
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <CreateChar/>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>

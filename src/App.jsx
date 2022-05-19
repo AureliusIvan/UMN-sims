@@ -39,7 +39,7 @@ function App() {
   );
 
   
-  const [jurusan, setJurusan] = useState([]);
+  const [jurusan, setJurusan] = useState(0);
   const [character, setCharacter] = useState([]);
   const [clock, setClock] = useState();
   const [value, setValue] = useState(0);
@@ -52,7 +52,7 @@ function App() {
 
   return (
     <ChakraProvider theme={theme}>
-      <AllContext.Provider value={{coin, setCoin, nama, setNama}}>
+      <AllContext.Provider value={{coin, setCoin, nama, setNama, jurusan, setJurusan}}>
         {(() => {
           switch (game) {
             case 'start':
