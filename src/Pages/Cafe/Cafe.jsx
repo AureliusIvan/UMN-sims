@@ -2,6 +2,9 @@ import { Grid, GridItem, Box, Button } from "@chakra-ui/react";
 import Pause from "../../components/buttons/PauseBtn";
 import Phone from "../../components/phone/phoneMain";
 import MapPop from "../../components/buttons/MapPop";
+import { AllContext } from "../../components/Value/CoinContext";
+import { useContext } from "react";
+import Currency from "../../components/buttons/Currency";
 
 function Cafe(props) {
   return (
@@ -11,6 +14,7 @@ function Cafe(props) {
           <Pause />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <Currency/>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
@@ -42,7 +46,6 @@ function Cafe(props) {
           <Phone/>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-            
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Button onClick={()=>props.handleClick('ngopi')}>Ngopi</Button>

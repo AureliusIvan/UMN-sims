@@ -1,12 +1,15 @@
-import react from "react";
+import react, {useContext } from "react";
 import { Grid, GridItem, Box, Button } from "@chakra-ui/react";
 import { Line } from "../../components/Grid/Line";
 
 import Pause from "../../components/buttons/PauseBtn";
 import Phone from "../../components/phone/phoneMain";
 import MapPop from "../../components/buttons/MapPop";
+import Currency from "../../components/buttons/Currency";
+import { AllContext } from "../../components/Value/CoinContext";
 
 function Mall(props){
+  
   return (
     <Box className="mall">
       <Grid className="Grid" h='100vh' templateRows='repeat(5, 1fr)' templateColumns='repeat(3, 1fr)' gap={0}>
@@ -16,6 +19,7 @@ function Mall(props){
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          
         </GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
