@@ -5,6 +5,7 @@ import { Grid, GridItem, Box } from "@chakra-ui/react";
 import Pause from "../../components/buttons/PauseBtn";
 import Phone from "../../components/phone/phoneMain";
 import MapPop from "../../components/buttons/MapPop";
+import { CreateChar } from "../../components/character/CharacterCard";
 
 function Univ(props) {
   return (
@@ -26,8 +27,10 @@ function Univ(props) {
           />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <CreateChar/>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
             

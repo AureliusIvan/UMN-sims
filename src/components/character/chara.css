@@ -1,0 +1,63 @@
+.top{
+    animation: goyangHead infinite 4s;
+}
+
+.body{
+    animation: goyangBody infinite 4s;
+}
+
+
+@keyframes goyangHead{
+    0% {opacity: 1;
+        transform: translateY(0%);
+
+    }
+    5% {opacity: 1;
+        transform: translateY(0%);
+
+    }
+    10% {opacity: 1;
+        transform: translateY(0%);
+    }
+    15% {opacity: 1;
+        transform: translateY(0%);
+
+    }
+    50% {opacity: 1;
+            transform: translateY(2%);
+        
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+
+    }
+}
+
+
+@keyframes goyangBody{
+    0% {opacity: 1;
+        transform: translateY(0%);
+
+    }
+    5% {opacity: 1;
+        transform: translateY(0%);
+
+    }
+    10% {opacity: 1;
+        transform: translateY(0%);
+    }
+    15% {opacity: 1;
+        transform: translateY(0%);
+
+    }
+    50% {opacity: 1;
+            transform: translateY(1%);
+        
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+
+    }
+}

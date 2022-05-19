@@ -4,6 +4,7 @@
  import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
  import React, { useState } from 'react';
  import { DragFood } from './DragFood';
+import { CreateChar } from '../../../components/character/CharacterCard';
 
 
 
@@ -60,8 +61,12 @@
            </Text>
          </GridItem>
          <GridItem className="gridItems" rowSpan={1} colSpan={3}></GridItem>
-         <GridItem className="gridItems" rowSpan={1} colSpan={3}></GridItem>
          <GridItem className="gridItems" rowSpan={1} colSpan={3}>
+           <Box zIndex={-1}>
+           <CreateChar/>
+           </Box>
+         </GridItem>
+         <GridItem zIndex={10} className="gridItems" rowSpan={1} colSpan={3}>
            <Box
              width="400px"
              h={'200px'}
@@ -109,6 +114,7 @@
            shadow={'2px 1px 6px #2e2e2e'}
            rowSpan={3}
            colSpan={1}
+           zIndex={11}
          >
            <Grid
              className="Grid"
