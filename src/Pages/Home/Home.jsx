@@ -12,6 +12,7 @@ import Phone from '../../components/phone/phoneMain';
 import MapPop from '../../components/buttons/MapPop';
 import Eat from './Eat/Eat';
 import Currency from '../../components/buttons/Currency';
+import RotiPanggang from "../../components/template/tempWarnPopUp"
 
 
 function Home(props) {
@@ -31,6 +32,7 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Currency/>
         </GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <MapPop 
             home={() => props.handleClick('home')}
@@ -43,19 +45,23 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Button onClick={()=> props.handleClick('eat')}>Eat</Button>
         </GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Phone />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <RotiPanggang />
+        </GridItem>
       </Grid>
     </div>
   );

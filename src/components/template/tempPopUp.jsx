@@ -2,6 +2,8 @@ import { Button, Modal, ModalContent, ModalBody, ModalOverlay, useDisclosure } f
 import { Flex, Image } from '@chakra-ui/react';
 import React, { useState } from "react";
 
+import PartTimeCafe from '../../Pages/Cafe/partTimeCafe';
+
 function PopTemplate(props) {
 	const PopUp = () => (
 		<ModalOverlay
@@ -32,7 +34,8 @@ function PopTemplate(props) {
 				<ModalContent bg="rgba(0,0,0,0)" boxShadow="none" pb={3}>
 					<ModalBody textAlign='center'>
 					<Flex flexDir='column' alignItems='center' justifyContent='center'>
-            			{props.comment}
+						{props.comment}
+						{/* <PartTimeCafe image={props.image[0]}/> */}
 						<Image 
 							src={props.image}
 							width={{md:'100%', base:'70%'}}
