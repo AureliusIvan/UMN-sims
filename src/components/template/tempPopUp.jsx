@@ -1,4 +1,5 @@
-import { Divider, Button, Modal, ModalContent, ModalCloseButton, ModalBody, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react'
+import { Button, Modal, ModalContent, ModalBody, ModalOverlay, useDisclosure } from '@chakra-ui/react'
+import { Flex, Image } from '@chakra-ui/react';
 import React, { useState } from "react";
 
 function PopTemplate(props) {
@@ -18,6 +19,9 @@ function PopTemplate(props) {
 				onClick={() => {
 					setOverlay(<PopUp />)
 					onOpen()
+					setTimeout(() => {
+						onClose()
+					}, 1800);
 				}}
 			>
 			{props.btnName}
@@ -25,14 +29,18 @@ function PopTemplate(props) {
 
 			<Modal isCentered isOpen={isOpen} onClose={onClose}>
 				{overlay}
-				<ModalContent width='70%' pb={3} shadow= { '2px 2px 6px #fd6a6a' }>
-					<ModalHeader fontWeight='normal'>{props.title}</ModalHeader>
-					<ModalCloseButton mt={2}/>
-					<Divider />
+				<ModalContent bg="rgba(0,0,0,0)" boxShadow="none" pb={3}>
 					<ModalBody textAlign='center'>
-						{props.content}
+					<Flex flexDir='column' alignItems='center' justifyContent='center'>
+            			{props.comment}
+						<Image 
+							src={props.image}
+							width={{md:'100%', base:'70%'}}
+							filter="drop-shadow(2px 2px 5px black)"
+							alt={props.alt} 
+						/>
+					</Flex>
 					</ModalBody>
-					
 				</ModalContent>
 			</Modal>
 		</>

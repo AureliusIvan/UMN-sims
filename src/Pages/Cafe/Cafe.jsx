@@ -1,7 +1,8 @@
-import { Grid, GridItem, Box, Button } from "@chakra-ui/react";
+import { Grid, GridItem, Box, Button, VStack } from "@chakra-ui/react";
 import Pause from "../../components/buttons/PauseBtn";
 import Phone from "../../components/phone/phoneMain";
 import MapPop from "../../components/buttons/MapPop";
+import PartTime from "./partTimeCafe"
 
 function Cafe(props) {
   return (
@@ -32,20 +33,24 @@ function Cafe(props) {
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <VStack spacing={4} align="end">
+            <PartTime />
+            <Button onClick={()=>props.handleClick('ngopi')}>Ngopi</Button>
+          </VStack>
         </GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Phone/>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-            
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Button onClick={()=>props.handleClick('ngopi')}>Ngopi</Button>
         </GridItem>
       </Grid>
     </Box>
