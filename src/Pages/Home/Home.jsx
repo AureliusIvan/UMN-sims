@@ -60,7 +60,10 @@ function Home(props) {
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <RotiPanggang />
+          <RotiPanggang 
+            title = "tes toast"
+            content = "ini roti panggang"
+          />
         </GridItem>
       </Grid>
     </div>

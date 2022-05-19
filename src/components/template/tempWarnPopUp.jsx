@@ -1,6 +1,6 @@
-import { Wrap, Button, WrapItem, useToast } from "@chakra-ui/react"
+import { Wrap, WrapItem, Button, useToast } from "@chakra-ui/react"
 
-function Toast() {
+function Toast(props) {
     const toast = useToast()
 
     return (
@@ -9,7 +9,7 @@ function Toast() {
 				<Button
 				onClick={() =>
 					toast({
-						title: "toast",
+						title: `${props.content}`,
 						status: "warning",
 						position : "bottom-start",
 						// default durationnya 5 detik
@@ -17,7 +17,7 @@ function Toast() {
 					})
 				}
 				>
-					Tes Roti Panggang
+					{props.title}
 				</Button>
 			</WrapItem>
 		</Wrap>
