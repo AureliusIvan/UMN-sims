@@ -12,7 +12,7 @@ const CharData = [
     {
         id:0,
         text:"halo",
-        img1:{hairfront},
+        img1:'./characterAsset/default/nakMukbang/1.png',
         img2:{face},
         img3:{lefthand},
         img4:{body},

@@ -8,7 +8,7 @@ export function CreateChar(props){
     return(
         <>
         <CharacterModule
-
+            
         />
         </>
     );
