@@ -1,10 +1,12 @@
 import react from "react";
 import { Line } from "../../components/Grid/Line";
-import { Grid, GridItem, Box } from "@chakra-ui/react";
+import { Grid, GridItem, Box, VStack } from "@chakra-ui/react";
 
 import Pause from "../../components/buttons/PauseBtn";
 import Phone from "../../components/phone/phoneMain";
 import MapPop from "../../components/buttons/MapPop";
+import Study from './study';
+import Read from './read';
 import { CreateChar } from "../../components/character/CharacterCard";
 
 function Univ(props) {
@@ -39,12 +41,18 @@ function Univ(props) {
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <VStack spacing={4} align="end">
+            <Study />
+            <Read />
+          </VStack>
         </GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
 					<Phone/>
         </GridItem>
