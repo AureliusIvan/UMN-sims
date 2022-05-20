@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FaWifi, FaBatteryHalf } from "react-icons/fa";
 
 // MINOR ERROR
-// pas jadi 00:00, malah jadi 0:0 terus 00:01
+// pas jadi 00:00, malah jadi 0:0 terus baru 00:01
 
 function Counter() {
   const [Day, setDay] = useState(1);
@@ -14,12 +14,10 @@ function Counter() {
   const [frontH, setFrontH] = useState("")
 
   function formatTime (val) {
-    if (val < 10) {
+    if (val < 10) 
       return "0";
-    }
-    else {
+    else 
       return "";
-    }
   }
 
   useInterval(() => {
