@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { AllContext } from "./Value/CoinContext";
-import { Text } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
+import { FaWifi, FaBatteryHalf } from "react-icons/fa"
 
 function Clock() {
   const {Day, setDay} = useContext(AllContext);
@@ -11,9 +12,14 @@ function Clock() {
     return String(time).padStart(2, '0')
   }
   return (
-    <>
-    <Text>{formatTime(Day)}:{formatTime(hour)}:{formatTime(minute)}</Text>
-    </>
+    <Flex justifyContent="space-between">
+      <Text>Day {Day}</Text>
+      <Flex justifyContent="space-evenly" alignItems="center" width="40%">
+        <FaWifi />
+        <FaBatteryHalf />
+        <Text>{formatTime(hour)}:{formatTime(minute)}</Text>
+      </Flex>
+    </Flex>
   );
 }
 

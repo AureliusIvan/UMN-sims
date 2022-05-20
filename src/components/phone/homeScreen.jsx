@@ -7,6 +7,7 @@ import homeButton from '../asset/icon/homePhone.png'
 // list aplikasi
 import NewsApp from "./forNews/newsApp";
 import App2 from "./forApp2/app2";
+import Pokedex from "./forPokedex/pokedex"
 import Home from "../../Pages/Home/Home";
 
 function HomeScreen() {
@@ -52,6 +53,13 @@ const AppLinking = () => {
 					<HomeButton handleClick={handleClick}/>
 				</Box>
 			)
+		case 'pokedex':
+			return (
+				<Box>
+					<Pokedex handleClick={handleClick}/>
+					<HomeButton handleClick={handleClick}/>
+				</Box>
+			)
 		default: 
 			return null
 	}
@@ -60,21 +68,40 @@ const AppLinking = () => {
 // uda coba pake function w/ props tapi ga masuk ke AppListnya
 function AppList(props) {
 	return (
-		<Box>
+		<Flex flexDir="column">
 			<Flex mt={3} justifyContent='space-around' color='black'>
 				<Button 
+					width={100}
                     fontWeight='light' 
                     colorScheme='teal'
                     onClick={() => props.handleClick('news')} 
                 >News</Button>
 
 				<Button 
+					width={100}
+					flexGrow="100%"
                     fontWeight='light' 
                     colorScheme='teal'
                     onClick={() => props.handleClick('clock')}
-                >Clock</Button>
+					>Clock</Button>
 			</Flex>
-		</Box>
+			<Flex mt={3} justifyContent='space-around' color='black'>
+				<Button 
+					width={100}
+                    fontWeight='light' 
+                    colorScheme='teal'
+                    onClick={() => props.handleClick('pokedex')}
+					>Pokédex</Button>
+
+				<Button
+					width={100}
+					fontWeight='light' 
+                    colorScheme='teal'
+				>
+					masih kosong
+				</Button>
+			</Flex>
+		</Flex>
 	)
 }
 
@@ -88,7 +115,6 @@ function HomeButton(props) {
 				width='10%'
 				position='fixed' 
 				bottom={0} 
-				size='30px' 
 				cursor='pointer'
 				transition="0.2s"
 				_hover={{transform:"scale(1.2)"}}

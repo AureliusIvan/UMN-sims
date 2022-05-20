@@ -14,6 +14,7 @@ import Phone from '../../components/phone/phoneMain';
 import MapPop from '../../components/buttons/MapPop';
 import Eat from './Eat/Eat';
 import Currency from '../../components/buttons/Currency';
+import RotiPanggang from "../../components/template/tempWarnPopUp"
 import Coin from '../../components/Value/Coin';
 import { AllContext } from '../../components/Value/CoinContext';
 import { CreateChar } from '../../components/character/CharacterCard';
@@ -45,6 +46,7 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Currency />
         </GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <MapPop 
             home={() => props.handleClick('home')}
@@ -57,18 +59,25 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Button onClick={()=> props.handleClick('eat')}>Eat</Button>
         </GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Box zIndex={-1}>
           <CreateChar/>
           </Box>
         </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <RotiPanggang 
+            title = "tes toast"
+            content = "ini roti panggang"
+          />
+        </GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Phone />
         </GridItem>
@@ -76,7 +85,7 @@ function Home(props) {
           <Button onClick={()=>{add(10)}}></Button>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        <WheaterApp/>
+          <WheaterApp/>
         </GridItem>
       </Grid>
     </div>
