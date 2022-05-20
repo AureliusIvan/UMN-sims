@@ -11,6 +11,7 @@ import Ngopi from './Pages/Cafe/Ngopi/PokemonBook/Ngopi';
 import Uni from './Pages/Universitas/UnivHall';
 import { AllContext } from './components/Value/CoinContext';
 import Clock from 'react-clock/dist/umd/Clock';
+import MiniGames from './Pages/Home/MiniGames/MiniGames';
 
 /*
 1. nama
@@ -32,6 +33,11 @@ function App() {
   const [Day, setDay] = useState(0);
   const [hour, setHour] = useState(23);
   const [minute, setCount] = useState(0);
+  const [makan, setMakan] = useState(70);
+  const [tidur, setTidur] = useState(70);
+  const [main, setMain] = useState(70);
+  const [belajar, setBelajar] = useState(70);
+  const [weather, setWeather] = useState('');
 
   useInterval(() => {
     setCount(minute + 1);
@@ -89,7 +95,30 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <AllContext.Provider
-        value={{ coin, setCoin, nama, setNama, jurusan, setJurusan, Day, setDay, hour, setHour, minute, setCount }}
+        value={{
+          coin,
+          setCoin,
+          nama,
+          setNama,
+          jurusan,
+          setJurusan,
+          Day,
+          setDay,
+          hour,
+          setHour,
+          minute,
+          setCount,
+          makan,
+          setMakan,
+          tidur,
+          setTidur,
+          main,
+          setMain,
+          belajar,
+          setBelajar,
+          weather,
+          setWeather,
+        }}
       >
         {(() => {
           switch (game) {
@@ -109,7 +138,9 @@ function App() {
               return <ToMall handleClick={handleClick} />;
             case 'uni':
               return <Uni handleClick={handleClick} />;
-            default:
+            case 'Minigames':
+              return <MiniGames handleClick={handleClick}/>
+              default:
               return null;
           }
         })()}

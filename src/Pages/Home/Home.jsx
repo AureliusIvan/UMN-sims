@@ -64,8 +64,9 @@ function Home(props) {
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <Button onClick={()=>{props.handleClick('Minigames')}}>Minigames</Button>
+        </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Box zIndex={-1}>
           <CreateChar/>
