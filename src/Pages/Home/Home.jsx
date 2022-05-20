@@ -71,14 +71,15 @@ function Home(props) {
           <CreateChar/>
           </Box>
         </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Phone />
           <RotiPanggang 
             title = "tes toast"
             content = "ini roti panggang"
           />
+        </GridItem>
+        
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <Phone />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Button onClick={()=>{add(10)}}></Button>

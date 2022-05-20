@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { AllContext } from "./Value/CoinContext";
-import { Text } from "@chakra-ui/react";
+import { Text, Flex } from "@chakra-ui/react";
+import { FaWifi, FaBatteryHalf } from "react-icons/fa"
 
 function Clock() {
   const {Day, setDay} = useContext(AllContext);
