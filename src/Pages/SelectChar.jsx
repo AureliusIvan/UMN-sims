@@ -97,6 +97,7 @@ function SelectChar(props) {
                   filter="drop-shadow(5px 5px #222)"
                   onChange={e => {setNama(e.target.value)}}
                   isDisabled={disable}
+                  value={nama}
                 />
                 <Button
                   onClick={handleSubmit}
