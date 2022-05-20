@@ -17,6 +17,7 @@ import Currency from '../../components/buttons/Currency';
 import Coin from '../../components/Value/Coin';
 import { AllContext } from '../../components/Value/CoinContext';
 import { CreateChar } from '../../components/character/CharacterCard';
+import WheaterApp from '../../components/background/Weather';
 
 
 function Home(props) {
@@ -72,10 +73,11 @@ function Home(props) {
           <Phone />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          
           <Button onClick={()=>{add(10)}}></Button>
         </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+        <WheaterApp/>
+        </GridItem>
       </Grid>
     </div>
   );

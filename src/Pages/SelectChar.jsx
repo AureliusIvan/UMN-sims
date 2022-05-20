@@ -23,10 +23,6 @@ function SelectChar(props) {
   const { nama, setNama } = useContext(AllContext);
   const { jurusan, setJurusan } = useContext(AllContext);
   const [disable, setDisable] = useState(false);
-  const handleChange = e => {
-    e.preventDefault();
-    setNama(e.target.value);
-  };
   const handleSubmit = () => {
     setDisable(true);
   };
@@ -99,8 +95,7 @@ function SelectChar(props) {
                   variant="outline"
                   placeholder="Masukan Nama"
                   filter="drop-shadow(5px 5px #222)"
-                  onChange={handleChange}
-                  value={nama}
+                  onChange={e => {setNama(e.target.value)}}
                   isDisabled={disable}
                 />
                 <Button
