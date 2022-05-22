@@ -10,9 +10,6 @@ body {
     scrollbar-width: none;  /* Firefox */
 }
 
-.home{
-    background-color: bisque !important;
-}
 
 .cafe{
     background-color: rgb(255, 192, 233);

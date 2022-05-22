@@ -4,7 +4,7 @@ import { EatBar, SleepBar, PlayBar } from './StatusBar';
 function StatusGroup() {
   return (
     <>
-      <Flex>
+      <Flex pos={'absolute'} right="40px" transform='translateY(70px)'>
         <Box pos={'relative'}>
           <EatBar />
         </Box>

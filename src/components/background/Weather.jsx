@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-import { Box, Button, Text } from '@chakra-ui/react';
+import { Box, Button, Text, Image, Flex } from '@chakra-ui/react';
+import { AllContext } from '../Value/CoinContext';
 
 const WeatherApp = () => {
+  const {weather, setWeather} = useContext(AllContext)
   const [temperature, setTemperature] = useState('');
   const [desc, setDesc] = useState('');
   const [city, setCity] = useState('Jakarta');
@@ -22,6 +24,7 @@ const WeatherApp = () => {
         setTemperature(response.data.main.temp - 273.15);
         // console.log(response.data);
         setDesc(response.data.weather[0].main);
+        setWeather(response.data.weather[0].main);
       })
       .catch(error => {
         console.log(error);
@@ -37,18 +40,18 @@ const WeatherApp = () => {
 
   return (
     <>
-    <Box
+    <Flex
     height={'70px'}
-    width='400px'
-    bgColor={'#94e5ff'}
-    display='flex'
+    width='100%'
+    bgColor={'blackAlpha.100'}
     justifyContent={'center'}
-    alignItems='center'
     fontSize={'25px'}
+    transform='translateX(-20px)'
     >
+      <Image w={'100px'} h='100px' src='http://openweathermap.org/img/w/02d.png'/>
           {/* {Math.round(temperature * 100) / 100} ℉ */}
           {Math.round(temperature * 100) / 100} ℃ - {desc}
-        </Box>
+        </Flex>
     </>
   );
 };
