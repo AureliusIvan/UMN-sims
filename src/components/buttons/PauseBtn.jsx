@@ -22,6 +22,9 @@ function Pause() {
 	return (
 		<>
 			<Button
+				zIndex={100}
+				border={'black.100'}
+				pos={'absolute'}
 				onClick={() => {
 					setOverlay(<PopUp />)
 					onOpen()

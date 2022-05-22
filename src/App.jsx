@@ -12,6 +12,8 @@ import Uni from './Pages/Universitas/UnivHall';
 import { AllContext } from './components/Value/CoinContext';
 import Clock from 'react-clock/dist/umd/Clock';
 import MiniGames from './Pages/Home/MiniGames/MiniGames';
+import Pause from './components/buttons/PauseBtn';
+import Phone from './components/phone/phoneMain';
 
 /*
 1. nama
@@ -27,29 +29,31 @@ import MiniGames from './Pages/Home/MiniGames/MiniGames';
 */
 
 function App() {
-  const [coin, setCoin] = useState(0);
+  const [coin, setCoin] = useState(7000);
   const [nama, setNama] = useState('');
   const [name, setName] = useState('');
   const [Day, setDay] = useState(0);
   const [hour, setHour] = useState(23);
   const [minute, setCount] = useState(0);
-  const [makan, setMakan] = useState(70);
-  const [tidur, setTidur] = useState(70);
-  const [main, setMain] = useState(70);
+  const [makan, setMakan] = useState(10);
+  const [tidur, setTidur] = useState(20);
+  const [main, setMain] = useState(30);
   const [belajar, setBelajar] = useState(70);
   const [weather, setWeather] = useState('');
 
-  useInterval(() => {
-    setCount(minute + 1);
-    if (minute >= 59) {
-      setHour(hour + 1);
-      setCount(0);
-    }
-    if (hour >= 23 && minute === 59) {
-      setDay(Day + 1);
-      setHour(0);
-    }
-  }, 1000);
+useInterval(() => {
+      setCount(minute + 1);
+      if (minute >= 59) {
+        setHour(hour + 1);
+        setCount(0);
+      }
+      if (hour >= 23 && minute === 59) {
+        setDay(Day + 1);
+        setHour(0);
+      }
+    }, 1000);
+  
+
 
   function useInterval(callback, delay) {
     const savedCallback = useRef();
@@ -86,7 +90,7 @@ function App() {
 
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
-  const [game, setGame] = useState('start');
+  const [game, setGame] = useState('home');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
@@ -120,6 +124,8 @@ function App() {
           setWeather,
         }}
       >
+        <Pause/>
+        <Phone/>
         {(() => {
           switch (game) {
             case 'start':

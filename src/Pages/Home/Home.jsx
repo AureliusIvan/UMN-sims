@@ -19,6 +19,8 @@ import Coin from '../../components/Value/Coin';
 import { AllContext } from '../../components/Value/CoinContext';
 import { CreateChar } from '../../components/character/CharacterCard';
 import WheaterApp from '../../components/background/Weather';
+import { EatBar } from '../../components/statusBar/StatusBar';
+import StatusGroup from '../../components/statusBar/StatusBarGroup';
 
 
 function Home(props) {
@@ -38,7 +40,6 @@ function Home(props) {
         gap={0}
       >
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Pause />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Center><Text >Hello {nama} dari jurusan {jurusan}</Text></Center>
@@ -61,6 +62,7 @@ function Home(props) {
         </GridItem>
         
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <StatusGroup/>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
@@ -80,7 +82,6 @@ function Home(props) {
         </GridItem>
         
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Phone />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Button onClick={()=>{add(10)}}></Button>

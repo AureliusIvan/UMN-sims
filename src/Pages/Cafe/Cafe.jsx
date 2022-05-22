@@ -16,7 +16,7 @@ function Cafe(props) {
     <Box className="cafe">
       <Grid className="Grid" h='100vh' templateRows='repeat(5, 1fr)' templateColumns='repeat(3, 1fr)' gap={0}>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Pause />
+          
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Currency/>
