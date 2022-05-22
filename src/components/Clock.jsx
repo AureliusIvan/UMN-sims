@@ -7,7 +7,6 @@ function Clock() {
   const {Day, setDay} = useContext(AllContext);
   const {hour, setHour} = useContext(AllContext);
   const {minute, setCount} = useContext(AllContext);
- 
   const formatTime = (time) => {
     return String(time).padStart(2, '0')
   }
