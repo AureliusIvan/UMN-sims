@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
 import { Box, Button, Text, Image, Flex } from '@chakra-ui/react';
+import { AllContext } from '../Value/CoinContext';
 
 const WeatherApp = () => {
+  const {weather, setWeather} = useContext(AllContext)
   const [temperature, setTemperature] = useState('');
   const [desc, setDesc] = useState('');
   const [city, setCity] = useState('Jakarta');
@@ -22,6 +24,7 @@ const WeatherApp = () => {
         setTemperature(response.data.main.temp - 273.15);
         // console.log(response.data);
         setDesc(response.data.weather[0].main);
+        setWeather(response.data.weather[0].main);
       })
       .catch(error => {
         console.log(error);
