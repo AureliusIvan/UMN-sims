@@ -9,14 +9,17 @@ import NewsApp from "./forNews/newsApp";
 import App2 from "./forApp2/app2";
 import Pokedex from "./forPokedex/pokedex"
 import Home from "../../Pages/Home/Home";
+import WeatherApp from "../background/Weather";
+import Walpaper1 from "./walpaper/walpaper1.png"
 
 function HomeScreen() {
 	return (
-		<Box>
+		<Box h={'100%'} w='100%' backgroundImage={Walpaper1}>
 			<Text size="xs">
 				<Clock />
 			</Text>
 			<Divider borderColor='black' />
+			<WeatherApp/>
 			<AppLinking />
 		</Box>
 	)

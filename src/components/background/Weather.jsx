@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Box, Button, Text } from '@chakra-ui/react';
+import { Box, Button, Text, Image, Flex } from '@chakra-ui/react';
 
 const WeatherApp = () => {
   const [temperature, setTemperature] = useState('');
@@ -37,18 +37,18 @@ const WeatherApp = () => {
 
   return (
     <>
-    <Box
+    <Flex
     height={'70px'}
-    width='400px'
-    bgColor={'#94e5ff'}
-    display='flex'
+    width='100%'
+    bgColor={'blackAlpha.100'}
     justifyContent={'center'}
-    alignItems='center'
     fontSize={'25px'}
+    transform='translateX(-20px)'
     >
+      <Image w={'100px'} h='100px' src='http://openweathermap.org/img/w/02d.png'/>
           {/* {Math.round(temperature * 100) / 100} ℉ */}
           {Math.round(temperature * 100) / 100} ℃ - {desc}
-        </Box>
+        </Flex>
     </>
   );
 };

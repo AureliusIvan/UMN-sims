@@ -1,8 +1,8 @@
-import { ChakraProvider, theme, Text } from '@chakra-ui/react';
+import { ChakraProvider, theme, Text, background } from '@chakra-ui/react';
 import { useMemo, useState, useEffect, useRef } from 'react';
 import './App.css';
 import PageOne from './Pages/Start';
-import SelectChar from './Pages/SelectChar';
+import SelectCharacter from './Pages/SelectChar';
 import Home from './Pages/Home/Home';
 import Eat from './Pages/Home/Eat/Eat';
 import Cafe from './Pages/Cafe/Cafe';
@@ -14,6 +14,7 @@ import Clock from 'react-clock/dist/umd/Clock';
 import MiniGames from './Pages/Home/MiniGames/MiniGames';
 import Pause from './components/buttons/PauseBtn';
 import Phone from './components/phone/phoneMain';
+import Currency from './components/buttons/Currency';
 
 /*
 1. nama
@@ -29,31 +30,56 @@ import Phone from './components/phone/phoneMain';
 */
 
 function App() {
+  //coin const
   const [coin, setCoin] = useState(7000);
+  //player choice
+  const [jurusan, setJurusan] = useState(0);
+  const [character, setCharacter] = useState(1);
   const [nama, setNama] = useState('');
   const [name, setName] = useState('');
+  //time const
   const [Day, setDay] = useState(0);
   const [hour, setHour] = useState(23);
   const [minute, setCount] = useState(0);
+  const [countday, setCountday] = useState(0);
+  //Status bar const
   const [makan, setMakan] = useState(10);
   const [tidur, setTidur] = useState(20);
   const [main, setMain] = useState(30);
   const [belajar, setBelajar] = useState(70);
+  //Weather const
   const [weather, setWeather] = useState('');
 
-useInterval(() => {
-      setCount(minute + 1);
-      if (minute >= 59) {
-        setHour(hour + 1);
-        setCount(0);
-      }
-      if (hour >= 23 && minute === 59) {
-        setDay(Day + 1);
-        setHour(0);
-      }
-    }, 1000);
-  
+  // background const
+  const [bghome, setBgHome] = useState('BgPagi');
+  const [bgCafe, setBgCafe] = useState('BgPagi');
+  const [bgMall, setBgMall] = useState('BgPagi');
+  const [bgUniv, setBgUniv] = useState('BgPagi');
 
+  //const buat makanan
+  const [burger, setBurger] = useState(0);
+  const [telur, setTelur] = useState(0);
+  const [ikangoreng, setIkangoreng] = useState(0);
+  const [steak, setSteak] = useState(0);
+  const [ayampanggang, setAyampanggang] = useState(0);
+  //buat jam
+  useInterval(() => {
+    setCount(minute + 1);
+    if (minute >= 59) {
+      setHour(hour + 1);
+      setCount(0);
+    }
+    if (hour >= 23 && minute === 59) {
+      setDay(Day + 1);
+      setCountday(1);
+      setHour(0);
+    }
+    //ini buat duid harian
+    if (countday == 1) {
+      setCoin(coin + 2000);
+      setCountday(0);
+    }
+  }, 1000);
 
   function useInterval(callback, delay) {
     const savedCallback = useRef();
@@ -85,12 +111,9 @@ useInterval(() => {
     [coin, name]
   );
 
-  const [jurusan, setJurusan] = useState(0);
-  const [character, setCharacter] = useState([]);
-
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
-  const [game, setGame] = useState('home');
+  const [game, setGame] = useState('start');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
@@ -106,6 +129,8 @@ useInterval(() => {
           setNama,
           jurusan,
           setJurusan,
+          character,
+          setCharacter,
           Day,
           setDay,
           hour,
@@ -122,16 +147,30 @@ useInterval(() => {
           setBelajar,
           weather,
           setWeather,
+          game,
+          setGame,
+          bghome,
+          setBgHome,
+          burger,
+          setBurger,
+          telur,
+          setTelur,
+          ikangoreng,
+          setIkangoreng,
+          steak,
+          setSteak,
+          ayampanggang,
+          setAyampanggang,
         }}
       >
-        <Pause/>
-        <Phone/>
+        <Pause />
+        <Phone />
         {(() => {
           switch (game) {
             case 'start':
               return <PageOne handleClick={handleClick} />;
             case 'selectchar':
-              return <SelectChar handleClick={handleClick} />;
+              return <SelectCharacter handleClick={handleClick} />;
             case 'home':
               return <Home handleClick={handleClick} />;
             case 'eat':
@@ -145,8 +184,8 @@ useInterval(() => {
             case 'uni':
               return <Uni handleClick={handleClick} />;
             case 'Minigames':
-              return <MiniGames handleClick={handleClick}/>
-              default:
+              return <MiniGames handleClick={handleClick} />;
+            default:
               return null;
           }
         })()}

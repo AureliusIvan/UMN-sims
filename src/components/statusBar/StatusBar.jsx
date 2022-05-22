@@ -5,7 +5,7 @@ import { Progress, CircularProgress, CircularProgressLabel  } from '@chakra-ui/r
 
 function Bar(props) {
   return (
-    <Box>
+    <Box border={'2px solid green'} marginInline='5px' borderRadius='50%'>
       <CircularProgress value={props.value} color="green.400">
         <CircularProgressLabel>{props.value}%</CircularProgressLabel>
       </CircularProgress>
