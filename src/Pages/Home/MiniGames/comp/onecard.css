@@ -1,0 +1,33 @@
+.card{
+    position: relative;
+}
+
+.card img{
+    width: 100%;
+    display: block;
+    border: 3px solid black;
+    border-radius: 10px;
+  }
+  
+  /* flipping card */
+  .card .depan{
+      transform: rotateY(90deg);
+      transition: all ease-in 0.3s;
+      position: absolute;
+  }
+
+  .flipped .depan{
+      transform: rotateY(0deg);
+      transition: all ease-in 0.3s;
+  }
+
+  /* animasi */
+  .card .belakang {
+      transition: all ease-in 0.3s;
+      transition-delay: 0.3s;
+  }
+
+  .flipped .belakang{
+    transform: rotateY(90deg);
+    transition-delay: 0s;
+}
