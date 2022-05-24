@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Grid, GridItem, Box, Button, Text, Center } from '@chakra-ui/react';
+import { Grid, GridItem, Box, Button, Text, Center, Image } from '@chakra-ui/react';
 import MapPop from '../../components/buttons/MapPop';
 import Currency from '../../components/buttons/Currency';
 import RotiPanggang from '../../components/template/tempWarnPopUp';
@@ -7,12 +7,14 @@ import { AllContext } from '../../components/Value/CoinContext';
 import { CreateChar } from '../../components/character/CharacterCard';
 import WheaterApp from '../../components/background/Weather';
 import StatusGroup from '../../components/statusBar/StatusBarGroup';
-import { SetBgHome } from '../../components/background/Background';
+import { SetBgHome } from '../../components/background/background';
 import BgPagi from './bg/Pagi.png';
 import BgSiang from './bg/Siang.png';
 import BgSore from './bg/Sore.png';
 import BgMalem from './bg/Malem.png';
 import { Xp } from '../../components/statusBar/Xp';
+
+import lala from "../../components/asset/gif/eat.gif"
 
 function Home(props) {
   const { nama, setNama } = useContext(AllContext);

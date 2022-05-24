@@ -1,4 +1,5 @@
 import { Wrap, WrapItem, Button, useToast } from "@chakra-ui/react"
+import lala from "../asset/gif/eat.gif"
 
 function Toast(props) {
     const toast = useToast()
@@ -9,7 +10,7 @@ function Toast(props) {
 				<Button
 				onClick={() =>
 					toast({
-						title: `${props.content}`,
+						description: `${props.content}`,
 						status: "warning",
 						position : "bottom-start",
 						// default durationnya 5 detik

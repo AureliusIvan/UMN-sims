@@ -38,7 +38,7 @@ function Phone() {
             onMouseOver={() => setHover(true)}
             onMouseOut={() => setHover(false)}
             src={!hover ? phone : phoneHover}
-            width={{ base: '20%', sm: '12%', md: '6%' }}
+            width={{ base: '20%', sm: '12%', md: '7%' }}
             // className="usePointer"
             cursor="pointer"
           />
