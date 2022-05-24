@@ -62,7 +62,7 @@ function Phone() {
             p={1}
             borderRadius={20}
             color="black"
-            overflowX='hidden'
+            overflowX="hidden"
           >
             {load ? (
               <Flex
