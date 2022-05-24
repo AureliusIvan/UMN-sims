@@ -9,9 +9,9 @@ import Cafe from './Pages/Cafe/Cafe';
 import ToMall from './Pages/Mall/shopLinking';
 import Uni from './Pages/Universitas/UnivHall';
 import { AllContext } from './components/Value/CoinContext';
-import MiniGames from './Pages/Home/MiniGames/MiniGames';
 import Pause from './components/buttons/PauseBtn';
 import Phone from './components/phone/phoneMain';
+import MiniGamestwo from './Pages/Home/MiniGames/ButtonApp';
 
 /*
 1. nama
@@ -201,7 +201,7 @@ function App() {
             case 'uni':
               return <Uni handleClick={handleClick} />;
             case 'Minigames':
-              return <MiniGames handleClick={handleClick} />;
+              return <MiniGamestwo handleClick={handleClick}/>
             default:
               return null;
           }
