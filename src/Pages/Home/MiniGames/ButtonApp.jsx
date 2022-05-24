@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import Onecard from './comp/onecard';
+import { Box } from '@chakra-ui/react';
 
 const cardImages = [
   {"src": "/img/book.png",     matched:false},
@@ -13,7 +13,7 @@ const cardImages = [
   {"src": "/img/Battery.png",  matched:false},
 ]
 
-function App() {
+function MiniGamestwo() {
   const [cards, setCards]= useState([])
   const [turns, setTurns] = useState(0)
   //const buat pilih kartu
@@ -79,12 +79,13 @@ function App() {
   }
 
   return (
+    <Box h={'100vh'}>
 <div className="App">
   <h1>Memory Card Minigames!</h1>
   <button onClick={shuffleCard}> New game</button>
   <button> Exit </button>
 
-  <div className="card-pic" >
+  <Box className="card-pic" h={'50px'} w='50px' >
     {cards.map(card => (
       <Onecard 
       key={card.id} 
@@ -94,10 +95,11 @@ function App() {
       disabled={disabled}
        />
     ))}
-  </div>
+  </Box>
   <p>Turns:{turns}</p>
   </div>
+  </Box>
   );
 }
 
-export default App;
+export default MiniGamestwo;
