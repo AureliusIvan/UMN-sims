@@ -1,9 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Line } from '../../components/Grid/Line';
 import { Grid, GridItem, Box, VStack } from '@chakra-ui/react';
-
-import Pause from '../../components/buttons/PauseBtn';
-import Phone from '../../components/phone/phoneMain';
 import MapPop from '../../components/buttons/MapPop';
 import Study from './study';
 import Read from './read';
