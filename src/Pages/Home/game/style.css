@@ -2,38 +2,17 @@
     margin: 0;
     padding: 0;
   }
-  
-  #quit{
-    font-size: 20px;
-    font-weight: bold;
-    height: 50px;
-    border-radius: 10px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: white;
-    background-color: rgb(184, 28, 28);
+  html, body{
+    height: 100%;
+  }
+  body{
+    font-family: "Dimbo" !important;
+    background-color: #57dbe4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
-  #restart{
-    font-size: 20px;
-    font-weight: bold;
-    height: 50px;
-    border-radius: 10px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: white;
-    background-color: rgb(130, 149, 255);
-  }
-  
-  #finish{
-    font-size: 20px;
-    font-weight: bold;
-    height: 50px;
-    border-radius: 10px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: white;
-    background-color: rgb(0, 187, 115);
-  }
-  
-
   h1{
     text-align: center;
     margin-bottom: 1em;
@@ -47,7 +26,7 @@
     gap: 1em;
   }
   
-  .card{
+  .Card{
     background-color: #fff;
     display: flex;
     justify-content: center;
@@ -57,7 +36,8 @@
     animation: 2s hideCard linear;
     transition: transform 0.5s;
   }
-  @keyframes hideCard{
+
+  @keyframes hideBox{
     0%, 70%{
       transform: rotateY(0);
     }
@@ -65,13 +45,14 @@
       transform: rotateY(180deg);
     }
   }
-  .card img{
+  .Card img{
     max-width: 80%;
     max-height: 80%;
     transition: transform 0.5s;
     transform: scale(0);
     animation: 2s hideImage linear;
   }
+
   @keyframes hideImage{
     0%, 70%{
       transform: scale(1);
@@ -81,15 +62,15 @@
     }
   }
   
-  .card.active{
+  .Card.active{
     transform: rotateY(0);
   }
-  .card.true{
+  .Card.true{
     background-color: #65e469;
   }
-  .card.false{
+  .Card.false{
     background-color: #fd245a;
   }
-  .card.active img{
+  .Card.active img{
     transform: scale(1);
   }

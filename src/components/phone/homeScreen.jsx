@@ -19,7 +19,6 @@ function HomeScreen() {
 				<Clock />
 			</Text>
 			<Divider borderColor='black' />
-			<WeatherApp/>
 			<AppLinking />
 		</Box>
 	)
@@ -70,7 +69,8 @@ const AppLinking = () => {
 
 // uda coba pake function w/ props tapi ga masuk ke AppListnya
 function AppList(props) {
-	return (
+	return (<>
+		<WeatherApp/>
 		<Flex flexDir="column">
 			<Flex mt={3} justifyContent='space-around' color='black'>
 				<Button 
@@ -105,6 +105,7 @@ function AppList(props) {
 				</Button>
 			</Flex>
 		</Flex>
+		</>
 	)
 }
 

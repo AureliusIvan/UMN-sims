@@ -7,14 +7,11 @@ import Home from './Pages/Home/Home';
 import Eat from './Pages/Home/Eat/Eat';
 import Cafe from './Pages/Cafe/Cafe';
 import ToMall from './Pages/Mall/shopLinking';
-import Ngopi from './Pages/Cafe/Ngopi/PokemonBook/Ngopi';
 import Uni from './Pages/Universitas/UnivHall';
 import { AllContext } from './components/Value/CoinContext';
-import Clock from 'react-clock/dist/umd/Clock';
 import MiniGames from './Pages/Home/MiniGames/MiniGames';
 import Pause from './components/buttons/PauseBtn';
 import Phone from './components/phone/phoneMain';
-import Currency from './components/buttons/Currency';
 
 /*
 1. nama
@@ -30,6 +27,11 @@ import Currency from './components/buttons/Currency';
 */
 
 function App() {
+  //show pause and phone
+  const [showPause, setShowPause] = useState(true);
+  const handeShowPause = x => {
+    setShowPause(x);
+  };
   //coin const
   const [coin, setCoin] = useState(7000);
   //player choice
@@ -101,6 +103,8 @@ function App() {
     }, [delay]);
   }
 
+
+
   const providerValue = useMemo(
     () => ({
       coin,
@@ -118,6 +122,15 @@ function App() {
     setGame(gameState);
     console.log(game);
   };
+//this for hide the pause dan phone button
+  useEffect(() => {
+    if(game == 'start'||game == 'eat' || game == 'selectchar'){
+      setShowPause(false);
+    }
+    else{
+      setShowPause(true);
+    }
+  }, [game]);
 
   return (
     <ChakraProvider theme={theme}>
@@ -163,8 +176,14 @@ function App() {
           setAyampanggang,
         }}
       >
-        <Pause />
-        <Phone />
+        {showPause ? (
+          <>
+            <Pause />
+            <Phone />
+          </>
+        ) : (
+          ''
+        )}
         {(() => {
           switch (game) {
             case 'start':
@@ -177,8 +196,6 @@ function App() {
               return <Eat handleClick={handleClick} />;
             case 'cafe':
               return <Cafe handleClick={handleClick} />;
-            case 'ngopi':
-              return <Ngopi handleClick={handleClick} />;
             case 'mall':
               return <ToMall handleClick={handleClick} />;
             case 'uni':
@@ -195,5 +212,3 @@ function App() {
 }
 
 export default App;
-
-// {items.map(createList)}

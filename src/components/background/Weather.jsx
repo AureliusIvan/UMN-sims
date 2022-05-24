@@ -17,12 +17,7 @@ const WeatherApp = () => {
     })
       .then(response => {
         console.log(response.data.main.temp);
-        // Kelvin to Fahrenheit
-        // setTemperature((response.data.main.temp - 273.15) * 1.8 + 32);
-
-        // Kelvin to Celsius
         setTemperature(response.data.main.temp - 273.15);
-        // console.log(response.data);
         setDesc(response.data.weather[0].main);
         setWeather(response.data.weather[0].main);
       })

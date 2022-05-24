@@ -6,7 +6,6 @@ import NewsArticle from "./newsArticle";
 function News() {
 	const { data } = useContext(NewsContext);
 	console.log(data);
-
 	return (
     <Box>
 		<Box>

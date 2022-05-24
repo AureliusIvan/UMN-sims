@@ -18,13 +18,8 @@ import { CreateChar } from '../../../components/character/CharacterCard';
 import { AllContext } from '../../../components/Value/CoinContext';
 import BurgerImg from './food/burger.png';
 
-function ChangeFoodBTN() {
-  const [food, setFood] = useState('burger');
-  const changeleft = () => {};
-  return <Button onClick={changeleft}>left</Button>;
-}
-
 function Eat(props) {
+  const {showPause, setShowPause} = useContext(AllContext);
   const { foodList, setFoodList } = useContext(AllContext);
   const { makan, setMakan } = useContext(AllContext);
   const { burger, setBurger } = useContext(AllContext);
@@ -32,6 +27,7 @@ function Eat(props) {
   const { ikangoreng, setIkangoreng } = useContext(AllContext);
   const { steak, setSteak } = useContext(AllContext);
   const { ayampanggang, setAyampanggang } = useContext(AllContext);
+  
   function EatHandle(x) {
     if (makan < 100) setMakan(makan + x);
   }
