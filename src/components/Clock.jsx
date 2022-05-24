@@ -11,7 +11,7 @@ function Clock() {
     return String(time).padStart(2, '0')
   }
   return (
-    <Flex justifyContent="space-between">
+    <Flex px={3} py={1} justifyContent="space-between">
       <Text>Day {Day}</Text>
       <Flex justifyContent="space-evenly" alignItems="center" width="40%">
         <FaWifi />

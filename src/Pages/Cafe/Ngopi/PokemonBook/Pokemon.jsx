@@ -4,7 +4,7 @@ import PokeCard from './Card';
 import PokeNavbar from './Navbar';
 import { getPokemon } from './Pokeservice';
 import { Box, Button, ButtonGroup } from '@chakra-ui/react';
-import background from '../../../../components/background/Background';
+import background from '../../../../components/background/background';
 
 function Pokemon() {
   const [pokemonData, setPokemonData] = useState([]);
