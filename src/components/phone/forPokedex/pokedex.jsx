@@ -1,9 +1,10 @@
 import { Box, Text } from '@chakra-ui/react'
+import Pokemon from './Pokemon';
 
 function pokedex () {
 	return (
 		<Box>
-			<Text>ini isinya pokedex</Text>
+			<Pokemon/>
 		</Box>
 	)
 }

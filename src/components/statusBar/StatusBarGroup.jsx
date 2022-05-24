@@ -1,5 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react';
 import { EatBar, SleepBar, PlayBar } from './StatusBar';
+import { Xp } from './Xp';
 
 function StatusGroup() {
   return (
@@ -15,6 +16,7 @@ function StatusGroup() {
           <PlayBar />
         </Box>
       </Flex>
+      <Xp/>
     </>
   );
 }

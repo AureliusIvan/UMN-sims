@@ -12,6 +12,7 @@ import BgPagi from './bg/Pagi.png';
 import BgSiang from './bg/Siang.png';
 import BgSore from './bg/Sore.png';
 import BgMalem from './bg/Malem.png';
+import { Xp } from '../../components/statusBar/Xp';
 
 function Home(props) {
   const { nama, setNama } = useContext(AllContext);
@@ -51,7 +52,7 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Center>
             <Text>
-              Hello {nama} dari jurusan {jurusan}
+              
             </Text>
           </Center>
         </GridItem>

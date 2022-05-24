@@ -4,7 +4,6 @@ import PokeCard from './Card';
 import PokeNavbar from './Navbar';
 import { getPokemon } from './Pokeservice';
 import { Box, Button, ButtonGroup } from '@chakra-ui/react';
-import background from '../../../../components/background/Background';
 
 function Pokemon() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -61,85 +60,20 @@ function Pokemon() {
   return (
     <>
       <PokeNavbar />
-
-      <Box display={'flex'}>
-
-          <>
-            <Button
-              pos={'absolute'}
-              margin="auto"
-              zIndex={10}
-              left="0"
-              right={'0'}
-              w="100px"
-              top={'30%'}
-              transform="translateX(-400px)"
-              filter="drop-shadow(3px 3px #222)"
-              onClick={prev}
-            >
-              Prev
-            </Button>
-            <Button
-              pos={'absolute'}
-              margin="auto"
-              zIndex={10}
-              left="0"
-              right={'0'}
-              w="100px"
-              top={'30%'}
-              transform="translateX(400px)"
-              filter="drop-shadow(3px 3px #222)"
-              onClick={next}
-            >
-              Next
-            </Button>
-
+      <Box>
+        <Box id='pokeTop'></Box>
             <Box
               className="HalA"
               bgColor="white"
-              h={'700px'}
-              w={'200px'}
+              h={'110%'}
+              w={'100%'}
               padding="30px"
             >
-              {pokeSliceA.map((pokemon, i) => {
+              {pokemonData.map((pokemon, i) => {
                 return <PokeCard key={i} pokemon={pokemon} />;
               })}
             </Box>
-            <Box
-              className="HalA"
-              bgColor="white"
-              h={'700px'}
-              w={'200px'}
-              padding="30px"
-            >
-              {pokeSliceB.map((pokemon, i) => {
-                return <PokeCard key={i} pokemon={pokemon} />;
-              })}
-            </Box>
-            <Box
-              className="HalA"
-              bgColor="white"
-              h={'700px'}
-              w={'200px'}
-              padding="30px"
-            >
-              {pokeSliceC.map((pokemon, i) => {
-                return <PokeCard key={i} pokemon={pokemon} />;
-              })}
-            </Box>
-            <Box
-              className="HalA"
-              bgColor="white"
-              h={'700px'}
-              w={'200px'}
-              padding="30px"
-            >
-              {pokeSliceD.map((pokemon, i) => {
-                return <PokeCard key={i} pokemon={pokemon} />;
-              })}
-            </Box>
-          </>
-        
+            <Button onClick={prev}>Prev</Button><Button onClick={next}>Next</Button>        
       </Box>
     </>
   );
