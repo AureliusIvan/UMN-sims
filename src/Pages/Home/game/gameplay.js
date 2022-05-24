@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import CardGames from './CardGames';
-import "./Minigames.css"
+import Card from './Card'
 
-function MiniGamesCards(){
+function gameplay(){
     const[count, setcount] = useState(0);
     const HandleAdd = () => {
       setcount(count+1)
@@ -73,7 +72,7 @@ function MiniGamesCards(){
     return (
         <div className="container">
             { items.map((item, index) => (
-                <CardGames key={index} item={item} id={index} handleClick={handleClick} />
+                <Card key={index} item={item} id={index} handleClick={handleClick} />
             )) }
             <button id="quit" onClick={forcequit}> Quit </button>
             <button id="restart" onClick={restart}> Restart </button>
@@ -82,4 +81,4 @@ function MiniGamesCards(){
     )
 }
 
-export default MiniGamesCards;
+export default gameplay
