@@ -36,7 +36,6 @@ import feet4 from './characterAsset/default/kutubuku/7.png';
 import './chara.css';
 import { AllContext } from '../Value/CoinContext';
 
-
 function CharacterModule(props) {
   const { character, setCharacter } = useContext(AllContext);
   const [hairfront, setHairFront] = useState(hairfront1);
@@ -48,7 +47,7 @@ function CharacterModule(props) {
   const [feet, setFeet] = useState(feet1);
 
   useEffect(() => {
-    if (character == 1) {
+    if (character === 1) {
       setHairFront(hairfront1);
       setFace(face1);
       setLefthand(lefthand1);
@@ -57,7 +56,7 @@ function CharacterModule(props) {
       setHairback(hairback1);
       setFeet(feet1);
     }
-    else if (character == 2) {
+    else if (character === 2) {
       setHairFront(hairfront2);
       setFace(face2);
       setLefthand(lefthand2);
@@ -66,7 +65,7 @@ function CharacterModule(props) {
       setHairback(hairback2);
       setFeet(feet2);
     }
-    else if (character == 3) {
+    else if (character === 3) {
       setHairFront(hairfront3);
       setFace(face3);
       setLefthand(lefthand3);
@@ -75,7 +74,7 @@ function CharacterModule(props) {
       setHairback(hairback3);
       setFeet(feet3);
     }
-    else if (character == 4) {
+    else if (character === 4) {
       setHairFront(hairfront4);
       setFace(face4);
       setLefthand(lefthand4);
@@ -89,122 +88,121 @@ function CharacterModule(props) {
     <>
       <Box>
         <Image
-          pointerEvents={'none'}
+          pointerEvents="none"
           className="top"
-          objectFit={'cover'}
-          filter="drop-shadow(5px 5px #222)"
-          margin={'auto'}
+          objectFit="cover"
+          margin="auto"
           left="0"
-          right={'0'}
+          right="0"
           bottom="0"
-          w="600"
-          h={'600px'}
+          filter="drop-shadow(4px 4px 2px #222)"
+          w={{md:"600px", sm:"550px", base:"500px"}}
+          h={{md:"600px", sm:"550px", base:"500px"}}
           zIndex={7}
           pos={'absolute'}
           src={hairfront}
           alt={'test'}
         />
         <Image
-          pointerEvents={'none'}
+          pointerEvents="none"
           className="top"
-          objectFit={'cover'}
-          filter="drop-shadow(5px 5px #222)"
-          margin={'auto'}
+          objectFit="cover"
+          margin="auto"
           left="0"
-          right={'0'}
+          right="0"
           bottom="0"
-          w="600"
-          h={'600px'}
+          w={{md:"600px", sm:"550px", base:"500px"}}
+          h={{md:"600px", sm:"550px", base:"500px"}}
           zIndex={6}
           pos={'absolute'}
           src={face}
           alt={'test'}
         />
         <Image
-          pointerEvents={'none'}
+          pointerEvents="none"
           className="body"
-          objectFit={'cover'}
-          margin={'auto'}
+          objectFit="cover"
+          margin="auto"
           left="0"
-          right={'0'}
+          right="0"
           bottom="0"
-          w="600"
-          h={'600px'}
+          w={{md:"600px", sm:"550px", base:"500px"}}
+          h={{md:"600px", sm:"550px", base:"500px"}}
           zIndex={5}
           pos={'absolute'}
           src={lefthand}
           alt={'test'}
         />
         <Image
-          pointerEvents={'none'}
+          pointerEvents="none"
           className="body"
-          objectFit={'cover'}
-          margin={'auto'}
+          objectFit="cover"
+          margin="auto"
           left="0"
-          right={'0'}
+          right="0"
           bottom="0"
-          w="600"
-          h={'600px'}
+          w={{md:"600px", sm:"550px", base:"500px"}}
+          h={{md:"600px", sm:"550px", base:"500px"}}
           zIndex={4}
           pos={'absolute'}
           src={body}
           alt={'test'}
         />
         <Image
-          pointerEvents={'none'}
+          pointerEvents="none"
           className="body"
-          objectFit={'cover'}
-          margin={'auto'}
+          objectFit="cover"
+          margin="auto"
           left="0"
-          right={'0'}
+          right="0"
           bottom="0"
-          w="600"
-          h={'600px'}
+          w={{md:"600px", sm:"550px", base:"500px"}}
+          h={{md:"600px", sm:"550px", base:"500px"}}
           zIndex={3}
           pos={'absolute'}
           src={righthand}
           alt={'test'}
         />
         <Image
-          pointerEvents={'none'}
+          pointerEvents="none"
           className="top"
-          objectFit={'cover'}
-          margin={'auto'}
+          objectFit="cover"
+          margin="auto"
           left="0"
-          right={'0'}
+          right="0"
           bottom="0"
-          w="600"
-          h={'600px'}
+          w={{md:"600px", sm:"550px", base:"500px"}}
+          h={{md:"600px", sm:"550px", base:"500px"}}
           zIndex={2}
           pos={'absolute'}
           src={hairback}
           alt={'test'}
         />
         <Image
-          pointerEvents={'none'}
+          pointerEvents="none"
           className="bottom"
-          objectFit={'cover'}
-          margin={'auto'}
+          objectFit="cover"
+          margin="auto"
           left="0"
-          right={'0'}
+          right="0"
           bottom="0"
-          w="600"
-          h={'600px'}
+          w={{md:"600px", sm:"550px", base:"500px"}}
+          h={{md:"600px", sm:"550px", base:"500px"}}
           zIndex={1}
           pos={'absolute'}
           src={feet}
           alt={'test'}
         />
         <Box
-          margin={'auto'}
+          margin="auto"
           left="0"
-          right={'0'}
-          bottom="0"
-          w="200px"
-          h={'100px'}
+          right="0"
+          bottom={{md:"30px", sm:"35px", base:"40px"}}
+          w={{md:"200px", sm:"180px", base:"120px"}}
+          h={{md:"60px", sm:"50px", base:"30px"}}
           borderRadius="50%"
           zIndex={0}
-          bgColor={'black'}
+          bgColor="black"
           opacity="0.6"
           pos="absolute"
         />
