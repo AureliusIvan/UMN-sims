@@ -72,6 +72,13 @@ function App() {
   const [ikangoreng, setIkangoreng] = useState(0);
   const [steak, setSteak] = useState(0);
   const [ayampanggang, setAyampanggang] = useState(0);
+
+  //const buat bahan makanan
+  const [tomato, setTomato] = useState(0);
+  const [beef, setBeef] = useState(0);
+  const [cabbage, setCabbage] = useState(0);
+  const [chicken, setChicken] = useState(0);
+  const [eggtray, setEggtray] = useState(0);
   //buat jam
   useInterval(() => {
     setCount(minute + 1);
@@ -114,8 +121,7 @@ function App() {
   //useEffect buat notif
   //notif uang jajan
   const toast = useToast();
-  useEffect(() => {
-  }, [coin]);
+  useEffect(() => {}, [coin]);
 
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
@@ -175,6 +181,16 @@ function App() {
           setSteak,
           ayampanggang,
           setAyampanggang,
+          tomato,
+          setTomato,
+          beef,
+          setBeef,
+          cabbage,
+          setCabbage,
+          chicken,
+          setChicken,
+          eggtray,
+          setEggtray,
         }}
       >
         {showPause ? (
