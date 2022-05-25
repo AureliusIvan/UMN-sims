@@ -19,6 +19,7 @@ import {
 import React, { useState, useEffect, useContext } from 'react';
 import { CreateChar } from '../components/character/CharacterCard';
 import { AllContext } from '../components/Value/CoinContext';
+import CharacterModule from '../components/character/Card';
 
 import next from "../components/asset/icon/next.png"
 import prev from "../components/asset/icon/prev.png"
@@ -59,7 +60,7 @@ function DisplayChar() {
         borderRadius="50%"
       ></Box> */}
       <Box>
-        <CreateChar />
+        <CharacterModule left="0" />
       </Box>
     </>
   );
@@ -132,7 +133,7 @@ function SelectCharacter(props) {
   }, [character]);
 
   return (
-    <Box bgColor="pink" h="100%" w="100%">
+    <Box bgColor="pink" minH="100vh" w="100%">
       <Flex flexDir="column" justifyContent="center" alignItems="center">
         <VStack spacing={5} mt={8}>
           <Input
@@ -166,8 +167,9 @@ function SelectCharacter(props) {
             <option value={3}>DKV</option>
           </Select>
         </VStack>
-        <Flex flexDir={{md:"row", base:"column"}}>
+        <Flex flexDir="column" mb={20}>
           <Flex 
+            // transform={{base:"none", md:"translateX(-50px)"}}
             flexDir="column" 
             alignItems="center" 
             justifyContent="center"
@@ -197,16 +199,16 @@ function SelectCharacter(props) {
               mt="-2"
               sIndex={0}
             >
-              <Text color="blue" align="left" display={{base:"none", md:"block"}}>Skill :</Text>
+              <Text color="blue" align="left" display={{base:"none", md:"none"}}>Skill :</Text>
               <Text>{atribute.desc}</Text>
-              <Box display={{base:"none", md:"block"}}>
+              <Box display={{base:"none", md:"none"}}>
                 <Divider my={{md:3}} />
                 <Text color="blue" align="left" >Lore :</Text>
                 <Text>{atribute.lore}</Text>
               </Box>
             </Box>
           </Flex>
-          <HStack spacing="-155px" justify="center">
+          <HStack spacing="100px" justify="center">
             <Image 
               zIndex={5}
               src={prev} 
@@ -237,12 +239,13 @@ function SelectCharacter(props) {
           </HStack>
         </Flex>
         <Button
+          transform="translateY(60px)"
           mb="40px"
           onClick={() => props.handleClick('home')}
           bgColor="blue.100"
           border="1px solid black"
           transition="0.2s"
-          zIndex={100}
+          zIndex={10}
         >
           LET'S GO
         </Button>

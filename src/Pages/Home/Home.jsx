@@ -4,7 +4,8 @@ import MapPop from '../../components/buttons/MapPop';
 import Currency from '../../components/buttons/Currency';
 import RotiPanggang from '../../components/template/tempWarnPopUp';
 import { AllContext } from '../../components/Value/CoinContext';
-import { CreateChar } from '../../components/character/CharacterCard';
+// import { CreateChar } from '../../components/character/CharacterCard';
+import CharacterModule from '../../components/character/Card';
 import WheaterApp from '../../components/background/Weather';
 import StatusGroup from '../../components/statusBar/StatusBarGroup';
 import { SetBgHome } from '../../components/background/background';
@@ -91,8 +92,8 @@ function Home(props) {
           </Button>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Box zIndex={-1}>
-            <CreateChar />
+          <Box zIndex={-1} >
+            <CharacterModule left="0"/>
           </Box>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
