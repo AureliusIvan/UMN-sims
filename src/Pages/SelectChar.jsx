@@ -13,7 +13,8 @@ import {
   Select,
   VStack,
   HStack,
-  Flex
+  Flex,
+  Divider
 } from '@chakra-ui/react';
 import React, { useState, useEffect, useContext } from 'react';
 import { CreateChar } from '../components/character/CharacterCard';
@@ -100,185 +101,6 @@ const Char4 = {
   prev: 3,
 };
 
-// function SelectCharacter(props) {
-//   const { nama, setNama } = useContext(AllContext);
-//   const { jurusan, setJurusan } = useContext(AllContext);
-//   const { character, setCharacter } = useContext(AllContext);
-//   const handleNama = event => {
-//     setNama(event.target.value);
-//   };
-
-//   const [atribute, setAtribute] = useState(Char1);
-//   const handleCharPrev = () => {
-//     setCharacter(atribute.prev);
-//   };
-//   const handleCharNext = () => {
-//     setCharacter(atribute.next);
-//   };
-
-//   const [hover, setHover] = useState(false);
-
-//   useEffect(() => {
-//     if (character === 1) {
-//       setAtribute(Char1);
-//     } else if (character === 2) {
-//       setAtribute(Char2);
-//     } else if (character === 3) {
-//       setAtribute(Char3);
-//     } else if (character === 4) {
-//       setAtribute(Char4);
-//     }
-//   }, [character]);
-
-//   return (
-//     <Box bgColor={'pink'} h="100%" w={'100%'}>
-//       <Grid
-//         className="Grid"
-//         h="100vh"
-//         templateRows="repeat(5, 1fr)"
-//         templateColumns="repeat(1, 1fr)"
-//         gap={0}
-//       >
-//         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-//           <VStack spacing={5} mt={8}>
-//             <Input
-//               autoFocus
-//               bgColor="White"
-//               width="100%"
-//               maxW="350px"
-//               color="Black"
-//               variant="outline"
-//               placeholder="Masukan Nama"
-//               filter="drop-shadow(3px 3px 2px #222)"
-//               onChange={event => {
-//                 handleNama(event);
-//               }}
-//             />
-//             {/* {nama} */}
-//             <Select
-//               id=""
-//               autoFocus
-//               bgColor="White"
-//               width="100%"
-//               maxW="350px"
-//               color="Black"
-//               variant="outline"
-//               placeholder="Masukan jurusan"
-//               filter="drop-shadow(3px 3px 2px #222)"
-//               cursor="pointer"
-//             >
-//               <option value={1}>Informatika</option>
-//               <option value={2}>Ilmu Komunikasi</option>
-//               <option value={3}>DKV</option>
-//             </Select>
-//           </VStack>
-//         </GridItem>
-//         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-//         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-//           <VStack>
-//             <Box
-//               padding="10px"
-//               display={{ base: 'none', md: 'block' }}
-//               h="300px"
-//               w="200px"
-//               bgColor="white"
-//               position="absolute"
-//               right="60%"
-//             >
-//               <Box>
-//                 <Center>
-//                   <Box
-//                     pos="absolute"
-//                     h="40px"
-//                     w="110%"
-//                     fontSize="25px"
-//                     transform="translateY(-22px)"
-//                     borderRadius="10px"
-//                     bgColor="red"
-//                     color="white"
-//                     textAlign="center"
-//                   >
-//                     {atribute.name}
-//                   </Box>
-//                 </Center>
-//                 <Box>
-//                   <Text color="Blue">Lore: {atribute.lore}</Text>
-
-//                   <Box>
-//                     <Text color="Blue">Skill: </Text>
-//                   </Box>
-//                 </Box>
-//               </Box>
-//             </Box>
-//           </VStack>
-//           <HStack spacing={{md:"120", base:"90"}} justify="center">
-//             {/* <Center
-//               pos="absolute"
-//               zIndex={1}
-//               h="40px"
-//               w="400px"
-//               display={{ base: 'block', md: 'none' }}
-//               fontSize="25px"
-//               transform="translateY(-22px)"
-//               borderRadius="10px"
-//               bgColor="red"
-//               color="white"
-//               textAlign="center"
-//               filter="drop-shadow(5px 5px #222)"
-//             >
-//               <Text></Text>
-//             </Center> */}
-//             <Image 
-//               src={prev} 
-//               width={{md:"120px", base:"100px" }}
-//               position="relative"
-//               cursor="pointer"
-//               top={{md:"20", base:"150px"}}
-//               transition="0.3s"
-//               _hover={{transform:"scale(1.1)"}}
-//               onClick={() => {
-//                 handleCharPrev();
-//               }}
-              
-//             />
-//             <Box>
-//               <DisplayChar />
-//             </Box>
-//             <Image 
-//               src={next}
-//               width={{md:"120px", base:"100px" }}
-//               position="relative"
-//               cursor="pointer"
-//               top={{md:"20", base:"150px"}}
-//               _hover={{transform:"scale(1.1)"}}
-//               transition="0.3s"
-//               onClick={() => {
-//                 handleCharNext();
-//               }}
-//             />
-//           </HStack>
-//         </GridItem>
-//         <GridItem padding="20px" className="gridItems" rowSpan={1} colSpan={1}>
-//           <Center></Center>
-//         </GridItem>
-//         <GridItem rowSpan={1} colSpan={1}> 
-//           <Flex justifyContent="center" alignItems="center">
-//             <Button
-//               onClick={() => props.handleClick('home')}
-//               bgColor="blue.100"
-//               border="1px solid black"
-//               transition="0.2s"
-//               zIndex={100}
-//             >
-//               LET'S GO
-//             </Button>
-//           </Flex>
-//         </GridItem>
-//       </Grid>
-//     </Box>
-//   );
-// }
-
 function SelectCharacter(props) {
   const { nama, setNama } = useContext(AllContext);
   const { jurusan, setJurusan } = useContext(AllContext);
@@ -311,100 +133,86 @@ function SelectCharacter(props) {
 
   return (
     <Box bgColor="pink" h="100%" w="100%">
-      <Grid
-        className="Grid"
-        h="100vh"
-        templateRows="repeat(5, 1fr)"
-        templateColumns="repeat(1, 1fr)"
-        gap={0}
-      >
-        <Flex flexDir="column" justifyContent="center" alignItems="center">
-          <VStack spacing={5} mt={8}>
-            <Input
-              autoFocus
-              bgColor="White"
-              width="150%"
-              maxW="350px"
-              color="Black"
-              variant="outline"
-              placeholder="Masukan Nama"
-              filter="drop-shadow(3px 3px 2px #222)"
-              onChange={event => {
-                handleNama(event);
-              }}
-            />
-            {/* {nama} */}
-            <Select
-              id=""
-              autoFocus
-              bgColor="White"
-              width="150%"
-              maxW="350px"
-              color="Black"
-              variant="outline"
-              placeholder="Masukan jurusan"
-              filter="drop-shadow(3px 3px 2px #222)"
-              cursor="pointer"
-            >
-              <option value={1}>Informatika</option>
-              <option value={2}>Ilmu Komunikasi</option>
-              <option value={3}>DKV</option>
-            </Select>
-          </VStack>
-          <Box
-            mt={12}
-            h="40px"
-            w="110%"
-            maxW="300px"
-            fontSize="25px"
-            borderRadius="10px"
-            bgColor="red"
-            color="white"
-            textAlign="center"
-            display={{md:"none", base:"block"}}
+      <Flex flexDir="column" justifyContent="center" alignItems="center">
+        <VStack spacing={5} mt={8}>
+          <Input
+            autoFocus
+            bgColor="White"
+            width="200%"
+            maxW="350px"
+            color="Black"
+            variant="outline"
+            placeholder="Masukan Nama"
+            filter="drop-shadow(3px 3px 2px #222)"
+            onChange={event => {
+              handleNama(event);
+            }}
+          />
+          {/* {nama} */}
+          <Select
+            id=""
+            autoFocus
+            bgColor="White"
+            width="200%"
+            maxW="350px"
+            color="Black"
+            variant="outline"
+            placeholder="Masukan jurusan"
+            filter="drop-shadow(3px 3px 2px #222)"
+            cursor="pointer"
           >
-            {atribute.name}
-          </Box>
-          <HStack spacing={{md:"120", base:"90"}} justify="center">
-            {/* <VStack>
-              <Box
-                padding="10px"
-                display={{ base: 'none', md: 'block' }}
-                h="300px"
-                w="200px"
-                bgColor="white"
-                right="60%"
-              >
-                <Box>
-                  <Center>
-                    <Box
-                      h="40px"
-                      w="110%"
-                      fontSize="25px"
-                      transform="translateY(-22px)"
-                      borderRadius="10px"
-                      bgColor="red"
-                      color="white"
-                      textAlign="center"
-                    >
-                      {atribute.name}
-                    </Box>
-                  </Center>
-                  <Box>
-                    <Text color="Blue">Lore: {atribute.lore}</Text>
-                    <Box>
-                      <Text color="Blue">Skill: </Text>
-                    </Box>
-                  </Box>
-                </Box>
+            <option value={1}>Informatika</option>
+            <option value={2}>Ilmu Komunikasi</option>
+            <option value={3}>DKV</option>
+          </Select>
+        </VStack>
+        <Flex flexDir={{md:"row", base:"column"}}>
+          <Flex 
+            flexDir="column" 
+            alignItems="center" 
+            justifyContent="center"
+            mr={{base:"none", md:"10px"}}
+            mt={{base: 12, md:"none"}}
+          >
+            <Box
+              h="40px"
+              minW={{md:"230px", base:"300px"}}
+              fontSize="25px"
+              borderRadius="10px"
+              bgColor="red"
+              color="white"
+              textAlign="center"
+              zIndex={1}
+            >
+              {atribute.tipe}
+            </Box>
+            <Box 
+              maxW={{md:"200px", base:"250px" }}
+              minH={{md:"300px"}}
+              bgColor="white"
+              borderRadius="10px"
+              px={3}
+              py={4}
+              textAlign="center"
+              mt="-2"
+              sIndex={0}
+            >
+              <Text color="blue" align="left" display={{base:"none", md:"block"}}>Skill :</Text>
+              <Text>{atribute.desc}</Text>
+              <Box display={{base:"none", md:"block"}}>
+                <Divider my={{md:3}} />
+                <Text color="blue" align="left" >Lore :</Text>
+                <Text>{atribute.lore}</Text>
               </Box>
-            </VStack> */}
+            </Box>
+          </Flex>
+          <HStack spacing="-155px" justify="center">
             <Image 
+              zIndex={5}
               src={prev} 
               width={{md:"120px", base:"90px" }}
               position="relative"
               cursor="pointer"
-              top={{md:"240px", base:"170px"}}
               transition="0.3s"
               _hover={{transform:"scale(1.1)"}}
               onClick={() => {
@@ -415,11 +223,11 @@ function SelectCharacter(props) {
               <DisplayChar />
             </Box>
             <Image 
+              zIndex={5}
               src={next}
               width={{md:"120px", base:"90px" }}
               position="relative"
               cursor="pointer"
-              top={{md:"240px", base:"170px"}}
               _hover={{transform:"scale(1.1)"}}
               transition="0.3s"
               onClick={() => {
@@ -427,19 +235,18 @@ function SelectCharacter(props) {
               }}
             />
           </HStack>
-          <Button
-            top={{md:"450px"}}
-            onClick={() => props.handleClick('home')}
-            bottom="0"
-            bgColor="blue.100"
-            border="1px solid black"
-            transition="0.2s"
-            zIndex={100}
-          >
-            LET'S GO
-          </Button> {/*perlu dibenerin */}
         </Flex>
-      </Grid>
+        <Button
+          mb="40px"
+          onClick={() => props.handleClick('home')}
+          bgColor="blue.100"
+          border="1px solid black"
+          transition="0.2s"
+          zIndex={100}
+        >
+          LET'S GO
+        </Button>
+      </Flex>
     </Box>
   )
 }
