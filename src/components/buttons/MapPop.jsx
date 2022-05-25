@@ -33,6 +33,10 @@ function MapPop(props) {
       <Image
         src={mapIcon}
         width={{ base: '60%', sm: '40%', md: '22%' }}
+        filter="drop-shadow(4px 4px 2px white)"
+        // bgColor="white"
+        
+        
         cursor="pointer"
         transition="0.2s linear"
         _hover={{ transform: 'scale(1.15)' }}

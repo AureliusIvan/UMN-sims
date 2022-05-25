@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Box, Image } from '@chakra-ui/react';
+import { Box, Image, Flex } from '@chakra-ui/react';
 //char1
 import hairfront1 from './characterAsset/default/nakMukbang/1.png';
 import face1 from './characterAsset/default/nakMukbang/2.png';
@@ -85,65 +85,53 @@ function CharacterModule(props) {
     }
   }, [character]);
   return (
-    <>
-      <Box>
+    <Flex pos="relative" justifyContent="center" alignContent="center">
+      <Box
+        // transform={{
+        //             md: "translateX(98%) translateY(-30px)",
+        //             sm: "translateX(100%) translateY(-40px)",
+        //             base: "translateX(155%) translateY(-40px)"
+        //           }}
+        transform={{
+          md: "translateY(-30px)",
+          sm: "translateY(-40px)",
+          base: "translateY(-40px)"
+        }}
+        bottom={0}
+        w={{md:"200px", sm:"180px", base:"120px"}}
+        h={{md:"60px", sm:"50px", base:"30px"}}
+        borderRadius="50%"
+        bgColor="black"
+        opacity="0.6"
+        pos="absolute"
+      />
+      <Box pos="relative">
         <Image
           pointerEvents="none"
           className="top"
-          objectFit="cover"
-          margin="auto"
-          left="0"
-          right="0"
-          bottom="0"
-          filter="drop-shadow(4px 4px 2px #222)"
-          w={{md:"600px", sm:"550px", base:"500px"}}
+          minW={{md:"600px", sm:"550px", base:"500px"}}
           h={{md:"600px", sm:"550px", base:"500px"}}
-          zIndex={7}
+          // zIndex={2}
           pos="absolute"
-          src={hairfront}
-          alt={'test'}
-        />
-        <Image
-          pointerEvents="none"
-          className="top"
-          objectFit="cover"
-          margin="auto"
-          left="0"
-          right="0"
-          bottom="0"
-          w={{md:"600px", sm:"550px", base:"500px"}}
-          h={{md:"600px", sm:"550px", base:"500px"}}
-          zIndex={6}
-          pos="absolute"
-          src={face}
+          src={hairback}
           alt={'test'}
         />
         <Image
           pointerEvents="none"
           className="body"
-          objectFit="cover"
-          margin="auto"
-          left="0"
-          right="0"
-          bottom="0"
-          w={{md:"600px", sm:"550px", base:"500px"}}
+          minW={{md:"600px", sm:"550px", base:"500px"}}
           h={{md:"600px", sm:"550px", base:"500px"}}
-          zIndex={5}
-          pos="absolute"
-          src={lefthand}
+          // zIndex={3}
+          pos={'absolute'}
+          src={righthand}
           alt={'test'}
         />
         <Image
           pointerEvents="none"
           className="body"
-          objectFit="cover"
-          margin="auto"
-          left="0"
-          right="0"
-          bottom="0"
-          w={{md:"600px", sm:"550px", base:"500px"}}
+          minW={{md:"600px", sm:"550px", base:"500px"}}
           h={{md:"600px", sm:"550px", base:"500px"}}
-          zIndex={4}
+          // zIndex={4}
           pos="absolute"
           src={body}
           alt={'test'}
@@ -151,63 +139,45 @@ function CharacterModule(props) {
         <Image
           pointerEvents="none"
           className="body"
-          objectFit="cover"
-          margin="auto"
-          left="0"
-          right="0"
-          bottom="0"
-          w={{md:"600px", sm:"550px", base:"500px"}}
+          minW={{md:"600px", sm:"550px", base:"500px"}}
           h={{md:"600px", sm:"550px", base:"500px"}}
-          zIndex={3}
+          // zIndex={5}
           pos="absolute"
-          src={righthand}
+          src={lefthand}
           alt={'test'}
         />
         <Image
           pointerEvents="none"
           className="top"
-          objectFit="cover"
-          margin="auto"
-          left="0"
-          right="0"
-          bottom="0"
-          w={{md:"600px", sm:"550px", base:"500px"}}
+          minW={{md:"600px", sm:"550px", base:"500px"}}
           h={{md:"600px", sm:"550px", base:"500px"}}
-          zIndex={2}
+          // zIndex={6}
           pos="absolute"
-          src={hairback}
+          src={face}
+          alt={'test'}
+        />
+        <Image
+          pointerEvents="none"
+          className="top"
+          filter="drop-shadow(4px 4px 2px #222)"
+          minW={{md:"600px", sm:"550px", base:"500px"}}
+          h={{md:"600px", sm:"550px", base:"500px"}}
+          // zIndex={7}
+          pos="absolute"
+          src={hairfront}
           alt={'test'}
         />
         <Image
           pointerEvents="none"
           className="bottom"
-          objectFit="cover"
-          margin="auto"
-          left="0"
-          right="0"
-          bottom="0"
-          w={{md:"600px", sm:"550px", base:"500px"}}
+          minW={{md:"600px", sm:"550px", base:"500px"}}
           h={{md:"600px", sm:"550px", base:"500px"}}
-          zIndex={1}
-          pos="absolute"
+          // zIndex={1}
           src={feet}
           alt={'test'}
         />
-        <Box
-          margin="auto"
-          left="0"
-          right="0"
-          bottom={{md:"30px", sm:"35px", base:"40px"}}
-          w={{md:"200px", sm:"180px", base:"120px"}}
-          h={{md:"60px", sm:"50px", base:"30px"}}
-          borderRadius="50%"
-          zIndex={0}
-          bgColor="black"
-          opacity="0.6"
-          pos="absolute"
-        />
       </Box>
-    </>
+    </Flex>
   );
 }
 
