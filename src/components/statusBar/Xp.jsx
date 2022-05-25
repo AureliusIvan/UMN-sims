@@ -1,13 +1,37 @@
-import { Box, Progress, Center, Flex } from "@chakra-ui/react";
+import { Box, Progress, Center, Flex, Tooltip, Heading, Text } from "@chakra-ui/react";
 import React, {useState, useContext} from "react";
 import { AllContext } from "../Value/CoinContext";
 
 export function Xp(){
-    const {belajar, setBelajar} = useContext(AllContext);
-    return(<>
-    <Center>
-        <Flex padding={0} fontSize='20px' zIndex={10} alignItems={'center'} justifyContent={'center'} pos={'absolute'} right='50px' top='130px' w={'40px'} h='40px' borderRadius={'50%'} bgColor='white'>XP</Flex>
-        <Progress pos={'absolute'} right='80px' top='140px' w={'150px'} colorScheme={'green'} borderRadius='20px' border='2px solid white' h={'20px'} value={belajar}/>
-    </Center>
-    </>);
+    const { belajar } = useContext(AllContext);
+    return (
+        <Box pos="absolute" right="50px" top="130px">
+            <Tooltip 
+                label={`Study ${belajar}%`} 
+                placement="bottom"
+            >
+                <Flex alignItems="center">
+                    <Progress 
+                        mr="-10px"
+                        w={'150px'} 
+                        colorScheme={'green'} 
+                        borderRadius='20px' 
+                        border='2px solid white' 
+                        h={'20px'} 
+                        value={belajar}
+                    />
+                    <Flex 
+                        fontSize="20px"
+                        borderRadius="50%" 
+                        width="40px" 
+                        height="40px" 
+                        bgColor='white'
+                        alignItems="center"
+                        justifyContent="center"
+                        zIndex={5}
+                    >XP</Flex>
+                </Flex>
+            </Tooltip>
+        </Box>
+    );
 }

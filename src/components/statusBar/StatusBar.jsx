@@ -13,7 +13,7 @@ function Bar(props) {
       <Box onClick={props.function} border={'2px solid green'} marginInline='5px' borderRadius='50%'>
         <CircularProgress value={props.value} color="green.400">
           <CircularProgressLabel>
-            <Image width={8} my="auto" mx="auto" src={props.img}/>
+            <Image border="2px solid green" bg="white" borderRadius="100%" width={8} my="auto" mx="auto" src={props.img}/>
           </CircularProgressLabel>
         </CircularProgress>
       </Box>

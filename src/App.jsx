@@ -39,6 +39,7 @@ function App() {
   const handeShowPause = x => {
     setShowPause(x);
   };
+
   //coin const
   const [coin, setCoin] = useState(7000);
   //player choice
@@ -131,7 +132,7 @@ function App() {
 
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
-  const [game, setGame] = useState('selectchar');
+  const [game, setGame] = useState('home');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
