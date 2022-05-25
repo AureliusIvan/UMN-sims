@@ -131,7 +131,7 @@ function App() {
 
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
-  const [game, setGame] = useState('selectchar');
+  const [game, setGame] = useState('eat');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
