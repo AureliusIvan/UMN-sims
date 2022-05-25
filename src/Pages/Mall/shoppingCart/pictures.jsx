@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect} from 'react';
 import { useDrag } from 'react-dnd';
 import { Image } from '@chakra-ui/react';
 
@@ -10,6 +10,8 @@ export function Picture({url, id}) {
             isDragging: !!monitor.isDragging(),
         }),
     }))
+
+
     return (
         <>
             <Image ref={drag} src={url} alt='' width={"100px"} style={{opacity: isDragging ? "0%" : "100%"}}/>
