@@ -9,17 +9,42 @@ import {
   Flex,
   Image,
 } from '@chakra-ui/react';
-
+import { Picture } from './pictures';
 import { PhoneIcon, AddIcon, ArrowBackIcon } from '@chakra-ui/icons';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import React, { useContext, useState } from 'react';
-import { DragFood } from './DragFood';
 import { CreateChar } from '../../../components/character/CharacterCard';
 import { AllContext } from '../../../components/Value/CoinContext';
 import BurgerImg from './food/burger.png';
+import { useDrop } from 'react-dnd';
+import ItemList from './shoppingList';
+
+function Dragdrop() {
+  const [board, setBoard] = useState([]);
+  const [{ isOver }, drop] = useDrop(() => ({
+    accept: 'image',
+    drop: () => addImage,
+    collect: monitor => ({
+      isOver: !!monitor.isOver(),
+    }),
+  }));
+  const addImage = () => {
+    return (
+      <>
+        <Box>test</Box>
+      </>
+    );
+  };
+  return (
+    <>
+      <div className="drag-box">test</div>
+      <div className="drop-board"></div>
+    </>
+  );
+}
 
 function Eat(props) {
-  const {showPause, setShowPause} = useContext(AllContext);
+  const { showPause, setShowPause } = useContext(AllContext);
   const { foodList, setFoodList } = useContext(AllContext);
   const { makan, setMakan } = useContext(AllContext);
   const { burger, setBurger } = useContext(AllContext);
@@ -27,7 +52,7 @@ function Eat(props) {
   const { ikangoreng, setIkangoreng } = useContext(AllContext);
   const { steak, setSteak } = useContext(AllContext);
   const { ayampanggang, setAyampanggang } = useContext(AllContext);
-  
+
   function EatHandle(x) {
     if (makan < 100) setMakan(makan + x);
   }
@@ -71,6 +96,7 @@ function Eat(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={3}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={3}>
           <Box zIndex={-1}>
+            <Dragdrop />
             <CreateChar />
           </Box>
         </GridItem>

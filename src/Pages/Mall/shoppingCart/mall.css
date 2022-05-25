@@ -52,10 +52,11 @@
 }
 
 .drop-board {
+  background-image: url(./../../../components/asset/avatar/boy.png);
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
   border: 1px solid black;
-  width: 500px;
+  width: 800px;
   height: 120px;
   background-color: lightgreen;
 }

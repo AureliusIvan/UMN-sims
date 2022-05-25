@@ -10,14 +10,6 @@ const dragList = [
     {
         id: 3,
         url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwQl1K64iaP-Scgn56GGAWJcvHGTNwpC2HPQ&usqp=CAU"
-    },
-    {
-        id: 4,
-        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwQl1K64iaP-Scgn56GGAWJcvHGTNwpC2HPQ&usqp=CAU"
-    },
-    {
-        id: 5,
-        url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwQl1K64iaP-Scgn56GGAWJcvHGTNwpC2HPQ&usqp=CAU"
     }
 ]
 

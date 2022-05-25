@@ -1,4 +1,11 @@
-import { ChakraProvider, theme, Text, background } from '@chakra-ui/react';
+import {
+  ChakraProvider,
+  theme,
+  Text,
+  background,
+  toast,
+  useToast,
+} from '@chakra-ui/react';
 import { useMemo, useState, useEffect, useRef } from 'react';
 import './App.css';
 import PageOne from './Pages/Start';
@@ -12,6 +19,7 @@ import { AllContext } from './components/Value/CoinContext';
 import Pause from './components/buttons/PauseBtn';
 import Phone from './components/phone/phoneMain';
 import MiniGamestwo from './Pages/Home/MiniGames/ButtonApp';
+import Toast from './components/template/tempWarnPopUp';
 
 /*
 1. nama
@@ -103,31 +111,24 @@ function App() {
     }, [delay]);
   }
 
-
-
-  const providerValue = useMemo(
-    () => ({
-      coin,
-      setCoin,
-      name,
-      setName,
-    }),
-    [coin, name]
-  );
+  //useEffect buat notif
+  //notif uang jajan
+  const toast = useToast();
+  useEffect(() => {
+  }, [coin]);
 
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
-  const [game, setGame] = useState('selectchar');
+  const [game, setGame] = useState('mall');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
   };
-//this for hide the pause dan phone button
+  //this for hide the pause dan phone button
   useEffect(() => {
-    if(game == 'start'||game == 'eat' || game == 'selectchar'){
+    if (game == 'start' || game == 'eat' || game == 'selectchar') {
       setShowPause(false);
-    }
-    else{
+    } else {
       setShowPause(true);
     }
   }, [game]);
@@ -201,7 +202,7 @@ function App() {
             case 'uni':
               return <Uni handleClick={handleClick} />;
             case 'Minigames':
-              return <MiniGamestwo handleClick={handleClick}/>
+              return <MiniGamestwo handleClick={handleClick} />;
             default:
               return null;
           }
