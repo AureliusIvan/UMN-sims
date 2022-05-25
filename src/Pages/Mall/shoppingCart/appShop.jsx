@@ -48,10 +48,10 @@ function AppShop(props) {
             backdropFilter="blur(5px) hue-rotate(90deg)"
           />
           <ModalContent my="auto">
-            <ModalHeader fontWeight="light">Are You Sure ?</ModalHeader>
+            <ModalHeader fontWeight="light">Empty your cart</ModalHeader>
             <ModalCloseButton />
             <ModalBody>
-              Your shopping items will be set to defaut. Still Proceed?
+              Your items inside the shopping cart will be set to defaut. <br/> Proceed?
             </ModalBody>
 
             <ModalFooter>
