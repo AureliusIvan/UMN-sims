@@ -7,7 +7,6 @@ import { AllContext } from '../../components/Value/CoinContext';
 import { CreateChar } from '../../components/character/CharacterCard';
 import WheaterApp from '../../components/background/Weather';
 import StatusGroup from '../../components/statusBar/StatusBarGroup';
-import { SetBgHome } from '../../components/background/background';
 import BgPagi from './bg/Pagi.png';
 import BgSiang from './bg/Siang.png';
 import BgSore from './bg/Sore.png';

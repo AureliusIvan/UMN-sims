@@ -1,0 +1,38 @@
+.container {
+  touch-action: none;
+  padding: 20px;
+}
+
+.dropzone.left {
+  margin-right: 10px;
+  height: 70px;
+  width: 90vh;
+  justify-content: space-between;
+}
+
+.dropzone.right {
+  margin-right: 10px;
+  height: 70px;
+  width: 90vh;
+  justify-content: space-between;
+}
+
+.grid-item-content {
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+  background: rgb(182, 218, 245, 0.5);
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  align-items: center;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.grid-item-content:hover {
+  width: 120px;
+  height: 120px;
+  transform: translateX(-10px) translateY(-10px);
+}
