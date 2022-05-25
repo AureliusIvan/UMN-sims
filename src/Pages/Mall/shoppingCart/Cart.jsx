@@ -29,19 +29,19 @@ function ShopCart() {
         id: 2,
         name: 'beef',
         image: beef,
-        price: 1000,
+        price: 3000,
       },
       {
         id: 3,
         name: 'bread',
         image: bread,
-        price: 1000,
+        price: 500,
       },
       {
         id: 4,
         name: 'cabbage',
         image: cabbage,
-        price: 1000,
+        price: 100,
       },
       {
         id: 5,
@@ -53,19 +53,19 @@ function ShopCart() {
         id: 6,
         name: 'egg',
         image: eggtray,
-        price: 1000,
+        price: 100,
       },
       {
         id: 7,
         name: 'salt',
         image: salt,
-        price: 1000,
+        price: 400,
       },
     ],
     right: [],
   });
 
-  function onChange(sourceId, sourceIndex, targetIndex, targetId) {
+  function onChange(sourceId, sourceIndex, targetIndex, targetId, id) {
     if (targetId) {
       const result = move(
         items[sourceId],
@@ -73,9 +73,9 @@ function ShopCart() {
         sourceIndex,
         targetIndex
       );
+      console.log(targetId);
       return setItems({
         ...items,
-        price: 1,
         [sourceId]: result[0],
         [targetId]: result[1],
       });
@@ -89,8 +89,8 @@ function ShopCart() {
   }
 
   useEffect(() => {
-    
-  }, [items]);
+    console.log(total);
+  }, [total]);
 
   return (
     <GridContextProvider onChange={onChange}>
@@ -139,6 +139,7 @@ function ShopCart() {
                 <div className="grid-item">
                   <div className="grid-item-content">
                     <Image draggable="false" src={item.image} />
+                    {items.price}
                   </div>
                 </div>
               </GridItem>
