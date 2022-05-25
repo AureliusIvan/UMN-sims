@@ -9,13 +9,23 @@ import {
   Flex,
   Image,
 } from '@chakra-ui/react';
-import { Picture } from './pictures';
 import { PhoneIcon, AddIcon, ArrowBackIcon } from '@chakra-ui/icons';
 import React, { useContext, useState } from 'react';
 import { CreateChar } from '../../../components/character/CharacterCard';
 import { AllContext } from '../../../components/Value/CoinContext';
 import BurgerImg from './food/burger.png';
 import ItemList from './shoppingList';
+import { useDrop, useDrag } from 'react-dnd';
+
+
+function dragFood(){
+  
+  return(
+    <>
+    </>
+  ); 
+}
+
 
 function Eat(props) {
   const { showPause, setShowPause } = useContext(AllContext);

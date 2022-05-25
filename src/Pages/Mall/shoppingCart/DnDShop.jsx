@@ -127,40 +127,24 @@ function Dragdrop() {
   }
 
   return (
-      <>
-    <Box margin={"10px"}>
-      <Currency />
-      <Flex className="drag-box">{pictures}</Flex>
-      <br />
-      <Box
-        overflow={'hidden'}
-        className="drop-board"
-        ref={drop}
-        style={{ border: isOver ? '3px solid red' : '1px solid black' }}
-      >
-        {boardImages}
+    <>
+      <Box margin={'10px'}>
+        <Currency />
+        <Flex className="drag-box">{pictures}</Flex>
+        <br />
+        <Box
+          overflow={'hidden'}
+          className="drop-board"
+          ref={drop}
+          style={{ border: isOver ? '3px solid red' : '1px solid black' }}
+        >
+          {boardImages}
+        </Box>
+        <Text color="black" width="100px">
+          <Box textAlign="center" borderRadius="10px" h="40px" w="150px" bgColor="yellow.100">Total: {total}</Box>
+        </Text>
+        <Button onClick={BuyItems}>Buy</Button>
       </Box>
-      <Text color="black" width="100px">
-        {total}
-        <br />
-        tomato:
-        {tomato}
-        <br />
-        beef:
-        {beef}
-        <br />
-        chicken:
-        {chicken}
-        <br />
-        cabbage:
-        {cabbage}
-        <br />
-        eggtray:
-        {eggtray}
-        <br />
-      </Text>
-      <Button onClick={BuyItems}>Buy</Button>
-    </Box>
     </>
   );
 }
