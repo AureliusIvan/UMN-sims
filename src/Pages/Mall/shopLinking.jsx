@@ -2,7 +2,6 @@ import { useState } from 'react';
 
 import Cart from './shoppingCart/appShop';
 import Mall from './Mall';
-
 import Home from '../Home/Home';
 import Cafe from '../Cafe/Cafe';
 import Uni from '../Universitas/UnivHall';
