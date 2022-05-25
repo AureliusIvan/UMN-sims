@@ -43,9 +43,9 @@ function App() {
   //coin const
   const [coin, setCoin] = useState(7000);
   //player choice
-  const [jurusan, setJurusan] = useState(0);
+  const [jurusan, setJurusan] = useState("");
   const [character, setCharacter] = useState(1);
-  const [nama, setNama] = useState('');
+  const [nama, setNama] = useState('kamu');
   const [name, setName] = useState('');
   //time const
   const [Day, setDay] = useState(0);
@@ -53,9 +53,9 @@ function App() {
   const [minute, setCount] = useState(0);
   const [countday, setCountday] = useState(0);
   //Status bar const
-  const [makan, setMakan] = useState(10);
-  const [tidur, setTidur] = useState(20);
-  const [main, setMain] = useState(30);
+  const [makan, setMakan] = useState(50);
+  const [tidur, setTidur] = useState(50);
+  const [main, setMain] = useState(50);
   const [belajar, setBelajar] = useState(70);
   //Weather const
   const [weather, setWeather] = useState('');
@@ -72,6 +72,7 @@ function App() {
   const [ikangoreng, setIkangoreng] = useState(0);
   const [steak, setSteak] = useState(0);
   const [ayampanggang, setAyampanggang] = useState(0);
+  
   //buat jam
   useInterval(() => {
     setCount(minute + 1);
@@ -111,15 +112,22 @@ function App() {
     }, [delay]);
   }
 
-  //useEffect buat notif
-  //notif uang jajan
-  const toast = useToast();
-  useEffect(() => {
-  }, [coin]);
+  // //useEffect buat notif
+  // //notif uang jajan
+  // const toast = useToast();
+  // useEffect(() => {
+  //   toast({
+  //     description: "koin nambah",
+  //     status: "warning",
+  //     position : "bottom-start",
+  //     // default durationnya 5 detik
+  //     isClosable: true,
+  //   })
+  // }, [coin]);
 
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
-  const [game, setGame] = useState('mall');
+  const [game, setGame] = useState('selectchar');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);

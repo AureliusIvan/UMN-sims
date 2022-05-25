@@ -18,7 +18,7 @@ export default function Onecard({ card, handleChoice, flipped, disabled }){
                 />
 
                 <img 
-                className="belakang" 
+                className="belakang"
                 src="/img/card.png" 
                 onClick={handleClick} 
                 alt="card belakang"

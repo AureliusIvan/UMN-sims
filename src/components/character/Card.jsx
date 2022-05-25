@@ -86,13 +86,13 @@ function CharacterModule(props) {
   }, [character]);
   return (
     <>
-      <Box translateX="200px">
+      <Box>
         <Image
           pointerEvents="none"
           className="top"
           objectFit="cover"
           margin="auto"
-          left={props.left}
+          left="0"
           right="0"
           bottom="0"
           filter="drop-shadow(4px 4px 2px #222)"
@@ -108,8 +108,7 @@ function CharacterModule(props) {
           className="top"
           objectFit="cover"
           margin="auto"
-          left={props.left}
-          transform="translateX(200px)"
+          left="0"
           right="0"
           bottom="0"
           w={{md:"600px", sm:"550px", base:"500px"}}
@@ -124,7 +123,7 @@ function CharacterModule(props) {
           className="body"
           objectFit="cover"
           margin="auto"
-          left={props.left}
+          left="0"
           right="0"
           bottom="0"
           w={{md:"600px", sm:"550px", base:"500px"}}
@@ -139,7 +138,7 @@ function CharacterModule(props) {
           className="body"
           objectFit="cover"
           margin="auto"
-          left={props.left}
+          left="0"
           right="0"
           bottom="0"
           w={{md:"600px", sm:"550px", base:"500px"}}
@@ -154,7 +153,7 @@ function CharacterModule(props) {
           className="body"
           objectFit="cover"
           margin="auto"
-          left={props.left}
+          left="0"
           right="0"
           bottom="0"
           w={{md:"600px", sm:"550px", base:"500px"}}
@@ -169,7 +168,7 @@ function CharacterModule(props) {
           className="top"
           objectFit="cover"
           margin="auto"
-          left={props.left}
+          left="0"
           right="0"
           bottom="0"
           w={{md:"600px", sm:"550px", base:"500px"}}
@@ -184,8 +183,7 @@ function CharacterModule(props) {
           className="bottom"
           objectFit="cover"
           margin="auto"
-          left={props.left}
-          transform={props.transform}
+          left="0"
           right="0"
           bottom="0"
           w={{md:"600px", sm:"550px", base:"500px"}}
@@ -199,7 +197,6 @@ function CharacterModule(props) {
           margin="auto"
           left="0"
           right="0"
-          transform={props.transform}
           bottom={{md:"30px", sm:"35px", base:"40px"}}
           w={{md:"200px", sm:"180px", base:"120px"}}
           h={{md:"60px", sm:"50px", base:"30px"}}

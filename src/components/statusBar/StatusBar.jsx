@@ -1,25 +1,36 @@
 import { Box } from '@chakra-ui/react';
 import React, { useContext, useState } from 'react';
 import { AllContext } from '../Value/CoinContext';
-import { Progress, CircularProgress, CircularProgressLabel  } from '@chakra-ui/react';
+import { Tooltip, Image, Progress, CircularProgress, CircularProgressLabel  } from '@chakra-ui/react';
+
+import eat from "../asset/stat/lambung1.png"
+import sleep from "../asset/stat/Energy.png"
+import fun from "../asset/stat/fun_1.png"
 
 function Bar(props) {
   return (
-    <Box border={'2px solid green'} marginInline='5px' borderRadius='50%'>
-      <CircularProgress value={props.value} color="green.400">
-        <CircularProgressLabel>{props.value}%</CircularProgressLabel>
-      </CircularProgress>
-      {props.content}
-    </Box>
+    <Tooltip label={props.title}>
+      <Box onClick={props.function} border={'2px solid green'} marginInline='5px' borderRadius='50%'>
+        <CircularProgress value={props.value} color="green.400">
+          <CircularProgressLabel>
+            <Image width={8} my="auto" mx="auto" src={props.img}/>
+          </CircularProgressLabel>
+        </CircularProgress>
+      </Box>
+    </Tooltip>
   );
 }
-
 
 export function EatBar() {
   const { makan, setMakan } = useContext(AllContext);
   return (
     <>
-      <Bar value={makan} />
+      <Bar 
+        title={`Fullness ${makan}%`}
+        img={eat}
+        value={makan} 
+        function={() => setMakan(makan + 10)} //test aja
+      />
     </>
   );
 }
@@ -28,7 +39,11 @@ export function SleepBar() {
     const { tidur, setTidur } = useContext(AllContext);
     return (
       <>
-        <Bar value={tidur} />
+        <Bar 
+          title={`Energy ${tidur}%`}
+          img={sleep}
+          value={tidur}
+        />
       </>
     );
   }
@@ -36,7 +51,11 @@ export function SleepBar() {
     const { main, setMain } = useContext(AllContext);
     return (
       <>
-        <Bar value={main} />
+        <Bar 
+          title={`Happiness ${main}%`}
+          img={fun}
+          value={main} 
+        />
       </>
     );
   }

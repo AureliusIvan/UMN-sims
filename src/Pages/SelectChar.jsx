@@ -20,6 +20,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { CreateChar } from '../components/character/CharacterCard';
 import { AllContext } from '../components/Value/CoinContext';
 import CharacterModule from '../components/character/Card';
+import {InfoIcon} from "@chakra-ui/icons"
 
 import next from "../components/asset/icon/next.png"
 import prev from "../components/asset/icon/prev.png"
@@ -60,7 +61,7 @@ function DisplayChar() {
         borderRadius="50%"
       ></Box> */}
       <Box>
-        <CharacterModule left="0" />
+        <CharacterModule />
       </Box>
     </>
   );
@@ -97,7 +98,7 @@ const Char4 = {
   name: 'girl',
   tipe: 'Anak Rajin',
   desc: '[Proficient Learner] Mepercepat belajar hingga +20%',
-  lore: 'Anak Rajin, Begitulan orang-orang memanggilnya. Panggilan tersebut didapatnya karena dia setiap harinya belajar ngoding (termasuk hari libur).',
+  lore: 'Anak Rajin, Begitulah orang-orang memanggilnya. Panggilan tersebut didapatnya karena dia setiap harinya belajar ngoding (termasuk hari libur).',
   next: 1,
   prev: 3,
 };
@@ -118,7 +119,9 @@ function SelectCharacter(props) {
     setCharacter(atribute.next);
   };
 
-  const [hover, setHover] = useState(false);
+  function handleJurusan(e) {
+    setJurusan(e.target.value);
+  }
 
   useEffect(() => {
     if (character === 1) {
@@ -161,10 +164,11 @@ function SelectCharacter(props) {
             placeholder="Masukan jurusan"
             filter="drop-shadow(3px 3px 2px #222)"
             cursor="pointer"
+            onChange={(handleJurusan)}
           >
-            <option value={1}>Informatika</option>
-            <option value={2}>Ilmu Komunikasi</option>
-            <option value={3}>DKV</option>
+            <option value="Informatika">Informatika</option>
+            <option value="Ilmu Komunikasi">Ilmu Komunikasi</option>
+            <option value="DKV">DKV</option>
           </Select>
         </VStack>
         <Flex flexDir="column" mb={20}>
@@ -176,18 +180,21 @@ function SelectCharacter(props) {
             mr={{base:"none", md:"10px"}}
             mt={{base: 12, md:"none"}}
           >
-            <Box
-              h="40px"
-              minW={{md:"230px", base:"300px"}}
-              fontSize="25px"
-              borderRadius="10px"
-              bgColor="red"
-              color="white"
-              textAlign="center"
-              zIndex={1}
-            >
-              {atribute.tipe}
-            </Box>
+            <Flex>
+              <Box
+                h="40px"
+                minW={{md:"230px", base:"300px"}}
+                fontSize="25px"
+                borderRadius="10px"
+                bgColor="red"
+                color="white"
+                textAlign="center"
+                zIndex={1}
+              >
+                {atribute.tipe}
+              </Box>
+              <InfoIcon color="blue.400"/>
+            </Flex>
             <Box 
               maxW={{md:"200px", base:"250px" }}
               minH={{md:"300px"}}
