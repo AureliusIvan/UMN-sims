@@ -65,7 +65,7 @@ function ShopCart() {
     right: [],
   });
 
-  function onChange(sourceId, sourceIndex, targetIndex, targetId, id) {
+  function onChange(sourceId, sourceIndex, targetIndex, targetId) {
     if (targetId) {
       const result = move(
         items[sourceId],
@@ -73,7 +73,7 @@ function ShopCart() {
         sourceIndex,
         targetIndex
       );
-      console.log(targetId);
+      console.log(targetIndex);
       return setItems({
         ...items,
         [sourceId]: result[0],
