@@ -112,18 +112,18 @@ function App() {
     }, [delay]);
   }
 
-  // //useEffect buat notif
-  // //notif uang jajan
-  // const toast = useToast();
-  // useEffect(() => {
-  //   toast({
-  //     description: "koin nambah",
-  //     status: "warning",
-  //     position : "bottom-start",
-  //     // default durationnya 5 detik
-  //     isClosable: true,
-  //   })
-  // }, [coin]);
+  //useEffect buat notif
+  //notif uang jajan
+  const toast = useToast();
+  useEffect(() => {
+    toast({
+      description: "koin nambah",
+      status: "warning",
+      position : "bottom-start",
+      // default durationnya 5 detik
+      isClosable: true,
+    })
+  }, [coin]);
 
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);

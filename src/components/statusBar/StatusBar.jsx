@@ -22,21 +22,20 @@ function Bar(props) {
 }
 
 export function EatBar() {
-  const { makan, setMakan } = useContext(AllContext);
+  const { makan } = useContext(AllContext);
   return (
     <>
       <Bar 
         title={`Fullness ${makan}%`}
         img={eat}
         value={makan} 
-        function={() => setMakan(makan + 10)} //test aja
       />
     </>
   );
 }
 
 export function SleepBar() {
-    const { tidur, setTidur } = useContext(AllContext);
+    const { tidur } = useContext(AllContext);
     return (
       <>
         <Bar 
@@ -47,15 +46,16 @@ export function SleepBar() {
       </>
     );
   }
-  export function PlayBar() {
-    const { main, setMain } = useContext(AllContext);
-    return (
-      <>
-        <Bar 
-          title={`Happiness ${main}%`}
-          img={fun}
-          value={main} 
-        />
-      </>
-    );
-  }
+
+export function PlayBar() {
+  const { main } = useContext(AllContext);
+  return (
+    <>
+      <Bar 
+        title={`Happiness ${main}%`}
+        img={fun}
+        value={main} 
+      />
+    </>
+  );
+}

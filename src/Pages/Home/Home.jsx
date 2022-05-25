@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useToast, Grid, GridItem, Box, Button, Text, Center, Image } from '@chakra-ui/react';
 import MapPop from '../../components/buttons/MapPop';
 import Currency from '../../components/buttons/Currency';
@@ -13,6 +13,7 @@ import BgSiang from './bg/Siang.png';
 import BgSore from './bg/Sore.png';
 import BgMalem from './bg/Malem.png';
 import { Xp } from '../../components/statusBar/Xp';
+import Notif from './testNotif';
 
 import lala from "../../components/asset/gif/eat.gif"
 
@@ -39,18 +40,24 @@ function Home(props) {
 
   //useEffect buat notif
   //notif uang jajan
-  const toast = useToast();
-  useEffect(() => {
-    toast({
-      description: "koin nambah",
-      status: "warning",
-      position : "bottom-start",
-      // default durationnya 5 detik
-      isClosable: true,
-    })
-  }, [coin]);
-  
 
+  // const[first, setFirst] = useState(true);
+
+  // const toast = useToast();
+  // useEffect(() => {
+  //   if (first) 
+  //     setFirst(false);
+
+  //   if (!first) {
+  //     toast({
+  //       description: "koin nambah",
+  //       status: "success",
+  //       position : "bottom-start",
+  //       isClosable: true,
+  //     })
+  //   }
+  // }, [coin]);
+  
   const add = x => {
     setCoin(coin + x);
   };
