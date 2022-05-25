@@ -6,8 +6,6 @@ import Mall from './Mall';
 import Home from '../Home/Home';
 import Cafe from '../Cafe/Cafe';
 import Uni from '../Universitas/UnivHall';
-import ShopCart from './shoppingCart/Cart';
-import CartTiga from './shoppingCart/Cart2';
 const ToMall = () => {
   const [shop, setShop] = useState('mall');
 
@@ -26,10 +24,6 @@ const ToMall = () => {
       return <Cafe handleClick={handleClick} />;
     case 'uni':
       return <Uni handleClick={handleClick} />;
-    case 'cart2':
-      return <ShopCart handleClick={handleClick} />;
-    case 'cart3':
-      return <CartTiga handleClick={handleClick} />;
     default:
       return null;
   }
