@@ -1,6 +1,5 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
-import { Image } from '@chakra-ui/react';
 
 export function Picture({url, id}) {
     const [{isDragging}, drag] = useDrag(() => ({
@@ -12,7 +11,7 @@ export function Picture({url, id}) {
     }))
     return (
         <>
-            <Image ref={drag} src={url} alt='' width={"100px"} style={{opacity: isDragging ? "0%" : "100%"}}/>
+            <img ref={drag} src={url} alt='' width={"150px"} style={{opacity: isDragging ? "0%" : "100%"}}/>
         </>
     )
 }
