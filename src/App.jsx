@@ -3,7 +3,6 @@ import {
   theme,
   Text,
   background,
-  toast,
   useToast,
 } from '@chakra-ui/react';
 import { useMemo, useState, useEffect, useRef } from 'react';
@@ -43,9 +42,9 @@ function App() {
   //coin const
   const [coin, setCoin] = useState(7000);
   //player choice
-  const [jurusan, setJurusan] = useState(0);
+  const [jurusan, setJurusan] = useState("");
   const [character, setCharacter] = useState(1);
-  const [nama, setNama] = useState('');
+  const [nama, setNama] = useState('kamu');
   const [name, setName] = useState('');
   //time const
   const [Day, setDay] = useState(0);
@@ -53,9 +52,9 @@ function App() {
   const [minute, setCount] = useState(0);
   const [countday, setCountday] = useState(0);
   //Status bar const
-  const [makan, setMakan] = useState(10);
-  const [tidur, setTidur] = useState(20);
-  const [main, setMain] = useState(30);
+  const [makan, setMakan] = useState(50);
+  const [tidur, setTidur] = useState(50);
+  const [main, setMain] = useState(50);
   const [belajar, setBelajar] = useState(70);
   //Weather const
   const [weather, setWeather] = useState('');
@@ -79,6 +78,7 @@ function App() {
   const [cabbage, setCabbage] = useState(0);
   const [chicken, setChicken] = useState(0);
   const [eggtray, setEggtray] = useState(0);
+  
   //buat jam
   useInterval(() => {
     setCount(minute + 1);
@@ -121,7 +121,13 @@ function App() {
   //useEffect buat notif
   //notif uang jajan
   const toast = useToast();
-  useEffect(() => {}, [coin]);
+  useEffect(() => {
+      console.log("halo hai")
+        // if (coin > prevCoin)
+        //   toast success
+        // else
+        //   toast ?? 
+  }, [coin]);
 
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
