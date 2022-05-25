@@ -3,7 +3,6 @@ import {
   theme,
   Text,
   background,
-  toast,
   useToast,
 } from '@chakra-ui/react';
 import { useMemo, useState, useEffect, useRef } from 'react';
@@ -72,6 +71,13 @@ function App() {
   const [ikangoreng, setIkangoreng] = useState(0);
   const [steak, setSteak] = useState(0);
   const [ayampanggang, setAyampanggang] = useState(0);
+
+  //const buat bahan makanan
+  const [tomato, setTomato] = useState(0);
+  const [beef, setBeef] = useState(0);
+  const [cabbage, setCabbage] = useState(0);
+  const [chicken, setChicken] = useState(0);
+  const [eggtray, setEggtray] = useState(0);
   
   //buat jam
   useInterval(() => {
@@ -116,13 +122,11 @@ function App() {
   //notif uang jajan
   const toast = useToast();
   useEffect(() => {
-    toast({
-      description: "koin nambah",
-      status: "warning",
-      position : "bottom-start",
-      // default durationnya 5 detik
-      isClosable: true,
-    })
+      console.log("halo hai")
+        // if (coin > prevCoin)
+        //   toast success
+        // else
+        //   toast ?? 
   }, [coin]);
 
   const [value, setValue] = useState(0);
@@ -183,6 +187,16 @@ function App() {
           setSteak,
           ayampanggang,
           setAyampanggang,
+          tomato,
+          setTomato,
+          beef,
+          setBeef,
+          cabbage,
+          setCabbage,
+          chicken,
+          setChicken,
+          eggtray,
+          setEggtray,
         }}
       >
         {showPause ? (

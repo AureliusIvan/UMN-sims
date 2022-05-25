@@ -45,18 +45,30 @@
 .drag-box {
   display: flex;
   justify-content: space-around;
-  border: 1px solid black;
+  border-radius: 10px;
   width: 500px;
   height: 120px;
   background-color: lightblue;
 }
 
 .drop-board {
-  background-image: url(./../../../components/asset/avatar/boy.png);
+  border-radius: 10px;
   display: flex;
   justify-content: left;
-  border: 1px solid black;
+  border: 10px solid rgb(255, 255, 255);
   width: 800px;
   height: 120px;
   background-color: lightgreen;
+}
+
+
+
+.itemshop{
+  width: 100px;
+  height: 100px;
+}
+
+.itemshop:hover{
+  width: 100px;
+  height: 100px;
 }

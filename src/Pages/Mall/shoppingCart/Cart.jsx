@@ -5,7 +5,7 @@ import {
   GridDropZone,
   GridItem,
   swap,
-  move,
+  move
 } from 'react-grid-dnd';
 import './Cart.css';
 import tomato from './itemimage/tomato.png';
@@ -15,6 +15,8 @@ import cabbage from './itemimage/cabbage.png';
 import chicken from './itemimage/chicken.png';
 import eggtray from './itemimage/eggtray.png';
 import salt from './itemimage/saltandpepper.png';
+import { AllContext } from '../../../components/Value/CoinContext';
+
 function ShopCart() {
   const [total, setTotal] = useState(0);
   const [items, setItems] = useState({
@@ -64,7 +66,6 @@ function ShopCart() {
     ],
     right: [],
   });
-
   function onChange(sourceId, sourceIndex, targetIndex, targetId) {
     if (targetId) {
       const result = move(
@@ -73,20 +74,24 @@ function ShopCart() {
         sourceIndex,
         targetIndex
       );
-      console.log(targetIndex);
       return setItems({
         ...items,
         [sourceId]: result[0],
         [targetId]: result[1],
       });
     }
-
     const result = swap(items[sourceId], sourceIndex, targetIndex);
     return setItems({
       ...items,
       [sourceId]: result,
     });
   }
+
+  useEffect(() => {
+    const lastItem = items.left.pop().price;
+    setTotal(total + lastItem);
+}, [items]);
+
 
   useEffect(() => {
     console.log(total);
