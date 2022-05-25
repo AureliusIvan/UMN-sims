@@ -10,7 +10,7 @@ const cardImages = [
   {"src": "/img/chips.png",    matched:false},
   {"src": "/img/coin.png",     matched:false},
   {"src": "/img/macaron.png",  matched:false},
-  {"src": "/img/Battery.png",  matched:false},
+  {"src": "/img/milk.png",  matched:false},
 ]
 
 function App() {
