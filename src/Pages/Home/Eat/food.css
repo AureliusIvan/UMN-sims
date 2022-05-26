@@ -1,0 +1,20 @@
+.itemshop {
+    position: absolute;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  transition: 0.5s;
+}
+.itemshop:hover {
+  width: 150px;
+  height: 150px;
+}
+
+.titleFood{
+    text-align: center;
+    margin: auto;
+    left: 0;
+    right: 0;
+}

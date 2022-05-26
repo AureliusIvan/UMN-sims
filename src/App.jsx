@@ -3,7 +3,6 @@ import {
   theme,
   Text,
   background,
-  toast,
   useToast,
 } from '@chakra-ui/react';
 import { useMemo, useState, useEffect, useRef } from 'react';
@@ -11,7 +10,7 @@ import './App.css';
 import PageOne from './Pages/Start';
 import SelectCharacter from './Pages/SelectChar';
 import Home from './Pages/Home/Home';
-import Eat from './Pages/Home/Eat/Eat';
+import Eat from './Pages/Home/Eat/Eat2';
 import Cafe from './Pages/Cafe/Cafe';
 import ToMall from './Pages/Mall/shopLinking';
 import { AllContext } from './components/Value/CoinContext';
@@ -21,6 +20,7 @@ import MiniGamestwo from './Pages/Home/MiniGames/ButtonApp';
 import Class from './Pages/Universitas/classroom';
 import Toast from './components/template/tempWarnPopUp';
 import ToStudy from './Pages/Universitas/linkHal'
+import EatPage from './Pages/Home/Eat/EatPage';
 
 /*
 1. nama
@@ -34,19 +34,25 @@ import ToStudy from './Pages/Universitas/linkHal'
 9. baju
 10. cuaca
 */
+function DragEat() {
+  return <></>;
+}
 
 function App() {
+  //DND
+  const [isdrag, setDrag ] = useState(false);
   //show pause and phone
   const [showPause, setShowPause] = useState(true);
   const handeShowPause = x => {
     setShowPause(x);
   };
+
   //coin const
   const [coin, setCoin] = useState(7000);
   //player choice
-  const [jurusan, setJurusan] = useState(0);
+  const [jurusan, setJurusan] = useState('');
   const [character, setCharacter] = useState(1);
-  const [nama, setNama] = useState('');
+  const [nama, setNama] = useState('kamu');
   const [name, setName] = useState('');
   //time const
   const [Day, setDay] = useState(0);
@@ -54,9 +60,9 @@ function App() {
   const [minute, setCount] = useState(0);
   const [countday, setCountday] = useState(0);
   //Status bar const
-  const [makan, setMakan] = useState(10);
-  const [tidur, setTidur] = useState(20);
-  const [main, setMain] = useState(30);
+  const [makan, setMakan] = useState(50);
+  const [tidur, setTidur] = useState(50);
+  const [main, setMain] = useState(50);
   const [belajar, setBelajar] = useState(70);
   //Weather const
   const [weather, setWeather] = useState('');
@@ -73,6 +79,14 @@ function App() {
   const [ikangoreng, setIkangoreng] = useState(0);
   const [steak, setSteak] = useState(0);
   const [ayampanggang, setAyampanggang] = useState(0);
+
+  //const buat bahan makanan
+  const [tomato, setTomato] = useState(0);
+  const [beef, setBeef] = useState(0);
+  const [cabbage, setCabbage] = useState(0);
+  const [chicken, setChicken] = useState(0);
+  const [eggtray, setEggtray] = useState(0);
+
   //buat jam
   useInterval(() => {
     setCount(minute + 1);
@@ -116,15 +130,21 @@ function App() {
   //notif uang jajan
   const toast = useToast();
   useEffect(() => {
+    console.log('halo hai');
+    // if (coin > prevCoin)
+    //   toast success
+    // else
+    //   toast ??
   }, [coin]);
 
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
-  const [game, setGame] = useState('cafe');
+  const [game, setGame] = useState('start');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
   };
+  
   //this for hide the pause dan phone button
   useEffect(() => {
     if (game == 'start' || game == 'eat' || game == 'selectchar') {
@@ -176,6 +196,16 @@ function App() {
           setSteak,
           ayampanggang,
           setAyampanggang,
+          tomato,
+          setTomato,
+          beef,
+          setBeef,
+          cabbage,
+          setCabbage,
+          chicken,
+          setChicken,
+          eggtray,
+          setEggtray,
         }}
       >
         {showPause ? (
@@ -195,7 +225,7 @@ function App() {
             case 'home':
               return <Home handleClick={handleClick} />;
             case 'eat':
-              return <Eat handleClick={handleClick} />;
+              return <EatPage handleClick={handleClick} />;
             case 'cafe':
               return <Cafe handleClick={handleClick} />;
             case 'mall':

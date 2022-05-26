@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Box, Image } from '@chakra-ui/react';
+import { Box, Image, Flex } from '@chakra-ui/react';
 //char1
 import hairfront1 from './characterAsset/default/nakMukbang/1.png';
 import face1 from './characterAsset/default/nakMukbang/2.png';
@@ -84,130 +84,104 @@ function CharacterModule(props) {
       setFeet(feet4);
     }
   }, [character]);
+
   return (
-    <>
-      <Box>
-        <Image
-          pointerEvents="none"
-          className="top"
-          objectFit="cover"
-          margin="auto"
-          left="0"
-          right="0"
-          bottom="5"
-          filter="drop-shadow(4px 4px 2px #222)"
-          w={{md:"600px", sm:"550px", base:"500px"}}
-          h={{md:"600px", sm:"550px", base:"500px"}}
-          zIndex={7}
-          pos="absolute"
-          src={hairfront}
-          alt={'test'}
-        />
-        <Image
-          pointerEvents="none"
-          className="top"
-          objectFit="cover"
-          margin="auto"
-          left="0"
-          right="0"
-          bottom="5"
-          w={{md:"600px", sm:"550px", base:"500px"}}
-          h={{md:"600px", sm:"550px", base:"500px"}}
-          zIndex={6}
-          pos="absolute"
-          src={face}
-          alt={'test'}
-        />
-        <Image
-          pointerEvents="none"
-          className="body"
-          objectFit="cover"
-          margin="auto"
-          left="0"
-          right="0"
-          bottom="5"
-          w={{md:"600px", sm:"550px", base:"500px"}}
-          h={{md:"600px", sm:"550px", base:"500px"}}
-          zIndex={5}
-          pos="absolute"
-          src={lefthand}
-          alt={'test'}
-        />
-        <Image
-          pointerEvents="none"
-          className="body"
-          objectFit="cover"
-          margin="auto"
-          left="0"
-          right="0"
-          bottom="5"
-          w={{md:"600px", sm:"550px", base:"500px"}}
-          h={{md:"600px", sm:"550px", base:"500px"}}
-          zIndex={4}
-          pos="absolute"
-          src={body}
-          alt={'test'}
-        />
-        <Image
-          pointerEvents="none"
-          className="body"
-          objectFit="cover"
-          margin="auto"
-          left="0"
-          right="0"
-          bottom="5"
-          w={{md:"600px", sm:"550px", base:"500px"}}
-          h={{md:"600px", sm:"550px", base:"500px"}}
-          zIndex={3}
-          pos="absolute"
-          src={righthand}
-          alt={'test'}
-        />
-        <Image
-          pointerEvents="none"
-          className="top"
-          objectFit="cover"
-          margin="auto"
-          left="0"
-          right="0"
-          bottom="5"
-          w={{md:"600px", sm:"550px", base:"500px"}}
-          h={{md:"600px", sm:"550px", base:"500px"}}
-          zIndex={2}
-          pos="absolute"
-          src={hairback}
-          alt={'test'}
-        />
-        <Image
-          pointerEvents="none"
-          className="bottom"
-          objectFit="cover"
-          margin="auto"
-          left="0"
-          right="0"
-          bottom="5"
-          w={{md:"600px", sm:"550px", base:"500px"}}
-          h={{md:"600px", sm:"550px", base:"500px"}}
-          zIndex={1}
-          pos="absolute"
-          src={feet}
-          alt={'test'}
-        />
+    <Box pos="absolute">
+
+      <Flex pos="relative" justifyContent="center" alignContent="center">
         <Box
-          margin="auto"
-          left="0"
-          right="0"
-          bottom={{md:"40px", sm:"45px", base:"50px"}}
+          // transform={{
+          //             md: "translateX(98%) translateY(-30px)",
+          //             sm: "translateX(100%) translateY(-40px)",
+          //             base: "translateX(155%) translateY(-40px)"
+          //           }}
+          transform={{
+            md: "translateY(-30px)",
+            sm: "translateY(-40px)",
+            base: "translateY(-40px)"
+          }}
+          bottom={0}
           w={{md:"200px", sm:"180px", base:"120px"}}
           h={{md:"60px", sm:"50px", base:"30px"}}
           borderRadius="50%"
-          zIndex={0}
           bgColor="black"
           opacity="0.6"
           pos="absolute"
         />
-      </Box>
-    </>
+        <Box pos="relative">
+          <Image
+            pointerEvents="none"
+            className="top"
+            minW={{md:"600px", sm:"550px", base:"500px"}}
+            h={{md:"600px", sm:"550px", base:"500px"}}
+            // zIndex={2}
+            pos="absolute"
+            src={hairback}
+            alt={'test'}
+          />
+          <Image
+            pointerEvents="none"
+            className="body"
+            minW={{md:"600px", sm:"550px", base:"500px"}}
+            h={{md:"600px", sm:"550px", base:"500px"}}
+            // zIndex={3}
+            pos={'absolute'}
+            src={righthand}
+            alt={'test'}
+          />
+          <Image
+            pointerEvents="none"
+            className="body"
+            minW={{md:"600px", sm:"550px", base:"500px"}}
+            h={{md:"600px", sm:"550px", base:"500px"}}
+            // zIndex={4}
+            pos="absolute"
+            src={body}
+            alt={'test'}
+          />
+          <Image
+            pointerEvents="none"
+            className="body"
+            minW={{md:"600px", sm:"550px", base:"500px"}}
+            h={{md:"600px", sm:"550px", base:"500px"}}
+            // zIndex={5}
+            pos="absolute"
+            src={lefthand}
+            alt={'test'}
+          />
+          <Image
+            pointerEvents="none"
+            className="top"
+            minW={{md:"600px", sm:"550px", base:"500px"}}
+            h={{md:"600px", sm:"550px", base:"500px"}}
+            // zIndex={6}
+            pos="absolute"
+            src={face}
+            alt={'test'}
+          />
+          <Image
+            pointerEvents="none"
+            className="top"
+            filter="drop-shadow(4px 4px 2px #222)"
+            minW={{md:"600px", sm:"550px", base:"500px"}}
+            h={{md:"600px", sm:"550px", base:"500px"}}
+            // zIndex={7}
+            pos="absolute"
+            src={hairfront}
+            alt={'test'}
+          />
+          <Image
+            pointerEvents="none"
+            className="bottom"
+            minW={{md:"600px", sm:"550px", base:"500px"}}
+            h={{md:"600px", sm:"550px", base:"500px"}}
+            // zIndex={1}
+            src={feet}
+            alt={'test'}
+          />
+        </Box>
+      </Flex>
+    </Box>
   );
 }
 

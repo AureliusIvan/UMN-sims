@@ -1,6 +1,7 @@
 import React, { forwardRef, useState, useContext, useEffect } from 'react';
-import { Box, Button, toast } from '@chakra-ui/react';
+import { Box, Image, Flex } from '@chakra-ui/react';
 import { AllContext } from '../Value/CoinContext';
+import ducky from "../asset/icon/Coin.png"
 
 function Currency(props) {
   const { coin, setCoin } = useContext(AllContext);
@@ -9,8 +10,8 @@ function Currency(props) {
   };
   return (
     <>
-      <Box
-        display={'flex'}
+      <Flex
+        alignItems="center"
         w={'200px'}
         overflow="hidden"
         h="50px"
@@ -24,11 +25,9 @@ function Currency(props) {
         padding="10px"
         color={'white'}
       >
-        <Box borderRadius={'50%'} w="10px">
-          $
-        </Box>
-        <Box marginLeft={'10px'}>{coin}</Box>
-      </Box>
+        <Image src={ducky} width="50px" height="50px" />
+        <Box marginLeft={3}>{coin}</Box>
+      </Flex>
     </>
   );
 }

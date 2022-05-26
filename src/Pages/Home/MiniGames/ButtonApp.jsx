@@ -65,6 +65,10 @@ function MiniGamestwo() {
     }
   }, [choice1, choice2]);
 
+
+  useEffect(()=>{
+    console.log('test');
+  },[])
   //setelah pilih 1 kartu
   const newTurn = () => {
     setChoice1(null);
