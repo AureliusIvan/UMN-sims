@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useContext, useState, useRef } from "react";
 import { Box, Button } from '@chakra-ui/react';
 import {
   Modal,
@@ -8,7 +8,9 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
+  useToast
 } from '@chakra-ui/react';
+import { AllContext } from "../../../components/Value/CoinContext";
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { useDisclosure } from '@chakra-ui/react';
 import { DndProvider } from 'react-dnd';
