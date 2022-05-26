@@ -1,5 +1,14 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { useToast, Grid, GridItem, Box, Button, Text, Center, Image } from '@chakra-ui/react';
+import {
+  useToast,
+  Grid,
+  GridItem,
+  Box,
+  Button,
+  Text,
+  Center,
+  Image,
+} from '@chakra-ui/react';
 import MapPop from '../../components/buttons/MapPop';
 import Currency from '../../components/buttons/Currency';
 import RotiPanggang from '../../components/template/tempWarnPopUp';
@@ -15,7 +24,7 @@ import BgMalem from './bg/Malem.png';
 import { Xp } from '../../components/statusBar/Xp';
 import Notif from './testNotif';
 
-import lala from "../../components/asset/gif/eat.gif"
+import lala from '../../components/asset/gif/eat.gif';
 
 function Home(props) {
   const { nama, setNama } = useContext(AllContext);
@@ -25,7 +34,7 @@ function Home(props) {
   const { jurusan } = useContext(AllContext);
   const { bghome, setBgHome } = useContext(AllContext);
   const { hour, SetHour } = useContext(AllContext);
-  
+
   function changeBg() {
     if (hour >= 7 && hour < 12) {
       return BgPagi;
@@ -45,7 +54,7 @@ function Home(props) {
 
   // const toast = useToast();
   // useEffect(() => {
-  //   if (first) 
+  //   if (first)
   //     setFirst(false);
 
   //   if (!first) {
@@ -57,11 +66,11 @@ function Home(props) {
   //     })
   //   }
   // }, [coin]);
-  
+
   const add = x => {
     setCoin(coin + x);
   };
-
+//test
   return (
     <Box
       backgroundImage={changeBg}
@@ -80,9 +89,7 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Center>
-            <Text>
-              
-            </Text>
+            <Text></Text>
           </Center>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
@@ -119,18 +126,21 @@ function Home(props) {
           </Button>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Box zIndex={-1} >
+          <Box zIndex={-1}>
             <CharacterModule />
           </Box>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <RotiPanggang title="tes toast" content="ini roti panggang" />
-          <Button onClick={() => {
-                            setMakan(makan+10);
-                            setTidur(tidur-10);
-                          }}
-          >+ makan - tidur</Button>
-          <Button onClick={() => setCoin(coin+500)}>+ coin</Button>
+          <Button
+            onClick={() => {
+              setMakan(makan + 10);
+              setTidur(tidur - 10);
+            }}
+          >
+            + makan - tidur
+          </Button>
+          <Button onClick={() => setCoin(coin + 500)}>+ coin</Button>
         </GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>

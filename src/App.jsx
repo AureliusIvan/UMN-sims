@@ -10,7 +10,7 @@ import './App.css';
 import PageOne from './Pages/Start';
 import SelectCharacter from './Pages/SelectChar';
 import Home from './Pages/Home/Home';
-import Eat from './Pages/Home/Eat/Eat';
+import Eat from './Pages/Home/Eat/Eat2';
 import Cafe from './Pages/Cafe/Cafe';
 import ToMall from './Pages/Mall/shopLinking';
 import Uni from './Pages/Universitas/UnivHall';
@@ -19,6 +19,7 @@ import Pause from './components/buttons/PauseBtn';
 import Phone from './components/phone/phoneMain';
 import MiniGamestwo from './Pages/Home/MiniGames/ButtonApp';
 import Toast from './components/template/tempWarnPopUp';
+import EatPage from './Pages/Home/Eat/EatPage';
 
 /*
 1. nama
@@ -32,8 +33,13 @@ import Toast from './components/template/tempWarnPopUp';
 9. baju
 10. cuaca
 */
+function DragEat() {
+  return <></>;
+}
 
 function App() {
+  //DND
+  const [isdrag, setDrag ] = useState(false);
   //show pause and phone
   const [showPause, setShowPause] = useState(true);
   const handeShowPause = x => {
@@ -43,7 +49,7 @@ function App() {
   //coin const
   const [coin, setCoin] = useState(7000);
   //player choice
-  const [jurusan, setJurusan] = useState("");
+  const [jurusan, setJurusan] = useState('');
   const [character, setCharacter] = useState(1);
   const [nama, setNama] = useState('kamu');
   const [name, setName] = useState('');
@@ -79,7 +85,7 @@ function App() {
   const [cabbage, setCabbage] = useState(0);
   const [chicken, setChicken] = useState(0);
   const [eggtray, setEggtray] = useState(0);
-  
+
   //buat jam
   useInterval(() => {
     setCount(minute + 1);
@@ -123,11 +129,11 @@ function App() {
   //notif uang jajan
   const toast = useToast();
   useEffect(() => {
-      console.log("halo hai")
-        // if (coin > prevCoin)
-        //   toast success
-        // else
-        //   toast ?? 
+    console.log('halo hai');
+    // if (coin > prevCoin)
+    //   toast success
+    // else
+    //   toast ??
   }, [coin]);
 
   const [value, setValue] = useState(0);
@@ -137,6 +143,7 @@ function App() {
     setGame(gameState);
     console.log(game);
   };
+  
   //this for hide the pause dan phone button
   useEffect(() => {
     if (game == 'start' || game == 'eat' || game == 'selectchar') {
@@ -217,7 +224,7 @@ function App() {
             case 'home':
               return <Home handleClick={handleClick} />;
             case 'eat':
-              return <Eat handleClick={handleClick} />;
+              return <EatPage handleClick={handleClick} />;
             case 'cafe':
               return <Cafe handleClick={handleClick} />;
             case 'mall':
