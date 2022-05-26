@@ -1,8 +1,7 @@
 import {
   ChakraProvider,
   theme,
-  Text,
-  background,
+  Button,
   useToast,
 } from '@chakra-ui/react';
 import { useMemo, useState, useEffect, useRef } from 'react';
@@ -10,16 +9,19 @@ import './App.css';
 import PageOne from './Pages/Start';
 import SelectCharacter from './Pages/SelectChar';
 import Home from './Pages/Home/Home';
+import EatPage from './Pages/Home/Eat/EatPage';
+import MiniGamestwo from './Pages/Home/MiniGames/ButtonApp';
 import Eat from './Pages/Home/Eat/Eat2';
+
 import Cafe from './Pages/Cafe/Cafe';
-import ToMall from './Pages/Mall/shopLinking';
+
+import Cart from './Pages/Mall/shoppingCart/appShop';
 import Uni from './Pages/Universitas/UnivHall';
 import { AllContext } from './components/Value/CoinContext';
 import Pause from './components/buttons/PauseBtn';
 import Phone from './components/phone/phoneMain';
-import MiniGamestwo from './Pages/Home/MiniGames/ButtonApp';
 import Toast from './components/template/tempWarnPopUp';
-import EatPage from './Pages/Home/Eat/EatPage';
+import Mall from './Pages/Mall/Mall';
 
 /*
 1. nama
@@ -48,21 +50,28 @@ function App() {
 
   //coin const
   const [coin, setCoin] = useState(7000);
+  const prevCoin = useRef();
+  useEffect(() => {
+    prevCoin.current = coin;
+  }, [coin]);
+  
   //player choice
   const [jurusan, setJurusan] = useState('');
   const [character, setCharacter] = useState(1);
   const [nama, setNama] = useState('kamu');
-  const [name, setName] = useState('');
+  
   //time const
   const [Day, setDay] = useState(0);
   const [hour, setHour] = useState(23);
   const [minute, setCount] = useState(0);
   const [countday, setCountday] = useState(0);
+  
   //Status bar const
-  const [makan, setMakan] = useState(50);
+  const [makan, setMakan] = useState(70);
   const [tidur, setTidur] = useState(50);
   const [main, setMain] = useState(50);
   const [belajar, setBelajar] = useState(70);
+  
   //Weather const
   const [weather, setWeather] = useState('');
 
@@ -100,6 +109,7 @@ function App() {
       setCountday(1);
       setHour(0);
     }
+
     //ini buat duid harian
     if (countday == 1) {
       setCoin(coin + 2000);
@@ -129,22 +139,35 @@ function App() {
 
   //useEffect buat notif
   //notif uang jajan
-  const toast = useToast();
-  useEffect(() => {
-    console.log('halo hai');
-    // if (coin > prevCoin)
-    //   toast success
-    // else
-    //   toast ??
-  }, [coin]);
+  // const[first, setFirst] = useState(true);
 
+  // const Duid = () => {
+  //   console.log("nambah duit");
+  //   const toast = useToast();
+  //   useEffect(() => {
+  //     toast({
+  //       description: "koin nambah",
+  //       status: "success",
+  //       position : "bottom-start",
+  //       isClosable: true,
+  //     })
+  //   }, [coin]);
+  // }
+
+  const [notifMoney, setNotifMoney] = useState(true)
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
-  const [game, setGame] = useState('selectchar');
+  const [game, setGame] = useState('home');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
   };
+
+
+  // buat pass toast to all
+  useEffect(() => {
+    setNotifMoney(true);
+  }, [game])
 
   //this for hide the pause dan phone button
   useEffect(() => {
@@ -161,6 +184,8 @@ function App() {
         value={{
           coin,
           setCoin,
+          prevCoin,
+          notifMoney,
           nama,
           setNama,
           jurusan,
@@ -221,6 +246,7 @@ function App() {
         ) : (
           ''
         )}
+        {notifMoney ? null : null}
         {(() => {
           switch (game) {
             case 'start':
@@ -234,7 +260,9 @@ function App() {
             case 'cafe':
               return <Cafe handleClick={handleClick} />;
             case 'mall':
-              return <ToMall handleClick={handleClick} />;
+              return <Mall handleClick={handleClick} />;
+            case 'cart':
+              return <Cart handleClick={handleClick} />;
             case 'uni':
               return <Uni handleClick={handleClick} />;
             case 'Minigames':

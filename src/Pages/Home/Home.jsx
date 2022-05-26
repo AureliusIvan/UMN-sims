@@ -7,13 +7,11 @@ import {
   Button,
   Text,
   Center,
-  Image,
 } from '@chakra-ui/react';
 import MapPop from '../../components/buttons/MapPop';
 import Currency from '../../components/buttons/Currency';
 import RotiPanggang from '../../components/template/tempWarnPopUp';
 import { AllContext } from '../../components/Value/CoinContext';
-// import { CreateChar } from '../../components/character/CharacterCard';
 import CharacterModule from '../../components/character/Card';
 import WheaterApp from '../../components/background/Weather';
 import StatusGroup from '../../components/statusBar/StatusBarGroup';
@@ -23,13 +21,12 @@ import BgSore from './bg/Sore.png';
 import BgMalem from './bg/Malem.png';
 import { Xp } from '../../components/statusBar/Xp';
 import Notif from './testNotif';
-
 import lala from '../../components/asset/gif/eat.gif';
 import Player from './audio';
 
 function Home(props) {
   const { nama, setNama } = useContext(AllContext);
-  const { coin, setCoin } = useContext(AllContext);
+  const { coin, setCoin, prevCoin } = useContext(AllContext);
   const { makan, setMakan } = useContext(AllContext);
   const { tidur, setTidur } = useContext(AllContext);
   const { jurusan } = useContext(AllContext);
@@ -48,25 +45,41 @@ function Home(props) {
     }
   }
 
+  useEffect (() => {
+    // if (makan < 50) 
+    //   console.log ("makan under 50");
+    if (makan === 0) 
+      console.log ("game over");
+  }, [makan])
+
   //useEffect buat notif
   //notif uang jajan
 
-  // const[first, setFirst] = useState(true);
+  const[first, setFirst] = useState(true);
 
-  // const toast = useToast();
-  // useEffect(() => {
-  //   if (first)
-  //     setFirst(false);
+  const toast = useToast();
+  useEffect(() => {
+    if (first)
+      setFirst(false);
 
-  //   if (!first) {
-  //     toast({
-  //       description: "koin nambah",
-  //       status: "success",
-  //       position : "bottom-start",
-  //       isClosable: true,
-  //     })
-  //   }
-  // }, [coin]);
+    if (!first) {
+      if (coin > prevCoin.current)
+        toast({
+          description: "koin nambah",
+          status: "success",
+          position : "bottom-start",
+          isClosable: true,
+        })
+      else {
+        toast({
+          description: "koin berkurang",
+          status: "warning",
+          position : "bottom-start",
+          isClosable: true,
+        })
+      }
+    }
+  }, [coin]);
 
   const add = x => {
     setCoin(coin + x);
@@ -111,6 +124,7 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Button onClick={() => props.handleClick('eat')}>Eat</Button>
+          {/* <Button>Test ROti</Button> */}
         </GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
@@ -135,13 +149,17 @@ function Home(props) {
           <RotiPanggang title="tes toast" content="ini roti panggang" />
           <Button
             onClick={() => {
-              setMakan(makan + 10);
-              setTidur(tidur - 10);
+              if (makan === 0)
+                setMakan(0);
+              else
+                setMakan(makan - 10);
+              // setTidur(tidur - 10);
             }}
           >
-            + makan - tidur
+            - makan 
           </Button>
           <Button onClick={() => setCoin(coin + 500)}>+ coin</Button>
+          <Button onClick={() => setCoin(coin - 500)}>- coin</Button>
         </GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
