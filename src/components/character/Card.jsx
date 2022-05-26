@@ -94,7 +94,7 @@ function CharacterModule(props) {
           margin="auto"
           left="0"
           right="0"
-          bottom="0"
+          bottom="5"
           filter="drop-shadow(4px 4px 2px #222)"
           w={{md:"600px", sm:"550px", base:"500px"}}
           h={{md:"600px", sm:"550px", base:"500px"}}
@@ -110,7 +110,7 @@ function CharacterModule(props) {
           margin="auto"
           left="0"
           right="0"
-          bottom="0"
+          bottom="5"
           w={{md:"600px", sm:"550px", base:"500px"}}
           h={{md:"600px", sm:"550px", base:"500px"}}
           zIndex={6}
@@ -125,7 +125,7 @@ function CharacterModule(props) {
           margin="auto"
           left="0"
           right="0"
-          bottom="0"
+          bottom="5"
           w={{md:"600px", sm:"550px", base:"500px"}}
           h={{md:"600px", sm:"550px", base:"500px"}}
           zIndex={5}
@@ -140,7 +140,7 @@ function CharacterModule(props) {
           margin="auto"
           left="0"
           right="0"
-          bottom="0"
+          bottom="5"
           w={{md:"600px", sm:"550px", base:"500px"}}
           h={{md:"600px", sm:"550px", base:"500px"}}
           zIndex={4}
@@ -155,7 +155,7 @@ function CharacterModule(props) {
           margin="auto"
           left="0"
           right="0"
-          bottom="0"
+          bottom="5"
           w={{md:"600px", sm:"550px", base:"500px"}}
           h={{md:"600px", sm:"550px", base:"500px"}}
           zIndex={3}
@@ -170,7 +170,7 @@ function CharacterModule(props) {
           margin="auto"
           left="0"
           right="0"
-          bottom="0"
+          bottom="5"
           w={{md:"600px", sm:"550px", base:"500px"}}
           h={{md:"600px", sm:"550px", base:"500px"}}
           zIndex={2}
@@ -185,7 +185,7 @@ function CharacterModule(props) {
           margin="auto"
           left="0"
           right="0"
-          bottom="0"
+          bottom="5"
           w={{md:"600px", sm:"550px", base:"500px"}}
           h={{md:"600px", sm:"550px", base:"500px"}}
           zIndex={1}
@@ -197,7 +197,7 @@ function CharacterModule(props) {
           margin="auto"
           left="0"
           right="0"
-          bottom={{md:"30px", sm:"35px", base:"40px"}}
+          bottom={{md:"40px", sm:"45px", base:"50px"}}
           w={{md:"200px", sm:"180px", base:"120px"}}
           h={{md:"60px", sm:"50px", base:"30px"}}
           borderRadius="50%"

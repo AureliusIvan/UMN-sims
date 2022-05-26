@@ -32,13 +32,13 @@ function Mall(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <CreateChar />
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <CreateChar />
+        </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <VStack spacing={4} align="end">
             <PartTime />

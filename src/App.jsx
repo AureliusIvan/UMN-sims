@@ -138,11 +138,12 @@ function App() {
 
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
-  const [game, setGame] = useState('home');
+  const [game, setGame] = useState('selectchar');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
   };
+  
   //this for hide the pause dan phone button
   useEffect(() => {
     if (game == 'start' || game == 'eat' || game == 'selectchar') {
