@@ -11,6 +11,8 @@ import bgdawnrain from './bg/Raindawn.png';
 import bgnight from './bg/Night.png';
 import bgnightrain from './bg/Rainnight.png';
 import { AllContext } from '../../components/Value/CoinContext';
+import StatusGroup from '../../components/statusBar/StatusBarGroup';
+import Currency from '../../components/buttons/Currency';
 
 function Univ(props) {
   const { hour, SetHour } = useContext(AllContext);
@@ -51,7 +53,12 @@ function Univ(props) {
       >
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+        <Box>
+            <Currency />
+            <StatusGroup />
+          </Box>
+        </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <MapPop
             home={() => props.handleClick('home')}

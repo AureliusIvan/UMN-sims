@@ -4,7 +4,6 @@ body {
     overflow: auto;
     background-color: rgb(196, 244, 255) ;
     overflow-x: hidden;
-    
     /*scrollbar*/
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
