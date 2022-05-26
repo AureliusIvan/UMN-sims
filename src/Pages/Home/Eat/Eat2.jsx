@@ -1,7 +1,7 @@
 import React, { useState, useContext, useCallback, useEffect } from 'react';
 import { v4 as uuid } from 'uuid';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
-
+import './Eat2.css';
 import { AllContext } from '../../../components/Value/CoinContext';
 import {
   Box,
@@ -14,50 +14,49 @@ import {
   Flex,
   Images,
 } from '@chakra-ui/react';
-import tomato from './itemimage/tomato.png';
-import beef from './itemimage/beef.png';
-import bread from './itemimage/bread.png';
-import cabbage from './itemimage/cabbage.png';
-import chicken from './itemimage/chicken.png';
-import eggtray from './itemimage/eggtray.png';
-import salt from './itemimage/saltandpepper.png';
+import burger from './food/burger.png';
+import friedegg from './food/friedegg.png';
+import friedfish from './food/friedfish.png';
+import roastchicken from './food/roastchicken.png';
+import salad from './food/salad.png';
+import steak from './food/steak.png';
 import Currency from '../../../components/buttons/Currency';
 
 const COLLECTION = [
   {
     id: uuid(),
     label: 'burger',
-    url: tomato,
+    url: burger,
     price: 100,
   },
   {
     id: uuid(),
     label: 'fried egg',
-    url: beef,
+    url: friedegg,
     price: 50,
   },
   {
     id: uuid(),
     label: 'fried fish',
-    url: bread,
+    url: friedfish,
     price: 100,
   },
   {
     id: uuid(),
     label: 'roast chicken',
-    url: cabbage,
+    url: roastchicken,
     price: 200,
   },
   {
     id: uuid(),
     label: 'salad',
-    url: chicken,
+    url: salad,
     price: 100,
   },
   {
     id: uuid(),
     label: 'steak',
-    url: eggtray,
+    url: steak,
     price: 500,
   },
 ];
