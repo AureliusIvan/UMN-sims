@@ -10,14 +10,15 @@ import PageOne from './Pages/Start';
 import SelectCharacter from './Pages/SelectChar';
 import Home from './Pages/Home/Home';
 import EatPage from './Pages/Home/Eat/EatPage';
-import MiniGamestwo from './Pages/Home/MiniGames/ButtonApp';
 import Eat from './Pages/Home/Eat/Eat2';
-
 import Cafe from './Pages/Cafe/Cafe';
-
+import { AllContext } from './components/Value/CoinContext';
+import MiniGamestwo from './Pages/Home/MiniGames/ButtonApp';
+import Class from './Pages/Universitas/classroom';
+import ToStudy from './Pages/Universitas/UnivHall'
+import Library from './Pages/Universitas/library';
 import Cart from './Pages/Mall/shoppingCart/appShop';
 import Uni from './Pages/Universitas/UnivHall';
-import { AllContext } from './components/Value/CoinContext';
 import Pause from './components/buttons/PauseBtn';
 import Phone from './components/phone/phoneMain';
 import Toast from './components/template/tempWarnPopUp';
@@ -264,9 +265,16 @@ function App() {
             case 'cart':
               return <Cart handleClick={handleClick} />;
             case 'uni':
-              return <Uni handleClick={handleClick} />;
+              return <ToStudy handleClick={handleClick} />;
             case 'Minigames':
               return <MiniGamestwo handleClick={handleClick} />;
+
+
+
+              case 'class':
+                return <Class handleClick={handleClick} />;
+              case 'library':
+                return <Library handleClick={handleClick} />;
             default:
               return null;
           }

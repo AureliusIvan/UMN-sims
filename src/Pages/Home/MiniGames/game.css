@@ -1,0 +1,31 @@
+.App {
+    background-color: rgb(198, 198, 255);
+    text-align: center;
+    font-size: 30px;
+  }
+
+.gamebutton{
+    margin-left: 20px;
+}
+  
+.gamebutton:hover{
+  background: rgb(151, 79, 179);
+  color: rgb(255, 199, 199);
+}
+
+.turns{
+ text-align: center;
+}
+  
+  
+  .card-pic{
+    margin-left: 20px;
+    margin-top: 45px;
+    display: grid;
+    background-color: rgb(198, 198, 255);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 25px;
+  }
+
+  
+  
