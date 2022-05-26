@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/react';
-import React, { useContext, useState } from 'react';
+import React, { useContext, } from 'react';
 import { AllContext } from '../Value/CoinContext';
-import { Tooltip, Image, Progress, CircularProgress, CircularProgressLabel  } from '@chakra-ui/react';
+import { Tooltip, Image, CircularProgress, CircularProgressLabel  } from '@chakra-ui/react';
 
 import eat from "../asset/stat/lambung1.png"
 import sleep from "../asset/stat/Energy.png"

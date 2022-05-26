@@ -11,7 +11,7 @@ function newsApp () {
 		<NewsContextProvider>
 			<Box bgColor={'white'} padding='2'>
 				<Text fontSize={'50px'} color={'red.500'}>Latest News</Text>
-				 <News /> 
+				<News /> 
 			</Box>
 		</NewsContextProvider>
 	)

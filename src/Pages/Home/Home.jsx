@@ -108,6 +108,7 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Button
             onClick={() => {

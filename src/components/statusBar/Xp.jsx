@@ -1,5 +1,5 @@
-import { Box, Progress, Center, Flex, Tooltip, Heading, Text } from "@chakra-ui/react";
-import React, {useState, useContext} from "react";
+import { Box, Progress, Flex, Tooltip } from "@chakra-ui/react";
+import React, { useContext } from "react";
 import { AllContext } from "../Value/CoinContext";
 
 export function Xp(){

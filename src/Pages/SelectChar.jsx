@@ -1,115 +1,27 @@
 import {
   Box,
-  Input,
   Image,
   Center,
   Button,
   Text,
-  Grid,
-  GridItem,
   FormControl,
   FormControlOptions,
   FormControlProps,
-  Select,
-  VStack,
   HStack,
   Flex,
-  Divider
 } from '@chakra-ui/react';
 import React, { useState, useEffect, useContext } from 'react';
-import { CreateChar } from '../components/character/CharacterCard';
 import { AllContext } from '../components/Value/CoinContext';
-import CharacterModule from '../components/character/Card';
-import {InfoIcon} from "@chakra-ui/icons"
-
+import { Char1, Char2, Char3, Char4 } from "./skillChar"
+import { CreateChar } from "../components/character/CharacterCard"
+import InfoModal from "./charSkillModal"
+import InputHere from "./inputCharacter";
 import next from "../components/asset/icon/next.png"
 import prev from "../components/asset/icon/prev.png"
-
-function DisplayChar() {
-  return (
-    <>
-      {/* <Box
-        pos="absolute"
-        bgColor="purple.300"
-        transform="rotate(-40deg) translateY(-10px) translateX(-180px)"
-        h="200px"
-        w="400px"
-        borderRadius="50%"
-      ></Box>
-      <Box
-        pos="absolute"
-        bgColor="red.300"
-        transform="rotate(40deg) translateY(140px) translateX(-100px)"
-        h="100px"
-        w="100px"
-        borderRadius="50%"
-      ></Box>
-      <Box
-        pos="absolute"
-        bgColor="yellow.200"
-        transform="translateY(140px) translateX(-140px)"
-        h="170px"
-        w="120px"
-        borderRadius="50%"
-      ></Box>
-      <Box
-        pos="absolute"
-        bgColor="blue.200"
-        transform="translateY(300px) translateX(-120px)"
-        h="120px"
-        w="270px"
-        borderRadius="50%"
-      ></Box> */}
-      <Box>
-        <CharacterModule />
-      </Box>
-    </>
-  );
-}
-
-const Char1 = {
-  name: 'Vera',
-  tipe: 'Kang mukbang',
-  desc: '[King of Mukbang] Menambah kapasitas perut sebanyak +20%',
-  lore: 'Diceritakan bahwa Kang mukbang sangat suka makan, bahkan semenjak masih menjadi embrio. Kemampuannya ini mengantarkannya menjuarai lomba makan tingkat kampung.',
-  next: 2,
-  prev: 4,
-};
-
-const Char2 = {
-  name: 'Fiona',
-  tipe: 'Gamers',
-  desc: '[Goddess of gaming] Menambah stat bermain sebanyak +20%',
-  lore: 'Sewaktu SMA, Gamers pernah menjuarai lomba e-sport, sejak saat itu gamers menyadari potensi besar dalam dirinya untuk menjadi seorang gamers profesional.',
-  next: 3,
-  prev: 1,
-};
-
-const Char3 = {
-  name: 'Jaka',
-  tipe: 'Holkay',
-  desc: '[Unlimited Money] Memperoleh 20% lebih banyak uang jajan setiap hari',
-  lore: 'Anak Rajin, Begitulan orang-orang memanggilnya. Panggilan tersebut didapatnya karena dia setiap harinya belajar ngoding (termasuk hari libur).',
-  next: 4,
-  prev: 2,
-};
-
-const Char4 = {
-  name: 'girl',
-  tipe: 'Anak Rajin',
-  desc: '[Proficient Learner] Mepercepat belajar hingga +20%',
-  lore: 'Anak Rajin, Begitulah orang-orang memanggilnya. Panggilan tersebut didapatnya karena dia setiap harinya belajar ngoding (termasuk hari libur).',
-  next: 1,
-  prev: 3,
-};
+import start from "../components/asset/icon/start.png"
 
 function SelectCharacter(props) {
-  const { nama, setNama } = useContext(AllContext);
-  const { jurusan, setJurusan } = useContext(AllContext);
   const { character, setCharacter } = useContext(AllContext);
-  const handleNama = event => {
-    setNama(event.target.value);
-  };
 
   const [atribute, setAtribute] = useState(Char1);
   const handleCharPrev = () => {
@@ -118,10 +30,6 @@ function SelectCharacter(props) {
   const handleCharNext = () => {
     setCharacter(atribute.next);
   };
-
-  function handleJurusan(e) {
-    setJurusan(e.target.value);
-  }
 
   useEffect(() => {
     if (character === 1) {
@@ -138,52 +46,13 @@ function SelectCharacter(props) {
   return (
     <Box bgColor="pink" minH="100vh" w="100%">
       <Flex flexDir="column" justifyContent="center" alignItems="center">
-        <VStack spacing={5} mt={8}>
-          <Input
-            autoFocus
-            bgColor="White"
-            width="200%"
-            maxW="350px"
-            color="Black"
-            variant="outline"
-            placeholder="Masukan Nama"
-            filter="drop-shadow(3px 3px 2px #222)"
-            onChange={event => {
-              handleNama(event);
-            }}
-          />
-          {/* {nama} */}
-          <Select
-            id=""
-            autoFocus
-            bgColor="White"
-            width="200%"
-            maxW="350px"
-            color="Black"
-            variant="outline"
-            placeholder="Masukan jurusan"
-            filter="drop-shadow(3px 3px 2px #222)"
-            cursor="pointer"
-            onChange={(handleJurusan)}
-          >
-            <option value="Informatika">Informatika</option>
-            <option value="Ilmu Komunikasi">Ilmu Komunikasi</option>
-            <option value="DKV">DKV</option>
-          </Select>
-        </VStack>
+        <InputHere />
         <Flex flexDir="column" mb={20}>
-          <Flex 
-            // transform={{base:"none", md:"translateX(-50px)"}}
-            flexDir="column" 
-            alignItems="center" 
-            justifyContent="center"
-            mr={{base:"none", md:"10px"}}
-            mt={{base: 12, md:"none"}}
-          >
-            <Flex>
+          <Flex justifyContent="center" mt="50px" transform="translateX(22px)" >
+            <Flex flexDir="column" justifyContent="center" alignItems="center">
               <Box
                 h="40px"
-                minW={{md:"230px", base:"300px"}}
+                minW="250px"
                 fontSize="25px"
                 borderRadius="10px"
                 bgColor="red"
@@ -193,72 +62,61 @@ function SelectCharacter(props) {
               >
                 {atribute.tipe}
               </Box>
-              <InfoIcon color="blue.400"/>
             </Flex>
-            <Box 
-              maxW={{md:"200px", base:"250px" }}
-              minH={{md:"300px"}}
-              bgColor="white"
-              borderRadius="10px"
-              px={3}
-              py={4}
-              textAlign="center"
-              mt="-2"
-              sIndex={0}
-            >
-              <Text color="blue" align="left" display={{base:"none", md:"none"}}>Skill :</Text>
-              <Text>{atribute.desc}</Text>
-              <Box display={{base:"none", md:"none"}}>
-                <Divider my={{md:3}} />
-                <Text color="blue" align="left" >Lore :</Text>
-                <Text>{atribute.lore}</Text>
-              </Box>
-            </Box>
+            <InfoModal 
+              name={atribute.tipe}
+              desc={atribute.desc}
+              lore={atribute.lore}
+            />
           </Flex>
-          <HStack spacing="100px" justify="center">
+          <HStack spacing="100px" justify="center" mt={{sm:"50", base:"0"}}>
             <Image 
               zIndex={5}
               src={prev} 
+              transform="translateY(180px)"
               width={{md:"120px", base:"90px" }}
               position="relative"
               cursor="pointer"
               transition="0.3s"
-              _hover={{transform:"scale(1.1)"}}
+              _hover={{transform:"scale(1.1) translateY(160px)"}}
               onClick={() => {
                 handleCharPrev();
               }}
             />
-            <Box>
-              <DisplayChar />
-            </Box>
+            <Box></Box>
             <Image 
               zIndex={5}
               src={next}
+              transform="translateY(180px)"
               width={{md:"120px", base:"90px" }}
               position="relative"
               cursor="pointer"
-              _hover={{transform:"scale(1.1)"}}
-              transition="0.3s"
+              _hover={{transform:"scale(1.1) translateY(160px)"}}
+              transition="0.5s"
               onClick={() => {
                 handleCharNext();
               }}
             />
           </HStack>
         </Flex>
-        <Button
-          transform="translateY(60px)"
-          mb="40px"
+        {/* <Box mt={100}> */}
+          <CreateChar />
+        {/* </Box>
+        <Box bottom={10} >..</Box> */}
+        <Image 
+          src={start} 
+          width="100px"
+          transform={{sm:"translate(250px, 180px)", base:"translate(130px, 210px)"}}
+          mb="220px"
           onClick={() => props.handleClick('home')}
-          bgColor="blue.100"
-          border="1px solid black"
-          transition="0.2s"
+          _hover={{transform:"translate(250px, 180px) scale(1.2)"}}
+          transition="0.4s"
           zIndex={10}
-        >
-          LET'S GO
-        </Button>
+          cursor="pointer"
+        />
       </Flex>
     </Box>
   )
 }
 
-export default SelectCharacter;
+export default SelectCharacter
