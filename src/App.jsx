@@ -1,8 +1,7 @@
 import {
   ChakraProvider,
   theme,
-  Text,
-  background,
+  Button,
   useToast,
 } from '@chakra-ui/react';
 import { useMemo, useState, useEffect, useRef } from 'react';
@@ -10,19 +9,20 @@ import './App.css';
 import PageOne from './Pages/Start';
 import SelectCharacter from './Pages/SelectChar';
 import Home from './Pages/Home/Home';
+import EatPage from './Pages/Home/Eat/EatPage';
 import Eat from './Pages/Home/Eat/Eat2';
 import Cafe from './Pages/Cafe/Cafe';
-import ToMall from './Pages/Mall/shopLinking';
 import { AllContext } from './components/Value/CoinContext';
-import Pause from './components/buttons/PauseBtn';
-import Phone from './components/phone/phoneMain';
 import MiniGamestwo from './Pages/Home/MiniGames/ButtonApp';
 import Class from './Pages/Universitas/classroom';
-import Toast from './components/template/tempWarnPopUp';
 import ToStudy from './Pages/Universitas/UnivHall'
-import EatPage from './Pages/Home/Eat/EatPage';
 import Library from './Pages/Universitas/library';
-
+import Cart from './Pages/Mall/shoppingCart/appShop';
+import Uni from './Pages/Universitas/UnivHall';
+import Pause from './components/buttons/PauseBtn';
+import Phone from './components/phone/phoneMain';
+import Toast from './components/template/tempWarnPopUp';
+import Mall from './Pages/Mall/Mall';
 
 /*
 1. nama
@@ -42,7 +42,7 @@ function DragEat() {
 
 function App() {
   //DND
-  const [isdrag, setDrag ] = useState(false);
+  const [isdrag, setDrag] = useState(false);
   //show pause and phone
   const [showPause, setShowPause] = useState(true);
   const handeShowPause = x => {
@@ -51,21 +51,28 @@ function App() {
 
   //coin const
   const [coin, setCoin] = useState(7000);
+  const prevCoin = useRef();
+  useEffect(() => {
+    prevCoin.current = coin;
+  }, [coin]);
+  
   //player choice
   const [jurusan, setJurusan] = useState('');
   const [character, setCharacter] = useState(1);
   const [nama, setNama] = useState('kamu');
-  const [name, setName] = useState('');
+  
   //time const
   const [Day, setDay] = useState(0);
   const [hour, setHour] = useState(23);
   const [minute, setCount] = useState(0);
   const [countday, setCountday] = useState(0);
+  
   //Status bar const
-  const [makan, setMakan] = useState(50);
+  const [makan, setMakan] = useState(70);
   const [tidur, setTidur] = useState(50);
   const [main, setMain] = useState(50);
   const [belajar, setBelajar] = useState(70);
+  
   //Weather const
   const [weather, setWeather] = useState('');
 
@@ -76,11 +83,13 @@ function App() {
   const [bgUniv, setBgUniv] = useState('BgPagi');
 
   //const buat makanan
-  const [burger, setBurger] = useState(0);
-  const [telur, setTelur] = useState(0);
-  const [ikangoreng, setIkangoreng] = useState(0);
-  const [steak, setSteak] = useState(0);
-  const [ayampanggang, setAyampanggang] = useState(0);
+  const [foodIndex, setFoodIndex] = useState(0);
+  const [burger, setBurger] = useState(2);
+  const [telur, setTelur] = useState(2);
+  const [ikangoreng, setIkangoreng] = useState(1);
+  const [salad, setSalad] = useState(1);
+  const [steak, setSteak] = useState(1);
+  const [ayampanggang, setAyampanggang] = useState(1);
 
   //const buat bahan makanan
   const [tomato, setTomato] = useState(0);
@@ -101,6 +110,7 @@ function App() {
       setCountday(1);
       setHour(0);
     }
+
     //ini buat duid harian
     if (countday == 1) {
       setCoin(coin + 2000);
@@ -130,23 +140,36 @@ function App() {
 
   //useEffect buat notif
   //notif uang jajan
-  const toast = useToast();
-  useEffect(() => {
-    console.log('halo hai');
-    // if (coin > prevCoin)
-    //   toast success
-    // else
-    //   toast ??
-  }, [coin]);
+  // const[first, setFirst] = useState(true);
 
+  // const Duid = () => {
+  //   console.log("nambah duit");
+  //   const toast = useToast();
+  //   useEffect(() => {
+  //     toast({
+  //       description: "koin nambah",
+  //       status: "success",
+  //       position : "bottom-start",
+  //       isClosable: true,
+  //     })
+  //   }, [coin]);
+  // }
+
+  const [notifMoney, setNotifMoney] = useState(true)
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
-  const [game, setGame] = useState('start');
+  const [game, setGame] = useState('home');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
   };
-  
+
+
+  // buat pass toast to all
+  useEffect(() => {
+    setNotifMoney(true);
+  }, [game])
+
   //this for hide the pause dan phone button
   useEffect(() => {
     if (game == 'start' || game == 'eat' || game == 'selectchar') {
@@ -162,6 +185,8 @@ function App() {
         value={{
           coin,
           setCoin,
+          prevCoin,
+          notifMoney,
           nama,
           setNama,
           jurusan,
@@ -208,6 +233,10 @@ function App() {
           setChicken,
           eggtray,
           setEggtray,
+          salad,
+          setSalad,
+          foodIndex,
+          setFoodIndex,
         }}
       >
         {showPause ? (
@@ -218,6 +247,7 @@ function App() {
         ) : (
           ''
         )}
+        {notifMoney ? null : null}
         {(() => {
           switch (game) {
             case 'start':
@@ -231,7 +261,9 @@ function App() {
             case 'cafe':
               return <Cafe handleClick={handleClick} />;
             case 'mall':
-              return <ToMall handleClick={handleClick} />;
+              return <Mall handleClick={handleClick} />;
+            case 'cart':
+              return <Cart handleClick={handleClick} />;
             case 'uni':
               return <ToStudy handleClick={handleClick} />;
             case 'Minigames':
