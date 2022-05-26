@@ -19,8 +19,10 @@ import Phone from './components/phone/phoneMain';
 import MiniGamestwo from './Pages/Home/MiniGames/ButtonApp';
 import Class from './Pages/Universitas/classroom';
 import Toast from './components/template/tempWarnPopUp';
-import ToStudy from './Pages/Universitas/linkHal'
+import ToStudy from './Pages/Universitas/UnivHall'
 import EatPage from './Pages/Home/Eat/EatPage';
+import Library from './Pages/Universitas/library';
+
 
 /*
 1. nama
@@ -234,6 +236,13 @@ function App() {
               return <ToStudy handleClick={handleClick} />;
             case 'Minigames':
               return <MiniGamestwo handleClick={handleClick} />;
+
+
+
+              case 'class':
+                return <Class handleClick={handleClick} />;
+              case 'library':
+                return <Library handleClick={handleClick} />;
             default:
               return null;
           }
