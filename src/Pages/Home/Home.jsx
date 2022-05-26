@@ -25,6 +25,7 @@ import { Xp } from '../../components/statusBar/Xp';
 import Notif from './testNotif';
 
 import lala from '../../components/asset/gif/eat.gif';
+import Player from './audio';
 
 function Home(props) {
   const { nama, setNama } = useContext(AllContext);
@@ -70,7 +71,7 @@ function Home(props) {
   const add = x => {
     setCoin(coin + x);
   };
-//test
+  //test
   return (
     <Box
       backgroundImage={changeBg}
@@ -115,7 +116,7 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        
+
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Button
             onClick={() => {
@@ -145,7 +146,9 @@ function Home(props) {
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <Player url="http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg" />
+        </GridItem>
       </Grid>
     </Box>
   );

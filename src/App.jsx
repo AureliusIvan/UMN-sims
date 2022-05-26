@@ -39,7 +39,7 @@ function DragEat() {
 
 function App() {
   //DND
-  const [isdrag, setDrag ] = useState(false);
+  const [isdrag, setDrag] = useState(false);
   //show pause and phone
   const [showPause, setShowPause] = useState(true);
   const handeShowPause = x => {
@@ -73,11 +73,13 @@ function App() {
   const [bgUniv, setBgUniv] = useState('BgPagi');
 
   //const buat makanan
-  const [burger, setBurger] = useState(0);
-  const [telur, setTelur] = useState(0);
-  const [ikangoreng, setIkangoreng] = useState(0);
-  const [steak, setSteak] = useState(0);
-  const [ayampanggang, setAyampanggang] = useState(0);
+  const [foodIndex, setFoodIndex] = useState(0);
+  const [burger, setBurger] = useState(2);
+  const [telur, setTelur] = useState(2);
+  const [ikangoreng, setIkangoreng] = useState(1);
+  const [salad, setSalad] = useState(1);
+  const [steak, setSteak] = useState(1);
+  const [ayampanggang, setAyampanggang] = useState(1);
 
   //const buat bahan makanan
   const [tomato, setTomato] = useState(0);
@@ -143,7 +145,7 @@ function App() {
     setGame(gameState);
     console.log(game);
   };
-  
+
   //this for hide the pause dan phone button
   useEffect(() => {
     if (game == 'start' || game == 'eat' || game == 'selectchar') {
@@ -205,6 +207,10 @@ function App() {
           setChicken,
           eggtray,
           setEggtray,
+          salad,
+          setSalad,
+          foodIndex,
+          setFoodIndex,
         }}
       >
         {showPause ? (
