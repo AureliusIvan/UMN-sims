@@ -93,6 +93,7 @@ function Picture({ url, id, className }) {
   );
 }
 
+
 function Eat(props) {
   const { isdrag, setDrag } = useContext(AllContext);
   const [slice, setSlice] = useState(sliceMakananA);

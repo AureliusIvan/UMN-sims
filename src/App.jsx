@@ -45,6 +45,7 @@ function App() {
   const handeShowPause = x => {
     setShowPause(x);
   };
+
   //coin const
   const [coin, setCoin] = useState(7000);
   //player choice

@@ -257,6 +257,7 @@ function Eat2() {
         </Flex>
       </DragDropContext>
     </Box>
+
   );
 }
 
