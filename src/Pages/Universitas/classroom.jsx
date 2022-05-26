@@ -4,8 +4,8 @@ import MapPop from '../../components/buttons/MapPop';
 import Study from './study';
 import Read from './read';
 import { CreateChar } from '../../components/character/CharacterCard';
-import bgday from './bg/Day.png';
-import bgdayrain from './bg/Rainday.png';
+import bgday from './bg/Pagi.png';
+import bgdayrain from './bg/Rain.png';
 import bgdawn from './bg/Dawn.png';
 import bgdawnrain from './bg/Raindawn.png';
 import bgnight from './bg/Night.png';
@@ -67,16 +67,9 @@ function Univ(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <VStack spacing={4} align="end">
-            <Study function={() => props.handleClick('class')} />
-            <Read function={() => props.handleClick('library')}/>
-          </VStack>
-        </GridItem>
-
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>

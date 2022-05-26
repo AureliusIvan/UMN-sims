@@ -14,12 +14,13 @@ import Home from './Pages/Home/Home';
 import Eat from './Pages/Home/Eat/Eat';
 import Cafe from './Pages/Cafe/Cafe';
 import ToMall from './Pages/Mall/shopLinking';
-import Uni from './Pages/Universitas/UnivHall';
 import { AllContext } from './components/Value/CoinContext';
 import Pause from './components/buttons/PauseBtn';
 import Phone from './components/phone/phoneMain';
 import MiniGamestwo from './Pages/Home/MiniGames/ButtonApp';
+import Class from './Pages/Universitas/classroom';
 import Toast from './components/template/tempWarnPopUp';
+import ToStudy from './Pages/Universitas/linkHal'
 
 /*
 1. nama
@@ -119,7 +120,7 @@ function App() {
 
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
-  const [game, setGame] = useState('mall');
+  const [game, setGame] = useState('cafe');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
@@ -200,7 +201,7 @@ function App() {
             case 'mall':
               return <ToMall handleClick={handleClick} />;
             case 'uni':
-              return <Uni handleClick={handleClick} />;
+              return <ToStudy handleClick={handleClick} />;
             case 'Minigames':
               return <MiniGamestwo handleClick={handleClick} />;
             default:

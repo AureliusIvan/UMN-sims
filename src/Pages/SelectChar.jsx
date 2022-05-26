@@ -86,13 +86,13 @@ const Char3 = {
   name: 'Jaka',
   tipe: 'Holkay',
   desc: '[Unlimited Money] Memperoleh 20% lebih banyak uang jajan setiap hari',
-  lore: 'Anak Rajin, Begitulan orang-orang memanggilnya. Panggilan tersebut didapatnya karena dia setiap harinya belajar ngoding (termasuk hari libur).',
+  lore: '"Minggir holkay mau lewat" Ucap para mahasiswa yang melihatnya melintas, dengan uang jajan setumpuk dan hobi shopping setiap hari setelah kuliah untuk melepas penat ia menjadi sorotan publik sebagai penghambur uang namu uangnya tidak ada habis habisnya',
   next: 4,
   prev: 2,
 };
 
 const Char4 = {
-  name: 'girl',
+  name: 'not a girl',
   tipe: 'Anak Rajin',
   desc: '[Proficient Learner] Mepercepat belajar hingga +20%',
   lore: 'Anak Rajin, Begitulan orang-orang memanggilnya. Panggilan tersebut didapatnya karena dia setiap harinya belajar ngoding (termasuk hari libur).',

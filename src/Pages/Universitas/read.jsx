@@ -1,12 +1,17 @@
-import Pop from '../../components/template/tempPopUp'
-import GIF from '../../components/asset/gif/study.gif'
+import Read from './icon/Library.png';
+import {
+    Image
+  } from '@chakra-ui/react';
 
-function reading() {
+function reading(props) {
     return (
-        <Pop 
-			btnName="Read books"
-            image={GIF}
-            alt='reading'
+        <Image
+        src={Read}
+        width = {{base: "50%", md:"40%", sm:"70%" }}
+        cursor="pointer"
+        transition="0.2s linear"
+        _hover={{ transform: 'scale(1.15)' }}
+        onClick={props.function}
         />
     )
 }

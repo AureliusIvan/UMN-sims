@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Onecard from './comp/onecard';
 import { Box, Button } from '@chakra-ui/react';
 import './App.css';
+
 const cardImages = [
   { src: '/img/book.png', matched: false },
   { src: '/img/burger.png', matched: false },
@@ -10,7 +11,7 @@ const cardImages = [
   { src: '/img/chips.png', matched: false },
   { src: '/img/coin.png', matched: false },
   { src: '/img/macaron.png', matched: false },
-  { src: '/img/Battery.png', matched: false },
+  { src: '/img/milk.png', matched: false },
 ];
 
 function MiniGamestwo() {
