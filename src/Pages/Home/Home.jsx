@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   useToast,
   Grid,
@@ -19,9 +19,8 @@ import BgPagi from './bg/Pagi.png';
 import BgSiang from './bg/Siang.png';
 import BgSore from './bg/Sore.png';
 import BgMalem from './bg/Malem.png';
-import { Xp } from '../../components/statusBar/Xp';
+import { StatFunction } from '../../components/statusBar/statFunction';
 import Notif from './testNotif';
-import lala from '../../components/asset/gif/eat.gif';
 import Player from './audio';
 import burger from './Eat/food/burger.png';
 import Sleep from './sleep';
@@ -159,12 +158,10 @@ function Home(props) {
           <RotiPanggang title="tes toast" content="ini roti panggang" />
           <Button
             onClick={() => {
-              if (makan === 0) setMakan(0);
-              else setMakan(makan - 10);
-              // setTidur(tidur - 10);
+              {StatFunction(makan, setMakan, 10, 0)}
             }}
           >
-            - makan
+            + - makan 
           </Button>
           <Button onClick={() => setCoin(coin + 500)}>+ coin</Button>
           <Button onClick={() => setCoin(coin - 500)}>- coin</Button>
