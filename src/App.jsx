@@ -68,7 +68,7 @@ function App() {
   const [countday, setCountday] = useState(0);
   
   //Status bar const
-  const [makan, setMakan] = useState(70);
+  const [makan, setMakan] = useState(50);
   const [tidur, setTidur] = useState(50);
   const [main, setMain] = useState(50);
   const [belajar, setBelajar] = useState(70);
