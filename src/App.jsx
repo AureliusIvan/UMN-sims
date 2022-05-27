@@ -60,7 +60,7 @@ function App() {
 
   //time const
   const [Day, setDay] = useState(0);
-  const [hour, setHour] = useState(23);
+  const [hour, setHour] = useState(0);
   const [minute, setCount] = useState(0);
   const [countday, setCountday] = useState(0);
   const [realtime, setRealtime] = useState(0);
@@ -162,7 +162,7 @@ function App() {
   
   // handle switch page
   // https://medium.com/nerd-for-tech/a-case-to-switch-using-switch-statements-in-react-e83e01154f60
-  const [game, setGame] = useState('home');
+  const [game, setGame] = useState('start');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
