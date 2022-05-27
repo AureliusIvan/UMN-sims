@@ -158,6 +158,9 @@ function App() {
   const [notifMoney, setNotifMoney] = useState(true)
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
+  
+  // handle switch page
+  // https://medium.com/nerd-for-tech/a-case-to-switch-using-switch-statements-in-react-e83e01154f60
   const [game, setGame] = useState('home');
   const handleClick = gameState => {
     setGame(gameState);
@@ -247,7 +250,7 @@ function App() {
         ) : (
           ''
         )}
-        {notifMoney ? null : null}
+        {/* {notifMoney ? null : null} */}
         {(() => {
           switch (game) {
             case 'start':

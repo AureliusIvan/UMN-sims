@@ -15,14 +15,6 @@ function News() {
 						<NewsArticle data={news} key={news.url} />
 					</Box>
 				))
-
-			// () => {
-			// 	setInterval(() => {
-					
-			// 	}, 2000);
-			// 	clearInterval();
-			// }
-				
 			: (
 			<Text align='center' my='auto'>
 				News Loading...

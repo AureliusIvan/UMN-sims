@@ -21,7 +21,6 @@ import BgSore from './bg/Sore.png';
 import BgMalem from './bg/Malem.png';
 import { StatFunction } from '../../components/statusBar/statFunction';
 import Notif from './testNotif';
-import lala from '../../components/asset/gif/eat.gif';
 import Player from './audio';
 
 function Home(props) {
@@ -151,7 +150,7 @@ function Home(props) {
               {StatFunction(makan, setMakan, 0, 10)}
             }}
           >
-            - makan 
+            + - makan 
           </Button>
           <Button onClick={() => setCoin(coin + 500)}>+ coin</Button>
           <Button onClick={() => setCoin(coin - 500)}>- coin</Button>
