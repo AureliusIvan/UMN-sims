@@ -1,14 +1,15 @@
-import { useContext } from "react"
-import { AllContext } from "../Value/CoinContext"
+export function StatFunction(what, setWhat, add, min) {
+    // console.log (`${what}, ${setWhat}, ${add}, ${min}`)
 
-function statMakan({add, min}) {
-    const [makan, setMakan] = useContext(AllContext)
-
-    if (makan === 0)
-        setMakan(0)
-    else if (makan === 100)
-        setMakan(100)
-    else
-        setMakan(makan + add);
-        setMakan(makan - min)
+    if (what === 0 && add !== 0)
+        setWhat(add) // sama aja kyk setWhat(what + add)
+    else if (what === 0 && min !== 0)
+        setWhat(0)
+    else if (what === 100 && min !== 0)
+        setWhat(what - min)
+    else if (what === 100 && add !== 0)
+        setWhat(100)
+    else {
+        setWhat(what + add - min);
+    } // mgkn ini ga perlu, tp buat jaga" aja
 }

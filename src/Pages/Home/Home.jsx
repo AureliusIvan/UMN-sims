@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import {
   useToast,
   Grid,
@@ -19,7 +19,7 @@ import BgPagi from './bg/Pagi.png';
 import BgSiang from './bg/Siang.png';
 import BgSore from './bg/Sore.png';
 import BgMalem from './bg/Malem.png';
-import { Xp } from '../../components/statusBar/Xp';
+import { StatFunction } from '../../components/statusBar/statFunction';
 import Notif from './testNotif';
 
 function Home(props) {
@@ -43,12 +43,12 @@ function Home(props) {
     }
   }
 
-  useEffect (() => {
-    // if (makan < 50) 
-    //   console.log ("makan under 50");
-    if (makan === 0) 
-      console.log ("game over");
-  }, [makan])
+  // useEffect (() => {
+  //   // if (makan < 50) 
+  //   //   console.log ("makan under 50");
+  //   if (makan === 0) 
+  //     console.log ("game over");
+  // }, [makan])
 
   //useEffect buat notif
   //notif uang jajan
@@ -122,7 +122,6 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Button onClick={() => props.handleClick('eat')}>Eat</Button>
-          {/* <Button>Test ROti</Button> */}
         </GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
@@ -147,11 +146,7 @@ function Home(props) {
           <RotiPanggang title="tes toast" content="ini roti panggang" />
           <Button
             onClick={() => {
-              if (makan === 0)
-                setMakan(0);
-              else
-                setMakan(makan - 10);
-              // setTidur(tidur - 10);
+              {StatFunction(makan, setMakan, 0, 10)}
             }}
           >
             - makan 
