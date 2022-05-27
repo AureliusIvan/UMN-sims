@@ -42,6 +42,7 @@ function InputDataChar() {
 				<option value="Informatika">Informatika</option>
 				<option value="Ilmu Komunikasi">Ilmu Komunikasi</option>
 				<option value="DKV">DKV</option>
+				<option value="Film">Film</option>
 			</Select>
 		</VStack>
 	)

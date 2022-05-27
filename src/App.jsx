@@ -1,9 +1,4 @@
-import {
-  ChakraProvider,
-  theme,
-  Button,
-  useToast,
-} from '@chakra-ui/react';
+import { ChakraProvider, theme, Button, useToast } from '@chakra-ui/react';
 import { useMemo, useState, useEffect, useRef } from 'react';
 import './App.css';
 import PageOne from './Pages/Start';
@@ -15,7 +10,7 @@ import Cafe from './Pages/Cafe/Cafe';
 import { AllContext } from './components/Value/CoinContext';
 import MiniGamestwo from './Pages/Home/MiniGames/ButtonApp';
 import Class from './Pages/Universitas/classroom';
-import ToStudy from './Pages/Universitas/UnivHall'
+import ToStudy from './Pages/Universitas/UnivHall';
 import Library from './Pages/Universitas/library';
 import Cart from './Pages/Mall/shoppingCart/appShop';
 import Uni from './Pages/Universitas/UnivHall';
@@ -41,6 +36,8 @@ function DragEat() {
 }
 
 function App() {
+  //const buat set mulai
+  const [start, setStart] = useState(false);
   //DND
   const [isdrag, setDrag] = useState(false);
   //show pause and phone
@@ -55,24 +52,25 @@ function App() {
   useEffect(() => {
     prevCoin.current = coin;
   }, [coin]);
-  
+
   //player choice
   const [jurusan, setJurusan] = useState('');
   const [character, setCharacter] = useState(1);
   const [nama, setNama] = useState('kamu');
-  
+
   //time const
   const [Day, setDay] = useState(0);
   const [hour, setHour] = useState(23);
   const [minute, setCount] = useState(0);
   const [countday, setCountday] = useState(0);
-  
+  const [realtime, setRealtime] = useState(0);
+
   //Status bar const
   const [makan, setMakan] = useState(70);
   const [tidur, setTidur] = useState(50);
   const [main, setMain] = useState(50);
   const [belajar, setBelajar] = useState(70);
-  
+
   //Weather const
   const [weather, setWeather] = useState('');
 
@@ -84,12 +82,12 @@ function App() {
 
   //const buat makanan
   const [foodIndex, setFoodIndex] = useState(0);
-  const [burger, setBurger] = useState(2);
-  const [telur, setTelur] = useState(2);
-  const [ikangoreng, setIkangoreng] = useState(1);
-  const [salad, setSalad] = useState(1);
-  const [steak, setSteak] = useState(1);
-  const [ayampanggang, setAyampanggang] = useState(1);
+  const [burger, setBurger] = useState(10);
+  const [telur, setTelur] = useState(10);
+  const [ikangoreng, setIkangoreng] = useState(10);
+  const [salad, setSalad] = useState(10);
+  const [steak, setSteak] = useState(10);
+  const [ayampanggang, setAyampanggang] = useState(10);
 
   //const buat bahan makanan
   const [tomato, setTomato] = useState(0);
@@ -100,21 +98,24 @@ function App() {
 
   //buat jam
   useInterval(() => {
-    setCount(minute + 1);
-    if (minute >= 59) {
-      setHour(hour + 1);
-      setCount(0);
-    }
-    if (hour >= 23 && minute === 59) {
-      setDay(Day + 1);
-      setCountday(1);
-      setHour(0);
-    }
+    if (start == true) {
+      setCount(minute + 1);
+      setRealtime(realtime + 1);
+      if (minute >= 59) {
+        setHour(hour + 1);
+        setCount(0);
+      }
+      if (hour >= 23 && minute === 59) {
+        setDay(Day + 1);
+        setCountday(1);
+        setHour(0);
+      }
 
-    //ini buat duid harian
-    if (countday == 1) {
-      setCoin(coin + 2000);
-      setCountday(0);
+      //ini buat duid harian
+      if (countday == 1) {
+        setCoin(coin + 2000);
+        setCountday(0);
+      }
     }
   }, 1000);
 
@@ -155,20 +156,19 @@ function App() {
   //   }, [coin]);
   // }
 
-  const [notifMoney, setNotifMoney] = useState(true)
+  const [notifMoney, setNotifMoney] = useState(true);
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
-  const [game, setGame] = useState('home');
+  const [game, setGame] = useState('start');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
   };
 
-
   // buat pass toast to all
   useEffect(() => {
     setNotifMoney(true);
-  }, [game])
+  }, [game]);
 
   //this for hide the pause dan phone button
   useEffect(() => {
@@ -183,6 +183,8 @@ function App() {
     <ChakraProvider theme={theme}>
       <AllContext.Provider
         value={{
+          start,
+          setStart,
           coin,
           setCoin,
           prevCoin,
@@ -269,12 +271,10 @@ function App() {
             case 'Minigames':
               return <MiniGamestwo handleClick={handleClick} />;
 
-
-
-              case 'class':
-                return <Class handleClick={handleClick} />;
-              case 'library':
-                return <Library handleClick={handleClick} />;
+            case 'class':
+              return <Class handleClick={handleClick} />;
+            case 'library':
+              return <Library handleClick={handleClick} />;
             default:
               return null;
           }
