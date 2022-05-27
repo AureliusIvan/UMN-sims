@@ -23,6 +23,8 @@ import { Xp } from '../../components/statusBar/Xp';
 import Notif from './testNotif';
 import lala from '../../components/asset/gif/eat.gif';
 import Player from './audio';
+import burger from './Eat/food/burger.png';
+import Sleep from './sleep';
 
 function Home(props) {
   const { nama, setNama } = useContext(AllContext);
@@ -45,38 +47,36 @@ function Home(props) {
     }
   }
 
-  useEffect (() => {
-    // if (makan < 50) 
+  useEffect(() => {
+    // if (makan < 50)
     //   console.log ("makan under 50");
-    if (makan === 0) 
-      console.log ("game over");
-  }, [makan])
+    if (makan === 0) console.log('game over');
+  }, [makan]);
 
   //useEffect buat notif
   //notif uang jajan
 
-  const[first, setFirst] = useState(true);
+  const [first, setFirst] = useState(true);
 
   const toast = useToast();
   useEffect(() => {
-    if (first)
-      setFirst(false);
+    if (first) setFirst(false);
 
     if (!first) {
       if (coin > prevCoin.current)
         toast({
-          description: "koin nambah",
-          status: "success",
-          position : "bottom-start",
+          description: 'koin nambah',
+          status: 'success',
+          position: 'bottom-start',
           isClosable: true,
-        })
+        });
       else {
         toast({
-          description: "koin berkurang",
-          status: "warning",
-          position : "bottom-start",
+          description: 'koin berkurang',
+          status: 'warning',
+          position: 'bottom-start',
           isClosable: true,
-        })
+        });
       }
     }
   }, [coin]);
@@ -123,13 +123,23 @@ function Home(props) {
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Button onClick={() => props.handleClick('eat')}>Eat</Button>
+          <Button
+            position="absolute"
+            right="50px"
+            transform="translateY(30px)"
+            colorScheme="yellow"
+            color="black"
+            filter="contrast(200%) drop-shadow(5px 5px white)"
+            onClick={() => props.handleClick('eat')}
+          >
+            Eat
+          </Button>
           {/* <Button>Test ROti</Button> */}
         </GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}><Sleep/></GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Button
@@ -149,14 +159,12 @@ function Home(props) {
           <RotiPanggang title="tes toast" content="ini roti panggang" />
           <Button
             onClick={() => {
-              if (makan === 0)
-                setMakan(0);
-              else
-                setMakan(makan - 10);
+              if (makan === 0) setMakan(0);
+              else setMakan(makan - 10);
               // setTidur(tidur - 10);
             }}
           >
-            - makan 
+            - makan
           </Button>
           <Button onClick={() => setCoin(coin + 500)}>+ coin</Button>
           <Button onClick={() => setCoin(coin - 500)}>- coin</Button>
@@ -164,9 +172,7 @@ function Home(props) {
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Player url="http://commondatastorage.googleapis.com/codeskulptor-assets/Epoq-Lepidoptera.ogg" />
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
       </Grid>
     </Box>
   );
