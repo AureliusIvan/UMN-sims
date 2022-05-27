@@ -9,8 +9,8 @@ import News from "./news";
 function newsApp () {
 	return (
 		<NewsContextProvider>
-			<Box bgColor={'white'} padding='2'>
-				<Text fontSize={'50px'} color={'red.500'}>Latest News</Text>
+			<Box bgColor={'red.500'} padding='2'>
+				<Text textAlign="center"  fontSize={'50px'} color={'white'}>Latest News</Text>
 				<News /> 
 			</Box>
 		</NewsContextProvider>

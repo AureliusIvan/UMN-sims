@@ -4,7 +4,7 @@ import {
   ModalContent,
   ModalCloseButton,
   Flex,
-  Image
+  Image,
 } from '@chakra-ui/react';
 
 import { useDisclosure } from '@chakra-ui/react';
@@ -26,17 +26,16 @@ function MapPop(props) {
   );
 
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [overlay, setOverlay] = useState(<PopUp />)
+  const [overlay, setOverlay] = useState(<PopUp />);
 
   return (
     <>
       <Image
         src={mapIcon}
         width={{ base: '60%', sm: '40%', md: '22%' }}
-        filter="drop-shadow(4px 4px 2px white)"
+        filter="drop-shadow(10px 5px 4px white) contrast(140%)"
         // bgColor="white"
-        
-        
+
         cursor="pointer"
         transition="0.2s linear"
         _hover={{ transform: 'scale(1.15)' }}
@@ -49,27 +48,33 @@ function MapPop(props) {
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         {overlay}
         <ModalContent bg="rgba(0,0,0,0)" boxShadow="none">
-          <ModalCloseButton onClick={()=>{console.log('test')}} color='white' zIndex={5}/>
-          <Flex alignItems='center' justifyContent='center'>
+          <ModalCloseButton
+            onClick={() => {
+              console.log('test');
+            }}
+            color="white"
+            zIndex={5}
+          />
+          <Flex alignItems="center" justifyContent="center">
             <Image
               src={base}
               alt="my map"
               filter="drop-shadow(2px 2px 3px burlywood)"
             />
-            <Places 
-              icon = {mall}
-              width = {{base: "42%", sm:"40%"}}
-              left = {{base:"0", sm:"0"}}
-              top = {{base:"-2", sm:"0"}}
-              function = {props.mall}
+            <Places
+              icon={mall}
+              width={{ base: '42%', sm: '40%' }}
+              left={{ base: '0', sm: '0' }}
+              top={{ base: '-2', sm: '0' }}
+              function={props.mall}
             />
 
             <Places
-              icon = {umn}
-              width = {{base:"45%", sm:"42%"}}
-              left = {{base:"210", sm:"250"}}
-              top = {{base:"-4", sm:"-2"}}
-              function = {props.uni}
+              icon={umn}
+              width={{ base: '45%', sm: '42%' }}
+              left={{ base: '210', sm: '250' }}
+              top={{ base: '-4', sm: '-2' }}
+              function={props.uni}
             />
             <Places
               icon={cafe}

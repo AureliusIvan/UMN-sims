@@ -35,7 +35,3 @@ body {
     font-family: "Dimbo";
     src: url(components/asset/font/Dimbo\ Regular.ttf);
 }
-
-.gridItems{
-    border: 1px solid rgb(8, 3, 3, .3);
-}

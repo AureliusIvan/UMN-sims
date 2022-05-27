@@ -12,15 +12,16 @@ import {
 } from '@chakra-ui/react';
 import React, { useState, useEffect, useContext } from 'react';
 import { AllContext } from '../components/Value/CoinContext';
-import { Char1, Char2, Char3, Char4 } from "./skillChar"
-import { CreateChar } from "../components/character/CharacterCard"
-import InfoModal from "./charSkillModal"
-import InputHere from "./inputCharacter";
-import next from "../components/asset/icon/next.png"
-import prev from "../components/asset/icon/prev.png"
-import start from "../components/asset/icon/start.png"
+import { Char1, Char2, Char3, Char4 } from './skillChar';
+import { CreateChar } from '../components/character/CharacterCard';
+import InfoModal from './charSkillModal';
+import InputHere from './inputCharacter';
+import next from '../components/asset/icon/next.png';
+import prev from '../components/asset/icon/prev.png';
+import mulai from '../components/asset/icon/start.png';
 
 function SelectCharacter(props) {
+  const { start, setStart } = useContext(AllContext);
   const { character, setCharacter } = useContext(AllContext);
 
   const [atribute, setAtribute] = useState(Char1);
@@ -31,6 +32,10 @@ function SelectCharacter(props) {
     setCharacter(atribute.next);
   };
 
+  function handleStart() {
+    setStart(true);
+    console.log(start);
+  }
   useEffect(() => {
     if (character === 1) {
       setAtribute(Char1);
@@ -48,7 +53,7 @@ function SelectCharacter(props) {
       <Flex flexDir="column" justifyContent="center" alignItems="center">
         <InputHere />
         <Flex flexDir="column" mb={20}>
-          <Flex justifyContent="center" mt="50px" transform="translateX(22px)" >
+          <Flex justifyContent="center" mt="50px" transform="translateX(22px)">
             <Flex flexDir="column" justifyContent="center" alignItems="center">
               <Box
                 h="40px"
@@ -63,35 +68,35 @@ function SelectCharacter(props) {
                 {atribute.tipe}
               </Box>
             </Flex>
-            <InfoModal 
+            <InfoModal
               name={atribute.tipe}
               desc={atribute.desc}
               lore={atribute.lore}
             />
           </Flex>
-          <HStack spacing="100px" justify="center" mt={{sm:"50", base:"0"}}>
-            <Image 
+          <HStack spacing="100px" justify="center" mt={{ sm: '50', base: '0' }}>
+            <Image
               zIndex={5}
-              src={prev} 
+              src={prev}
               transform="translateY(180px)"
-              width={{md:"120px", base:"90px" }}
+              width={{ md: '120px', base: '90px' }}
               position="relative"
               cursor="pointer"
               transition="0.3s"
-              _hover={{transform:"scale(1.1) translateY(160px)"}}
+              _hover={{ transform: 'scale(1.1) translateY(160px)' }}
               onClick={() => {
                 handleCharPrev();
               }}
             />
             <Box></Box>
-            <Image 
+            <Image
               zIndex={5}
               src={next}
               transform="translateY(180px)"
-              width={{md:"120px", base:"90px" }}
+              width={{ md: '120px', base: '90px' }}
               position="relative"
               cursor="pointer"
-              _hover={{transform:"scale(1.1) translateY(160px)"}}
+              _hover={{ transform: 'scale(1.1) translateY(160px)' }}
               transition="0.5s"
               onClick={() => {
                 handleCharNext();
@@ -100,23 +105,29 @@ function SelectCharacter(props) {
           </HStack>
         </Flex>
         {/* <Box mt={100}> */}
-          <CreateChar />
+        <CreateChar />
         {/* </Box>
         <Box bottom={10} >..</Box> */}
-        <Image 
-          src={start} 
+        <Image
+          src={mulai}
           width="100px"
-          transform={{sm:"translate(250px, 180px)", base:"translate(130px, 210px)"}}
+          transform={{
+            sm: 'translate(250px, 180px)',
+            base: 'translate(130px, 210px)',
+          }}
           mb="220px"
-          onClick={() => props.handleClick('home')}
-          _hover={{transform:"translate(250px, 180px) scale(1.2)"}}
+          onClick={() => {
+            props.handleClick('home');
+            handleStart();
+          }}
+          _hover={{ transform: 'translate(250px, 180px) scale(1.2)' }}
           transition="0.4s"
           zIndex={10}
           cursor="pointer"
         />
       </Flex>
     </Box>
-  )
+  );
 }
 
-export default SelectCharacter
+export default SelectCharacter;

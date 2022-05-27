@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import Credit from '../components/buttons/Credit';
-import bg from "../components/background/splash.png"
+import bg from '../components/background/splash.png';
 
 function PageOne(props) {
   const [Pop, setPop] = useState(false);
@@ -61,7 +61,30 @@ function PageOne(props) {
       >
         <GridItem className="gridItems" rowSpan={1} colSpan={3}>
           <Center>
-            <Image src={bg} maxH="500px" />
+            <Box
+              borderRadius="50%"
+              bgColor="yellow.100"
+              zIndex="-1"
+              pos="absolute"
+              top="0"
+              bottom="0"
+              margin="auto"
+              left="0"
+              right="0"
+              h="700px"
+              w="700px"
+            ></Box>
+            <Image
+              pos="absolute"
+              margin="auto"
+              left="-60px"
+              right="0"
+              top="0"
+              bottom="20"
+              src={bg}
+              maxH="500px"
+              filter="drop-shadow(5px 5px 5px black)"
+            />
           </Center>
         </GridItem>
       </Grid>
@@ -90,12 +113,11 @@ function PageOne(props) {
         </GridItem>
         {/* <GridItem className='gridItems' rowSpan={1} colSpan={3}>
         </GridItem> */}
-
       </Grid>
     </Box>
 
     // in progress
-    // <Flex 
+    // <Flex
     //   backgroundColor="teal"
     //   // position="fixed"
     //   // width="100%"
