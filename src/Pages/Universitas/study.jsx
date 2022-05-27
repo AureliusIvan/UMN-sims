@@ -1,12 +1,18 @@
-import Pop from '../../components/template/tempPopUp'
-import GIF from '../../components/asset/gif/study.gif'
+import study from './icon/study.png';
+import {
+    Image,
+    Button,
+  } from '@chakra-ui/react';
 
-function studying() {
+function studying(props) {
     return (
-        <Pop 
-			btnName="Study"
-            image={GIF}
-            alt='study'
+        <Image
+        src={study}
+        width = {{base: "50%", md:"40%", sm:"70%" }}
+        cursor="pointer"
+        transition="0.2s linear"
+        _hover={{ transform: 'scale(1.15)' }}
+        onClick={props.function}
         />
     )
 }

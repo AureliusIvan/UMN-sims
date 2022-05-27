@@ -16,60 +16,23 @@
 }
 
 .shop {
-    background-color: rgb(244, 255, 196);
   padding: 10px;
-  border: 1px solid #aaa;
   width: 140px;
   height: 100%;
   overflow-y: scroll;
-}
-
-.shopping-bag {
-  padding: 10px;
-  border: 1px dashed #777;
-}
-
-.dragitemss {
-  position: absolute;
-}
-.dragableitemshop {
-  width: 100px;
-  height: 100px;
-}
-
-.dragbox {
-  width: 100px;
-  height: 100px;
-}
-
-.dragbox:hover {
-  background-color: rgb(0, 0, 0, 0.1);
-}
-
-.dragbox > img {
-  width: 90%;
-  height: 90%;
-  transition: 0.3s;
+  transition: 0.4s !important;
 }
 
 .shopping-bag {
   border-radius: 10px;
-  width: 500px;
-  height: 500px;
-  overflow: hidden;
-  background-color: rgba(175, 145, 46, 0.3);
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column-reverse;
+  width: 100%;
+  height: 270px;
+  border-radius: 100px;
+  padding-top: 50%;
+  padding-left: 25%;
+  padding-right: 25%;
 }
 
-.shopping-item {
-  width: 25%;
-  height: 25%;
-  margin: 0;
-  transition: 0.3s;
-}
-
-.shopping-item:hover {
-  background-color: rgb(78, 213, 215, 0.5);
+.dragbox:hover {
+  background-color: rgb(0, 0, 0, 0.1);
 }
