@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Text, Flex, Image, Button } from '@chakra-ui/react';
+import { Link } from 'react-router-dom';
 
 function NewsArticle({ data }) {
   return (
@@ -8,11 +9,11 @@ function NewsArticle({ data }) {
       </Box>
       <Image borderRadius={'10px'} src={data.urlToImage} alt="images" />
       <Text fontSize={'20px'}>{data.title}</Text>
-      <Text></Text>
+      {/* <Link isext >hehe</Link> */}
       <Text color="gray">{data.content}</Text>
       <Flex justify="center">
-        <Button size="sm" fontWeight="light" href={data.url}>
-          Read More
+        <Button size="sm" fontWeight="light">
+          <a target="_blank" href={data.url}>Read More</a>
         </Button>
       </Flex>
     </Box>

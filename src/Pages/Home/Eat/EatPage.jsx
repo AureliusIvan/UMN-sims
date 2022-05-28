@@ -1,15 +1,6 @@
 import React from 'react';
 import { Box, Button } from '@chakra-ui/react';
-import {
-  Modal,
-  ModalOverlay,
-  ModalHeader,
-  ModalContent,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
-  Text
-} from '@chakra-ui/react';
+import { Text } from '@chakra-ui/react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { useDisclosure } from '@chakra-ui/react';
 import { DndProvider } from 'react-dnd';

@@ -5,22 +5,22 @@ import { StatFunction, CoinFunction } from '../../components/templateAndFunction
 import Pop from '../../components/templateAndFunction/tempPopUp'
 import GIF from '../../components/asset/gif/eat.gif'
 
-function PartTimeCafe() {
-    const {tidur, setTidur, coin, setCoin, main, setMain} = useContext(AllContext)
+function Ngopi() {
+    const {tidur, setTidur, coin, setCoin, makan, setMakan} = useContext(AllContext)
 
     return (
         <Box onClick={() => {
-                        {StatFunction(tidur, setTidur, 0, 10)};
-                        {StatFunction(main, setMain, 0, 5)};
-                        {CoinFunction(coin, setCoin, 1000, 0)};
+                        {StatFunction(tidur, setTidur, 10, 0)};
+                        {StatFunction(makan, setMakan, 15, 0)};
+                        {CoinFunction(coin, setCoin, 0, 800)};
                     }}>
             <Pop 
                 image={GIF}
-                btnName="Part Time"
-                alt='Kerja part time di cafe'
+                btnName="Ngopi"
+                alt='Ngopi di cafe'
             />
         </Box>
     )
 }
 
-export default PartTimeCafe
+export default Ngopi

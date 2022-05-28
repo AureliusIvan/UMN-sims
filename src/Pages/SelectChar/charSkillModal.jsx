@@ -1,6 +1,5 @@
 import { Flex, Text, Divider, Box, Modal, ModalOverlay, ModalHeader, ModalCloseButton, useDisclosure, ModalContent, ModalBody, Tooltip } from "@chakra-ui/react"
 import { InfoIcon } from "@chakra-ui/icons"
-import { Char1 } from "./SelectChar"
 
 function Skill(props) {
     const { isOpen, onOpen, onClose } = useDisclosure()

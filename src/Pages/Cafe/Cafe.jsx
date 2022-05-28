@@ -1,27 +1,16 @@
-import { useEffect, useContext, useState } from "react";
-import { Grid, GridItem, Box, Button, VStack, useToast } from "@chakra-ui/react";
+import { Grid, GridItem, Box, VStack } from "@chakra-ui/react";
 import MapPop from "../../components/buttons/MapPop";
 import PartTimeCafe from "./partTimeCafe"
-
-import GIF from "../../components/asset/gif/eat.gif"
-import PopTemplate from "../../components/template/tempPopUp";
-import { AllContext } from "../../components/Value/CoinContext";
-import Currency from "../../components/buttons/Currency";
-import { CreateChar } from "../../components/character/CharacterCard";
+import Ngopi from "./ngopi";
 
 function Cafe(props) {
-
   return (
     <Box className="cafe">
       <Grid className="Grid" h='100vh' templateRows='repeat(5, 1fr)' templateColumns='repeat(3, 1fr)' gap={0}>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Currency/>
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <MapPop
             home={() => props.handleClick('home')}
@@ -30,46 +19,25 @@ function Cafe(props) {
             uni={() => props.handleClick('uni')}
           />
         </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <CreateChar/>
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <VStack spacing={4} align="end">
-            {/* <PopTemplate
-              btnName="Part Time"
-              image={GIF}
-              alt='Kerja part time di cafe'
-            /> */}
             <PartTimeCafe />
-            <Button onClick={()=>props.handleClick('ngopi')}>Ngopi</Button>
+            <Ngopi />
           </VStack>
         </GridItem>
         
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
       </Grid>
     </Box>
   );
