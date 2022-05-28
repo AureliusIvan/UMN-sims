@@ -108,8 +108,8 @@ function Home(props) {
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Button onClick={() => {CoinFunction(coin, setCoin, 500, 0)}}>+ coin</Button>
-          <Button onClick={() => {CoinFunction(coin, setCoin, 0, 500)}}>- coin</Button>
+          {/* <Button onClick={() => {CoinFunction(coin, setCoin, 500, 0)}}>+ coin</Button>
+          <Button onClick={() => {CoinFunction(coin, setCoin, 0, 500)}}>- coin</Button> */}
         </GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>

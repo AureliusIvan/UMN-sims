@@ -1,7 +1,7 @@
 import { Box, Divider, Text, Image, Flex, Button, Modal, ModalContent, ModalCloseButton, ModalBody, ModalHeader, ModalOverlay, useDisclosure } from '@chakra-ui/react'
 import React, { useState } from "react";
 
-import Pop from '../templateAndFunction/tempPopUp'
+import Reset from './confirmReset';
 import VolSlider from "./volumeSlider";
 
 import audioOn from '../asset/icon/unmute.png'
@@ -67,15 +67,7 @@ function Content() {
 			</Flex>
 			<Text>*belom ada efek suaranya ya :)</Text>
 			<VolSlider /><br />
-			<Button 
-				size='sm'
-				backgroundColor='red.500' 
-				color='whitesmoke'
-				fontWeight='light'
-				letterSpacing={1}
-				_hover={{bg:'red.700'}}
-				// onClick={}
-			>reset game</Button>
+			<Reset />
 		</Box>
 	);
 }
