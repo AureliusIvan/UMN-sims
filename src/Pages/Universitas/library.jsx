@@ -5,7 +5,6 @@ import {
    Box, 
    VStack, 
    Button } from '@chakra-ui/react';
-import { CreateChar } from '../../components/character/CharacterCard';
 import bgday from './bg/library.png';
 import bgdayrain from './bg/library.png';
 import bgdawn from './bg/library.png';
@@ -14,7 +13,6 @@ import bgnightrain from './bg/library.png';
 import { AllContext } from '../../components/Value/CoinContext';
 import Baca from './baca';
 import Pustakawan from './pustakawan';
-import Currency from '../../components/buttons/Currency';
 import Read from './read';
 
 function Univ(props) {
@@ -57,18 +55,13 @@ function Univ(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        <Box>
-            <Currency />
-          </Box>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         <Button className="gamebutton" onClick={() => props.handleClick('uni')}> Back </Button>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <CreateChar />
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>

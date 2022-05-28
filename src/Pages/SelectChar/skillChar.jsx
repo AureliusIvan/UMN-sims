@@ -20,7 +20,7 @@ export const Char3 = {
   name: 'Jaka',
   tipe: 'Holkay',
   desc: '[Unlimited Money] Memperoleh 20% lebih banyak uang jajan setiap hari',
-  lore: 'Anak Rajin, Begitulan orang-orang memanggilnya. Panggilan tersebut didapatnya karena dia setiap harinya belajar ngoding (termasuk hari libur).',
+  lore: 'Si Anak Sultan, Tidak mengenal lihat harga sebelum membeli barang. Definisi "I see it, I want it, I get it." Masalah hidupnya hanya bagaimana menghabiskan uang yang ada',
   next: 4,
   prev: 2,
 };

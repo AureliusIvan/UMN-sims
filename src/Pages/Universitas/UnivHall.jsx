@@ -3,7 +3,6 @@ import { Grid, GridItem, Box, VStack } from '@chakra-ui/react';
 import MapPop from '../../components/buttons/MapPop';
 import Study from './study';
 import Read from './read';
-import { CreateChar } from '../../components/character/CharacterCard';
 import bgday from './bg/Day.png';
 import bgdayrain from './bg/Rainday.png';
 import bgdawn from './bg/Dawn.png';
@@ -11,12 +10,11 @@ import bgdawnrain from './bg/Raindawn.png';
 import bgnight from './bg/Night.png';
 import bgnightrain from './bg/Rainnight.png';
 import { AllContext } from '../../components/Value/CoinContext';
-import StatusGroup from '../../components/statusBar/StatusBarGroup';
-import Currency from '../../components/buttons/Currency';
 
 function Univ(props) {
   const { hour, SetHour } = useContext(AllContext);
   const { weather, SetWeather } = useContext(AllContext);
+  
   function changeBg() {
     if (hour >= 7 && hour < 12 && weather != 'Rain') {
       return bgday;
@@ -53,12 +51,8 @@ function Univ(props) {
       >
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        <Box>
-            <Currency />
-            <StatusGroup />
-          </Box>
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <MapPop
             home={() => props.handleClick('home')}
@@ -68,9 +62,8 @@ function Univ(props) {
           />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <CreateChar />
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>

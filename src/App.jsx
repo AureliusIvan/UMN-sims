@@ -2,7 +2,7 @@ import { ChakraProvider, theme, Button, useToast } from '@chakra-ui/react';
 import { useMemo, useState, useEffect, useRef } from 'react';
 import './App.css';
 import PageOne from './Pages/Start';
-import SelectCharacter from './Pages/SelectChar';
+import SelectCharacter from './Pages/SelectChar/SelectChar';
 import Home from './Pages/Home/Home';
 import EatPage from './Pages/Home/Eat/EatPage';
 import Eat from './Pages/Home/Eat/Eat2';
@@ -16,8 +16,11 @@ import Cart from './Pages/Mall/shoppingCart/appShop';
 import Uni from './Pages/Universitas/UnivHall';
 import Pause from './components/buttons/PauseBtn';
 import Phone from './components/phone/phoneMain';
-import Toast from './components/template/tempWarnPopUp';
+import Toast from './components/templateAndFunction/toast';
 import Mall from './Pages/Mall/Mall';
+import StatusGroup from './components/statusBar/StatusBarGroup';
+import Currency from './components/buttons/Currency';
+import { CreateChar } from './components/character/CharacterCard';
 
 /*
 1. nama
@@ -139,39 +142,16 @@ function App() {
     }, [delay]);
   }
 
-  //useEffect buat notif
-  //notif uang jajan
-  // const[first, setFirst] = useState(true);
-
-  // const Duid = () => {
-  //   console.log("nambah duit");
-  //   const toast = useToast();
-  //   useEffect(() => {
-  //     toast({
-  //       description: "koin nambah",
-  //       status: "success",
-  //       position : "bottom-start",
-  //       isClosable: true,
-  //     })
-  //   }, [coin]);
-  // }
-
-  const [notifMoney, setNotifMoney] = useState(true);
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
   
   // handle switch page
   // https://medium.com/nerd-for-tech/a-case-to-switch-using-switch-statements-in-react-e83e01154f60
-  const [game, setGame] = useState('start');
+  const [game, setGame] = useState('home');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
   };
-
-  // buat pass toast to all
-  useEffect(() => {
-    setNotifMoney(true);
-  }, [game]);
 
   //this for hide the pause dan phone button
   useEffect(() => {
@@ -182,6 +162,17 @@ function App() {
     }
   }, [game]);
 
+  // automatic decrease every 5s tp masih error gitu dia kan naik turun 
+  useEffect(() => {
+    setInterval(() => {
+      // console.log("tes timing");
+      // {StatFunction(makan, setMakan, 0, 5)};
+      // {StatFunction(tidur, setTidur, 0, 5)};
+      // {StatFunction(main, setMain, 0, 5)};
+      clearInterval();
+    }, 5000);
+  })
+
   return (
     <ChakraProvider theme={theme}>
       <AllContext.Provider
@@ -191,7 +182,6 @@ function App() {
           coin,
           setCoin,
           prevCoin,
-          notifMoney,
           nama,
           setNama,
           jurusan,
@@ -248,11 +238,14 @@ function App() {
           <>
             <Pause />
             <Phone />
+            <StatusGroup />
+            <Currency />
+            <Toast />
           </>
         ) : (
           ''
         )}
-        {/* {notifMoney ? null : null} */}
+        <CreateChar />
         {(() => {
           switch (game) {
             case 'start':
@@ -263,6 +256,8 @@ function App() {
               return <Home handleClick={handleClick} />;
             case 'eat':
               return <EatPage handleClick={handleClick} />;
+            case 'Minigames':
+              return <MiniGamestwo handleClick={handleClick} />;
             case 'cafe':
               return <Cafe handleClick={handleClick} />;
             case 'mall':
@@ -271,9 +266,6 @@ function App() {
               return <Cart handleClick={handleClick} />;
             case 'uni':
               return <ToStudy handleClick={handleClick} />;
-            case 'Minigames':
-              return <MiniGamestwo handleClick={handleClick} />;
-
             case 'class':
               return <Class handleClick={handleClick} />;
             case 'library':

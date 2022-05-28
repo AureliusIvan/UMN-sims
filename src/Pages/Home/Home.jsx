@@ -9,17 +9,12 @@ import {
   Center,
 } from '@chakra-ui/react';
 import MapPop from '../../components/buttons/MapPop';
-import Currency from '../../components/buttons/Currency';
-import RotiPanggang from '../../components/template/tempWarnPopUp';
 import { AllContext } from '../../components/Value/CoinContext';
-import CharacterModule from '../../components/character/Card';
-import WheaterApp from '../../components/background/Weather';
-import StatusGroup from '../../components/statusBar/StatusBarGroup';
 import BgPagi from './bg/Pagi.png';
 import BgSiang from './bg/Siang.png';
 import BgSore from './bg/Sore.png';
 import BgMalem from './bg/Malem.png';
-import { StatFunction } from '../../components/statusBar/statFunction';
+import { CoinFunction } from '../../components/templateAndFunction/statCoinFunction';
 import Notif from './testNotif';
 import Player from './audio';
 import burger from './Eat/food/burger.png';
@@ -52,38 +47,6 @@ function Home(props) {
     if (makan === 0) console.log('game over');
   }, [makan]);
 
-  //useEffect buat notif
-  //notif uang jajan
-
-  const [first, setFirst] = useState(true);
-
-  const toast = useToast();
-  useEffect(() => {
-    if (first) setFirst(false);
-
-    if (!first) {
-      if (coin > prevCoin.current)
-        toast({
-          description: 'koin nambah',
-          status: 'success',
-          position: 'bottom-start',
-          isClosable: true,
-        });
-      else {
-        toast({
-          description: 'koin berkurang',
-          status: 'warning',
-          position: 'bottom-start',
-          isClosable: true,
-        });
-      }
-    }
-  }, [coin]);
-
-  const add = x => {
-    setCoin(coin + x);
-  };
-  //test
   return (
     <Box
       backgroundImage={changeBg}
@@ -105,12 +68,7 @@ function Home(props) {
             <Text></Text>
           </Center>
         </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Box>
-            <Currency />
-            <StatusGroup />
-          </Box>
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <MapPop
@@ -133,7 +91,6 @@ function Home(props) {
           >
             Eat
           </Button>
-          {/* <Button>Test ROti</Button> */}
         </GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
@@ -149,22 +106,10 @@ function Home(props) {
             Minigames
           </Button>
         </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Box zIndex={-1}>
-            <CharacterModule />
-          </Box>
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <RotiPanggang title="tes toast" content="ini roti panggang" />
-          <Button
-            onClick={() => {
-              {StatFunction(makan, setMakan, 10, 0)}
-            }}
-          >
-            + - makan 
-          </Button>
-          <Button onClick={() => setCoin(coin + 500)}>+ coin</Button>
-          <Button onClick={() => setCoin(coin - 500)}>- coin</Button>
+          <Button onClick={() => {CoinFunction(coin, setCoin, 500, 0)}}>+ coin</Button>
+          <Button onClick={() => {CoinFunction(coin, setCoin, 0, 500)}}>- coin</Button>
         </GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>

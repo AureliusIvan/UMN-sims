@@ -13,3 +13,12 @@ export function StatFunction(what, setWhat, add, min) {
         setWhat(what + add - min);
     } // mgkn ini ga perlu, tp buat jaga" aja
 }
+
+export function CoinFunction (what, setWhat, add, min) {
+    if (what === 0 && add !== 0)
+        setWhat(add)
+    else if (what === 0 && min !== 0)
+        setWhat(0)
+    else
+        setWhat(what + add - min) 
+}

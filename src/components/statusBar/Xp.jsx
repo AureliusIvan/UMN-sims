@@ -29,6 +29,7 @@ export function Xp(){
                         alignItems="center"
                         justifyContent="center"
                         zIndex={5}
+                        boxShadow="2px 2px 5px gray"
                     >XP</Flex>
                 </Flex>
             </Tooltip>
