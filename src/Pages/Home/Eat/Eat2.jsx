@@ -20,7 +20,7 @@ import friedfish from './food/friedfish.png';
 import roastchicken from './food/roastchicken.png';
 import salad from './food/salad.png';
 import steak from './food/steak.png';
-import { StatFunction, checkStat } from '../../../components/templateAndFunction/statCoinFunction';
+import { StatFunction } from '../../../components/templateAndFunction/statCoinFunction';
 import makanbg from './food/makanbg.png';
 import nexticon from '../../../components/asset/icon/next.png';
 import previcon from '../../../components/asset/icon/prev.png';
@@ -300,7 +300,6 @@ function Eat2() {
   useEffect(() => {
     if (lastfood != 0) {
       StatFunction(makan, setMakan, COLLECTION[foodIndex].hunger, 0)
-      checkStat(makan, setMakan)
       // setMakan(makan + COLLECTION[foodIndex].hunger);
       if (COLLECTION[foodIndex].name === 'burger') {
         setBurger(burger - 1);

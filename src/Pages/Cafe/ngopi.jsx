@@ -11,9 +11,7 @@ function Ngopi() {
     return (
         <Box onClick={() => {
                         StatFunction(tidur, setTidur, 10, 0)
-                        checkStat(tidur, setTidur)
                         StatFunction(makan, setMakan, 15, 0)
-                        checkStat(makan, setMakan)
                         CoinFunction(coin, setCoin, 0, 800)
                     }}>
             <Pop 

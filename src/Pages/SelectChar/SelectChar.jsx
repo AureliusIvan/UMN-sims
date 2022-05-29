@@ -18,6 +18,7 @@ import InputHere from './inputCharacter';
 import next from '../../components/asset/icon/next.png';
 import prev from '../../components/asset/icon/prev.png';
 import mulai from '../../components/asset/icon/start.png';
+import mainBG from "../../components/background/Charselect.png"
 
 function SelectCharacter(props) {
   const { start, setStart } = useContext(AllContext);
@@ -48,7 +49,7 @@ function SelectCharacter(props) {
   }, [character]);
 
   return (
-    <Box bgColor="pink" minH="100vh" w="100%">
+    <Box bgImage={mainBG} bgPos="center" bgSize={{md:"cover", base:"contain"}} minH="100vh" w="100%">
       <Flex flexDir="column" justifyContent="center" alignItems="center">
         <InputHere />
         <Flex flexDir="column" mb={20}>
@@ -87,7 +88,9 @@ function SelectCharacter(props) {
                 handleCharPrev();
               }}
             />
-            <Box></Box>
+            <Box>
+              <Image src={atribute.bg} />
+            </Box>
             <Image
               zIndex={5}
               src={next}

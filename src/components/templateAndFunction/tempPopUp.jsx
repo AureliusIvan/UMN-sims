@@ -29,13 +29,12 @@ function PopTemplate(props) {
 			{props.btnName}
 			</Button>
 
-			<Modal isCentered isOpen={isOpen} onClose={onClose}>
+			<Modal isCentered size="xl" isOpen={isOpen} onClose={onClose}>
 				{overlay}
 				<ModalContent bg="rgba(0,0,0,0)" boxShadow="none" pb={3}>
 					<ModalBody textAlign='center'>
 					<Flex flexDir='column' alignItems='center' justifyContent='center'>
 						{props.comment}
-						{/* <PartTimeCafe image={props.image[0]}/> */}
 						<Image 
 							src={props.image}
 							width={{md:'100%', base:'70%'}}

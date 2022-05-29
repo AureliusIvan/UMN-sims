@@ -241,7 +241,16 @@ function Cart() {
       position: 'top',
       status: 'success',
       duration: '2000'
+    });
+  }
 
+  function addToastWarn() {
+    toastIdRef.current = toast({
+      id,
+      description: 'Gagal Membeli',
+      position: 'top',
+      status: 'error',
+      duration: '2000'
     });
   }
   //
@@ -313,15 +322,20 @@ function Cart() {
 
   //pay algoritm
   function pay() {
-    if (coin >= total) setCoin(coin - total);
-    setTomato(tomato + tomatoz);
-    setBread(bread + breadz);
-    setBeef(beef + beefz);
-    setCabbage(cabbage + cabbagez);
-    setChicken(chicken + chickenz);
-    setEggtray(eggtray + eggtrayz);
-    Reset();
-    addToast();
+    if (coin >= total) {
+      setCoin(coin - total);
+      setTomato(tomato + tomatoz);
+      setBread(bread + breadz);
+      setBeef(beef + beefz);
+      setCabbage(cabbage + cabbagez);
+      setChicken(chicken + chickenz);
+      setEggtray(eggtray + eggtrayz);
+      Reset();
+      addToast();
+    }
+    else {
+      addToastWarn();
+    }
   }
 
   return (
