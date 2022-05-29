@@ -12,6 +12,8 @@ import Home from '../../Pages/Home/Home';
 import WeatherApp from '../background/Weather';
 import Walpaper1 from './walpaper/walpaper1.png';
 import Profile from './forProfile/profile';
+import SS from './forSS/SS';
+
 function HomeScreen() {
   return (
     <Box h={'100%'} w="100%" backgroundImage={Walpaper1}>
@@ -69,6 +71,13 @@ const AppLinking = () => {
           <HomeButton handleClick={handleClick} />
         </Box>
       );
+    case 'ss':
+      return (
+        <Box>
+          <SS handleClick={handleClick} />
+          <HomeButton handleClick={handleClick} />
+        </Box>
+      );
     default:
       return null;
   }
@@ -111,7 +120,7 @@ function AppList(props) {
           </Button>
 
           <Button width={100} fontWeight="light" colorScheme="teal">
-            masih kosong
+            Foto
           </Button>
         </Flex>
         <Flex mt={3} justifyContent="space-around" color="black">
@@ -124,8 +133,13 @@ function AppList(props) {
             Pokédex
           </Button>
 
-          <Button width={100} fontWeight="light" colorScheme="teal">
-            masih kosong
+          <Button
+            width={100}
+            fontWeight="light"
+            colorScheme="teal"
+            onClick={() => props.handleClick('ss')}
+          >
+            SS
           </Button>
         </Flex>
       </Flex>

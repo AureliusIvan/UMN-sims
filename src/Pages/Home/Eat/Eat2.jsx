@@ -12,7 +12,7 @@ import {
   Button,
   Progress,
   Flex,
-  Images,
+  Image,
 } from '@chakra-ui/react';
 import burger from './food/burger.png';
 import friedegg from './food/friedegg.png';
@@ -23,6 +23,9 @@ import steak from './food/steak.png';
 import Currency from '../../../components/buttons/Currency';
 import CharacterModule from '../../../components/character/Card';
 import { CreateChar } from '../../../components/character/CharacterCard';
+import makanbg from './food/makanbg.png';
+import nexticon from '../../../components/asset/icon/next.png';
+import previcon from '../../../components/asset/icon/prev.png';
 
 const COLLECTION = [
   {
@@ -137,7 +140,7 @@ function Copyable(props) {
                             snapshot.isDragging ? 'dragging dragbox' : 'dragbox'
                           }
                         >
-                          <img src={item.url} />
+                          <Image src={item.url} />
                         </GridItem>
                       </React.Fragment>
                     )}
@@ -170,6 +173,40 @@ function ShoppingBag(props) {
   );
 }
 
+function FoodCard(props) {
+  return (
+    <>
+      <>
+        <Flex
+          bgColor={'red'}
+          color="white"
+          height={'20px'}
+          width="70px"
+          justifyContent={'center'}
+          alignItems="center"
+          borderRadius={'10px'}
+          position="absolute"
+        >
+          {props.item}
+        </Flex>
+        <Flex
+          bgColor={'green.800'}
+          color="white"
+          height={'20px'}
+          width="120px"
+          justifyContent={'center'}
+          alignItems="center"
+          borderRadius={'10px'}
+          position="absolute"
+          transform={'translateY(120px)'}
+        >
+          {props.content}
+        </Flex>
+      </>
+    </>
+  );
+}
+
 function Eat2() {
   const { foodIndex, setFoodIndex } = useContext(AllContext);
   const { makan, setMakan } = useContext(AllContext);
@@ -196,9 +233,6 @@ function Eat2() {
     },
     [setShoppingBagItems]
   );
-
-
-
 
   function prevFood() {
     if (foodIndex == 0) {
@@ -235,7 +269,7 @@ function Eat2() {
 
   //food limit
   const [foodlimit, setFoodlimit] = useState(true);
-  const [foodvalue , setFoodValue ] = useState(0);
+  const [foodvalue, setFoodValue] = useState(0);
   const { burger, setBurger } = useContext(AllContext);
   const { telur, setTelur } = useContext(AllContext);
   const { ikangoreng, setIkangoreng } = useContext(AllContext);
@@ -299,7 +333,7 @@ function Eat2() {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Box className="Eat" bgGradient="linear(to-t, green.200, blue.500)">
+      <Box className="Eat" bgImage={makanbg}>
         <Grid
           className="Grid"
           h="100vh"
@@ -318,7 +352,9 @@ function Eat2() {
             textAlign={'center'}
             shadow={'2px 1px 6px #2e2e2e'}
           >
-            <Text pos={'absolute'} top="0px" left={0} right={0}></Text>
+            <Text pos={'absolute'} top="0px" left={0} right={0}>
+              Let's Eat!
+            </Text>
           </GridItem>
           <GridItem className="gridItems" rowSpan={3} colSpan={3}>
             <Progress
@@ -443,17 +479,85 @@ function Eat2() {
                       transform="translateX(-100px)"
                       position="absolute"
                       onClick={prevFood}
-                    >
-                      {'<'}
-                    </Button>
-                    {foodlimit ? <Shop items={COLLECTION} /> : 'makanan habis'}
+                      variant="unstyled"
+                      border={'none'}
+                      filter="contrast(300%)"
+                      _hover={{ filter: 'contrast(400%)' }}
+                      leftIcon={
+                        <Image width={'70px'} height="100px" src={previcon} />
+                      }
+                      _focus={{ outline: 'none' }}
+                      _focusVisible={{ outline: 'none' }}
+                    ></Button>
+                    {foodlimit ? (
+                      <Shop items={COLLECTION} />
+                    ) : (
+                      <>
+                        <Text>Makanan Habis</Text>
+                      </>
+                    )}
+                    {(() => {
+                      switch (foodIndex) {
+                        case 0:
+                          return (
+                            <>
+                              <FoodCard item={burger} content="Burger" />
+                            </>
+                          );
+                        case 1:
+                          return (
+                            <>
+                              <FoodCard item={telur} content="Telur Goreng" />
+                            </>
+                          );
+                        case 2:
+                          return (
+                            <>
+                              <FoodCard
+                                item={ikangoreng}
+                                content="Ikan Goreng"
+                              />
+                            </>
+                          );
+                        case 3:
+                          return (
+                            <>
+                              <FoodCard
+                                item={ayampanggang}
+                                content="Ayam Panggang"
+                              />
+                            </>
+                          );
+                        case 4:
+                          return (
+                            <>
+                              <FoodCard item={salad} content="Salad" />
+                            </>
+                          );
+                        case 5:
+                          return (
+                            <>
+                              <FoodCard item={steak} content="Steak" />
+                            </>
+                          );
+                        default:
+                          return null;
+                      }
+                    })()}
                     <Button
                       transform="translateX(100px)"
                       position="absolute"
                       onClick={nextFood}
-                    >
-                      {'>'}
-                    </Button>
+                      variant="unstyled"
+                      border={'none'}
+                      filter="contrast(300%)"
+                      _hover={{ filter: 'contrast(400%)' }}
+                      leftIcon={
+                        <Image width={'70px'} height="100px" src={nexticon} />
+                      }
+                      _focus={{ outline: 'none' }}
+                      _focusVisible={{ outline: 'none' }}
+                    ></Button>
                   </Flex>
                 </Center>
               </GridItem>

@@ -138,7 +138,9 @@ function Home(props) {
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}><Sleep/></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <Sleep />
+        </GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <Button
@@ -158,10 +160,12 @@ function Home(props) {
           <RotiPanggang title="tes toast" content="ini roti panggang" />
           <Button
             onClick={() => {
-              {StatFunction(makan, setMakan, 10, 0)}
+              {
+                StatFunction(makan, setMakan, 10, 0);
+              }
             }}
           >
-            + - makan 
+            + - makan
           </Button>
           <Button onClick={() => setCoin(coin + 500)}>+ coin</Button>
           <Button onClick={() => setCoin(coin - 500)}>- coin</Button>
@@ -169,7 +173,18 @@ function Home(props) {
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <Button
+            zIndex={100}
+            colorScheme="red"
+            color="white"
+            _hover={{ color: 'black' }}
+            filter="contrast(200%) drop-shadow(5px 5px white)"
+            onClick={() => props.handleClick('cook')}
+          >
+            Masak
+          </Button>
+        </GridItem>
       </Grid>
     </Box>
   );
