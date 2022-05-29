@@ -114,15 +114,15 @@ function Home(props) {
               >
               <Box textAlign="center" color="black" border="2px solid white" bg="rgba(237,100,166, 0.7)" py={1} borderRadius={10} fontSize="xl" >Menu</Box>
               <Flex flexDir={{base:"column", md:"row"}} justifyContent="space-evenly" alignItems="center">
-                <Choice label="eat" src={makanImg}/>
+                <Choice label="eat" src={makanImg} function={() => props.handleClick('eat')}/>
                 <Divider display={{base:"block", md:"none"}} />
-                <Choice label="cook" src={masakImg}/>
+                <Choice label="cook" src={masakImg} function={() => props.handleClick('cook')}/>
               </Flex>
               <Divider display={{base:"block", md:"none"}} />
               <Flex flexDir={{base:"column", md:"row"}} justifyContent="space-evenly" alignItems="center">
                 <Sleep />
                 <Divider display={{base:"block", md:"none"}} />
-                <Choice label="play minigame" src={mainImg}/>
+                <Choice label="play minigame" src={mainImg} function={() => props.handleClick('Minigames')}/>
               </Flex>
             </Flex>
           </VStack>
@@ -143,7 +143,7 @@ function Choice(props) {
         transition="0.3s"
         _hover={{transform:"scale(1.1)"}}
         filter="drop-shadow(5px 5px white)"
-        onClick={() => props.handleClick('Minigames')}
+        onClick={props.function}
       />
     </Tooltip>
   )
