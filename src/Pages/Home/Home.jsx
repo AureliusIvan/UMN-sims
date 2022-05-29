@@ -110,7 +110,7 @@ function Home(props) {
                 width="100%"
                 backdropFilter='blur(5px)'
                 shadow="xl"
-                zIndex={101}
+                // zIndex={101}
               >
               <Box textAlign="center" color="black" border="2px solid white" bg="rgba(237,100,166, 0.7)" py={1} borderRadius={10} fontSize="xl" >Menu</Box>
               <Flex flexDir={{base:"column", md:"row"}} justifyContent="space-evenly" alignItems="center">

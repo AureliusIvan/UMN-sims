@@ -3,6 +3,7 @@ import Onecard from './comp/onecard';
 import { Box, Button } from '@chakra-ui/react';
 import './game.css';
 import { AllContext } from '../../../components/Value/CoinContext';
+import { CoinFunction, StatFunction } from '../../../components/templateAndFunction/statCoinFunction';
 
 const cardImages = [
   { src: '/img/book.png', matched: false },
@@ -18,12 +19,15 @@ const cardImages = [
 function MiniGamestwo(props) {
   const [cards, setCards] = useState([]);
   const [turns, setTurns] = useState(0);
+  
   //const buat pilih kartu
   const [choice1, setChoice1] = useState(null);
   const [choice2, setChoice2] = useState(null);
   const [disabled, setDisabled] = useState(false);
   const [unable, setUnable] = useState(false);
   const { coin, setCoin } = useContext(AllContext);
+  const { main, setMain } = useContext(AllContext);
+  const { tidur, setTidur } = useContext(AllContext);
 
   //start
   useEffect(() => {
@@ -32,7 +36,9 @@ function MiniGamestwo(props) {
 
 
   const done = () => {
-    setCoin(coin + 500)
+    CoinFunction(coin, setCoin, 1000, 0)
+    StatFunction(main, setMain, 8, 0)
+    StatFunction(tidur, setTidur, 0, 5)
     props.handleClick('home')
   };
 

@@ -14,7 +14,6 @@ import { ArrowBackIcon } from '@chakra-ui/icons';
 import { useDisclosure } from '@chakra-ui/react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import Eat from './Eat';
 import Eat2 from './Eat2';
 
 function EatPage(props) {
