@@ -15,7 +15,7 @@ import { ArrowBackIcon } from '@chakra-ui/icons';
 import { useDisclosure } from '@chakra-ui/react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import DragDrop from './DnDShop';
+import DragDrop from './Cart';
 
 function AppShop(props) {
   const { isOpen, onOpen, onClose } = useDisclosure();

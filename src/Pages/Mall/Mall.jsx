@@ -38,14 +38,16 @@ function Mall(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <VStack spacing={4} align="end">
             <PartTime />
-            <Button onClick={() => props.handleClick('cart')}>
+            <Button
+              zIndex={100}
+              colorScheme="blue"
+              color="white"
+              fontWeight={"light"}
+              _hover={{ color: 'black' }}
+              filter="contrast(200%) drop-shadow(5px 5px white)"
+              onClick={() => props.handleClick('cart')}
+            >
               My Shopping Cart
-            </Button>
-            <Button onClick={() => props.handleClick('cart2')}>
-              My Shopping Cart 2
-            </Button>
-            <Button onClick={() => props.handleClick('cart3')}>
-              My Shopping Cart 3
             </Button>
           </VStack>
         </GridItem>

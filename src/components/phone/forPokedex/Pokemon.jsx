@@ -3,7 +3,7 @@ import { getAllPokemon } from './Pokeservice';
 import PokeCard from './Card';
 import PokeNavbar from './Navbar';
 import { getPokemon } from './Pokeservice';
-import { Box, Button, ButtonGroup } from '@chakra-ui/react';
+import { Box, Flex, Button, ButtonGroup } from '@chakra-ui/react';
 
 function Pokemon() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -61,19 +61,22 @@ function Pokemon() {
     <>
       <PokeNavbar />
       <Box>
-        <Box id='pokeTop'></Box>
-            <Box
-              className="HalA"
-              bgColor="white"
-              h={'110%'}
-              w={'100%'}
-              padding="30px"
-            >
-              {pokemonData.map((pokemon, i) => {
-                return <PokeCard key={i} pokemon={pokemon} />;
-              })}
-            </Box>
-            <Button onClick={prev}>Prev</Button><Button onClick={next}>Next</Button>        
+        <Box id="pokeTop"></Box>
+        <Box
+          className="HalA"
+          bgColor="blue.200"
+          h={'110%'}
+          w={'100%'}
+          padding="30px"
+        >
+          {pokemonData.map((pokemon, i) => {
+            return <PokeCard key={i} pokemon={pokemon} />;
+          })}
+          <Flex justifyContent={"space-between"}>
+            <Button marginTop={"10px"} bgColor={"blue.800"} color="white" onClick={prev}>Prev</Button>
+            <Button marginTop={"10px"} bgColor={"blue.800"} color="white" onClick={next}>Next</Button>
+          </Flex>
+        </Box>
       </Box>
     </>
   );

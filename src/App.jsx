@@ -1,4 +1,16 @@
-import { ChakraProvider, theme, Button, useToast } from '@chakra-ui/react';
+import {
+  ChakraProvider,
+  theme,
+  Button,
+  useToast,
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+} from '@chakra-ui/react';
 import { useMemo, useState, useEffect, useRef } from 'react';
 import './App.css';
 import PageOne from './Pages/Start';
@@ -18,9 +30,12 @@ import Pause from './components/buttons/PauseBtn';
 import Phone from './components/phone/phoneMain';
 import Toast from './components/templateAndFunction/toast';
 import Mall from './Pages/Mall/Mall';
+import Masak from './Pages/Home/Masak/masak';
+import GameoverScreen from './Pages/GameOver/gameover';
 import StatusGroup from './components/statusBar/StatusBarGroup';
 import Currency from './components/buttons/Currency';
 import { CreateChar } from './components/character/CharacterCard';
+
 
 /*
 1. nama
@@ -93,14 +108,42 @@ function App() {
   const [ayampanggang, setAyampanggang] = useState(10);
 
   //const buat bahan makanan
-  const [tomato, setTomato] = useState(0);
-  const [beef, setBeef] = useState(0);
-  const [cabbage, setCabbage] = useState(0);
-  const [chicken, setChicken] = useState(0);
-  const [eggtray, setEggtray] = useState(0);
+  const [tomato, setTomato] = useState(5);
+  const [bread, setBread] = useState(2);
+  const [beef, setBeef] = useState(1);
+  const [salt, setSalt] = useState(3);
+  const [cabbage, setCabbage] = useState(5);
+  const [chicken, setChicken] = useState(5);
+  const [eggtray, setEggtray] = useState(5);
 
+  //const gameplay
+  //gameover
+  const [gameOver, setGameover] = useState(false);
+  useEffect(
+    () => {
+      if (makan <= 0) {
+        setGameover(true);
+      }
+      if (tidur <= 0) {
+        setGameover(true);
+      }
+      if (main <= 0) {
+        setGameover(true);
+      }
+    },
+    [makan],
+    [tidur],
+    [main]
+  );
+  //
   //buat jam
   useInterval(() => {
+    //pengurangan stat
+    /*
+    setMakan(makan - 5);
+    setTidur(tidur - 5);
+    setMain(main - 5);
+    */
     if (start == true) {
       setCount(minute + 1);
       setRealtime(realtime + 1);
@@ -121,7 +164,6 @@ function App() {
       }
     }
   }, 1000);
-
   function useInterval(callback, delay) {
     const savedCallback = useRef();
 
@@ -144,7 +186,7 @@ function App() {
 
   const [value, setValue] = useState(0);
   const test = useMemo(() => ({ value, setValue }), [value, setValue]);
-  
+
   // handle switch page
   // https://medium.com/nerd-for-tech/a-case-to-switch-using-switch-statements-in-react-e83e01154f60
   const [game, setGame] = useState('home');
@@ -155,7 +197,13 @@ function App() {
 
   //this for hide the pause dan phone button
   useEffect(() => {
-    if (game == 'start' || game == 'eat' || game == 'selectchar') {
+    if (
+      game == 'start' ||
+      game == 'eat' ||
+      game == 'selectchar' ||
+      game == 'cook' ||
+      game == 'cart'
+    ) {
       setShowPause(false);
     } else {
       setShowPause(true);
@@ -228,12 +276,19 @@ function App() {
           setChicken,
           eggtray,
           setEggtray,
+          bread,
+          setBread,
+          salt,
+          setSalt,
           salad,
           setSalad,
           foodIndex,
           setFoodIndex,
+          gameOver,
+          setGameover,
         }}
       >
+        {gameOver ? <GameoverScreen /> : ''}
         {showPause ? (
           <>
             <Pause />
@@ -256,8 +311,8 @@ function App() {
               return <Home handleClick={handleClick} />;
             case 'eat':
               return <EatPage handleClick={handleClick} />;
-            case 'Minigames':
-              return <MiniGamestwo handleClick={handleClick} />;
+            case 'cook':
+              return <Masak handleClick={handleClick} />;
             case 'cafe':
               return <Cafe handleClick={handleClick} />;
             case 'mall':
@@ -266,6 +321,8 @@ function App() {
               return <Cart handleClick={handleClick} />;
             case 'uni':
               return <ToStudy handleClick={handleClick} />;
+            case 'Minigames':
+              return <MiniGamestwo handleClick={handleClick} />;
             case 'class':
               return <Class handleClick={handleClick} />;
             case 'library':
