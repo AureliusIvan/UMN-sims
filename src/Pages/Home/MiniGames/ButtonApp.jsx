@@ -94,7 +94,7 @@ function MiniGamestwo(props) {
          <p className="turns">Turns:{turns}</p>
         <Button className="gamebutton" onClick={shuffleCard}> New game</Button>
         <Button className="gamebutton" onClick={() => props.handleClick('home')}> Exit </Button>
-        <Button className="gamebutton" disabled={turns < 1} onClick={done}> Done! </Button>
+        <Button className="gamebutton" disabled={turns < 8} onClick={done}> Done! </Button>
         <Box className="card-pic" h={'100%'} w="100%">
           {cards.map(card => (
             <Onecard
