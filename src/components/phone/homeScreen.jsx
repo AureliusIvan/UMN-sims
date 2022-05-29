@@ -13,6 +13,7 @@ import WeatherApp from '../background/Weather';
 import Walpaper1 from './walpaper/walpaper1.png';
 import Profile from './forProfile/profile';
 import SS from './forSS/SS';
+import AnimeApp from './forAnime/anime';
 
 function HomeScreen() {
   return (
@@ -34,7 +35,6 @@ const AppLinking = () => {
   const handleClick = appState => {
     setApp(appState);
   };
-
   switch (app) {
     case 'start':
       return (
@@ -75,6 +75,13 @@ const AppLinking = () => {
       return (
         <Box>
           <SS handleClick={handleClick} />
+          <HomeButton handleClick={handleClick} />
+        </Box>
+      );
+    case 'anime':
+      return (
+        <Box>
+          <AnimeApp handleClick={handleClick} />
           <HomeButton handleClick={handleClick} />
         </Box>
       );
@@ -137,9 +144,9 @@ function AppList(props) {
             width={100}
             fontWeight="light"
             colorScheme="teal"
-            onClick={() => props.handleClick('ss')}
+            onClick={() => props.handleClick('anime')}
           >
-            SS
+            Anime
           </Button>
         </Flex>
       </Flex>
