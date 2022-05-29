@@ -1,5 +1,3 @@
-import mukbang from "../../components/background/Mukbangbg.png"
-
 export const Char1 = {
   name: 'Vera',
   tipe: 'Kang mukbang',
@@ -7,7 +5,6 @@ export const Char1 = {
   lore: 'Diceritakan bahwa Kang mukbang sangat suka makan, bahkan semenjak masih menjadi embrio. Kemampuannya ini mengantarkannya menjuarai lomba makan tingkat kampung.',
   next: 2,
   prev: 4,
-  bg: {mukbang}
 };
 
 export const Char2 = {

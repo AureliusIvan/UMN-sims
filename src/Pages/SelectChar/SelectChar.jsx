@@ -18,7 +18,9 @@ import InputHere from './inputCharacter';
 import next from '../../components/asset/icon/next.png';
 import prev from '../../components/asset/icon/prev.png';
 import mulai from '../../components/asset/icon/start.png';
+
 import mainBG from "../../components/background/Charselect.png"
+import mukbang from "../../components/background/Mukbangbg.png"
 
 function SelectCharacter(props) {
   const { start, setStart } = useContext(AllContext);
@@ -36,6 +38,7 @@ function SelectCharacter(props) {
     setStart(true);
     console.log(start);
   }
+
   useEffect(() => {
     if (character === 1) {
       setAtribute(Char1);
@@ -88,9 +91,7 @@ function SelectCharacter(props) {
                 handleCharPrev();
               }}
             />
-            <Box>
-              <Image src={atribute.bg} />
-            </Box>
+            <Box></Box>
             <Image
               zIndex={5}
               src={next}

@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { useMemo, useState, useEffect, useRef } from 'react';
 import './App.css';
-import PageOne from './Pages/Start';
+import PageOne from './Pages/Start/Start';
 import SelectCharacter from './Pages/SelectChar/SelectChar';
 import Home from './Pages/Home/Home';
 import EatPage from './Pages/Home/Eat/EatPage';
@@ -193,7 +193,7 @@ function App() {
 
   // handle switch page
   // https://medium.com/nerd-for-tech/a-case-to-switch-using-switch-statements-in-react-e83e01154f60
-  const [game, setGame] = useState('selectchar');
+  const [game, setGame] = useState('start');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
