@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { Box } from '@chakra-ui/react'
 import { AllContext } from '../../components/Value/CoinContext'
-import { StatFunction, CoinFunction } from '../../components/templateAndFunction/statCoinFunction'
+import { StatFunction, checkStat, CoinFunction } from '../../components/templateAndFunction/statCoinFunction'
 import Pop from '../../components/templateAndFunction/tempPopUp'
 import GIF from '../../components/asset/gif/eat.gif'
 
@@ -10,9 +10,11 @@ function Ngopi() {
 
     return (
         <Box onClick={() => {
-                        {StatFunction(tidur, setTidur, 10, 0)};
-                        {StatFunction(makan, setMakan, 15, 0)};
-                        {CoinFunction(coin, setCoin, 0, 800)};
+                        StatFunction(tidur, setTidur, 10, 0)
+                        checkStat(tidur, setTidur)
+                        StatFunction(makan, setMakan, 15, 0)
+                        checkStat(makan, setMakan)
+                        CoinFunction(coin, setCoin, 0, 800)
                     }}>
             <Pop 
                 image={GIF}

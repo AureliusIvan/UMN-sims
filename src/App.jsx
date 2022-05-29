@@ -21,6 +21,7 @@ import Mall from './Pages/Mall/Mall';
 import StatusGroup from './components/statusBar/StatusBarGroup';
 import Currency from './components/buttons/Currency';
 import { CreateChar } from './components/character/CharacterCard';
+import { StatFunction } from './components/templateAndFunction/statCoinFunction';
 
 /*
 1. nama
@@ -59,7 +60,7 @@ function App() {
   //player choice
   const [jurusan, setJurusan] = useState('');
   const [character, setCharacter] = useState(1);
-  const [nama, setNama] = useState('kamu');
+  const [nama, setNama] = useState('');
 
   //time const
   const [Day, setDay] = useState(0);
@@ -104,6 +105,9 @@ function App() {
     if (start == true) {
       setCount(minute + 1);
       setRealtime(realtime + 1);
+      {StatFunction(makan, setMakan, 0, 0.5)};
+      {StatFunction(tidur, setTidur, 0, 0.5)};
+      {StatFunction(main, setMain, 0, 0.5)};
       if (minute >= 59) {
         setHour(hour + 1);
         setCount(0);
@@ -147,7 +151,7 @@ function App() {
   
   // handle switch page
   // https://medium.com/nerd-for-tech/a-case-to-switch-using-switch-statements-in-react-e83e01154f60
-  const [game, setGame] = useState('home');
+  const [game, setGame] = useState('start');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
