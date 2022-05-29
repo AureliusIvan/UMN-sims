@@ -38,6 +38,7 @@ function InputDataChar() {
 				filter="drop-shadow(3px 3px 2px #222)"
 				cursor="pointer"
 				onChange={(handleJurusan)}
+				zIndex={100}
 			>
 				<option value="Informatika">Informatika</option>
 				<option value="Ilmu Komunikasi">Ilmu Komunikasi</option>

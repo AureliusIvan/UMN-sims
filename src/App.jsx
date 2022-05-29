@@ -139,12 +139,6 @@ function App() {
   //
   //buat jam
   useInterval(() => {
-    //pengurangan stat
-    /*
-    setMakan(makan - 5);
-    setTidur(tidur - 5);
-    setMain(main - 5);
-    */
     if (start == true) {
       setCount(minute + 1);
       setRealtime(realtime + 1);
@@ -193,7 +187,7 @@ function App() {
 
   // handle switch page
   // https://medium.com/nerd-for-tech/a-case-to-switch-using-switch-statements-in-react-e83e01154f60
-  const [game, setGame] = useState('home');
+  const [game, setGame] = useState('start');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);

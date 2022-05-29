@@ -1,4 +1,3 @@
-
 import { useEffect, useContext, useState } from 'react';
 import {
   Grid,
@@ -12,11 +11,13 @@ import {
 } from '@chakra-ui/react';
 import MapPop from '../../components/buttons/MapPop';
 import PartTimeCafe from './partTimeCafe';
+
+import GIF from '../../components/asset/gif/eat.gif';
 import { AllContext } from '../../components/Value/CoinContext';
 import bgPagi from './asset/Noon.jpg';
 import bgSore from './asset/Dawn.jpg';
 import bgMalam from './asset/Night.jpg';
-import Ngopi from './ngopi';
+import Ngopi from "./ngopi"
 
 function Cafe(props) {
   const { hour, SetHour } = useContext(AllContext);
@@ -61,12 +62,14 @@ function Cafe(props) {
           />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          {' '}
+        </GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>

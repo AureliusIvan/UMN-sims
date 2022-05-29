@@ -14,11 +14,8 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
-
-
 import Reset from './confirmReset';
 import VolSlider from "./volumeSlider";
-
 import audioOn from '../asset/icon/unmute.png'
 import audioOff from '../asset/icon/mute.png'
 
