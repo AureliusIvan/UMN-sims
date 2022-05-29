@@ -20,9 +20,7 @@ import friedfish from './food/friedfish.png';
 import roastchicken from './food/roastchicken.png';
 import salad from './food/salad.png';
 import steak from './food/steak.png';
-import Currency from '../../../components/buttons/Currency';
-import CharacterModule from '../../../components/character/Card';
-import { CreateChar } from '../../../components/character/CharacterCard';
+import { StatFunction, checkStat } from '../../../components/templateAndFunction/statCoinFunction';
 import makanbg from './food/makanbg.png';
 import nexticon from '../../../components/asset/icon/next.png';
 import previcon from '../../../components/asset/icon/prev.png';
@@ -165,7 +163,6 @@ function ShoppingBag(props) {
     <Droppable droppableId="BAG">
       {(provided, snapshot) => (
         <Box ref={provided.innerRef} className="shopping-bag">
-          <CreateChar />
           {provided.placeholder}
         </Box>
       )}
@@ -302,28 +299,30 @@ function Eat2() {
   //total bill
   useEffect(() => {
     if (lastfood != 0) {
-      setMakan(makan + COLLECTION[foodIndex].hunger);
-      if (COLLECTION[foodIndex].name == 'burger') {
+      StatFunction(makan, setMakan, COLLECTION[foodIndex].hunger, 0)
+      checkStat(makan, setMakan)
+      // setMakan(makan + COLLECTION[foodIndex].hunger);
+      if (COLLECTION[foodIndex].name === 'burger') {
         setBurger(burger - 1);
         setFoodValue(burger);
       }
-      if (COLLECTION[foodIndex].name == 'friedegg') {
+      if (COLLECTION[foodIndex].name === 'friedegg') {
         setTelur(telur - 1);
         setFoodValue(telur);
       }
-      if (COLLECTION[foodIndex].name == 'friedfish') {
+      if (COLLECTION[foodIndex].name === 'friedfish') {
         setIkangoreng(ikangoreng - 1);
         setFoodValue(ikangoreng);
       }
-      if (COLLECTION[foodIndex].name == 'roaschicken') {
+      if (COLLECTION[foodIndex].name === 'roaschicken') {
         setAyampanggang(ayampanggang - 1);
         setFoodValue(ayampanggang);
       }
-      if (COLLECTION[foodIndex].name == 'salad') {
+      if (COLLECTION[foodIndex].name === 'salad') {
         setSalad(salad - 1);
         setFoodValue(salad);
       }
-      if (COLLECTION[foodIndex].name == 'steak') {
+      if (COLLECTION[foodIndex].name === 'steak') {
         setSteak(steak - 1);
         setFoodValue(steak);
       }
