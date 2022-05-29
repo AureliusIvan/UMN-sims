@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { useMemo, useState, useEffect, useRef } from 'react';
 import './App.css';
-import PageOne from './Pages/Start';
+import PageOne from './Pages/Start/Start';
 import SelectCharacter from './Pages/SelectChar/SelectChar';
 import Home from './Pages/Home/Home';
 import EatPage from './Pages/Home/Eat/EatPage';
@@ -66,7 +66,7 @@ function App() {
   };
 
   //coin const
-  const [coin, setCoin] = useState(7000);
+  const [coin, setCoin] = useState(1000);
   const prevCoin = useRef();
   useEffect(() => {
     prevCoin.current = coin;
@@ -193,7 +193,7 @@ function App() {
 
   // handle switch page
   // https://medium.com/nerd-for-tech/a-case-to-switch-using-switch-statements-in-react-e83e01154f60
-  const [game, setGame] = useState('start');
+  const [game, setGame] = useState('mall');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
@@ -202,28 +202,17 @@ function App() {
   //this for hide the pause dan phone button
   useEffect(() => {
     if (
-      game == 'start' ||
-      game == 'eat' ||
-      game == 'selectchar' ||
-      game == 'cook' ||
-      game == 'cart'
+      game === 'start' ||
+      game === 'selectchar' ||
+      game === 'eat' ||
+      game === 'cook' ||
+      game === 'cart'
     ) {
       setShowPause(false);
     } else {
       setShowPause(true);
     }
   }, [game]);
-
-  // automatic decrease every 5s tp masih error gitu dia kan naik turun 
-  useEffect(() => {
-    setInterval(() => {
-      // console.log("tes timing");
-      // {StatFunction(makan, setMakan, 0, 5)};
-      // {StatFunction(tidur, setTidur, 0, 5)};
-      // {StatFunction(main, setMain, 0, 5)};
-      clearInterval();
-    }, 5000);
-  })
 
   return (
     <ChakraProvider theme={theme}>

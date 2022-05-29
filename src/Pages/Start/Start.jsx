@@ -10,17 +10,13 @@ import {
   Text,
   Grid,
   GridItem,
+  VStack,
 } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import Credit from '../components/buttons/Credit';
-import bg from '../components/background/splash.png';
+import Credit from './Credit';
+import bg from '../../components/background/splash.png';
 
 function PageOne(props) {
-  const [Pop, setPop] = useState(false);
-  const OpenPop = () => {
-    setPop(true);
-  };
-
   return (
     <Box
       backgroundColor="teal"
@@ -61,19 +57,6 @@ function PageOne(props) {
       >
         <GridItem className="gridItems" rowSpan={1} colSpan={3}>
           <Center>
-            <Box
-              borderRadius="50%"
-              bgColor="yellow.100"
-              zIndex="-1"
-              pos="absolute"
-              top="0"
-              bottom="0"
-              margin="auto"
-              left="0"
-              right="0"
-              h="700px"
-              w="700px"
-            ></Box>
             <Image
               pos="absolute"
               margin="auto"
@@ -96,63 +79,22 @@ function PageOne(props) {
         gap={0}
       >
         <GridItem className="gridItems" rowSpan={1} colSpan={3}>
-          <Center gap="10px">
-            <Button>Setting</Button>
+          <VStack spacing={5}>
             <Button
-              width="100px"
-              height="100px"
+              width="80px"
+              height="80px"
               borderRadius="50%"
               onClick={() => props.handleClick('selectchar')}
               pointerEvents="all"
-              backgroundColor="blue.100"
+              backgroundColor="red.100"
             >
               Play
             </Button>
             <Credit content="test" />
-          </Center>
+          </VStack>
         </GridItem>
-        {/* <GridItem className='gridItems' rowSpan={1} colSpan={3}>
-        </GridItem> */}
       </Grid>
     </Box>
-
-    // in progress
-    // <Flex
-    //   backgroundColor="teal"
-    //   // position="fixed"
-    //   // width="100%"
-    //   // minH="100%"
-    //   // zIndex="100"
-    // >
-    //   <Flex p={20} flexDir="column" justifyContent="space-between" alignContent="center">
-    //     <Text
-    //       borderRadius="50px"
-    //       // w="300px"
-    //       textAlign="center"
-    //       padding="1px"
-    //       bgColor="red.500"
-    //       color="white"
-    //       fontSize="40px"
-    //     >
-    //       7 Days of UMN life
-    //     </Text>
-    //     <Image src={bg} width={{base:"600px"}} />
-    //     <Flex>
-    //       <Button>Setting</Button>
-    //       <Button
-    //         // width="100px"
-    //         // height="100px"
-    //         borderRadius="50%"
-    //         onClick={() => props.handleClick('selectchar')}
-    //         pointerEvents="all"
-    //         backgroundColor="blue.100"
-    //       >
-    //         Play
-    //       </Button>
-    //       <Credit content="test" />
-    //     </Flex>
-    //   </Flex>
-    // </Flex>
   );
 }
 

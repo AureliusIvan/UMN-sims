@@ -21,8 +21,6 @@ import VolSlider from "./volumeSlider";
 
 import audioOn from '../asset/icon/unmute.png'
 import audioOff from '../asset/icon/mute.png'
-import audioOn from '../asset/icon/unmute.png';
-import audioOff from '../asset/icon/mute.png';
 
 function Pause() {
   const PopUp = () => (
