@@ -1,17 +1,25 @@
-import { Flex, Image } from '@chakra-ui/react'
+import { useContext } from 'react'
+import { Box, Flex, Image } from '@chakra-ui/react'
 import Pop from '../../components/templateAndFunction/tempPopUp'
 import GIF from '../../components/asset/gif/congrats.gif'
-import shown from "../../components/asset/icon/Cashier_parttime.png"
+import shown from "../../components/asset/mall/Cashier_parttime.png"
+import { StatFunction } from '../../components/templateAndFunction/statCoinFunction'
+import { AllContext } from '../../components/Value/CoinContext'
 
-function partTime() {
+function PartTime() {
+    const {tidur, setTidur} = useContext(AllContext)
     return (
-        <Pop 
-			shownIMG={shown}
-            image={GIF}
-            width={150}
-            alt='part time di mall'
-        />
+        <Box onClick={() =>
+                        StatFunction(tidur, setTidur, 0, 8)
+                    }>
+            <Pop 
+                shownIMG={shown}
+                image={GIF}
+                name="cashier part time"
+                alt='part time di mall'
+            />
+        </Box>
     )
 }
 
-export default partTime
+export default PartTime

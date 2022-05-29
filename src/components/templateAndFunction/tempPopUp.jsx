@@ -1,4 +1,4 @@
-import { Button, Modal, ModalContent, ModalBody, ModalOverlay, useDisclosure, Box } from '@chakra-ui/react'
+import { Button, Modal, ModalContent, ModalBody, ModalOverlay, useDisclosure, Box, Tooltip } from '@chakra-ui/react'
 import { Flex, Image } from '@chakra-ui/react';
 import React, { useState } from "react";
 
@@ -18,19 +18,24 @@ function PopTemplate(props) {
 	
 	return (
 		<>
-			<Image
-				src={props.shownIMG}
-				width={props.width}
-				onClick={() => {
-					setOverlay(<PopUp />);
-					onOpen();
-					setTimeout(() => {
-						onClose()
-					}, 1800);
-				}}
-			/>
+			<Tooltip label={props.name} placement='start' zIndex={50}>
+				<Image
+					src={props.shownIMG}
+					width={{base:120, sm:140, md:165}}
+					cursor="pointer"
+					transition="0.3s"
+					_hover={{transform:"scale(1.1)"}}
+					onClick={() => {
+						setOverlay(<PopUp />);
+						onOpen();
+						setTimeout(() => {
+							onClose()
+						}, 1800);
+					}}
+				/>
+			</Tooltip>
 
-			<Modal isCentered size="xl" isOpen={isOpen} onClose={onClose}>
+			<Modal isCentered size="lg" isOpen={isOpen} onClose={onClose}>
 				{overlay}
 				<ModalContent bg="rgba(0,0,0,0)" boxShadow="none" pb={3}>
 					<ModalBody textAlign='center'>

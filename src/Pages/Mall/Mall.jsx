@@ -1,8 +1,8 @@
 import react, { useContext } from 'react';
-import { Grid, GridItem, Box, Button, VStack } from '@chakra-ui/react';
+import { Grid, GridItem, Box, Tooltip, VStack, Image, Flex, Divider } from '@chakra-ui/react';
 import MapPop from '../../components/buttons/MapPop';
 import PartTime from './partTimeMall';
-import { AllContext } from '../../components/Value/CoinContext';
+import trolley from "../../components/asset/mall/Trolley.png"
 
 function Mall(props) {
   return (
@@ -36,25 +36,40 @@ function Mall(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <VStack spacing={4} align="end">
-            <PartTime />
-            <Button
-              zIndex={100}
-              colorScheme="blue"
-              color="white"
-              fontWeight={"light"}
-              _hover={{ color: 'black' }}
-              filter="contrast(200%) drop-shadow(5px 5px white)"
-              onClick={() => props.handleClick('cart')}
-            >
-              My Shopping Cart
-            </Button>
-          </VStack>
+          
         </GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+          <VStack align="end" p={{base:3, md:8}} spacing={3}>
+            <Flex 
+                p={3} 
+                borderRadius={15} 
+                flexDir="column" 
+                justifySelf="center" 
+                alignContent="center" 
+                bg="rgba(255,255,255, 0.5)"
+                backdropFilter='blur(5px)'
+                shadow="xl"
+              >
+              <Box textAlign="center" color="black" border="2px solid white" bg="rgba(237,100,166, 0.7)" py={1} borderRadius={10} fontSize="xl" >Menu</Box>
+              <PartTime />
+              <Divider />
+              <Tooltip label="shopping cart" placement='start'>
+                <Image 
+                  src={trolley} 
+                  width={{base:120, sm:140, md:165}}
+                  cursor="pointer"
+                  transition="0.3s"
+                  _hover={{transform:"scale(1.1)"}}
+                  filter="contrast(200%) drop-shadow(5px 5px white)"
+                  onClick={() => props.handleClick('cart')}
+                />
+              </Tooltip>
+            </Flex>
+          </VStack>
+        </GridItem>
       </Grid>
     </Box>
   );

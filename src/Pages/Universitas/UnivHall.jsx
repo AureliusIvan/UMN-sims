@@ -1,8 +1,6 @@
 import React, { useState, useContext } from 'react';
-import { Grid, GridItem, Box, VStack } from '@chakra-ui/react';
+import { Grid, GridItem, Box, VStack, Flex, Tooltip, Image, Divider } from '@chakra-ui/react';
 import MapPop from '../../components/buttons/MapPop';
-import Study from './study';
-import Read from './read';
 import bgday from './bg/Day.png';
 import bgdayrain from './bg/Rainday.png';
 import bgdawn from './bg/Dawn.png';
@@ -10,6 +8,8 @@ import bgdawnrain from './bg/Raindawn.png';
 import bgnight from './bg/Night.png';
 import bgnightrain from './bg/Rainnight.png';
 import { AllContext } from '../../components/Value/CoinContext';
+import studyImg from '../../components/asset/uni/study.png'
+import libraryImg from '../../components/asset/uni/Library.png'
 
 function Univ(props) {
   const { hour, SetHour } = useContext(AllContext);
@@ -70,16 +70,49 @@ function Univ(props) {
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <VStack spacing={4} align="end">
-            <Study function={() => props.handleClick('class')} />
-            <Read function={() => props.handleClick('library')}/>
-          </VStack>
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+        <VStack align="end" p={{base:3, md:8}} spacing={3}>
+            <Flex 
+                p={3} 
+                borderRadius={15} 
+                flexDir="column" 
+                justifySelf="center" 
+                alignContent="center" 
+                bg="rgba(255,255,255, 0.5)"
+                backdropFilter='blur(5px)'
+                shadow="xl"
+              >
+              <Box textAlign="center" color="black" border="2px solid white" bg="rgba(237,100,166, 0.7)" py={1} borderRadius={10} fontSize="xl" >Menu</Box>
+              <Tooltip label="to classroom" placement='start'>
+                <Image 
+                  src={studyImg} 
+                  width={{base:120, sm:140, md:165}}
+                  cursor="pointer"
+                  transition="0.3s"
+                  _hover={{transform:"scale(1.1)"}}
+                  filter="contrast(200%) drop-shadow(5px 5px white)"
+                  onClick={() => props.handleClick('class')}
+                />
+              </Tooltip>
+              <Divider />
+              <Tooltip label="to library" placement='start'>
+                <Image 
+                  src={libraryImg} 
+                  width={{base:120, sm:140, md:165}}
+                  cursor="pointer"
+                  transition="0.3s"
+                  _hover={{transform:"scale(1.1)"}}
+                  filter="contrast(200%) drop-shadow(5px 5px white)"
+                  onClick={() => props.handleClick('library')}
+                />
+              </Tooltip>
+            </Flex>
+          </VStack>
+        </GridItem>
       </Grid>
     </Box>
   );

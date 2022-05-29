@@ -4,6 +4,8 @@ import {
   GridItem,
   Box, 
   VStack, 
+  Flex,
+  Divider,
   Button } from '@chakra-ui/react';
 import bgday from './bg/library.png';
 import bgdayrain from './bg/library.png';
@@ -13,7 +15,6 @@ import bgnightrain from './bg/library.png';
 import { AllContext } from '../../components/Value/CoinContext';
 import Baca from './baca';
 import Pustakawan from './pustakawan';
-import Read from './read';
 
 function Univ(props) {
   const { hour, SetHour } = useContext(AllContext);
@@ -64,12 +65,7 @@ function Univ(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        <VStack spacing={4} align="end">
-          <Baca />
-          <Pustakawan />
-          </VStack>
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
 
         </GridItem>
@@ -77,7 +73,25 @@ function Univ(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
+        <VStack align="end" p={{base:3, md:8}} spacing={3}>
+            <Flex 
+                p={3} 
+                borderRadius={15} 
+                flexDir="column" 
+                justifySelf="center" 
+                alignContent="center" 
+                bg="rgba(255,255,255, 0.5)"
+                backdropFilter='blur(5px)'
+                shadow="xl"
+              >
+              <Box textAlign="center" color="black" border="2px solid white" bg="rgba(237,100,166, 0.7)" py={1} borderRadius={10} fontSize="xl" >Menu</Box>
+              <Baca />
+              <Divider />
+              <Pustakawan />
+            </Flex>
+          </VStack>
+        </GridItem>
       </Grid>
     </Box>
   );
