@@ -5,6 +5,7 @@ import {
   ModalCloseButton,
   Flex,
   Image,
+  Tooltip,
 } from '@chakra-ui/react';
 
 import { useDisclosure } from '@chakra-ui/react';
@@ -30,28 +31,28 @@ function MapPop(props) {
 
   return (
     <>
-      <Image
-        src={mapIcon}
-        width={{ base: '60%', sm: '40%', md: '22%' }}
-        filter="drop-shadow(10px 5px 4px white) contrast(140%)"
-        // bgColor="white"
-
-        cursor="pointer"
-        transition="0.2s linear"
-        _hover={{ transform: 'scale(1.15)' }}
-        onClick={() => {
-          setOverlay(<PopUp />);
-          onOpen();
-        }}
-      />
+      <Tooltip label="map">
+        <Image
+          position="absolute"
+          src={mapIcon}
+          top="125"
+          ml={2}
+          width={{md:"85px", sm:"80px", base:"75px"}}
+          filter="drop-shadow(10px 5px 4px white)"
+          cursor="pointer"
+          transition="0.2s linear"
+          _hover={{ transform: 'scale(1.15)' }}
+          onClick={() => {
+            setOverlay(<PopUp />);
+            onOpen();
+          }}
+        />
+      </Tooltip>
 
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         {overlay}
         <ModalContent bg="rgba(0,0,0,0)" boxShadow="none">
           <ModalCloseButton
-            onClick={() => {
-              console.log('test');
-            }}
             color="white"
             zIndex={5}
           />

@@ -114,65 +114,39 @@ function Home(props) {
               >
               <Box textAlign="center" color="black" border="2px solid white" bg="rgba(237,100,166, 0.7)" py={1} borderRadius={10} fontSize="xl" >Menu</Box>
               <Flex flexDir={{base:"column", md:"row"}} justifyContent="space-evenly" alignItems="center">
-                <Tooltip label="eat" placement='start'>
-                  <Image 
-                    src={makanImg} 
-                    width={{base:85, sm:90, md:125}}
-                    height={{base:85, sm:90, md:125}}
-                    cursor="pointer"
-                    transition="0.3s"
-                    _hover={{transform:"scale(1.1)"}}
-                    filter="drop-shadow(5px 5px white)"
-                    onClick={() => props.handleClick('eat')}
-                  />
-                </Tooltip>
+                <Choice label="eat" src={makanImg}/>
                 <Divider display={{base:"block", md:"none"}} />
-                <Tooltip label="cook" placement='start'>
-                  <Image 
-                    src={masakImg} 
-                    alt="masak"
-                    width={{base:85, sm:90, md:125}}
-                    height={{base:85, sm:90, md:125}}
-                    cursor="pointer"
-                    transition="0.3s"
-                    _hover={{transform:"scale(1.1)"}}
-                    filter="drop-shadow(5px 5px white)"
-                    onClick={() => props.handleClick('cook')}
-                  />
-                </Tooltip>
+                <Choice label="cook" src={masakImg}/>
               </Flex>
               <Divider display={{base:"block", md:"none"}} />
               <Flex flexDir={{base:"column", md:"row"}} justifyContent="space-evenly" alignItems="center">
                 <Sleep />
                 <Divider display={{base:"block", md:"none"}} />
-                <Tooltip label="play minigame" placement='start'>
-                  <Image 
-                    src={mainImg} 
-                    width={{base:85, sm:90, md:125}}
-                    height={{base:85, sm:90, md:125}}
-                    cursor="pointer"
-                    transition="0.3s"
-                    _hover={{transform:"scale(1.1)"}}
-                    filter="drop-shadow(5px 5px white)"
-                    onClick={() => props.handleClick('Minigames')}
-                  />
-                </Tooltip>
+                <Choice label="play minigame" src={mainImg}/>
               </Flex>
             </Flex>
           </VStack>
-          {/* <Button
-            zIndex={100}
-            colorScheme="red"
-            color="white"
-            _hover={{ color: 'black' }}
-            filter="contrast(200%) drop-shadow(5px 5px white)"
-            onClick={() => props.handleClick('cook')}
-          >
-            Masak
-          </Button> */}
         </GridItem>
       </Grid>
     </Box>
   );
 }
+
+function Choice(props) {
+  return (
+    <Tooltip label={props.label} placement='start'>
+      <Image 
+        src={props.src} 
+        width={{base:85, sm:90, md:125}}
+        height={{base:85, sm:90, md:125}}
+        cursor="pointer"
+        transition="0.3s"
+        _hover={{transform:"scale(1.1)"}}
+        filter="drop-shadow(5px 5px white)"
+        onClick={() => props.handleClick('Minigames')}
+      />
+    </Tooltip>
+  )
+}
+
 export default Home;

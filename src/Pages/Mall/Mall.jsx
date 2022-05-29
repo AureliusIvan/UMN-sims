@@ -63,7 +63,7 @@ function Mall(props) {
                   cursor="pointer"
                   transition="0.3s"
                   _hover={{transform:"scale(1.1)"}}
-                  filter="contrast(200%) drop-shadow(5px 5px white)"
+                  filter="drop-shadow(5px 5px white)"
                   onClick={() => props.handleClick('cart')}
                 />
               </Tooltip>

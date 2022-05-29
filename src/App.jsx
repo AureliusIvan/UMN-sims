@@ -66,7 +66,7 @@ function App() {
   };
 
   //coin const
-  const [coin, setCoin] = useState(1000);
+  const [coin, setCoin] = useState(7000);
   const prevCoin = useRef();
   useEffect(() => {
     prevCoin.current = coin;

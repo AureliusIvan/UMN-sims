@@ -27,7 +27,7 @@ function Phone() {
   }
 
   return (
-    <Box bottom={0} position="fixed">
+    <Box bottom={0} position="fixed" p={3}>
       <Popover placement="top-start">
         <PopoverTrigger>
           <Image
