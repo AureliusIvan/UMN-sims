@@ -33,6 +33,7 @@ function Card(props) {
       justifyContent="space-evenly"
     >
       <Flex
+        display={{base:"none", sm:"block"}}
         justifyContent="center"
         alignItems="center"
         borderRadius="50%"

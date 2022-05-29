@@ -86,7 +86,9 @@ function PageOne(props) {
               borderRadius="50%"
               onClick={() => props.handleClick('selectchar')}
               pointerEvents="all"
-              backgroundColor="red.100"
+              transition="0.5s"
+              _hover={{transform:"scale(1.15)"}}
+              shadow="xl"
             >
               Play
             </Button>

@@ -1,12 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
 import {
-  useToast,
+  VStack,
   Grid,
   GridItem,
   Box,
   Button,
   Text,
   Center,
+  Flex,
+  Divider,
+  Image,
+  Tooltip
 } from '@chakra-ui/react';
 import MapPop from '../../components/buttons/MapPop';
 import { AllContext } from '../../components/Value/CoinContext';
@@ -14,10 +18,11 @@ import BgPagi from './bg/Pagi.png';
 import BgSiang from './bg/Siang.png';
 import BgSore from './bg/Sore.png';
 import BgMalem from './bg/Malem.png';
-import { CoinFunction } from '../../components/templateAndFunction/statCoinFunction';
 import Notif from './testNotif';
 import Player from './audio';
-import burger from './Eat/food/burger.png';
+import makanImg from '../../components/asset/home/makan.png'
+import masakImg from '../../components/asset/home/Cooking.png'
+import mainImg from '../../components/asset/home/Controller.png'
 import Sleep from './sleep';
 
 function Home(props) {
@@ -79,34 +84,13 @@ function Home(props) {
           />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Button
-            position="absolute"
-            right="50px"
-            transform="translateY(30px)"
-            colorScheme="yellow"
-            color="black"
-            filter="contrast(200%) drop-shadow(5px 5px white)"
-            onClick={() => props.handleClick('eat')}
-          >
-            Eat
-          </Button>
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Sleep />
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Button
-            onClick={() => {
-              props.handleClick('Minigames');
-            }}
-          >
-            Minigames
-          </Button>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
@@ -115,19 +99,54 @@ function Home(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Button
-            zIndex={100}
-            colorScheme="red"
-            color="white"
-            _hover={{ color: 'black' }}
-            filter="contrast(200%) drop-shadow(5px 5px white)"
-            onClick={() => props.handleClick('cook')}
-          >
-            Masak
-          </Button>
+        <VStack align="end" p={{base:3, md:8}} spacing={3}>
+            <Flex 
+                p={3} 
+                borderRadius={15} 
+                flexDir="column" 
+                justifySelf="center" 
+                alignContent="center" 
+                bg="rgba(255,255,255, 0.5)"
+                width="100%"
+                backdropFilter='blur(5px)'
+                shadow="xl"
+                zIndex={101}
+              >
+              <Box textAlign="center" color="black" border="2px solid white" bg="rgba(237,100,166, 0.7)" py={1} borderRadius={10} fontSize="xl" >Menu</Box>
+              <Flex flexDir={{base:"column", md:"row"}} justifyContent="space-evenly" alignItems="center">
+                <Choice label="eat" src={makanImg}/>
+                <Divider display={{base:"block", md:"none"}} />
+                <Choice label="cook" src={masakImg}/>
+              </Flex>
+              <Divider display={{base:"block", md:"none"}} />
+              <Flex flexDir={{base:"column", md:"row"}} justifyContent="space-evenly" alignItems="center">
+                <Sleep />
+                <Divider display={{base:"block", md:"none"}} />
+                <Choice label="play minigame" src={mainImg}/>
+              </Flex>
+            </Flex>
+          </VStack>
         </GridItem>
       </Grid>
     </Box>
   );
 }
+
+function Choice(props) {
+  return (
+    <Tooltip label={props.label} placement='start'>
+      <Image 
+        src={props.src} 
+        width={{base:85, sm:90, md:125}}
+        height={{base:85, sm:90, md:125}}
+        cursor="pointer"
+        transition="0.3s"
+        _hover={{transform:"scale(1.1)"}}
+        filter="drop-shadow(5px 5px white)"
+        onClick={() => props.handleClick('Minigames')}
+      />
+    </Tooltip>
+  )
+}
+
 export default Home;

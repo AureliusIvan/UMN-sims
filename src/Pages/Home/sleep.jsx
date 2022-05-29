@@ -15,10 +15,12 @@ import {
   SliderTrack,
   SliderFilledTrack,
   SliderThumb,
-  SliderMark,
+  Tooltip,
+  Image
 } from '@chakra-ui/react';
 import { useState, useContext } from 'react';
 import { AllContext } from '../../components/Value/CoinContext';
+import shown from '../../components/asset/home/Sleep.png'
 
 function Sleep() {
   const { hour, setHour } = useContext(AllContext);
@@ -33,17 +35,19 @@ function Sleep() {
   }
   return (
     <>
-      <Button
-        onClick={onOpen}
-        position="absolute"
-        right="50px"
-        transform="translateY(30px)"
-        colorScheme="pink"
-        color="black"
-        filter="contrast(200%) drop-shadow(5px 5px white)"
-      >
-        Sleep
-      </Button>
+      <Tooltip label="sleep" placement='start' zIndex={50}>
+				<Image
+					src={shown}
+					width={{base:85, sm:90, md:125}}
+          height={{base:85, sm:90, md:125}}
+          filter="drop-shadow(5px 5px white)"
+					cursor="pointer"
+					transition="0.3s"
+					_hover={{transform:"scale(1.1)"}}
+					onClick={onOpen}
+				/>
+			</Tooltip>
+
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
