@@ -4,6 +4,7 @@ import { Box, Button } from '@chakra-ui/react';
 import './game.css';
 import { AllContext } from '../../../components/Value/CoinContext';
 
+
 const cardImages = [
   { src: '/img/book.png', matched: false },
   { src: '/img/burger.png', matched: false },
@@ -22,8 +23,7 @@ function MiniGamestwo(props) {
   const [choice1, setChoice1] = useState(null);
   const [choice2, setChoice2] = useState(null);
   const [disabled, setDisabled] = useState(false);
-  const [unable, setUnable] = useState(false);
-  const { coin, setCoin } = useContext(AllContext);
+  const {coin, setCoin, main, setMain, makan, setMakan} = useContext(AllContext);
 
   //start
   useEffect(() => {
@@ -33,6 +33,7 @@ function MiniGamestwo(props) {
 
   const done = () => {
     setCoin(coin + 500)
+    setMain(main + 30)
     props.handleClick('home')
   };
 
@@ -87,12 +88,13 @@ function MiniGamestwo(props) {
   };
 
   return (
-    <Box h={'100vh'}>
-      <Box className="App" h={'100%'}>
+    <Box>
+      <Box className="App">
         <h1>Memory Card Minigames!</h1>
+         <p className="turns">Turns:{turns}</p>
         <Button className="gamebutton" onClick={shuffleCard}> New game</Button>
         <Button className="gamebutton" onClick={() => props.handleClick('home')}> Exit </Button>
-        <Button className="gamebutton" disabled={turns < 8} onClick={done}> Done! </Button>
+        <Button className="gamebutton" disabled={turns < 1} onClick={done}> Done! </Button>
         <Box className="card-pic" h={'100%'} w="100%">
           {cards.map(card => (
             <Onecard
@@ -103,7 +105,6 @@ function MiniGamestwo(props) {
               disabled={disabled}
             />
           ))}
-          <p className="turns">Turns:{turns}</p>
         </Box>
       </Box>
     </Box>

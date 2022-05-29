@@ -28,13 +28,13 @@ const COLLECTION = [
     id: uuid(),
     label: 'tomat0',
     url: tomato,
-    price: 100,
+    price: 50,
   },
   {
     id: uuid(),
     label: 'beef',
     url: beef,
-    price: 50,
+    price: 500,
   },
   {
     id: uuid(),
@@ -46,19 +46,19 @@ const COLLECTION = [
     id: uuid(),
     label: 'cabbage',
     url: cabbage,
-    price: 200,
+    price: 125,
   },
   {
     id: uuid(),
     label: 'chicken',
     url: chicken,
-    price: 100,
+    price: 300,
   },
   {
     id: uuid(),
     label: 'egg',
     url: eggtray,
-    price: 500,
+    price: 200,
   },
 ];
 
