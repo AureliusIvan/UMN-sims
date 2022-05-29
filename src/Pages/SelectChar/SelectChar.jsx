@@ -9,6 +9,7 @@ import {
   FormControlProps,
   HStack,
   Flex,
+  Tooltip,
 } from '@chakra-ui/react';
 import React, { useState, useEffect, useContext } from 'react';
 import { AllContext } from '../../components/Value/CoinContext';
@@ -19,8 +20,8 @@ import next from '../../components/asset/icon/next.png';
 import prev from '../../components/asset/icon/prev.png';
 import mulai from '../../components/asset/icon/start.png';
 
-import mainBG from "../../components/background/Charselect.png"
-import mukbang from "../../components/background/Mukbangbg.png"
+import mainBG from '../../components/background/Charselect.png';
+import mukbang from '../../components/background/Mukbangbg.png';
 
 function SelectCharacter(props) {
   const { start, setStart } = useContext(AllContext);
@@ -52,7 +53,13 @@ function SelectCharacter(props) {
   }, [character]);
 
   return (
-    <Box bgImage={mainBG} bgPos="center" bgSize={{md:"cover", base:"contain"}} minH="100vh" w="100%">
+    <Box
+      bgImage={mainBG}
+      bgPos="center"
+      bgSize={{ md: 'cover', base: 'contain' }}
+      minH="100vh"
+      w="100%"
+    >
       <Flex flexDir="column" justifyContent="center" alignItems="center">
         <InputHere />
         <Flex transform={'translateY(-40px)'} flexDir="column" mb={20}>
@@ -108,28 +115,36 @@ function SelectCharacter(props) {
           </HStack>
         </Flex>
       </Flex>
-      <Image
-        src={mulai}
-        width="100px"
-        height={'100px'}
-        position="absolute"
-        right={'0'}
-        left="0"
-        margin={'auto'}
-        transform={{
-          sm: 'translate(150px, 130px)',
-          base: 'translate(130px, 210px)',
-        }}
-        mb="220px"
-        onClick={() => {
-          props.handleClick('home');
-          handleStart();
-        }}
-        _hover={{ width: '120px', height: '120px' }}
-        transition="0.5s"
-        zIndex={10}
-        cursor="pointer"
-      />
+      <Tooltip label={'start game'}>
+        <Button
+          width="120px"
+          height={'120px'}
+          variant={'unstyled'}
+          position="absolute"
+          right={'0'}
+          left="0"
+          margin={'auto'}
+          transform={{
+            sm: 'translate(170px, 130px)',
+            base: 'translate(130px, 210px)',
+          }}
+          mb="220px"
+          onClick={() => {
+            props.handleClick('home');
+            handleStart();
+          }}
+          zIndex={10}
+          cursor="pointer"
+        >
+          <Image
+            src={mulai}
+            width="100px"
+            height={'100px'}
+            _hover={{ width: '120px', height: '120px' }}
+            transition="0.5s"
+          />
+        </Button>
+      </Tooltip>
     </Box>
   );
 }
