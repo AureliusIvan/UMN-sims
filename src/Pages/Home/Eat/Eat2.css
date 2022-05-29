@@ -33,6 +33,14 @@
   padding-right: 25%;
 }
 
+.dragbox {
+  width: 120px;
+  height: 120px;
+  transition: 0.3s;
+}
 .dragbox:hover {
+  width: 130px;
+  height: 130px;
   background-color: rgb(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
