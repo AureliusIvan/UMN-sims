@@ -51,7 +51,7 @@ function SelectCharacter(props) {
     <Box bgColor="pink" minH="100vh" w="100%">
       <Flex flexDir="column" justifyContent="center" alignItems="center">
         <InputHere />
-        <Flex flexDir="column" mb={20}>
+        <Flex transform={'translateY(-40px)'} flexDir="column" mb={20}>
           <Flex justifyContent="center" mt="50px" transform="translateX(22px)">
             <Flex flexDir="column" justifyContent="center" alignItems="center">
               <Box
@@ -103,24 +103,29 @@ function SelectCharacter(props) {
             />
           </HStack>
         </Flex>
-        <Image
-          src={mulai}
-          width="100px"
-          transform={{
-            sm: 'translate(250px, 180px)',
-            base: 'translate(130px, 210px)',
-          }}
-          mb="220px"
-          onClick={() => {
-            props.handleClick('home');
-            handleStart();
-          }}
-          _hover={{ transform: 'translate(250px, 180px) scale(1.2)' }}
-          transition="0.4s"
-          zIndex={10}
-          cursor="pointer"
-        />
       </Flex>
+      <Image
+        src={mulai}
+        width="100px"
+        height={'100px'}
+        position="absolute"
+        right={'0'}
+        left="0"
+        margin={'auto'}
+        transform={{
+          sm: 'translate(150px, 130px)',
+          base: 'translate(130px, 210px)',
+        }}
+        mb="220px"
+        onClick={() => {
+          props.handleClick('home');
+          handleStart();
+        }}
+        _hover={{ width: '120px', height: '120px' }}
+        transition="0.5s"
+        zIndex={10}
+        cursor="pointer"
+      />
     </Box>
   );
 }
