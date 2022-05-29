@@ -2,6 +2,7 @@ import { Button, Modal, ModalContent, ModalBody, ModalOverlay, useDisclosure, Bo
 import { Flex, Image } from '@chakra-ui/react';
 import React, { useState } from "react";
 
+import lala from "../asset/map/umn.png"
 import PartTimeCafe from '../../Pages/Cafe/partTimeCafe';
 
 function PopTemplate(props) {
@@ -17,7 +18,9 @@ function PopTemplate(props) {
 	
 	return (
 		<>
-			<Button
+			<Image
+				src={props.shownIMG}
+				width={props.width}
 				onClick={() => {
 					setOverlay(<PopUp />);
 					onOpen();
@@ -25,17 +28,14 @@ function PopTemplate(props) {
 						onClose()
 					}, 1800);
 				}}
-			>
-			{props.btnName}
-			</Button>
+			/>
 
-			<Modal isCentered isOpen={isOpen} onClose={onClose}>
+			<Modal isCentered size="xl" isOpen={isOpen} onClose={onClose}>
 				{overlay}
 				<ModalContent bg="rgba(0,0,0,0)" boxShadow="none" pb={3}>
 					<ModalBody textAlign='center'>
 					<Flex flexDir='column' alignItems='center' justifyContent='center'>
 						{props.comment}
-						{/* <PartTimeCafe image={props.image[0]}/> */}
 						<Image 
 							src={props.image}
 							width={{md:'100%', base:'70%'}}

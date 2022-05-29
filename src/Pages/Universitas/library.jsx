@@ -2,9 +2,9 @@ import React, { useState, useContext } from 'react';
 import { 
   Grid, 
   GridItem,
-   Box, 
-   VStack, 
-   Button } from '@chakra-ui/react';
+  Box, 
+  VStack, 
+  Button } from '@chakra-ui/react';
 import bgday from './bg/library.png';
 import bgdayrain from './bg/library.png';
 import bgdawn from './bg/library.png';
@@ -66,8 +66,8 @@ function Univ(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         <VStack spacing={4} align="end">
-        <Baca />
-        <Pustakawan />
+          <Baca />
+          <Pustakawan />
           </VStack>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>

@@ -12,8 +12,6 @@ import PartTimeCafe from './partTimeCafe';
 
 import GIF from '../../components/asset/gif/eat.gif';
 import { AllContext } from '../../components/Value/CoinContext';
-import Currency from '../../components/buttons/Currency';
-import { CreateChar } from '../../components/character/CharacterCard';
 import bgPagi from './asset/Noon.jpg';
 import bgSore from './asset/Dawn.jpg';
 import bgMalam from './asset/Night.jpg';
@@ -50,7 +48,6 @@ function Cafe(props) {
       >
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Currency />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
 

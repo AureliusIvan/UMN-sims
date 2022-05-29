@@ -134,38 +134,34 @@ function Eat(props) {
     }
   }, [board]);
 
-  function EatHandle(x) {
-    if (makan < 100) setMakan(makan + x);
-  }
-
   function prevFood() {
-    if (slice == sliceMakananA) {
+    if (slice === sliceMakananA) {
       setSlice(sliceMakananF);
-    } else if (slice == sliceMakananB) {
+    } else if (slice === sliceMakananB) {
       setSlice(sliceMakananA);
-    } else if (slice == sliceMakananC) {
+    } else if (slice === sliceMakananC) {
       setSlice(sliceMakananB);
-    } else if (slice == sliceMakananD) {
+    } else if (slice === sliceMakananD) {
       setSlice(sliceMakananC);
-    } else if (slice == sliceMakananE) {
+    } else if (slice === sliceMakananE) {
       setSlice(sliceMakananD);
-    } else if (slice == sliceMakananF) {
+    } else if (slice === sliceMakananF) {
       setSlice(sliceMakananE);
     }
   }
 
   function nextFood() {
-    if (slice == sliceMakananA) {
+    if (slice === sliceMakananA) {
       setSlice(sliceMakananB);
-    } else if (slice == sliceMakananB) {
+    } else if (slice === sliceMakananB) {
       setSlice(sliceMakananC);
-    } else if (slice == sliceMakananC) {
+    } else if (slice === sliceMakananC) {
       setSlice(sliceMakananD);
-    } else if (slice == sliceMakananD) {
+    } else if (slice === sliceMakananD) {
       setSlice(sliceMakananE);
-    } else if (slice == sliceMakananE) {
+    } else if (slice === sliceMakananE) {
       setSlice(sliceMakananF);
-    } else if (slice == sliceMakananF) {
+    } else if (slice === sliceMakananF) {
       setSlice(sliceMakananA);
     }
   }

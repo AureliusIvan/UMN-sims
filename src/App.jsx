@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react';
 import { useMemo, useState, useEffect, useRef } from 'react';
 import './App.css';
-import PageOne from './Pages/Start';
+import PageOne from './Pages/Start/Start';
 import SelectCharacter from './Pages/SelectChar/SelectChar';
 import Home from './Pages/Home/Home';
 import EatPage from './Pages/Home/Eat/EatPage';
@@ -35,6 +35,7 @@ import GameoverScreen from './Pages/GameOver/gameover';
 import StatusGroup from './components/statusBar/StatusBarGroup';
 import Currency from './components/buttons/Currency';
 import { CreateChar } from './components/character/CharacterCard';
+import { StatFunction } from './components/templateAndFunction/statCoinFunction';
 
 
 /*
@@ -65,7 +66,7 @@ function App() {
   };
 
   //coin const
-  const [coin, setCoin] = useState(7000);
+  const [coin, setCoin] = useState(1000);
   const prevCoin = useRef();
   useEffect(() => {
     prevCoin.current = coin;
@@ -74,7 +75,7 @@ function App() {
   //player choice
   const [jurusan, setJurusan] = useState('');
   const [character, setCharacter] = useState(1);
-  const [nama, setNama] = useState('kamu');
+  const [nama, setNama] = useState('');
 
   //time const
   const [Day, setDay] = useState(0);
@@ -141,6 +142,9 @@ function App() {
     if (start == true) {
       setCount(minute + 1);
       setRealtime(realtime + 1);
+      {StatFunction(makan, setMakan, 0, 0.5)};
+      {StatFunction(tidur, setTidur, 0, 0.5)};
+      {StatFunction(main, setMain, 0, 0.5)};
       if (minute >= 59) {
         setHour(hour + 1);
         setCount(0);
@@ -192,28 +196,17 @@ function App() {
   //this for hide the pause dan phone button
   useEffect(() => {
     if (
-      game == 'start' ||
-      game == 'eat' ||
-      game == 'selectchar' ||
-      game == 'cook' ||
-      game == 'cart'
+      game === 'start' ||
+      game === 'selectchar' ||
+      game === 'eat' ||
+      game === 'cook' ||
+      game === 'cart'
     ) {
       setShowPause(false);
     } else {
       setShowPause(true);
     }
   }, [game]);
-
-  // automatic decrease every 5s tp masih error gitu dia kan naik turun 
-  useEffect(() => {
-    setInterval(() => {
-      // console.log("tes timing");
-      // {StatFunction(makan, setMakan, 0, 5)};
-      // {StatFunction(tidur, setTidur, 0, 5)};
-      // {StatFunction(main, setMain, 0, 5)};
-      clearInterval();
-    }, 5000);
-  })
 
   return (
     <ChakraProvider theme={theme}>
