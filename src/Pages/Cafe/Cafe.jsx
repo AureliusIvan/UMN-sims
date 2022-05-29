@@ -1,3 +1,4 @@
+
 import { useEffect, useContext, useState } from 'react';
 import {
   Grid,
@@ -53,6 +54,7 @@ function Cafe(props) {
           <Currency />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <MapPop
             home={() => props.handleClick('home')}
@@ -62,27 +64,20 @@ function Cafe(props) {
           />
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <CreateChar />
-        </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}>        </GridItem>
 
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <VStack spacing={4} align="end">
-            {/* <PopTemplate
-              btnName="Part Time"
-              image={GIF}
-              alt='Kerja part time di cafe'
-            /> */}
             <PartTimeCafe />
-            <Button onClick={() => props.handleClick('ngopi')}>Ngopi</Button>
+            <Ngopi />
           </VStack>
         </GridItem>
-
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>

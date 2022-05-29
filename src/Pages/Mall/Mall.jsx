@@ -2,10 +2,8 @@ import react, { useContext } from 'react';
 import { Grid, GridItem, Box, Button, VStack } from '@chakra-ui/react';
 import MapPop from '../../components/buttons/MapPop';
 import PartTime from './partTimeMall';
-
-import Currency from '../../components/buttons/Currency';
 import { AllContext } from '../../components/Value/CoinContext';
-import { CreateChar } from '../../components/character/CharacterCard';
+
 function Mall(props) {
   return (
     <Box className="mall">
@@ -36,9 +34,7 @@ function Mall(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
 
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <CreateChar />
-        </GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
           <VStack spacing={4} align="end">
             <PartTime />

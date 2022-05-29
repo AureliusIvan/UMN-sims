@@ -11,14 +11,13 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import React, { useState, useEffect, useContext } from 'react';
-import { AllContext } from '../components/Value/CoinContext';
+import { AllContext } from '../../components/Value/CoinContext';
 import { Char1, Char2, Char3, Char4 } from './skillChar';
-import { CreateChar } from '../components/character/CharacterCard';
 import InfoModal from './charSkillModal';
 import InputHere from './inputCharacter';
-import next from '../components/asset/icon/next.png';
-import prev from '../components/asset/icon/prev.png';
-import mulai from '../components/asset/icon/start.png';
+import next from '../../components/asset/icon/next.png';
+import prev from '../../components/asset/icon/prev.png';
+import mulai from '../../components/asset/icon/start.png';
 
 function SelectCharacter(props) {
   const { start, setStart } = useContext(AllContext);
@@ -104,10 +103,6 @@ function SelectCharacter(props) {
             />
           </HStack>
         </Flex>
-        {/* <Box mt={100}> */}
-        <CreateChar />
-        {/* </Box>
-        <Box bottom={10} >..</Box> */}
         <Image
           src={mulai}
           width="100px"

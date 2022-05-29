@@ -5,7 +5,6 @@ import {
    Box, 
    VStack, 
    Button } from '@chakra-ui/react';
-import { CreateChar } from '../../components/character/CharacterCard';
 import bgday from './bg/Pagi.png';
 import bgdayrain from './bg/Rain.png';
 import bgdawn from './bg/Sore.png';
@@ -55,31 +54,29 @@ function Univ(props) {
       >
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        <Box>
-            <Currency />
-          </Box>
-        </GridItem>
-        <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        <Button className="gamebutton" onClick={() => props.handleClick('uni')}> Back </Button>
+          <Button className="gamebutton" onClick={() => props.handleClick('uni')}> Back </Button>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <CreateChar />
         </GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-        <VStack spacing={4} align="end">
-        <Belajar />
+          <VStack spacing={4} align="end">
+            <Belajar />
           </VStack>
         </GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
+        
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>

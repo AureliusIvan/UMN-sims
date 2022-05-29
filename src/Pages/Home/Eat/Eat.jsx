@@ -10,7 +10,6 @@ import {
 } from '@chakra-ui/react';
 import { PhoneIcon, AddIcon, ArrowBackIcon } from '@chakra-ui/icons';
 import React, { useContext, useEffect, useState } from 'react';
-import { CreateChar } from '../../../components/character/CharacterCard';
 import { AllContext } from '../../../components/Value/CoinContext';
 import { useDrop, useDrag } from 'react-dnd';
 import burger from './food/burger.png';
@@ -19,7 +18,6 @@ import friedfish from './food/friedfish.png';
 import roastchicken from './food/roastchicken.png';
 import salad from './food/salad.png';
 import steak from './food/steak.png';
-import CharacterModule from '../../../components/character/Card';
 import './food.css';
 
 const dragList = [
@@ -224,7 +222,6 @@ function Eat(props) {
               ref={drop}
               style={{ border: isOver ? '10px solid red' : '1px solid black' }}
             >
-              <CharacterModule />
             </Box>
           </Box>
         </GridItem>

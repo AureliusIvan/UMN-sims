@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { VStack, Input, Select } from '@chakra-ui/react';
-import { AllContext } from '../components/Value/CoinContext';
+import { AllContext } from '../../components/Value/CoinContext';
 
 function InputDataChar() {
 	const { setNama, setJurusan } = useContext(AllContext);

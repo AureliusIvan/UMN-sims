@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Skeleton, Stack, Text } from "@chakra-ui/react";
 import { NewsContext } from "./newsContext";
 import NewsArticle from "./newsArticle";
 
@@ -16,9 +16,11 @@ function News() {
 					</Box>
 				))
 			: (
-			<Text align='center' my='auto'>
-				News Loading...
-			</Text>
+			<Stack>
+				<Skeleton height="20px" />
+				<Skeleton height="20px" />
+				<Skeleton height="20px" />
+			</Stack>
 			)
         }
       </Box>

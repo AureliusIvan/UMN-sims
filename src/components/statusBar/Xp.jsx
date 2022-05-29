@@ -19,6 +19,7 @@ export function Xp(){
                         border='2px solid white' 
                         h={'20px'} 
                         value={belajar}
+                        transition="0.2s"
                     />
                     <Flex 
                         fontSize="20px"
@@ -29,6 +30,7 @@ export function Xp(){
                         alignItems="center"
                         justifyContent="center"
                         zIndex={5}
+                        boxShadow="2px 2px 5px gray"
                     >XP</Flex>
                 </Flex>
             </Tooltip>
