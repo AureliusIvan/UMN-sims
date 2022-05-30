@@ -123,13 +123,13 @@ function App() {
   useEffect(
     () => {
       if (makan <= 0) {
-        setGameover(true);
+        setGameover(false);
       }
       if (tidur <= 0) {
-        setGameover(true);
+        setGameover(false);
       }
       if (main <= 0) {
-        setGameover(true);
+        setGameover(false);
       }
     },
     [makan],
