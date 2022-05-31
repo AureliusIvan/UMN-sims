@@ -1,17 +1,5 @@
-import {
-  ChakraProvider,
-  theme,
-  Button,
-  useToast,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-} from '@chakra-ui/react';
-import { useMemo, useState, useEffect, useRef } from 'react';
+import { ChakraProvider, theme, Button, useToast, Box } from '@chakra-ui/react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import './App.css';
 import PageOne from './Pages/Start/Start';
 import SelectCharacter from './Pages/SelectChar/SelectChar';
@@ -129,8 +117,8 @@ function App() {
   const [hideChar, setHideChar] = useState(true);
   //gameover
   const [gameOver, setGameover] = useState(false);
-//buat makan
-const [startEAT, setStartEat] = useState(true);
+  //buat makan
+  const [startEAT, setStartEat] = useState(true);
   useEffect(
     () => {
       if (makan <= 0) {
@@ -243,11 +231,38 @@ const [startEAT, setStartEat] = useState(true);
   //buat sound
   useEffect(() => {
     if (game === 'start') {
-      setSong("");
+      setSong('');
     } else {
       setSong('');
     }
   }, [game]);
+
+  //algoritma pulang kalo udah malem
+  // const toast = useToast();
+  // const toastIdRef = React.useRef();
+  // const id = 'test-toast';
+  // function addToast() {
+  //   toastIdRef.current = toast({
+  //     id,
+  //     position: 'top',
+  //     duration: '1000',
+  //     render: () => (
+  //       <Box color="white" width="500px" height="100px" bgColor="whatsapp.100">
+  //         Sudah malam, kamu harus pulang!
+  //       </Box>
+  //     ),
+  //   });
+  // }
+
+  // useEffect(() => {
+  //   if (hour > 23 || (hour < 7 && start === true)) {
+  //     if (game === 'home' || game === 'eat' || game === 'cook') {
+  //     } else {
+  //       setGame('home');
+  //       addToast();
+  //     }
+  //   }
+  // }, [minute]);
 
   return (
     <ChakraProvider theme={theme}>
@@ -321,7 +336,7 @@ const [startEAT, setStartEat] = useState(true);
           filled,
           setFilled,
           startEAT,
-          setStartEat
+          setStartEat,
         }}
       >
         {gameOver ? <GameoverScreen /> : ''}

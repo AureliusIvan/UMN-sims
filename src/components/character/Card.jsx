@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { Box, Image } from '@chakra-ui/react';
 //char1
 import hairfront1 from './characterAsset/default/nakMukbang/1.png';
-import face1 from './characterAsset/default/nakMukbang/2.png';
+import face1 from './characterAsset/default/nakMukbang/2.gif';
 import lefthand1 from './characterAsset/default/nakMukbang/3.png';
 import body1 from './characterAsset/default/nakMukbang/4.png';
 import righthand1 from './characterAsset/default/nakMukbang/5.png';
