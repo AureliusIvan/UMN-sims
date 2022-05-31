@@ -1,15 +1,33 @@
 import { Box } from '@chakra-ui/react'
-import {useContext} from 'react'
+import {useContext, useEffect, useState } from 'react'
 import Pop from '../../components/templateAndFunction/tempPopUp'
-import GIF from '../../components/asset/gif/coding/studyinclass.gif'
 import { AllContext } from '../../components/Value/CoinContext';
 import { StatFunction } from '../../components/templateAndFunction/statCoinFunction';
 import shown from '../../components/asset/uni/study.png'
+import gif1 from './bg/Mukbangstudy.gif'
+import gif2 from './bg/gamerstudyinclass.gif'
+import gif3 from './bg/holkaystudy.gif'
+import gif4 from '../../components/asset/gif/coding/studyinclass.gif'
 
 function Belajar() {
-    const {belajar, setBelajar} = useContext(AllContext)
-    const {tidur, setTidur} = useContext(AllContext)
-    const {makan, setMakan} = useContext(AllContext)
+    const {tidur, setTidur, makan, setMakan, belajar, setBelajar, character, setCharacter} = useContext(AllContext)
+    const [gif, setGif] = useState(gif1);
+
+    useEffect(() => {
+        console.log(character);
+        if (character === 1) {
+          setGif(gif1);
+        }
+        else if (character === 2) {
+          setGif(gif2);
+        }
+        else if (character === 3) {
+          setGif(gif3);
+        }
+        else if (character === 4) {
+          setGif(gif4);
+        }
+      }, []);
 
     return (
         <Box onClick={() => {
@@ -20,7 +38,7 @@ function Belajar() {
             <Pop 
                 shownIMG={shown}
                 name="Study"
-                image={GIF}
+                image={gif}
                 alt='part time di mall'
             />
         </Box>

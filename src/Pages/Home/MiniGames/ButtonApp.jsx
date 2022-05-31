@@ -5,6 +5,7 @@ import './game.css';
 import { AllContext } from '../../../components/Value/CoinContext';
 import { CoinFunction, StatFunction } from '../../../components/templateAndFunction/statCoinFunction';
 
+
 const cardImages = [
   { src: '/img/book.png', matched: false },
   { src: '/img/burger.png', matched: false },
@@ -24,10 +25,8 @@ function MiniGamestwo(props) {
   const [choice1, setChoice1] = useState(null);
   const [choice2, setChoice2] = useState(null);
   const [disabled, setDisabled] = useState(false);
-  const [unable, setUnable] = useState(false);
   const { coin, setCoin } = useContext(AllContext);
   const { main, setMain } = useContext(AllContext);
-  const { tidur, setTidur } = useContext(AllContext);
 
   //start
   useEffect(() => {
@@ -93,9 +92,10 @@ function MiniGamestwo(props) {
   };
 
   return (
-    <Box h={'100vh'}>
-      <Box className="App" h={'100%'}>
+    <Box>
+      <Box className="App">
         <h1>Memory Card Minigames!</h1>
+         <p className="turns">Turns:{turns}</p>
         <Button className="gamebutton" onClick={shuffleCard}> New game</Button>
         <Button className="gamebutton" onClick={() => props.handleClick('home')}> Exit </Button>
         <Button className="gamebutton" disabled={turns < 8} onClick={done}> Done! </Button>
@@ -109,7 +109,6 @@ function MiniGamestwo(props) {
               disabled={disabled}
             />
           ))}
-          <p className="turns">Turns:{turns}</p>
         </Box>
       </Box>
     </Box>
