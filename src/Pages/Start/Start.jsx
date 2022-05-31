@@ -17,11 +17,12 @@ import Credit from './Credit';
 import bg from '../../components/background/splash.png';
 import mainBG from '../../components/background/Charselect.png';
 import splash from './asset/splash.png';
-import "./Start.css"
+import './Start.css';
 
 function PageOne(props) {
   return (
     <Box
+      draggable="false"
       bgImage={mainBG}
       bgSize={{ md: 'cover', base: 'contain' }}
       backgroundColor="pink"
@@ -104,10 +105,9 @@ function PageOne(props) {
               pointerEvents="all"
               transition="0.5s"
               _hover={{
-                transform: 'scale(1.15)',
+                transform: 'scale(1.2)',
                 bgGradient: 'linear(to-r, red.400, yellow.400)',
               }}
-       
               shadow="xl"
               bgGradient="linear(to-l, red.500, yellow.500)"
               filter="invert(1)"
