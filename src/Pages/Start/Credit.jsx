@@ -14,11 +14,10 @@ import {
 } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
 import React, { useState } from 'react';
-
-import ivan from "../../components/asset/credit/Ivan.png"
-import arka from "../../components/asset/credit/Arka.png"
-import pat from "../../components/asset/credit/Pat.png"
-import mae from "../../components/asset/credit/Mae.png"
+import ivan from '../../components/asset/credit/Ivan.png';
+import arka from '../../components/asset/credit/Arka.png';
+import pat from '../../components/asset/credit/Pat.png';
+import mae from '../../components/asset/credit/Mae.png';
 
 function Card(props) {
   return (
@@ -41,10 +40,7 @@ function Card(props) {
         width={{sm:"80px", base:"100px"}}
         height={{sm:"80px", base:"70px"}}
       >
-        <Image
-          filter="drop-shadow(2px 2px 2px white)"
-          src={props.img}
-        />
+        <Image filter="drop-shadow(2px 2px 2px white)" src={props.img} />
       </Flex>
       <Flex flexDir="column" justifyContent="space-evenly">
         <Flex>
@@ -116,13 +112,35 @@ function Credit(props) {
           setOverlay(<PopUp />);
           onOpen();
         }}
+        width="100px"
+        height={'40px'}
+        bgGradient="linear(to-r, purple.600, blue.500)"
+        fontSize={"2xl"}
+        fontWeight="thin"
+        _hover={{
+          bgGradient: 'linear(to-r, purple.700, blue.800)',
+          width: '120px',
+          height: '48px',
+          borderRadius:'24px',
+          fontSize:"3xl"
+        }}
+        color="white"
+        borderRadius={`20px`}
+        variant="unstyled"
+        transition={'0.3s'}
+        shadow="2xl"
       >
         Credit
       </Button>
 
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         {overlay}
-        <ModalContent borderRadius={15} width="90%" pb={3} shadow={'2px 2px 6px #fd6a6a'}>
+        <ModalContent
+          borderRadius={15}
+          width="90%"
+          pb={3}
+          shadow={'2px 2px 6px #fd6a6a'}
+        >
           <ModalHeader
             borderRadius="15px 15px 0px 0px"
             bgColor={'red.100'}
@@ -136,16 +154,8 @@ function Credit(props) {
           <Divider />
           <ModalBody>
             <Flex flexDir="column">
-            <Card
-                nama="Aurelius Ivan Wijaya"
-                img={ivan}
-                nim="00000054769"
-              />
-              <Card
-                nama="Arkana Asa Andoko"
-                img={arka}
-                nim="00000054387"
-              />
+              <Card nama="Aurelius Ivan Wijaya" img={ivan} nim="00000054769" />
+              <Card nama="Arkana Asa Andoko" img={arka} nim="00000054387" />
               <Card
                 nama="Maecyntha Irelynn Tantra"
                 img={mae}

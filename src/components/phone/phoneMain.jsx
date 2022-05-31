@@ -23,8 +23,8 @@ function Phone() {
   }
 
   return (
-    <Box>
-      <Popover placement="top-start" zIndex={100} >
+    <Box zIndex={100}>
+      <Popover placement="top-start" >
         <PopoverTrigger>
           <Image
             bottom={0} 
