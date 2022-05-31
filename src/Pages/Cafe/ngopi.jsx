@@ -8,10 +8,10 @@ import {
 } from '../../components/templateAndFunction/statCoinFunction';
 import Pop from '../../components/templateAndFunction/tempPopUp';
 import shown from '../../components/asset/cafe/Coffee.png';
-import gifA from '../../components/asset/gif/mukbang/Mukbangngopi.gif';
-import gifB from '../../components/asset/gif/gamers/Gamerngopi.gif';
-import gifC from '../../components/asset/gif/holkay/Holkayngopi.gif';
-import gifD from '../../components/asset/gif/coding/Codingngopi.gif';
+import gif1 from './cafeimg/Mukbangngopi.gif';
+import gif2 from './cafeimg/Gamerngopi.gif';
+import gif3 from './cafeimg/Holkayngopi.gif';
+import gif4 from './cafeimg/Codingngopi.gif';
 
 function Ngopi() {
   const { tidur, setTidur, coin, setCoin, makan, setMakan } =
@@ -19,16 +19,17 @@ function Ngopi() {
 
   //buat ganti gif berdasarkan character
   const { character, setCharacter } = useContext(AllContext);
-  const [gif, setGIF] = useState(gifA);
+  const [gif, setGif] = useState(gif1);
+
   useEffect(() => {
     if (character === 1) {
-      setGIF(gifA);
+      setGif(gif1);
     } else if (character === 2) {
-      setGIF(gifB);
+      setGif(gif2);
     } else if (character === 3) {
-      setGIF(gifC);
+      setGif(gif3);
     } else if (character === 4) {
-      setGIF(gifD);
+      setGif(gif4);
     }
   }, []);
   ////

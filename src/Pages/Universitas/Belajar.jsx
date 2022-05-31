@@ -1,30 +1,31 @@
 import { Box } from '@chakra-ui/react'
-import {useContext, useState, useEffect} from 'react'
+import {useContext, useEffect, useState } from 'react'
 import Pop from '../../components/templateAndFunction/tempPopUp'
-import GIF from '../../components/asset/gif/coding/studyinclass.gif'
 import { AllContext } from '../../components/Value/CoinContext';
 import { StatFunction } from '../../components/templateAndFunction/statCoinFunction';
 import shown from '../../components/asset/uni/study.png'
-import gifA from "../../components/asset/gif/mukbang/Mukbangstudy.gif"
-import gifB from "../../components/asset/gif/gamers/gamerstudyinclass.gif"
-import gifC from "../../components/asset/gif/holkay/holkaystudy.gif"
-import gifD from "../../components/asset/gif/coding/Codingstudyinclass.gif"
+import gif1 from './bg/Mukbangstudy.gif'
+import gif2 from './bg/gamerstudyinclass.gif'
+import gif3 from './bg/holkaystudy.gif'
+import gif4 from '../../components/asset/gif/coding/studyinclass.gif'
 
 function Belajar() {
-    const {belajar, setBelajar} = useContext(AllContext)
-    const {tidur, setTidur} = useContext(AllContext)
-    const {makan, setMakan} = useContext(AllContext)
-    const { character, setCharacter } = useContext(AllContext);
-    const [gif, setGIF] = useState(gifA);
+    const {tidur, setTidur, makan, setMakan, belajar, setBelajar, character, setCharacter} = useContext(AllContext)
+    const [gif, setGif] = useState(gif1);
+
     useEffect(() => {
+        console.log(character);
         if (character === 1) {
-          setGIF(gifA);
-        } else if (character === 2) {
-          setGIF(gifB);
-        } else if (character === 3) {
-          setGIF(gifC);
-        } else if (character === 4) {
-          setGIF(gifD);
+          setGif(gif1);
+        }
+        else if (character === 2) {
+          setGif(gif2);
+        }
+        else if (character === 3) {
+          setGif(gif3);
+        }
+        else if (character === 4) {
+          setGif(gif4);
         }
       }, []);
 
