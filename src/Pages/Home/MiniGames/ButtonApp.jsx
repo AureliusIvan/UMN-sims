@@ -5,7 +5,6 @@ import './game.css';
 import { AllContext } from '../../../components/Value/CoinContext';
 import { CoinFunction, StatFunction } from '../../../components/templateAndFunction/statCoinFunction';
 
-
 const cardImages = [
   { src: '/img/book.png', matched: false },
   { src: '/img/burger.png', matched: false },
@@ -23,6 +22,7 @@ function MiniGamestwo(props) {
   
   //const buat pilih kartu
   const [choice1, setChoice1] = useState(null);
+  const { tidur, setTidur } = useContext(AllContext);
   const [choice2, setChoice2] = useState(null);
   const [disabled, setDisabled] = useState(false);
   const { coin, setCoin } = useContext(AllContext);
@@ -35,9 +35,9 @@ function MiniGamestwo(props) {
 
 
   const done = () => {
-    CoinFunction(coin, setCoin, 1000, 0)
-    StatFunction(main, setMain, 8, 0)
-    StatFunction(tidur, setTidur, 0, 5)
+    CoinFunction(coin, setCoin, 1000, 0);
+    StatFunction(main, setMain, 8, 0);
+    StatFunction(tidur, setTidur, 0, 5);
     props.handleClick('home')
   };
 

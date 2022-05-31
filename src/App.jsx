@@ -254,15 +254,14 @@ function App() {
   //   });
   // }
 
-  // useEffect(() => {
-  //   if (hour > 23 || (hour < 7 && start === true)) {
-  //     if (game === 'home' || game === 'eat' || game === 'cook') {
-  //     } else {
-  //       setGame('home');
-  //       addToast();
-  //     }
-  //   }
-  // }, [minute]);
+  useEffect(() => {
+    if (hour > 23 || (hour < 7 && start === true)) {
+      if (game === 'home' || game === 'eat' || game === 'cook' || game === 'Minigames') {
+      } else {
+        setGame('home');
+      }
+    }
+  }, [minute]);
 
   return (
     <ChakraProvider theme={theme}>
