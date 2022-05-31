@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState, useRef } from "react";
+import React from "react";
 import { Box, Button } from '@chakra-ui/react';
 import {
   Modal,
@@ -10,7 +10,6 @@ import {
   ModalFooter,
   useToast
 } from '@chakra-ui/react';
-import { AllContext } from "../../../components/Value/CoinContext";
 import { ArrowBackIcon } from '@chakra-ui/icons';
 import { useDisclosure } from '@chakra-ui/react';
 import { DndProvider } from 'react-dnd';
@@ -76,7 +75,9 @@ function AppShop(props) {
             </ModalFooter>
           </ModalContent>
         </Modal>
-        <DragDrop />
+        <Box bgColor="orange.100">
+          <DragDrop />
+        </Box>
       </Box>
     </DndProvider>
   );

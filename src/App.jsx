@@ -204,7 +204,7 @@ const [startEAT, setStartEat] = useState(true);
 
   // handle switch page
   // https://medium.com/nerd-for-tech/a-case-to-switch-using-switch-statements-in-react-e83e01154f60
-  const [game, setGame] = useState('start');
+  const [game, setGame] = useState('cart');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);

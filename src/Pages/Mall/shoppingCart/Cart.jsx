@@ -8,59 +8,15 @@ import {
   Grid,
   GridItem,
   Text,
+  Image,
   Button,
-  Progress,
   Flex,
-  Images,
-  useToast
+  useToast,
+  Heading
 } from '@chakra-ui/react';
-import tomato from './itemimage/tomato.png';
-import beef from './itemimage/beef.png';
-import bread from './itemimage/bread.png';
-import cabbage from './itemimage/cabbage.png';
-import chicken from './itemimage/chicken.png';
-import eggtray from './itemimage/eggtray.png';
-import salt from './itemimage/saltandpepper.png';
 import Currency from '../../../components/buttons/Currency';
-
-const COLLECTION = [
-  {
-    id: uuid(),
-    label: 'tomat0',
-    url: tomato,
-    price: 100,
-  },
-  {
-    id: uuid(),
-    label: 'beef',
-    url: beef,
-    price: 50,
-  },
-  {
-    id: uuid(),
-    label: 'bread',
-    url: bread,
-    price: 100,
-  },
-  {
-    id: uuid(),
-    label: 'cabbage',
-    url: cabbage,
-    price: 200,
-  },
-  {
-    id: uuid(),
-    label: 'chicken',
-    url: chicken,
-    price: 100,
-  },
-  {
-    id: uuid(),
-    label: 'egg',
-    url: eggtray,
-    price: 500,
-  },
-];
+import COLLECTION from './collectionList';
+import Canopy from './canopy';
 
 const getRenderItem = (items, className) => (provided, snapshot, rubric) => {
   const item = items[rubric.source.index];
@@ -87,18 +43,16 @@ function Copyable(props) {
       isDropDisabled={true}
     >
       {(provided, snapshot) => (
-        <Grid
-          position={'absolute'}
-          left="0"
-          top={'100px'}
-          width="240px"
-          h="80vh"
-          templateRows="repeat(4, 1fr)"
-          templateColumns="repeat(2, 1fr)"
-          rowGap={20}
+        <Flex
+          justifyContent="space-evenly"
           ref={provided.innerRef}
           className={props.className}
           bgColor="green.100"
+          p={5}
+          width={{md:500, base:700}}
+          height={{md:"80vh", base:180}}
+          flexWrap="wrap"
+          overflow="scroll"
         >
           {props.items.map((item, index) => {
             const shouldRenderClone = item.id === snapshot.draggingFromThisWith;
@@ -110,7 +64,7 @@ function Copyable(props) {
                   <Draggable draggableId={item.id} index={index}>
                     {(provided, snapshot) => (
                       <React.Fragment>
-                        <GridItem
+                        <Box
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
@@ -125,16 +79,15 @@ function Copyable(props) {
                           >
                             {item.label}
                           </Text>
-                          <img src={item.url} />
+                          <Image src={item.url} />
                           <Text
                             bgColor="blue.200"
                             textAlign="center"
                             borderRadius="10px"
                           >
-                            {'$'}
-                            {item.price}
+                            {'$'}{item.price}
                           </Text>
-                        </GridItem>
+                        </Box>
                       </React.Fragment>
                     )}
                   </Draggable>
@@ -143,7 +96,63 @@ function Copyable(props) {
             );
           })}
           {provided.placeholder}
-        </Grid>
+        </Flex>
+        // <Grid
+        //   // position={'absolute'}
+        //   // left="0"
+        //   // top={'100px'}
+        //   width="240px"
+        //   h="80vh"
+        //   templateRows="repeat(4, 1fr)"
+        //   templateColumns="repeat(2, 1fr)"
+        //   rowGap={20}
+        //   ref={provided.innerRef}
+        //   className={props.className}
+        //   bgColor="green.100"
+        // >
+        //   {props.items.map((item, index) => {
+        //     const shouldRenderClone = item.id === snapshot.draggingFromThisWith;
+        //     return (
+        //       <React.Fragment key={item.id}>
+        //         {shouldRenderClone ? (
+        //           <Box></Box>
+        //         ) : (
+        //           <Draggable draggableId={item.id} index={index}>
+        //             {(provided, snapshot) => (
+        //               <React.Fragment>
+        //                 <GridItem
+        //                   ref={provided.innerRef}
+        //                   {...provided.draggableProps}
+        //                   {...provided.dragHandleProps}
+        //                   className={
+        //                     snapshot.isDragging ? 'dragging dragbox' : 'dragbox'
+        //                   }
+        //                 >
+        //                   <Text
+        //                     bgColor="red.200"
+        //                     textAlign="center"
+        //                     borderRadius="10px"
+        //                   >
+        //                     {item.label}
+        //                   </Text>
+        //                   <img src={item.url} />
+        //                   <Text
+        //                     bgColor="blue.200"
+        //                     textAlign="center"
+        //                     borderRadius="10px"
+        //                   >
+        //                     {'$'}{item.price}
+        //                   </Text>
+        //                 </GridItem>
+        //               </React.Fragment>
+        //             )}
+        //           </Draggable>
+        //         )}
+        //       </React.Fragment>
+        //     );
+        //   })}
+        //   {provided.placeholder}
+        // </Grid>
       )}
     </Droppable>
   );
@@ -219,6 +228,7 @@ function Cart() {
   const [cabbagez, setCabbagez] = useState(0);
   const [chickenz, setChickenz] = useState(0);
   const [eggtrayz, setEggtrayz] = useState(0);
+  
   //bahan makanan
   const { tomato, setTomato } = useContext(AllContext);
   const { bread, setBread } = useContext(AllContext);
@@ -230,6 +240,7 @@ function Cart() {
 
   //function keranjang
   const [kosong, setKosong] = useState(true);
+  
   //Toast notif
   const toast = useToast();
   const toastIdRef = React.useRef();
@@ -302,6 +313,9 @@ function Cart() {
       if (lastitem.label == 'chicken') {
         setChicken(chicken + 1);
       }
+      if (lastitem.label == 'salt') {
+        setSaltz(saltz + 1);
+      }
     }
     setLastitem('');
   }, [lastitem]);
@@ -330,6 +344,7 @@ function Cart() {
       setCabbage(cabbage + cabbagez);
       setChicken(chicken + chickenz);
       setEggtray(eggtray + eggtrayz);
+      setSalt(salt + saltz);
       Reset();
       addToast();
     }
@@ -340,36 +355,45 @@ function Cart() {
 
   return (
     <Flex
-      h={'100vh'}
+      flexDir="column"
+      minH="100vh"
       width="100%"
-      padding="20px"
-      justifyContent={'center'}
+      alignItems='center'
       bgColor="orange.100"
-      overflow={"hidden"}
+      pb={10}
+      // overflow={"hidden"}
     >
-      <Box
+      <Flex
         bgColor={'blue.500'}
-        pos="absolute"
-        top={'0'}
-        h="60px"
+        h="70px"
         width="100%"
-        display={'flex'}
         justifyContent="center"
+        alignItems="center"
         fontSize={'40px'}
         color="white"
       >
         Market
-      </Box>
+      </Flex>
+      <Box width="100%" height={2} backgroundColor="brown" />
+      <Canopy />
       <DragDropContext onDragEnd={onDragEnd}>
-      <Box
+        <Box
           position={'absolute'}
-          right={{ base: '10px', sm: '20x' }}
-          left={{ base: '10px', sm: '20x' }}
-          margin="auto"
-          transform={'translateY(30px)'}
+          right={{md:"30px", base:"15px"}}
+          transform={'translate(40px, 80px)'}
         >
           <Currency />
         </Box>
+        <Flex justifyContent="space-between" flexDir={{base:"column", md:"row"}}>
+          <Box>
+            <Text>Shopping List</Text>
+            <Shop items={COLLECTION} />
+          </Box>
+          <Box>hei ho</Box>
+        </Flex>
+      </DragDropContext>
+
+      {/* <DragDropContext onDragEnd={onDragEnd}>
         <Flex>
           <Box>
             <Shop items={COLLECTION} />
@@ -394,7 +418,7 @@ function Cart() {
               >
                 Keranjang masih kosong
                 <br />
-                Seret Barang kedalam Sini!
+                Seret Barang kedalam sini!
               </Flex>
             ) : (
               ''
@@ -413,7 +437,7 @@ function Cart() {
             </Flex>
           </Box>
         </Flex>
-      </DragDropContext>
+      </DragDropContext> */}
     </Flex>
   );
 }
