@@ -17,9 +17,12 @@ function News() {
 				))
 			: (
 			<Stack>
-				<Skeleton height="20px" />
-				<Skeleton height="20px" />
-				<Skeleton height="20px" />
+				<Skeleton height="44px" />
+				<Skeleton height="44px" />
+				<Skeleton height="44px" />
+				<Skeleton height="44px" />
+				<Skeleton height="44px" />
+				<Skeleton height="44px" />
 			</Stack>
 			)
         }

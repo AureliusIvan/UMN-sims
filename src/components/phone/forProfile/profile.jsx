@@ -1,4 +1,4 @@
-import { Box, Center, Flex, Spacer, VStack } from '@chakra-ui/react';
+import { Box, Center, Flex, Spacer, VStack, Text } from '@chakra-ui/react';
 import React, { useContext } from 'react';
 import { AllContext } from '../../Value/CoinContext';
 
@@ -30,9 +30,87 @@ function Profile() {
         p="10px"
         align="stretch"
       >
-        <Flex>Nama : {nama}</Flex>
-        <Flex>Jurusan : {jurusan}</Flex>
-        <Flex>Playtime : {realtime}</Flex>
+        <Flex gap={2}>
+          <Text
+            width={'100px'}
+            bgColor="red.500"
+            textColor={'white'}
+            padding="4px"
+            borderRadius={'10px'}
+          >
+            Nama
+          </Text>
+          <Text
+            width={'100px'}
+            bgColor="white"
+            textColor={'black'}
+            padding="4px"
+            borderRadius={'10px'}
+          >
+            {nama}
+          </Text>
+        </Flex>
+        <Flex gap={2}>
+          <Text
+            width={'100px'}
+            bgColor="red.500"
+            textColor={'white'}
+            padding="4px"
+            borderRadius={'10px'}
+          >
+            Jurusan
+          </Text>
+          <Text
+            width={'100px'}
+            bgColor="white"
+            textColor={'black'}
+            padding="4px"
+            borderRadius={'10px'}
+          >
+            {jurusan}
+          </Text>
+        </Flex>
+        <Flex gap={2}>
+          <Text
+            width={'100px'}
+            bgColor="red.500"
+            textColor={'white'}
+            padding="4px"
+            borderRadius={'10px'}
+          >
+            Level
+          </Text>
+          <Text
+            width={'100px'}
+            bgColor="white"
+            textColor={'black'}
+            padding="4px"
+            borderRadius={'10px'}
+          >
+            {realtime}
+          </Text>
+        </Flex>
+        <Flex gap={2}>
+          <Text
+            width={'100px'}
+            bgColor="red.500"
+            textColor={'white'}
+            padding="4px"
+            borderRadius={'10px'}
+          >
+            PlayTime
+          </Text>
+          <Text
+            width={'100px'}
+            bgColor="white"
+            textColor={'black'}
+            padding="4px"
+            borderRadius={'10px'}
+          >
+            {realtime} Minutes
+          </Text>
+        </Flex>
+        
       </VStack>
     </Box>
   );

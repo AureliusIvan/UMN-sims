@@ -1,10 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { VStack, Input, Select } from '@chakra-ui/react';
 import { AllContext } from '../../components/Value/CoinContext';
 
 function InputDataChar() {
-	const { setNama, setJurusan } = useContext(AllContext);
-	
+	const { nama, setNama, jurusan, setJurusan } = useContext(AllContext);
+	const {filled, setFilled } = useContext(AllContext);
+	useEffect(()=>{
+		if(nama === ""){
+			setFilled(false);
+		}else{
+			setFilled(true);
+		}
+	},[nama])
+
 	function handleNama (e) {
 		setNama(e.target.value);
 	};

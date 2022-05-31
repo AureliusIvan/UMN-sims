@@ -111,23 +111,9 @@ function AppList(props) {
             flexGrow="100%"
             fontWeight="light"
             colorScheme="teal"
-            onClick={() => props.handleClick('clock')}
-          >
-            Clock
-          </Button>
-        </Flex>
-        <Flex mt={3} justifyContent="space-around" color="black">
-          <Button
-            width={100}
-            fontWeight="light"
-            colorScheme="teal"
             onClick={() => props.handleClick('profile')}
           >
             Profile
-          </Button>
-
-          <Button width={100} fontWeight="light" colorScheme="teal">
-            Foto
           </Button>
         </Flex>
         <Flex mt={3} justifyContent="space-around" color="black">

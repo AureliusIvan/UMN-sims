@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from 'react';
+import { AllContext } from './components/Value/CoinContext';
+import { Box } from '@chakra-ui/react';
 
 const useAudio = url => {
   const [audio] = useState(new Audio(url));
-  const [playing, setPlaying] = useState(true);
-
+  const { playing, setPlaying } = useContext(AllContext);
   const toggle = () => setPlaying(!playing);
 
+  
   useEffect(() => {
-      playing ? audio.play() : audio.pause();
-    },
-    [playing]
-  );
+    playing ? audio.play() : audio.play();
+  }, [playing]);
 
   useEffect(() => {
     audio.addEventListener('ended', () => setPlaying(false));
@@ -25,11 +25,7 @@ const useAudio = url => {
 const Player = ({ url }) => {
   const [playing, toggle] = useAudio(url);
 
-  return (
-    <div>
-      <button onClick={toggle}>{playing ? "Play" : "Pause"}</button>
-    </div>
-  );
+  return <Box pos={'absolute'}></Box>;
 };
 
 export default Player;
