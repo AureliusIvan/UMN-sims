@@ -29,7 +29,16 @@ import nyam from '../../../components/asset/home/nyam.png'
 //import gif
 //kang mukbang
 import mukbangA from '../../../components/asset/gif/mukbang/MukbangA.gif';
-import mukbangmunch from '../../../components/asset/gif/mukbang/Mukbangmunch.gif';
+import mukbangmunchA from '../../../components/asset/gif/mukbang/Mukbangmunch.gif';
+//gamers
+import mukbangB from '../../../components/asset/gif/gamers/GamerA.gif';
+import mukbangmunchB from '../../../components/asset/gif/gamers/Gamermunch.gif';
+//holkay
+import mukbangC from '../../../components/asset/gif/holkay/HolkayA.gif';
+import mukbangmunchC from '../../../components/asset/gif/holkay/Holkaymunch.gif';
+//coding
+import mukbangD from '../../../components/asset/gif/coding/CodingA.gif';
+import mukbangmunchD from '../../../components/asset/gif/coding/Codingmunch.gif';
 
 const COLLECTION = [
   {
@@ -164,15 +173,43 @@ function Copyable(props) {
 }
 
 function ShoppingBag(props) {
+  const [item, setItem] = useState(true);
+  const [item2, setItem2] = useState(false);
+  const [gifA, setGifA] = useState(mukbangA);
+  const [gifB, setGifB] = useState(mukbangmunchA);
+  const { character, setCharacter } = useContext(AllContext);
+  useEffect(() => {
+    if (character === 1) {
+      setGifA(mukbangA);
+      setGifB(mukbangmunchA);
+    } else if (character === 2) {
+      setGifA(mukbangB);
+      setGifB(mukbangmunchB);
+    } else if (character === 3) {
+      setGifA(mukbangC);
+      setGifB(mukbangmunchC);
+    } else if (character === 4) {
+      setGifA(mukbangD);
+      setGifB(mukbangmunchD);
+    }
+  }, []);
+  useEffect(() => {
+    if (item == false) {
+      setTimeout(() => {
+        setItem2(true);
+      }, 1000);
+      setItem2(false);
+    }
+  }, [item]);
   return (
     <Droppable droppableId="BAG">
       {(provided, snapshot) => (
         <Box ref={provided.innerRef} className="shopping-bag">
           {provided.placeholder}
-          {
-          }
+          {setItem(snapshot.isDraggingOver)}
+          {console.log(item)}
           <Image
-            src={snapshot.isDraggingOver ? mukbangmunch: mukbangA }
+            src={item2 ? gifA : gifB}
             pointerEvents="none"
             objectFit="cover"
             margin="auto"
