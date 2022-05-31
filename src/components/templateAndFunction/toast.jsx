@@ -16,14 +16,14 @@ function Toast () {
 				toast({
 					description: 'koin nambah',
 					status: 'success',
-					position: 'bottom-start',
+					position: 'top',
 					isClosable: true,
 				});
 			else {
 				toast({
 					description: 'koin berkurang',
 					status: 'warning',
-					position: 'bottom-start',
+					position: 'top',
 					isClosable: true,
 				});
 			}
