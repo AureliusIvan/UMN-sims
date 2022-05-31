@@ -123,7 +123,7 @@ function Home(props) {
               <Flex flexDir={{base:"column", md:"row"}} justifyContent="space-evenly" alignItems="center">
                 <Sleep />
                 <Divider display={{base:"block", md:"none"}} />
-                <Choice label="play minigame" src={mainImg} function={() => props.handleClick('Minigames')}/>
+                <Choice zIndex={1000} label="play minigame" src={mainImg} function={() => props.handleClick('Minigames')}/>
               </Flex>
             </Flex>
           </VStack>
