@@ -3,12 +3,33 @@ import GIF from '../../components/asset/gif/coding/codingread.gif'
 import shown from '../../components/asset/uni/Read.png'
 import { Box } from '@chakra-ui/react';
 import { StatFunction } from '../../components/templateAndFunction/statCoinFunction';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { AllContext } from '../../components/Value/CoinContext';
+import gif1 from './bg/Mukbangread.gif'
+import gif2 from './bg/Gamerread.gif'
+import gif3 from './bg/Holkayread.gif'
+import gif4 from './bg/codingread.gif'
 
 function Baca() {
-    const {belajar, setBelajar, makan, setMakan, main, setMain} = useContext(AllContext)
-    
+    const {belajar, setBelajar, makan, setMakan, main, setMain, character, setCharacter} = useContext(AllContext)
+    const [gif, setGif] = useState(gif1);
+
+    useEffect(() => {
+        console.log(character);
+        if (character === 1) {
+          setGif(gif1);
+        }
+        else if (character === 2) {
+          setGif(gif2);
+        }
+        else if (character === 3) {
+          setGif(gif3);
+        }
+        else if (character === 4) {
+          setGif(gif4);
+        }
+      }, []);
+
     return (
         <Box onClick={() => {
             StatFunction(belajar, setBelajar, 5, 0)
@@ -18,7 +39,7 @@ function Baca() {
             <Pop 
                 shownIMG={shown}
                 name="read books"
-                image={GIF}
+                image={gif}
                 alt='basa buku di perpus'
             />
         </Box>
