@@ -1,10 +1,17 @@
 import { useContext, useEffect, useState } from 'react';
-import { Box } from '@chakra-ui/react'
-import { AllContext } from '../../components/Value/CoinContext'
-import { StatFunction, checkStat, CoinFunction } from '../../components/templateAndFunction/statCoinFunction'
-import Pop from '../../components/templateAndFunction/tempPopUp'
-import GIF from '../../components/asset/gif/eat.gif'
-import shown from '../../components/asset/cafe/Coffee.png'
+import { Box } from '@chakra-ui/react';
+import { AllContext } from '../../components/Value/CoinContext';
+import {
+  StatFunction,
+  checkStat,
+  CoinFunction,
+} from '../../components/templateAndFunction/statCoinFunction';
+import Pop from '../../components/templateAndFunction/tempPopUp';
+import shown from '../../components/asset/cafe/Coffee.png';
+import gifA from '../../components/asset/gif/mukbang/Mukbangngopi.gif';
+import gifB from '../../components/asset/gif/gamers/Gamerngopi.gif';
+import gifC from '../../components/asset/gif/holkay/Holkayngopi.gif';
+import gifD from '../../components/asset/gif/coding/Codingngopi.gif';
 
 function Ngopi() {
   const { tidur, setTidur, coin, setCoin, makan, setMakan } =
@@ -12,27 +19,29 @@ function Ngopi() {
 
   //buat ganti gif berdasarkan character
   const { character, setCharacter } = useContext(AllContext);
-  const [gif, setGif] = useState(GIF);
+  const [gif, setGIF] = useState(gifA);
   useEffect(() => {
-    console.log(character);
     if (character === 1) {
-      setGif(GIF);
+      setGIF(gifA);
+    } else if (character === 2) {
+      setGIF(gifB);
+    } else if (character === 3) {
+      setGIF(gifC);
+    } else if (character === 4) {
+      setGIF(gifD);
     }
   }, []);
   ////
 
   return (
-    <Box onClick={() => {
-          StatFunction(tidur, setTidur, 10, 0)
-          StatFunction(makan, setMakan, 15, 0)
-          CoinFunction(coin, setCoin, 0, 800)
-        }}>
-      <Pop 
-        shownIMG={shown}
-        image={GIF}
-        name="ngopi"
-        alt='Ngopi di cafe'
-      />
+    <Box
+      onClick={() => {
+        StatFunction(tidur, setTidur, 10, 0);
+        StatFunction(makan, setMakan, 15, 0);
+        CoinFunction(coin, setCoin, 0, 800);
+      }}
+    >
+      <Pop shownIMG={shown} image={gif} name="ngopi" alt="Ngopi di cafe" />
     </Box>
   );
 }

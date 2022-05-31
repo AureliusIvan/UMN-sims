@@ -27,7 +27,16 @@ import previcon from '../../../components/asset/icon/prev.png';
 //import gif
 //kang mukbang
 import mukbangA from '../../../components/asset/gif/mukbang/MukbangA.gif';
-import mukbangmunch from '../../../components/asset/gif/mukbang/Mukbangmunch.gif';
+import mukbangmunchA from '../../../components/asset/gif/mukbang/Mukbangmunch.gif';
+//gamers
+import mukbangB from '../../../components/asset/gif/gamers/GamerA.gif';
+import mukbangmunchB from '../../../components/asset/gif/gamers/Gamermunch.gif';
+//holkay
+import mukbangC from '../../../components/asset/gif/holkay/HolkayA.gif';
+import mukbangmunchC from '../../../components/asset/gif/holkay/Holkaymunch.gif';
+//coding
+import mukbangD from '../../../components/asset/gif/coding/CodingA.gif';
+import mukbangmunchD from '../../../components/asset/gif/coding/Codingmunch.gif';
 
 const COLLECTION = [
   {
@@ -161,13 +170,32 @@ function Copyable(props) {
 }
 
 function ShoppingBag(props) {
-  const [item, setItem] = useState();
-  const [item2, setItem2] = useState();
+  const [item, setItem] = useState(true);
+  const [item2, setItem2] = useState(false);
+  const [gifA, setGifA] = useState(mukbangA);
+  const [gifB, setGifB] = useState(mukbangmunchA);
+  const { character, setCharacter } = useContext(AllContext);
+  useEffect(() => {
+    if (character === 1) {
+      setGifA(mukbangA);
+      setGifB(mukbangmunchA);
+    } else if (character === 2) {
+      setGifA(mukbangB);
+      setGifB(mukbangmunchB);
+    } else if (character === 3) {
+      setGifA(mukbangC);
+      setGifB(mukbangmunchC);
+    } else if (character === 4) {
+      setGifA(mukbangD);
+      setGifB(mukbangmunchD);
+    }
+  }, []);
   useEffect(() => {
     if (item == false) {
       setTimeout(() => {
         setItem2(true);
       }, 1000);
+      setItem2(false);
     }
   }, [item]);
   return (
@@ -178,7 +206,7 @@ function ShoppingBag(props) {
           {setItem(snapshot.isDraggingOver)}
           {console.log(item)}
           <Image
-            src={item2 ? mukbangA : mukbangmunch}
+            src={item2 ? gifA : gifB}
             pointerEvents="none"
             objectFit="cover"
             margin="auto"
@@ -539,7 +567,15 @@ function Eat2() {
                       <Shop items={COLLECTION} />
                     ) : (
                       <>
-                        <Text>Makanan Habis</Text>
+                        <Text
+                          pos={'absolute'}
+                          top="100px"
+                          bottom={'0'}
+                          margin="auto"
+                          color={'white'}
+                        >
+                          Makanan Habis
+                        </Text>
                       </>
                     )}
                     {(() => {
