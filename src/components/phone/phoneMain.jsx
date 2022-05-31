@@ -6,10 +6,6 @@ import {
 } from '@chakra-ui/react';
 import { Image, Circle, Flex, Progress, Text, Box } from '@chakra-ui/react';
 import { useState } from 'react';
-import { useDisclosure } from '@chakra-ui/react';
-
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome' // ga ngaruh ??
-
 import HomeScreen from './homeScreen';
 import phone from '../asset/icon/hp1.png';
 import phoneHover from '../asset/icon/hp2.png';
@@ -27,10 +23,13 @@ function Phone() {
   }
 
   return (
-    <Box bottom={0} position="fixed" p={3}>
-      <Popover placement="top-start">
+    <Box zIndex={100}>
+      <Popover placement="top-start" >
         <PopoverTrigger>
           <Image
+            bottom={0} 
+            position="absolute" 
+            p={3}
             onClick={() => {
               Loading();
               setLoad(true);
@@ -38,7 +37,7 @@ function Phone() {
             onMouseOver={() => setHover(true)}
             onMouseOut={() => setHover(false)}
             src={!hover ? phone : phoneHover}
-            width={{ base: '20%', sm: '12%', md: '7%' }}
+            width={{ base: '20%', sm: '16%', md: '7%' }}
             // className="usePointer"
             cursor="pointer"
           />

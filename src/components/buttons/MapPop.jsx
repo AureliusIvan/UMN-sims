@@ -63,6 +63,7 @@ function MapPop(props) {
               filter="drop-shadow(2px 2px 3px burlywood)"
             />
             <Places
+              name="Mall"
               icon={mall}
               width={{ base: '42%', sm: '40%' }}
               left={{ base: '0', sm: '0' }}
@@ -71,6 +72,7 @@ function MapPop(props) {
             />
 
             <Places
+              name="University"
               icon={umn}
               width={{ base: '45%', sm: '42%' }}
               left={{ base: '210', sm: '250' }}
@@ -78,6 +80,7 @@ function MapPop(props) {
               function={props.uni}
             />
             <Places
+              name="Cafe"
               icon={cafe}
               width={{ base: '34%', sm: '32%' }}
               left={{ base: '235', sm: '270' }}
@@ -85,6 +88,7 @@ function MapPop(props) {
               function={props.cafe} //belom berfungsi
             />
             <Places
+              name="Home"
               icon={home}
               width={{ base: '42%', sm: '40%' }}
               left={{ base: '0', sm: '21' }}
@@ -100,21 +104,23 @@ function MapPop(props) {
 
 function Places(props) {
   return (
-    <Image
-      zIndex={2}
-      src={props.icon}
-      width={props.width}
-      position="absolute"
-      left={props.left}
-      top={props.top}
-      cursor="pointer"
-      transition="0.2s linear"
-      onClick={props.function}
-      _hover={{
-        filter: 'drop-shadow(2px 2px 3px skyblue)',
-        transform: 'scale(1.2)',
-      }}
-    />
+    <Tooltip label={props.name} hasArrow placement="auto" closeDelay={100}>
+      <Image
+        zIndex={2}
+        src={props.icon}
+        width={props.width}
+        position="absolute"
+        left={props.left}
+        top={props.top}
+        cursor="pointer"
+        transition="0.2s linear"
+        onClick={props.function}
+        _hover={{
+          filter: 'drop-shadow(2px 2px 3px skyblue)',
+          transform: 'scale(1.2)',
+        }}
+      />
+    </Tooltip>
   );
 }
 

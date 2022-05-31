@@ -13,6 +13,7 @@ import {
   Progress,
   Flex,
   Image,
+  Tooltip,
 } from '@chakra-ui/react';
 import burger from './food/burger.png';
 import friedegg from './food/friedegg.png';
@@ -24,6 +25,11 @@ import { StatFunction } from '../../../components/templateAndFunction/statCoinFu
 import makanbg from './food/makanbg.png';
 import nexticon from '../../../components/asset/icon/next.png';
 import previcon from '../../../components/asset/icon/prev.png';
+import nyam from '../../../components/asset/home/nyam.png'
+//import gif
+//kang mukbang
+import mukbangA from '../../../components/asset/gif/mukbang/MukbangA.gif';
+import mukbangmunch from '../../../components/asset/gif/mukbang/Mukbangmunch.gif';
 
 const COLLECTION = [
   {
@@ -74,6 +80,8 @@ const sliceF = COLLECTION.slice(5, 6);
 const getRenderItem = (items, className) => (provided, snapshot, rubric) => {
   const { foodIndex, setFoodIndex } = useContext(AllContext);
   const item = items[rubric.source.index];
+  const { startEAT, setStartEat } = useContext(AllContext);
+  const { test, setTest } = useState(false);
   return (
     <React.Fragment>
       <Box
@@ -131,6 +139,7 @@ function Copyable(props) {
                     {(provided, snapshot) => (
                       <React.Fragment>
                         <GridItem
+                        transform={'translateY(12px)'}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
@@ -154,26 +163,43 @@ function Copyable(props) {
   );
 }
 
-function Shop(props) {
-  return <Copyable droppableId="SHOP" className="shop" items={props.items} />;
-}
-
 function ShoppingBag(props) {
   return (
     <Droppable droppableId="BAG">
       {(provided, snapshot) => (
         <Box ref={provided.innerRef} className="shopping-bag">
           {provided.placeholder}
+          {
+          }
+          <Image
+            src={snapshot.isDraggingOver ? mukbangmunch: mukbangA }
+            pointerEvents="none"
+            objectFit="cover"
+            margin="auto"
+            left="0"
+            right="0"
+            bottom="5"
+            filter="drop-shadow(4px 4px 2px #222)"
+            w={{ md: '600px', sm: '550px', base: '500px' }}
+            h={{ md: '600px', sm: '550px', base: '500px' }}
+            zIndex={7}
+            pos="absolute"
+            alt={'test'}
+          />
         </Box>
       )}
     </Droppable>
   );
 }
 
+function Shop(props) {
+  return <Copyable droppableId="SHOP" className="shop" items={props.items} />;
+}
+
 function FoodCard(props) {
   return (
     <>
-      <>
+      <Flex justifyContent="center" pos="absolute" transform={'translateY(15px)'}>
         <Flex
           bgColor={'red'}
           color="white"
@@ -195,11 +221,11 @@ function FoodCard(props) {
           alignItems="center"
           borderRadius={'10px'}
           position="absolute"
-          transform={'translateY(120px)'}
+          transform={'translateY(115px)'}
         >
           {props.content}
         </Flex>
-      </>
+      </Flex>
     </>
   );
 }
@@ -232,34 +258,34 @@ function Eat2() {
   );
 
   function prevFood() {
-    if (foodIndex == 0) {
+    if (foodIndex === 0) {
       setFoodIndex(5);
-    } else if (foodIndex == 1) {
+    } else if (foodIndex === 1) {
       setFoodIndex(0);
-    } else if (foodIndex == 2) {
+    } else if (foodIndex === 2) {
       setFoodIndex(1);
-    } else if (foodIndex == 3) {
+    } else if (foodIndex === 3) {
       setFoodIndex(2);
-    } else if (foodIndex == 4) {
+    } else if (foodIndex === 4) {
       setFoodIndex(3);
-    } else if (foodIndex == 5) {
+    } else if (foodIndex === 5) {
       setFoodIndex(4);
     }
   }
 
   function nextFood() {
     console.log(foodIndex);
-    if (foodIndex == 0) {
+    if (foodIndex === 0) {
       setFoodIndex(1);
-    } else if (foodIndex == 1) {
+    } else if (foodIndex === 1) {
       setFoodIndex(2);
-    } else if (foodIndex == 2) {
+    } else if (foodIndex === 2) {
       setFoodIndex(3);
-    } else if (foodIndex == 3) {
+    } else if (foodIndex === 3) {
       setFoodIndex(4);
-    } else if (foodIndex == 4) {
+    } else if (foodIndex === 4) {
       setFoodIndex(5);
-    } else if (foodIndex == 5) {
+    } else if (foodIndex === 5) {
       setFoodIndex(0);
     }
   }
@@ -276,17 +302,17 @@ function Eat2() {
 
   useEffect(
     () => {
-      if (burger <= 0 && foodIndex == 0) {
+      if (burger <= 0 && foodIndex === 0) {
         setFoodlimit(false);
-      } else if (telur <= 0 && foodIndex == 1) {
+      } else if (telur <= 0 && foodIndex === 1) {
         setFoodlimit(false);
-      } else if (ikangoreng <= 0 && foodIndex == 2) {
+      } else if (ikangoreng <= 0 && foodIndex === 2) {
         setFoodlimit(false);
-      } else if (ayampanggang <= 0 && foodIndex == 3) {
+      } else if (ayampanggang <= 0 && foodIndex === 3) {
         setFoodlimit(false);
-      } else if (salad <= 0 && foodIndex == 4) {
+      } else if (salad <= 0 && foodIndex === 4) {
         setFoodlimit(false);
-      } else if (steak <= 0 && foodIndex == 5) {
+      } else if (steak <= 0 && foodIndex === 5) {
         setFoodlimit(false);
       } else {
         setFoodlimit(true);
@@ -299,7 +325,7 @@ function Eat2() {
   //total bill
   useEffect(() => {
     if (lastfood != 0) {
-      StatFunction(makan, setMakan, COLLECTION[foodIndex].hunger, 0)
+      StatFunction(makan, setMakan, COLLECTION[foodIndex].hunger, 0);
       // setMakan(makan + COLLECTION[foodIndex].hunger);
       if (COLLECTION[foodIndex].name === 'burger') {
         setBurger(burger - 1);
@@ -329,13 +355,18 @@ function Eat2() {
     }
   }, [lastfood]);
 
+  // buat gif makan
+  const { startEAT, setStartEat } = useContext(AllContext);
+  const [EatGIFOne, setEatGIFOne] = useState(mukbangA);
+  useEffect(() => {});
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Box className="Eat" bgImage={makanbg}>
+      <Box className="Eat" bgImage={makanbg} bgPos="center" bgSize={{md:"cover", base:"contain"}}>
         <Grid
           className="Grid"
           h="100vh"
-          templateRows="repeat(5, 1fr)"
+          templateRows="repeat(7, 1fr)"
           templateColumns="repeat(3, 1fr)"
           gap={0}
         >
@@ -355,45 +386,55 @@ function Eat2() {
             </Text>
           </GridItem>
           <GridItem className="gridItems" rowSpan={3} colSpan={3}>
-            <Progress
-              transform={'rotate()'}
-              pos="absolute"
-              margin={'auto'}
-              left="0"
-              right="0"
-              w="300px"
-              h={'20px'}
-              colorScheme={'green'}
-              borderRadius="10px"
-              value={makan}
-              border="2px solid white"
-            />
+          <Tooltip 
+                label={`You are ${makan}% full`}
+                placement="top"
+            >
+                <Flex alignItems="center" justifyContent="center">
+                    <Flex 
+                        fontSize="20px"
+                        borderRadius="50%" 
+                        width="40px" 
+                        height="40px" 
+                        bgColor='white'
+                        alignItems="center"
+                        justifyContent="center"
+                        zIndex={5}
+                        boxShadow="2px 2px 5px gray"
+                    >
+                      <Image src={nyam} />
+                    </Flex>
+                    <Progress 
+                        ml="-10px"
+                        w="350px"
+                        h={'20px'}
+                        colorScheme={'green'}
+                        borderRadius="10px"
+                        value={makan}
+                        border="2px solid white"
+                        transition="0.2s"
+                        boxShadow="2px 2px 5px gray"
+                    />
+                </Flex>
+            </Tooltip>
           </GridItem>
           <GridItem className="gridItems" rowSpan={1} colSpan={3}></GridItem>
           <GridItem className="gridItems" rowSpan={1} colSpan={3}>
             <Box zIndex={-1}>
-              <Box
-                position="absolute"
-                margin="auto"
-                right="0"
-                left="0"
-                bottom="0"
-                h="550px"
-                width="300px"
+              <Flex
+                h="600px"
+                width="100%"
+                justifyContent={'center'}
+                paddingTop={{ base: '80px', sm: '40px' }}
                 //ref={drop}
-                style={
-                  {
-                    //border: isOver ? '10px solid red' : '1px solid black',
-                  }
-                }
               >
                 <ShoppingBag items={shoppingBagItems} />
-              </Box>
+              </Flex>
             </Box>
           </GridItem>
-          <GridItem zIndex={10} className="gridItems" rowSpan={1} colSpan={3}>
+          <GridItem transform={{base:"translateY(30px)", sm:"none"}}zIndex={10} className="gridItems" rowSpan={1} colSpan={3}>
             <Box
-              width="400px"
+              width="350px"
               h={'200px'}
               bgColor="blue.100"
               transform="perspective(5px) rotateX(1deg)"
@@ -431,8 +472,9 @@ function Eat2() {
             <Box></Box>
           </GridItem>
           <GridItem
+            border="2px black solid"
             width={'100%'}
-            h="20vh"
+            h="25vh"
             pos={'fixed'}
             bottom={0}
             bgGradient="linear(to-l, green.300, blue.600)"
@@ -474,7 +516,7 @@ function Eat2() {
                     justifyContent={'center'}
                   >
                     <Button
-                      transform="translateX(-100px)"
+                      transform="translate(-100px, 30px)"
                       position="absolute"
                       onClick={prevFood}
                       variant="unstyled"
@@ -486,14 +528,16 @@ function Eat2() {
                       }
                       _focus={{ outline: 'none' }}
                       _focusVisible={{ outline: 'none' }}
-                    ></Button>
+                    />
+
                     {foodlimit ? (
                       <Shop items={COLLECTION} />
                     ) : (
                       <>
-                        <Text>Makanan Habis</Text>
+                        <Text bgColor="orange.100" borderRadius={10} px={3} transform="translateY(70px)">Makanan Habis</Text>
                       </>
                     )}
+                    
                     {(() => {
                       switch (foodIndex) {
                         case 0:
@@ -543,7 +587,7 @@ function Eat2() {
                       }
                     })()}
                     <Button
-                      transform="translateX(100px)"
+                      transform="translate(100px, 30px)"
                       position="absolute"
                       onClick={nextFood}
                       variant="unstyled"

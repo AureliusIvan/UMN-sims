@@ -36,7 +36,10 @@ import StatusGroup from './components/statusBar/StatusBarGroup';
 import Currency from './components/buttons/Currency';
 import { CreateChar } from './components/character/CharacterCard';
 import { StatFunction } from './components/templateAndFunction/statCoinFunction';
-
+import Player from './audio';
+///ALL audio
+import cafeSound from './components/asset/sound/cafe/BlueZones.mp3';
+import menuSound from './components/asset/sound/mainmenusong/outthewindow.mp3';
 
 /*
 1. nama
@@ -65,6 +68,8 @@ function App() {
     setShowPause(x);
   };
 
+  //const buat cek nama udah keisi atau blm
+  const [filled, setFilled] = useState(false);
   //coin const
   const [coin, setCoin] = useState(7000);
   const prevCoin = useRef();
@@ -117,9 +122,15 @@ function App() {
   const [chicken, setChicken] = useState(5);
   const [eggtray, setEggtray] = useState(5);
 
+  //const audio
+  const [playing, setPlaying] = useState(true);
+  const [song, setSong] = useState(menuSound);
   //const gameplay
+  const [hideChar, setHideChar] = useState(true);
   //gameover
   const [gameOver, setGameover] = useState(false);
+//buat makan
+const [startEAT, setStartEat] = useState(true);
   useEffect(
     () => {
       if (makan <= 0) {
@@ -141,12 +152,18 @@ function App() {
   useInterval(() => {
     if (start == true) {
       setCount(minute + 1);
-      setRealtime(realtime + 1);
-      {StatFunction(makan, setMakan, 0, 0.5)};
-      {StatFunction(tidur, setTidur, 0, 0.5)};
-      {StatFunction(main, setMain, 0, 0.5)};
+      {
+        StatFunction(makan, setMakan, 0, 0.5);
+      }
+      {
+        StatFunction(tidur, setTidur, 0, 0.5);
+      }
+      {
+        StatFunction(main, setMain, 0, 0.5);
+      }
       if (minute >= 59) {
         setHour(hour + 1);
+        setRealtime(realtime + 1);
         setCount(0);
       }
       if (hour >= 23 && minute === 59) {
@@ -205,6 +222,30 @@ function App() {
       setShowPause(false);
     } else {
       setShowPause(true);
+    }
+  }, [game]);
+
+  //hide character
+  useEffect(() => {
+    if (
+      game === 'start' ||
+      game === 'Minigames' ||
+      game === 'cook' ||
+      game === 'cart' ||
+      game === 'eat'
+    ) {
+      setHideChar(false);
+    } else {
+      setHideChar(true);
+    }
+  }, [game]);
+
+  //buat sound
+  useEffect(() => {
+    if (game === 'start') {
+      setSong("");
+    } else {
+      setSong('');
     }
   }, [game]);
 
@@ -273,6 +314,14 @@ function App() {
           setFoodIndex,
           gameOver,
           setGameover,
+          realtime,
+          setRealtime,
+          playing,
+          setPlaying,
+          filled,
+          setFilled,
+          startEAT,
+          setStartEat
         }}
       >
         {gameOver ? <GameoverScreen /> : ''}
@@ -287,7 +336,8 @@ function App() {
         ) : (
           ''
         )}
-        <CreateChar />
+        {hideChar ? <CreateChar /> : ''}
+        <Player url={song} />
         {(() => {
           switch (game) {
             case 'start':

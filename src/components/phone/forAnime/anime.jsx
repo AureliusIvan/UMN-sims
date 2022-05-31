@@ -59,6 +59,7 @@ function Card(props) {
   );
 }
 
+
 const AnimeApp = () => {
   const [animeData, setAnimedata] = useState([]);
   const [temperature, setTemperature] = useState('');
