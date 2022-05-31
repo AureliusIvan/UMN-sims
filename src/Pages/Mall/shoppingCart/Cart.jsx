@@ -12,10 +12,12 @@ import {
   Button,
   Flex,
   useToast,
-  Heading
+  Heading,
+  VisuallyHidden
 } from '@chakra-ui/react';
 import Currency from '../../../components/buttons/Currency';
 import COLLECTION from './collectionList';
+import bg from "../../../components/background/mart.png"
 import Canopy from './canopy';
 
 const getRenderItem = (items, className) => (provided, snapshot, rubric) => {
@@ -48,11 +50,15 @@ function Copyable(props) {
           ref={provided.innerRef}
           className={props.className}
           bgColor="green.100"
-          p={5}
-          width={{md:500, base:700}}
-          height={{md:"80vh", base:180}}
+          shadow="xl"
+          px={3} 
+          pt={5} 
+          pb={0}
+          width={{md:"60vh", sm:"80vh", base:"50vh"}}
+          height={{md:"80vh", sm:"60vh", base:"110vh"}}
           flexWrap="wrap"
           overflow="scroll"
+          borderRadius={20}
         >
           {props.items.map((item, index) => {
             const shouldRenderClone = item.id === snapshot.draggingFromThisWith;
@@ -76,6 +82,7 @@ function Copyable(props) {
                             bgColor="red.200"
                             textAlign="center"
                             borderRadius="10px"
+                            display={{base:"none", sm:"block"}}
                           >
                             {item.label}
                           </Text>
@@ -168,15 +175,15 @@ function ShoppingBag(props) {
       {(provided, snapshot) => (
         <Grid
           margin={'10px'}
-          h={{ base: '200px', sm: '300px', md: '400px' }}
-          width={{ base: '200px', sm: '300px', md: '400px' }}
+          height={{ base: '200px', sm: '300px', md: '400px' }}
+          w={{ base: 360, sm: 550 }}
           templateRows="repeat(3, 1fr)"
           templateColumns="repeat(3, 1fr)"
           gap={0}
           bgColor={'blue.100'}
           ref={provided.innerRef}
           overflow="hidden"
-          borderRadius={'10px'}
+          borderRadius={20}
         >
           {props.items.map((item, index) => (
             <Draggable key={item.id} draggableId={item.id} index={index}>
@@ -358,8 +365,9 @@ function Cart() {
       flexDir="column"
       minH="100vh"
       width="100%"
-      alignItems='center'
-      bgColor="orange.100"
+      alignItems={{base:"center", md:"normal"}}
+      bgImage={bg}
+      bgSize={{md:"cover", base:"contain"}}
       pb={10}
       // overflow={"hidden"}
     >
@@ -374,22 +382,69 @@ function Cart() {
       >
         Market
       </Flex>
-      <Box width="100%" height={2} backgroundColor="brown" />
-      <Canopy />
       <DragDropContext onDragEnd={onDragEnd}>
         <Box
           position={'absolute'}
           right={{md:"30px", base:"15px"}}
-          transform={'translate(40px, 80px)'}
+          transform={'translate(40px, 70px)'}
         >
           <Currency />
         </Box>
-        <Flex justifyContent="space-between" flexDir={{base:"column", md:"row"}}>
+        <Flex px={{base:"none", md:10}} mt={5} justifyContent={{md:"space-evenly", base:"center"}} flexDir={{base:"column", md:"row"}}>
           <Box>
-            <Text>Shopping List</Text>
+            <Text fontSize='25px' mb={5}>Shopping List</Text>
             <Shop items={COLLECTION} />
           </Box>
-          <Box>hei ho</Box>
+          <Box mt={{md:0, base: 5}}>
+            <Text fontSize='25px' mb={5}>My Shopping Cart</Text>
+            <Box>
+              {kosong ? (
+                <Box>
+                  <Flex
+                    margin="auto"
+                    w={{ base: 350, sm: 550 }}
+                    h={{ base: 120, sm: 200, md: 400 }}
+                    bgColor="rgba(43,108,176,0.8)"
+                    justifyContent="center"
+                    alignItems={'center'}
+                    fontSize={{sm:"30px", base:"20px"}}
+                    color={"white"}
+                    textAlign="center"
+                    borderRadius={20}
+                    backdropFilter="blur(4px)"
+                    shadow="xl"
+                  >
+                    Keranjang masih kosong
+                    <br />
+                    Seret Barang kedalam sini!
+                  </Flex>
+                  <VisuallyHidden>
+                    <Box transform={{md:"translateY(-410px)", sm:"translateY(-210px)", base:"translateY(-130px)"}}>
+                      <ShoppingBag items={shoppingBagItems} />
+                    </Box>
+                  </VisuallyHidden>
+                </Box>
+              ) : (
+                <ShoppingBag items={shoppingBagItems} />
+              )}
+              <Flex flexDir={{base:"column", sm:"row"}} alignItems="center" justifyContent="space-around" mt={{md:8, base:5}}>
+                <Flex color="white" borderRadius={5} justifyContent="center" alignItems="center" p="10px" w={{sm:40, base:80}} height={12} bgColor="rgba(0, 0, 0, 0.7);">
+                  <Text>Subtotal: {total}</Text>
+                </Flex>
+                <Flex mt={{base:3, sm:0}} gap={{base:8, sm:0}}>
+                  <Button colorScheme="red" fontWeight="md" minW={{sm:40, base:"120px"}} height={12} onClick={Reset}>
+                    reset{' '}
+                  </Button>
+                  <Button display={{base:"block", sm:"none"}} bgColor={'blue.400'} color="white" fontWeight="md" minW={{sm:40, base:"120px"}} height={12} onClick={pay}>
+                    Pay
+                  </Button>
+                </Flex>
+                <Button display={{base:"none", sm:"block"}} bgColor={'blue.400'} color="white" fontWeight="md" minW={{sm:40, base:"120px"}} height={12} onClick={pay}>
+                  Pay
+                </Button>
+              </Flex>
+            </Box>
+          </Box>
         </Flex>
       </DragDropContext>
 
