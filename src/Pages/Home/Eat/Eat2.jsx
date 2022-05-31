@@ -24,6 +24,10 @@ import { StatFunction } from '../../../components/templateAndFunction/statCoinFu
 import makanbg from './food/makanbg.png';
 import nexticon from '../../../components/asset/icon/next.png';
 import previcon from '../../../components/asset/icon/prev.png';
+//import gif
+//kang mukbang
+import mukbangA from '../../../components/asset/gif/mukbang/MukbangA.gif';
+import mukbangmunch from '../../../components/asset/gif/mukbang/Mukbangmunch.gif';
 
 const COLLECTION = [
   {
@@ -74,6 +78,8 @@ const sliceF = COLLECTION.slice(5, 6);
 const getRenderItem = (items, className) => (provided, snapshot, rubric) => {
   const { foodIndex, setFoodIndex } = useContext(AllContext);
   const item = items[rubric.source.index];
+  const { startEAT, setStartEat } = useContext(AllContext);
+  const { test, setTest } = useState(false);
   return (
     <React.Fragment>
       <Box
@@ -154,20 +160,37 @@ function Copyable(props) {
   );
 }
 
-function Shop(props) {
-  return <Copyable droppableId="SHOP" className="shop" items={props.items} />;
-}
-
 function ShoppingBag(props) {
   return (
     <Droppable droppableId="BAG">
       {(provided, snapshot) => (
         <Box ref={provided.innerRef} className="shopping-bag">
           {provided.placeholder}
+          {
+          }
+          <Image
+            src={snapshot.isDraggingOver ? mukbangmunch: mukbangA }
+            pointerEvents="none"
+            objectFit="cover"
+            margin="auto"
+            left="0"
+            right="0"
+            bottom="5"
+            filter="drop-shadow(4px 4px 2px #222)"
+            w={{ md: '600px', sm: '550px', base: '500px' }}
+            h={{ md: '600px', sm: '550px', base: '500px' }}
+            zIndex={7}
+            pos="absolute"
+            alt={'test'}
+          />
         </Box>
       )}
     </Droppable>
   );
+}
+
+function Shop(props) {
+  return <Copyable droppableId="SHOP" className="shop" items={props.items} />;
 }
 
 function FoodCard(props) {
@@ -299,7 +322,7 @@ function Eat2() {
   //total bill
   useEffect(() => {
     if (lastfood != 0) {
-      StatFunction(makan, setMakan, COLLECTION[foodIndex].hunger, 0)
+      StatFunction(makan, setMakan, COLLECTION[foodIndex].hunger, 0);
       // setMakan(makan + COLLECTION[foodIndex].hunger);
       if (COLLECTION[foodIndex].name === 'burger') {
         setBurger(burger - 1);
@@ -328,6 +351,11 @@ function Eat2() {
       setLastFood('');
     }
   }, [lastfood]);
+
+  // buat gif makan
+  const { startEAT, setStartEat } = useContext(AllContext);
+  const [EatGIFOne, setEatGIFOne] = useState(mukbangA);
+  useEffect(() => {});
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
@@ -372,14 +400,11 @@ function Eat2() {
           <GridItem className="gridItems" rowSpan={1} colSpan={3}></GridItem>
           <GridItem className="gridItems" rowSpan={1} colSpan={3}>
             <Box zIndex={-1}>
-              <Box
-                position="absolute"
-                margin="auto"
-                right="0"
-                left="0"
-                bottom="0"
-                h="550px"
-                width="300px"
+              <Flex
+                h="600px"
+                width="100%"
+                justifyContent={'center'}
+                paddingTop={{ base: '80px', sm: '40px' }}
                 //ref={drop}
                 style={
                   {
@@ -388,7 +413,7 @@ function Eat2() {
                 }
               >
                 <ShoppingBag items={shoppingBagItems} />
-              </Box>
+              </Flex>
             </Box>
           </GridItem>
           <GridItem zIndex={10} className="gridItems" rowSpan={1} colSpan={3}>

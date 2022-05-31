@@ -38,9 +38,8 @@ import { CreateChar } from './components/character/CharacterCard';
 import { StatFunction } from './components/templateAndFunction/statCoinFunction';
 import Player from './audio';
 ///ALL audio
-import cafeSound from "./components/asset/sound/cafe/BlueZones.mp3"
-import menuSound from "./components/asset/sound/mainmenusong/outthewindow.mp3"
-
+import cafeSound from './components/asset/sound/cafe/BlueZones.mp3';
+import menuSound from './components/asset/sound/mainmenusong/outthewindow.mp3';
 
 /*
 1. nama
@@ -69,6 +68,8 @@ function App() {
     setShowPause(x);
   };
 
+  //const buat cek nama udah keisi atau blm
+  const [filled, setFilled] = useState(false);
   //coin const
   const [coin, setCoin] = useState(7000);
   const prevCoin = useRef();
@@ -128,7 +129,8 @@ function App() {
   const [hideChar, setHideChar] = useState(true);
   //gameover
   const [gameOver, setGameover] = useState(false);
-  
+//buat makan
+const [startEAT, setStartEat] = useState(true);
   useEffect(
     () => {
       if (makan <= 0) {
@@ -202,7 +204,7 @@ function App() {
 
   // handle switch page
   // https://medium.com/nerd-for-tech/a-case-to-switch-using-switch-statements-in-react-e83e01154f60
-  const [game, setGame] = useState('Minigames');
+  const [game, setGame] = useState('start');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
@@ -223,12 +225,14 @@ function App() {
     }
   }, [game]);
 
+  //hide character
   useEffect(() => {
     if (
       game === 'start' ||
       game === 'Minigames' ||
       game === 'cook' ||
-      game === 'cart'
+      game === 'cart' ||
+      game === 'eat'
     ) {
       setHideChar(false);
     } else {
@@ -238,11 +242,10 @@ function App() {
 
   //buat sound
   useEffect(() => {
-    if(game === 'start' ){
-      setSong(cafeSound);
-    }
-    else{
-      setSong("")
+    if (game === 'start') {
+      setSong("");
+    } else {
+      setSong('');
     }
   }, [game]);
 
@@ -315,6 +318,10 @@ function App() {
           setRealtime,
           playing,
           setPlaying,
+          filled,
+          setFilled,
+          startEAT,
+          setStartEat
         }}
       >
         {gameOver ? <GameoverScreen /> : ''}
@@ -330,7 +337,7 @@ function App() {
           ''
         )}
         {hideChar ? <CreateChar /> : ''}
-        <Player url={song}/>
+        <Player url={song} />
         {(() => {
           switch (game) {
             case 'start':

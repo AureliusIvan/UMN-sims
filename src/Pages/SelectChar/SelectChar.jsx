@@ -26,6 +26,7 @@ import mukbang from '../../components/background/Mukbangbg.png';
 function SelectCharacter(props) {
   const { start, setStart } = useContext(AllContext);
   const { character, setCharacter } = useContext(AllContext);
+  const { filled, setFilled } = useContext(AllContext);
 
   const [atribute, setAtribute] = useState(Char1);
   const handleCharPrev = () => {
@@ -135,14 +136,23 @@ function SelectCharacter(props) {
           }}
           zIndex={10}
           cursor="pointer"
+          disabled={filled ? false : true}
         >
-          <Image
-            src={mulai}
-            width="100px"
-            height={'100px'}
-            _hover={{ width: '120px', height: '120px' }}
-            transition="0.5s"
-          />
+          <Tooltip
+            display={filled ? "none" : "block"}
+            hasArrow
+            label="ISI NAMA DAHULU"
+            shouldWrapChildren
+            mt="3"
+          >
+            <Image
+              src={mulai}
+              width="100px"
+              height={'100px'}
+              _hover={{ width: '120px', height: '120px' }}
+              transition="0.5s"
+            />
+          </Tooltip>
         </Button>
       </Tooltip>
     </Box>

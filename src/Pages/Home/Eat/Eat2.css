@@ -24,13 +24,12 @@
 }
 
 .shopping-bag {
-  border-radius: 10px;
-  width: 100%;
+  width: 270px;
   height: 270px;
   border-radius: 100px;
-  padding-top: 50%;
-  padding-left: 25%;
-  padding-right: 25%;
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-top: 140px;
 }
 
 .dragbox {

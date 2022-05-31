@@ -15,11 +15,17 @@ import {
 import React, { useState } from 'react';
 import Credit from './Credit';
 import bg from '../../components/background/splash.png';
+import mainBG from '../../components/background/Charselect.png';
+import splash from './asset/splash.png';
+import "./Start.css"
 
 function PageOne(props) {
   return (
     <Box
+      bgImage={mainBG}
+      bgSize={{ md: 'cover', base: 'contain' }}
       backgroundColor="pink"
+      bgPos="center"
       position="fixed"
       width="100%"
       height="100%"
@@ -39,7 +45,7 @@ function PageOne(props) {
               w="300px"
               textAlign="center"
               padding="1px"
-              bgColor="red.500"
+              bgGradient="linear(to-l, #7928CA, #FF0080)"
               color="white"
               fontSize="40px"
             >
@@ -68,6 +74,16 @@ function PageOne(props) {
               maxH="500px"
               filter="drop-shadow(5px 5px 5px black)"
             />
+            <Image
+              top={'0'}
+              margin="auto"
+              bottom={'50px'}
+              left="80px"
+              right="0"
+              zIndex={'-1'}
+              pos={'absolute'}
+              src={splash}
+            />
           </Center>
         </GridItem>
       </Grid>
@@ -87,10 +103,20 @@ function PageOne(props) {
               onClick={() => props.handleClick('selectchar')}
               pointerEvents="all"
               transition="0.5s"
-              _hover={{transform:"scale(1.15)"}}
+              _hover={{
+                transform: 'scale(1.15)',
+                bgGradient: 'linear(to-r, red.400, yellow.400)',
+              }}
+       
               shadow="xl"
+              bgGradient="linear(to-l, red.500, yellow.500)"
+              filter="invert(1)"
+              paddingLeft={'25px'}
+              className="StartBTN"
             >
-              Play
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                <path d="M361 215C375.3 223.8 384 239.3 384 256C384 272.7 375.3 288.2 361 296.1L73.03 472.1C58.21 482 39.66 482.4 24.52 473.9C9.377 465.4 0 449.4 0 432V80C0 62.64 9.377 46.63 24.52 38.13C39.66 29.64 58.21 29.99 73.03 39.04L361 215z" />
+              </svg>
             </Button>
             <Credit content="test" />
           </VStack>

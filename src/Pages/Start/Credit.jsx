@@ -115,6 +115,15 @@ function Credit(props) {
           setOverlay(<PopUp />);
           onOpen();
         }}
+        width="100px"
+        height={"40px"}
+        bgGradient='linear(to-r, purple.400, blue.200)'
+        _hover={{bgGradient:'linear(to-r, purple.600, blue.500)', width:"120px", height:"44px"}}
+        color="white"
+        borderRadius={`10px`}
+        variant="unstyled"
+        transition={"0.3s"}
+        shadow="2xl"
       >
         Credit
       </Button>
