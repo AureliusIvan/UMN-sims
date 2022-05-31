@@ -161,15 +161,24 @@ function Copyable(props) {
 }
 
 function ShoppingBag(props) {
+  const [item, setItem] = useState();
+  const [item2, setItem2] = useState();
+  useEffect(() => {
+    if (item == false) {
+      setTimeout(() => {
+        setItem2(true);
+      }, 1000);
+    }
+  }, [item]);
   return (
     <Droppable droppableId="BAG">
       {(provided, snapshot) => (
         <Box ref={provided.innerRef} className="shopping-bag">
           {provided.placeholder}
-          {
-          }
+          {setItem(snapshot.isDraggingOver)}
+          {console.log(item)}
           <Image
-            src={snapshot.isDraggingOver ? mukbangmunch: mukbangA }
+            src={item2 ? mukbangA : mukbangmunch}
             pointerEvents="none"
             objectFit="cover"
             margin="auto"
@@ -383,10 +392,24 @@ function Eat2() {
             </Text>
           </GridItem>
           <GridItem className="gridItems" rowSpan={3} colSpan={3}>
+            <Text
+              pos="absolute"
+              margin={'auto'}
+              left="0"
+              right="0"
+              width={'100px'}
+              top="140px"
+              zIndex={10}
+              textAlign="center"
+            >
+              {makan}/100
+            </Text>
             <Progress
+              zIndex={9}
               transform={'rotate()'}
               pos="absolute"
               margin={'auto'}
+              top="140px"
               left="0"
               right="0"
               w="300px"
