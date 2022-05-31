@@ -8,59 +8,17 @@ import {
   Grid,
   GridItem,
   Text,
+  Image,
   Button,
-  Progress,
   Flex,
-  Images,
-  useToast
+  useToast,
+  Heading,
+  VisuallyHidden
 } from '@chakra-ui/react';
-import tomato from './itemimage/tomato.png';
-import beef from './itemimage/beef.png';
-import bread from './itemimage/bread.png';
-import cabbage from './itemimage/cabbage.png';
-import chicken from './itemimage/chicken.png';
-import eggtray from './itemimage/eggtray.png';
-import salt from './itemimage/saltandpepper.png';
 import Currency from '../../../components/buttons/Currency';
-
-const COLLECTION = [
-  {
-    id: uuid(),
-    label: 'tomat0',
-    url: tomato,
-    price: 50,
-  },
-  {
-    id: uuid(),
-    label: 'beef',
-    url: beef,
-    price: 500,
-  },
-  {
-    id: uuid(),
-    label: 'bread',
-    url: bread,
-    price: 100,
-  },
-  {
-    id: uuid(),
-    label: 'cabbage',
-    url: cabbage,
-    price: 125,
-  },
-  {
-    id: uuid(),
-    label: 'chicken',
-    url: chicken,
-    price: 300,
-  },
-  {
-    id: uuid(),
-    label: 'egg',
-    url: eggtray,
-    price: 200,
-  },
-];
+import COLLECTION from './collectionList';
+import bg from "../../../components/background/mart.png"
+import Canopy from './canopy';
 
 const getRenderItem = (items, className) => (provided, snapshot, rubric) => {
   const item = items[rubric.source.index];
@@ -87,18 +45,20 @@ function Copyable(props) {
       isDropDisabled={true}
     >
       {(provided, snapshot) => (
-        <Grid
-          position={'absolute'}
-          left="0"
-          top={'100px'}
-          width="240px"
-          h="80vh"
-          templateRows="repeat(4, 1fr)"
-          templateColumns="repeat(2, 1fr)"
-          rowGap={20}
+        <Flex
+          justifyContent="space-evenly"
           ref={provided.innerRef}
           className={props.className}
           bgColor="green.100"
+          shadow="xl"
+          px={3} 
+          pt={5} 
+          pb={0}
+          width={{md:"60vh", sm:"80vh", base:"50vh"}}
+          height={{md:"80vh", sm:"60vh", base:"110vh"}}
+          flexWrap="wrap"
+          overflow="scroll"
+          borderRadius={20}
         >
           {props.items.map((item, index) => {
             const shouldRenderClone = item.id === snapshot.draggingFromThisWith;
@@ -110,7 +70,7 @@ function Copyable(props) {
                   <Draggable draggableId={item.id} index={index}>
                     {(provided, snapshot) => (
                       <React.Fragment>
-                        <GridItem
+                        <Box
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
@@ -122,19 +82,19 @@ function Copyable(props) {
                             bgColor="red.200"
                             textAlign="center"
                             borderRadius="10px"
+                            display={{base:"none", sm:"block"}}
                           >
                             {item.label}
                           </Text>
-                          <img src={item.url} />
+                          <Image src={item.url} />
                           <Text
                             bgColor="blue.200"
                             textAlign="center"
                             borderRadius="10px"
                           >
-                            {'$'}
-                            {item.price}
+                            {'$'}{item.price}
                           </Text>
-                        </GridItem>
+                        </Box>
                       </React.Fragment>
                     )}
                   </Draggable>
@@ -143,7 +103,63 @@ function Copyable(props) {
             );
           })}
           {provided.placeholder}
-        </Grid>
+        </Flex>
+        // <Grid
+        //   // position={'absolute'}
+        //   // left="0"
+        //   // top={'100px'}
+        //   width="240px"
+        //   h="80vh"
+        //   templateRows="repeat(4, 1fr)"
+        //   templateColumns="repeat(2, 1fr)"
+        //   rowGap={20}
+        //   ref={provided.innerRef}
+        //   className={props.className}
+        //   bgColor="green.100"
+        // >
+        //   {props.items.map((item, index) => {
+        //     const shouldRenderClone = item.id === snapshot.draggingFromThisWith;
+        //     return (
+        //       <React.Fragment key={item.id}>
+        //         {shouldRenderClone ? (
+        //           <Box></Box>
+        //         ) : (
+        //           <Draggable draggableId={item.id} index={index}>
+        //             {(provided, snapshot) => (
+        //               <React.Fragment>
+        //                 <GridItem
+        //                   ref={provided.innerRef}
+        //                   {...provided.draggableProps}
+        //                   {...provided.dragHandleProps}
+        //                   className={
+        //                     snapshot.isDragging ? 'dragging dragbox' : 'dragbox'
+        //                   }
+        //                 >
+        //                   <Text
+        //                     bgColor="red.200"
+        //                     textAlign="center"
+        //                     borderRadius="10px"
+        //                   >
+        //                     {item.label}
+        //                   </Text>
+        //                   <img src={item.url} />
+        //                   <Text
+        //                     bgColor="blue.200"
+        //                     textAlign="center"
+        //                     borderRadius="10px"
+        //                   >
+        //                     {'$'}{item.price}
+        //                   </Text>
+        //                 </GridItem>
+        //               </React.Fragment>
+        //             )}
+        //           </Draggable>
+        //         )}
+        //       </React.Fragment>
+        //     );
+        //   })}
+        //   {provided.placeholder}
+        // </Grid>
       )}
     </Droppable>
   );
@@ -159,15 +175,15 @@ function ShoppingBag(props) {
       {(provided, snapshot) => (
         <Grid
           margin={'10px'}
-          h={{ base: '200px', sm: '300px', md: '400px' }}
-          width={{ base: '200px', sm: '300px', md: '400px' }}
+          height={{ base: '200px', sm: '300px', md: '400px' }}
+          w={{ base: 360, sm: 550 }}
           templateRows="repeat(3, 1fr)"
           templateColumns="repeat(3, 1fr)"
           gap={0}
           bgColor={'blue.100'}
           ref={provided.innerRef}
           overflow="hidden"
-          borderRadius={'10px'}
+          borderRadius={20}
         >
           {props.items.map((item, index) => (
             <Draggable key={item.id} draggableId={item.id} index={index}>
@@ -219,6 +235,7 @@ function Cart() {
   const [cabbagez, setCabbagez] = useState(0);
   const [chickenz, setChickenz] = useState(0);
   const [eggtrayz, setEggtrayz] = useState(0);
+  
   //bahan makanan
   const { tomato, setTomato } = useContext(AllContext);
   const { bread, setBread } = useContext(AllContext);
@@ -230,6 +247,7 @@ function Cart() {
 
   //function keranjang
   const [kosong, setKosong] = useState(true);
+  
   //Toast notif
   const toast = useToast();
   const toastIdRef = React.useRef();
@@ -302,6 +320,9 @@ function Cart() {
       if (lastitem.label == 'chicken') {
         setChicken(chicken + 1);
       }
+      if (lastitem.label == 'salt') {
+        setSaltz(saltz + 1);
+      }
     }
     setLastitem('');
   }, [lastitem]);
@@ -330,6 +351,7 @@ function Cart() {
       setCabbage(cabbage + cabbagez);
       setChicken(chicken + chickenz);
       setEggtray(eggtray + eggtrayz);
+      setSalt(salt + saltz);
       Reset();
       addToast();
     }
@@ -340,36 +362,93 @@ function Cart() {
 
   return (
     <Flex
-      h={'100vh'}
+      flexDir="column"
+      minH="100vh"
       width="100%"
-      padding="20px"
-      justifyContent={'center'}
-      bgColor="orange.100"
-      overflow={"hidden"}
+      alignItems={{base:"center", md:"normal"}}
+      bgImage={bg}
+      bgSize={{md:"cover", base:"contain"}}
+      pb={10}
+      // overflow={"hidden"}
     >
-      <Box
+      <Flex
         bgColor={'blue.500'}
-        pos="absolute"
-        top={'0'}
-        h="60px"
+        h="70px"
         width="100%"
-        display={'flex'}
         justifyContent="center"
+        alignItems="center"
         fontSize={'40px'}
         color="white"
       >
         Market
-      </Box>
+      </Flex>
       <DragDropContext onDragEnd={onDragEnd}>
-      <Box
+        <Box
           position={'absolute'}
-          right={{ base: '10px', sm: '20x' }}
-          left={{ base: '10px', sm: '20x' }}
-          margin="auto"
-          transform={'translateY(30px)'}
+          right={{md:"30px", base:"15px"}}
+          transform={'translate(40px, 70px)'}
         >
           <Currency />
         </Box>
+        <Flex px={{base:"none", md:10}} mt={5} justifyContent={{md:"space-evenly", base:"center"}} flexDir={{base:"column", md:"row"}}>
+          <Box>
+            <Text fontSize='25px' mb={5}>Shopping List</Text>
+            <Shop items={COLLECTION} />
+          </Box>
+          <Box mt={{md:0, base: 5}}>
+            <Text fontSize='25px' mb={5}>My Shopping Cart</Text>
+            <Box>
+              {kosong ? (
+                <Box>
+                  <Flex
+                    margin="auto"
+                    w={{ base: 350, sm: 550 }}
+                    h={{ base: 120, sm: 200, md: 400 }}
+                    bgColor="rgba(43,108,176,0.8)"
+                    justifyContent="center"
+                    alignItems={'center'}
+                    fontSize={{sm:"30px", base:"20px"}}
+                    color={"white"}
+                    textAlign="center"
+                    borderRadius={20}
+                    backdropFilter="blur(4px)"
+                    shadow="xl"
+                  >
+                    Keranjang masih kosong
+                    <br />
+                    Seret Barang kedalam sini!
+                  </Flex>
+                  <VisuallyHidden>
+                    <Box transform={{md:"translateY(-410px)", sm:"translateY(-210px)", base:"translateY(-130px)"}}>
+                      <ShoppingBag items={shoppingBagItems} />
+                    </Box>
+                  </VisuallyHidden>
+                </Box>
+              ) : (
+                <ShoppingBag items={shoppingBagItems} />
+              )}
+              <Flex flexDir={{base:"column", sm:"row"}} alignItems="center" justifyContent="space-around" mt={{md:8, base:5}}>
+                <Flex color="white" borderRadius={5} justifyContent="center" alignItems="center" p="10px" w={{sm:40, base:80}} height={12} bgColor="rgba(0, 0, 0, 0.7);">
+                  <Text>Subtotal: {total}</Text>
+                </Flex>
+                <Flex mt={{base:3, sm:0}} gap={{base:8, sm:0}}>
+                  <Button colorScheme="red" fontWeight="md" minW={{sm:40, base:"120px"}} height={12} onClick={Reset}>
+                    reset{' '}
+                  </Button>
+                  <Button display={{base:"block", sm:"none"}} bgColor={'blue.400'} color="white" fontWeight="md" minW={{sm:40, base:"120px"}} height={12} onClick={pay}>
+                    Pay
+                  </Button>
+                </Flex>
+                <Button display={{base:"none", sm:"block"}} bgColor={'blue.400'} color="white" fontWeight="md" minW={{sm:40, base:"120px"}} height={12} onClick={pay}>
+                  Pay
+                </Button>
+              </Flex>
+            </Box>
+          </Box>
+        </Flex>
+      </DragDropContext>
+
+      {/* <DragDropContext onDragEnd={onDragEnd}>
         <Flex>
           <Box>
             <Shop items={COLLECTION} />
@@ -394,7 +473,7 @@ function Cart() {
               >
                 Keranjang masih kosong
                 <br />
-                Seret Barang kedalam Sini!
+                Seret Barang kedalam sini!
               </Flex>
             ) : (
               ''
@@ -413,7 +492,7 @@ function Cart() {
             </Flex>
           </Box>
         </Flex>
-      </DragDropContext>
+      </DragDropContext> */}
     </Flex>
   );
 }
