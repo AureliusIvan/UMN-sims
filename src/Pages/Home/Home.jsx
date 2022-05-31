@@ -19,7 +19,7 @@ import BgSiang from './bg/Siang.png';
 import BgSore from './bg/Sore.png';
 import BgMalem from './bg/Malem.png';
 import Notif from './testNotif';
-import Player from './audio';
+import Player from '../../audio';
 import makanImg from '../../components/asset/home/makan.png'
 import masakImg from '../../components/asset/home/Cooking.png'
 import mainImg from '../../components/asset/home/Controller.png'
@@ -60,6 +60,7 @@ function Home(props) {
       bgSize={'cover'}
       className="home"
     >
+      <Player url=""/>
       <Grid
         className="Grid"
         h="100vh"
