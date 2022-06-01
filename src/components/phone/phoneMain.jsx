@@ -24,7 +24,7 @@ function Phone() {
 
   return (
     <Box zIndex={100}>
-      <Popover placement="top-start" >
+      <Popover placement='top-start' gutter={18} zIndex="1000" >
         <PopoverTrigger>
           <Image
             bottom={0} 

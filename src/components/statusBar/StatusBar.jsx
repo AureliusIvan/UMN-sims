@@ -26,7 +26,7 @@ function Bar(props) {
       <Box
         onClick={props.function}
         border={'2px solid green'}
-        marginInline="5px"
+        marginInline="2px"
         borderRadius="50%"
       >
         <CircularProgress value={props.value} color={color}>

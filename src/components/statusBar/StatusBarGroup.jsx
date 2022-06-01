@@ -5,7 +5,7 @@ import { Xp } from './Xp';
 function StatusGroup() {
   return (
     <>
-      <Flex pos={'absolute'} right="40px" transform='translateY(70px)'>
+      <Flex pos={'absolute'} right="10px" transform='translateY(70px)'>
         <Box pos={'relative'}>
           <EatBar />
         </Box>
