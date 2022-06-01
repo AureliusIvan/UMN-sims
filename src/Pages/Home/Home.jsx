@@ -55,6 +55,7 @@ function Home(props) {
   return (
     <Box
       backgroundImage={changeBg}
+      bgPos="center"
       transition="0.5s"
       bgRepeat="no-repeat"
       bgSize={'cover'}
