@@ -384,8 +384,9 @@ function App() {
         ) : (
           ''
         )}
+        
         {hideChar ? <CreateChar /> : ''}
-        <Player url={song} />
+
         {(() => {
           switch (game) {
             case 'start':
