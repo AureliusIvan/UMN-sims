@@ -16,7 +16,7 @@ import Cart from './Pages/Mall/shoppingCart/appShop';
 import Uni from './Pages/Universitas/UnivHall';
 import Pause from './components/buttons/PauseBtn';
 import Phone from './components/phone/phoneMain';
-import Toast from './components/templateAndFunction/toast';
+import { Toast, Toastwarn } from './components/templateAndFunction/toast';
 import Mall from './Pages/Mall/Mall';
 import Masak from './Pages/Home/Masak/masak';
 import GameoverScreen from './Pages/GameOver/gameover';
@@ -102,16 +102,25 @@ function App() {
   const [ayampanggang, setAyampanggang] = useState(10);
 
   //const buat bahan makanan
-  const [tomato, setTomato] = useState(5);
-  const [bread, setBread] = useState(2);
-  const [beef, setBeef] = useState(1);
-  const [salt, setSalt] = useState(3);
-  const [cabbage, setCabbage] = useState(5);
-  const [chicken, setChicken] = useState(5);
-  const [eggtray, setEggtray] = useState(5);
+  const [tomato, setTomato] = useState(15);
+  const [bread, setBread] = useState(15);
+  const [beef, setBeef] = useState(15);
+  const [salt, setSalt] = useState(15);
+  const [cabbage, setCabbage] = useState(15);
+  const [chicken, setChicken] = useState(15);
+  const [eggtray, setEggtray] = useState(15);
+
+  //const waktu
+  const [level, setLevel] = useState(1);
+  useEffect(() => {
+    if (belajar >= 100) {
+      setLevel(level + 1);
+      setBelajar(0);
+    }
+  }, [belajar]);
 
   //const audio
-  const [playing, setPlaying] = useState(true);
+  const [playing, setPlaying] = useState(false);
   const [song, setSong] = useState(menuSound);
   //const gameplay
   const [hideChar, setHideChar] = useState(true);
@@ -192,7 +201,7 @@ function App() {
 
   // handle switch page
   // https://medium.com/nerd-for-tech/a-case-to-switch-using-switch-statements-in-react-e83e01154f60
-  const [game, setGame] = useState('cart');
+  const [game, setGame] = useState('start');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
@@ -256,13 +265,36 @@ function App() {
 
   useEffect(() => {
     if (hour > 23 || (hour < 7 && start === true)) {
-      if (game === 'home' || game === 'eat' || game === 'cook' || game === 'Minigames') {
+      if (
+        game === 'home' ||
+        game === 'eat' ||
+        game === 'cook' ||
+        game === 'Minigames'
+      ) {
       } else {
         setGame('home');
+        // addToast();
       }
     }
   }, [minute]);
 
+  //useEffect for stat bar
+  const [alreadyToast, setAlreadyToast] = useState(false);
+  const toast = useToast();
+  useEffect(() => {
+    if (makan <= 30) {
+      if (alreadyToast === false) {
+        toast({
+          description: 'Warning anda sekarat',
+          status: 'warning',
+          position: 'top',
+          size: '100px',
+          isClosable: true,
+        });
+        setAlreadyToast(true);
+      }
+    }
+  }, [makan]);
   return (
     <ChakraProvider theme={theme}>
       <AllContext.Provider
@@ -336,6 +368,8 @@ function App() {
           setFilled,
           startEAT,
           setStartEat,
+          level,
+          setLevel,
         }}
       >
         {gameOver ? <GameoverScreen /> : ''}

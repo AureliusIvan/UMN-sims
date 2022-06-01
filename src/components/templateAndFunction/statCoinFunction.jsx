@@ -1,6 +1,5 @@
 export function StatFunction(what, setWhat, add, min) {
     // console.log (`${what}, ${setWhat}, ${add}, ${min}`)
-
     if (what <= 0 && add !== 0)
         setWhat(add) // sama aja kyk setWhat(what + add)
     else if (what - min <= 0 && min !== 0)

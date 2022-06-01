@@ -7,6 +7,7 @@ function Profile() {
   const { character, setCharacter } = useContext(AllContext);
   const { nama, setNama } = useContext(AllContext);
   const { realtime, setRealtime } = useContext(AllContext);
+  const { level, setLevel } = useContext(AllContext);
   return (
     <Box
       borderRadius={'10px'}
@@ -87,7 +88,7 @@ function Profile() {
             padding="4px"
             borderRadius={'10px'}
           >
-            {realtime}
+            {level}
           </Text>
         </Flex>
         <Flex gap={2}>
