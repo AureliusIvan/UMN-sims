@@ -58,6 +58,7 @@ function Home(props) {
       transition="0.5s"
       bgRepeat="no-repeat"
       bgSize={'cover'}
+      bgPosition="center"
       className="home"
     >
       <Player url="" />

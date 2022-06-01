@@ -40,6 +40,7 @@ function Univ(props) {
       backgroundImage={changeBg}
       bgRepeat="no-repeat"
       bgSize={'cover'}
+      bgPosition="center"
       className="uni"
     >
       <Grid

@@ -407,7 +407,8 @@ function Eat2() {
         className="Eat"
         bgImage={makanbg}
         bgPos="center"
-        bgSize={{ md: 'cover', base: 'contain' }}
+        bgSize={"contain"}
+        overflow="hidden"
       >
         <Grid
           className="Grid"

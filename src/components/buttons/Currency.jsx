@@ -12,15 +12,15 @@ function Currency(props) {
     <>
       <Flex
         alignItems="center"
-        w={'200px'}
+        w={'150px'}
         overflow="hidden"
-        h="50px"
+        h="40px"
         border={'1px solid white'}
-        shadow="10px 5px black"
+        shadow="5px 5px black"
         borderRadius={'10px'}
         bgColor={'green.500'}
         pos="absolute"
-        right="50px"
+        right="20px"
         top="10px"
         padding="10px"
         color={'white'}
