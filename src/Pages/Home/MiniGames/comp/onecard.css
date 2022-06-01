@@ -2,13 +2,6 @@
     position: relative;
 }
 
-.card img{
-    width: 150px;
-    display: block;
-    border: 3px solid black;
-    border-radius: 10px;
-  }
-  
   /* flipping card */
   .card .depan{
       transform: rotateY(90deg);
