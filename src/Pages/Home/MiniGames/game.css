@@ -1,31 +1,19 @@
-.App {
-  background-color: rgb(246, 246, 255);
-    text-align: center;
-    font-size: 30px;
-  }
-
-.gamebutton{
-    margin-left: 20px;
-    border: 3px solid black;
+.MinigamesPage {
+  background-color: rgb(129, 129, 169);
+  text-align: center;
+  font-size: 30px;
 }
-  
-.gamebutton:hover{
+
+.gamebutton {
+  margin-left: 20px;
+  border: 3px solid black;
+}
+
+.gamebutton:hover {
   background: rgb(200, 244, 255);
   color: rgb(255, 0, 0);
 }
 
-.turns{
- text-align: center;
+.turns {
+  text-align: center;
 }
-  
-  .card-pic{
-    margin-left: 40px;
-    margin-top: 40px;
-    display: grid;
-    background-color: rgb(246, 246, 255);
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 25px;
-  }
-
-  
-  
