@@ -5,7 +5,7 @@ import { AllContext } from "../Value/CoinContext";
 export function Xp(){
     const { belajar } = useContext(AllContext);
     return (
-        <Box pos="absolute" right="50px" top="130px">
+        <Box pos="absolute" right="20px" top="130px">
             <Tooltip 
                 label={`Study ${belajar}%`} 
                 placement="bottom"
@@ -13,7 +13,7 @@ export function Xp(){
                 <Flex alignItems="center">
                     <Progress 
                         mr="-10px"
-                        w={'150px'} 
+                        w={{base: "120px", sm: "200px"}} 
                         colorScheme={'green'} 
                         borderRadius='20px' 
                         border='2px solid white' 
