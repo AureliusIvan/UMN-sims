@@ -279,22 +279,24 @@ function App() {
   }, [minute]);
 
   //useEffect for stat bar
-  const [alreadyToast, setAlreadyToast] = useState(false);
-  const toast = useToast();
-  useEffect(() => {
-    if (makan <= 30) {
-      if (alreadyToast === false) {
-        toast({
-          description: 'Warning anda sekarat',
-          status: 'warning',
-          position: 'top',
-          size: '100px',
-          isClosable: true,
-        });
-        setAlreadyToast(true);
-      }
-    }
-  }, [makan]);
+  // const [alreadyToast, setAlreadyToast] = useState(false);
+  // const toast = useToast();
+  // useEffect(() => {
+  //   if (makan <= 30) {
+  //     if (alreadyToast === false) {
+  //       toast({
+  //         description: 'Warning anda sekarat',
+  //         status: 'info',
+  //         position: 'top',
+  //         size: '100px',
+  //         isClosable: true,
+  //       });
+  //       setAlreadyToast(true);
+  //     }
+  //   }
+  // }, [makan]);
+
+  
   return (
     <ChakraProvider theme={theme}>
       <AllContext.Provider
@@ -384,7 +386,7 @@ function App() {
         ) : (
           ''
         )}
-        
+
         {hideChar ? <CreateChar /> : ''}
 
         {(() => {

@@ -2,7 +2,9 @@
   "name": "my-app2",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://AureliusIvan.github.io",
   "dependencies": {
+    "-": "^0.0.1",
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.8.8",
     "@emotion/react": "^11.0.0",
@@ -14,6 +16,7 @@
     "@testing-library/user-event": "^12.0.2",
     "axios": "^0.27.2",
     "framer-motion": "^4.0.0",
+    "gh-pages": "^4.0.0",
     "react": "^18.1.0",
     "react-beautiful-dnd": "^13.1.0",
     "react-dnd": "^16.0.1",
@@ -24,6 +27,7 @@
     "react-router-dom": "^6.3.0",
     "react-screen-capture": "^1.0.1",
     "react-scripts": "5.0.1",
+    "save-dev": "^0.0.1-security",
     "uuid": "^8.3.2",
     "web-vitals": "^0.2.2"
   },
@@ -31,7 +35,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
