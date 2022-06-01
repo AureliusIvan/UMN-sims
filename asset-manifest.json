@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/FinalPTI/static/css/main.0b9a3066.css",
-    "main.js": "/FinalPTI/static/js/main.82570e9f.js",
+    "main.css": "/FinalPTI/static/css/main.919ccfad.css",
+    "main.js": "/FinalPTI/static/js/main.b35d06b0.js",
     "static/media/outthewindow.mp3": "/FinalPTI/static/media/outthewindow.8b775ed5be780dbad3d7.mp3",
     "static/media/BlueZones.mp3": "/FinalPTI/static/media/BlueZones.7369ea066c7e7935537c.mp3",
     "static/media/Raindawn.png": "/FinalPTI/static/media/Raindawn.bdd0fc3d3c1eea7c1427.png",
@@ -38,7 +38,7 @@
     "static/media/CodingA.gif": "/FinalPTI/static/media/CodingA.834acc02b5c14290bf9e.gif",
     "static/media/Coffee.png": "/FinalPTI/static/media/Coffee.5fd8cc3cbb52e129c58a.png",
     "static/media/Noon.jpg": "/FinalPTI/static/media/Noon.841d269bb7215d37f9ad.jpg",
-    "static/media/Coin.png": "/FinalPTI/static/media/Coin.17f593aa2cc5e905ea5f.png",
+    "static/media/Coin.png": "/FinalPTI/static/media/Coin.e4631c25d53af2851e9a.png",
     "static/media/mart.png": "/FinalPTI/static/media/mart.c38ac942abdd2179a49d.png",
     "static/media/Stoveon.gif": "/FinalPTI/static/media/Stoveon.41841229964da5d185c5.gif",
     "static/media/roastchicken.png": "/FinalPTI/static/media/roastchicken.4d1725e587120cfa9f3d.png",
@@ -72,7 +72,7 @@
     "static/media/codingread.gif": "/FinalPTI/static/media/codingread.0250a5d3ae6086e2a96e.gif",
     "static/media/Codingmunch.gif": "/FinalPTI/static/media/Codingmunch.f970fd83754140eb87de.gif",
     "static/media/Holkayread.gif": "/FinalPTI/static/media/Holkayread.9bd0da3efd93d1448e35.gif",
-    "static/media/burger.png": "/FinalPTI/static/media/burger.901503bf4ef968e7c49c.png",
+    "static/media/burger.png": "/FinalPTI/static/media/burger.da0bc38388dbe7a063cd.png",
     "static/media/Pat.png": "/FinalPTI/static/media/Pat.daa44d506d70288809cb.png",
     "static/media/fun_1.png": "/FinalPTI/static/media/fun_1.5815e207118479a66b0b.png",
     "static/media/1.png": "/FinalPTI/static/media/1.983d53cfe3f3fcb37f02.png",
@@ -119,15 +119,22 @@
     "static/media/egg.png": "/FinalPTI/static/media/egg.747fbf3a8e0057ede77f.png",
     "static/media/Dimbo Regular.ttf": "/FinalPTI/static/media/Dimbo Regular.fded311e2505028a544f.ttf",
     "static/media/walpaper1.png": "/FinalPTI/static/media/walpaper1.f51a29a9c78ca150cddf.png",
+    "static/media/macaron.png": "/FinalPTI/static/media/macaron.e81097465883a0bd206f.png",
+    "static/media/chips.png": "/FinalPTI/static/media/chips.c9013184f24681b13a78.png",
     "static/media/home.png": "/FinalPTI/static/media/home.8475620097ecfeeb6820.png",
+    "static/media/cake.png": "/FinalPTI/static/media/cake.0ce3843e871689234fd6.png",
     "static/media/umn.png": "/FinalPTI/static/media/umn.2e514ba81ca3c3cfe33a.png",
+    "static/media/card.png": "/FinalPTI/static/media/card.fa98667e7c3714fcd221.png",
+    "static/media/candy.png": "/FinalPTI/static/media/candy.5307f037fb23807acbf1.png",
+    "static/media/milk.png": "/FinalPTI/static/media/milk.86723219d2025f832013.png",
+    "static/media/book.png": "/FinalPTI/static/media/book.08ec9189066deb388fc4.png",
     "static/media/cafe.png": "/FinalPTI/static/media/cafe.18e989bf4b5a2d02f4ca.png",
     "index.html": "/FinalPTI/index.html",
-    "main.0b9a3066.css.map": "/FinalPTI/static/css/main.0b9a3066.css.map",
-    "main.82570e9f.js.map": "/FinalPTI/static/js/main.82570e9f.js.map"
+    "main.919ccfad.css.map": "/FinalPTI/static/css/main.919ccfad.css.map",
+    "main.b35d06b0.js.map": "/FinalPTI/static/js/main.b35d06b0.js.map"
   },
   "entrypoints": [
-    "static/css/main.0b9a3066.css",
-    "static/js/main.82570e9f.js"
+    "static/css/main.919ccfad.css",
+    "static/js/main.b35d06b0.js"
   ]
 }
