@@ -3890,6 +3890,11 @@
   "resolved" "https://registry.npmjs.org/commander/-/commander-2.20.3.tgz"
   "version" "2.20.3"
 
+"commander@^4.1.0":
+  "integrity" "sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA=="
+  "resolved" "https://registry.npmjs.org/commander/-/commander-4.1.1.tgz"
+  "version" "4.1.1"
+
 "commander@^7.2.0":
   "integrity" "sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw=="
   "resolved" "https://registry.npmjs.org/commander/-/commander-7.2.0.tgz"
@@ -6922,6 +6927,13 @@
   "version" "1.0.12"
   dependencies:
     "tmpl" "1.0.5"
+
+"master@^0.0.14":
+  "integrity" "sha512-icIDGZHMTrqFTNR4zp/Tu1iq4GmX3y6Eio/h9Rs2QBmU1jCqzNJrPpU4yYsuUa/K/pFXepTdWISTXiVrg5i9NA=="
+  "resolved" "https://registry.npmjs.org/master/-/master-0.0.14.tgz"
+  "version" "0.0.14"
+  dependencies:
+    "commander" "^4.1.0"
 
 "mdn-data@2.0.14":
   "integrity" "sha512-dn6wd0uw5GsdswPFfsgMp5NSB0/aDe6fK94YJV/AJDYXL6HVLWBsxeq7js7Ad+mU2K9LAlwpk6kN2D5mwCPVow=="
