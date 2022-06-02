@@ -1,7 +1,8 @@
 {
   "files": {
     "main.css": "/FinalPTI/static/css/main.919ccfad.css",
-    "main.js": "/FinalPTI/static/js/main.1ef22e64.js",
+    "main.js": "/FinalPTI/static/js/main.355a7603.js",
+    "static/js/845.5a791121.chunk.js": "/FinalPTI/static/js/845.5a791121.chunk.js",
     "static/media/outthewindow.mp3": "/FinalPTI/static/media/outthewindow.8b775ed5be780dbad3d7.mp3",
     "static/media/BlueZones.mp3": "/FinalPTI/static/media/BlueZones.7369ea066c7e7935537c.mp3",
     "static/media/Raindawn.png": "/FinalPTI/static/media/Raindawn.bdd0fc3d3c1eea7c1427.png",
@@ -33,6 +34,7 @@
     "static/media/Siang.jpg": "/FinalPTI/static/media/Siang.21cf0737e850a38d406e.jpg",
     "static/media/GamerA.gif": "/FinalPTI/static/media/GamerA.b381c0fc4b61df1cb4a2.gif",
     "static/media/HolkayA.gif": "/FinalPTI/static/media/HolkayA.24d7cb80e40117b2497e.gif",
+    "static/media/sleep.gif": "/FinalPTI/static/media/sleep.9b611aee07ff061ae479.gif",
     "static/media/Mukbangbg.png": "/FinalPTI/static/media/Mukbangbg.17e54a07887bce9b1719.png",
     "static/media/Dawn.jpg": "/FinalPTI/static/media/Dawn.7cc84bb761976d1c08c8.jpg",
     "static/media/CodingA.gif": "/FinalPTI/static/media/CodingA.834acc02b5c14290bf9e.gif",
@@ -42,11 +44,15 @@
     "static/media/mart.png": "/FinalPTI/static/media/mart.c38ac942abdd2179a49d.png",
     "static/media/Stoveon.gif": "/FinalPTI/static/media/Stoveon.41841229964da5d185c5.gif",
     "static/media/roastchicken.png": "/FinalPTI/static/media/roastchicken.4d1725e587120cfa9f3d.png",
+    "static/media/Mukbangsleep.gif": "/FinalPTI/static/media/Mukbangsleep.9cb88568417d9de5de33.gif",
     "static/media/Trolley.png": "/FinalPTI/static/media/Trolley.ef26d5f626dc20a9679e.png",
     "static/media/Mukbangngopi.gif": "/FinalPTI/static/media/Mukbangngopi.ff17e47fdee9c3e105f0.gif",
     "static/media/chicken.png": "/FinalPTI/static/media/chicken.42768977d379aa9d76dd.png",
     "static/media/hp1.png": "/FinalPTI/static/media/hp1.d267afdae954739e8638.png",
+    "static/media/Holkaysleep.gif": "/FinalPTI/static/media/Holkaysleep.2408795e279654e34127.gif",
     "static/media/bread.png": "/FinalPTI/static/media/bread.aa9d55ac660d5f8cdc01.png",
+    "static/media/Gamersleep.gif": "/FinalPTI/static/media/Gamersleep.833e3c8fe781d5b0370d.gif",
+    "static/media/Codingsleep.gif": "/FinalPTI/static/media/Codingsleep.5998c9e9cfba6381106c.gif",
     "static/media/Read.png": "/FinalPTI/static/media/Read.fb451c0be460ca120146.png",
     "static/media/logo.png": "/FinalPTI/static/media/logo.c8e5f5413616d2d8709c.png",
     "static/media/cabbage.png": "/FinalPTI/static/media/cabbage.80525c6efd45993b08c5.png",
@@ -87,7 +93,6 @@
     "static/media/Holkaymall.gif": "/FinalPTI/static/media/Holkaymall.b7b23ca00d14a4c206fa.gif",
     "static/media/Gamergameover.png": "/FinalPTI/static/media/Gamergameover.4a074057bc0fe41b2788.png",
     "static/media/saltandpepper.png": "/FinalPTI/static/media/saltandpepper.43d424b34517454ec28f.png",
-    "static/media/Sleep.png": "/FinalPTI/static/media/Sleep.1c7d6f4495b779b444c2.png",
     "static/media/Holkayngopi.gif": "/FinalPTI/static/media/Holkayngopi.b1c2cd32b29132fd9afb.gif",
     "static/media/Mae.png": "/FinalPTI/static/media/Mae.ec598c7f4c35926a880c.png",
     "static/media/6.png": "/FinalPTI/static/media/6.24ac97f1bdc6921de823.png",
@@ -131,10 +136,11 @@
     "static/media/cafe.png": "/FinalPTI/static/media/cafe.18e989bf4b5a2d02f4ca.png",
     "index.html": "/FinalPTI/index.html",
     "main.919ccfad.css.map": "/FinalPTI/static/css/main.919ccfad.css.map",
-    "main.1ef22e64.js.map": "/FinalPTI/static/js/main.1ef22e64.js.map"
+    "main.355a7603.js.map": "/FinalPTI/static/js/main.355a7603.js.map",
+    "845.5a791121.chunk.js.map": "/FinalPTI/static/js/845.5a791121.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.919ccfad.css",
-    "static/js/main.1ef22e64.js"
+    "static/js/main.355a7603.js"
   ]
 }
