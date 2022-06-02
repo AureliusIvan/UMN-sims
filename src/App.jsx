@@ -47,6 +47,7 @@ function DragEat() {
 
 function App() {
   //const buat set mulai
+  const [load, setLoad] = useState(false);
   const [start, setStart] = useState(false);
   //DND
   const [isdrag, setDrag] = useState(false);
@@ -120,7 +121,7 @@ function App() {
   }, [belajar]);
 
   //const audio
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlaying] = useState(true);
   const [song, setSong] = useState(menuSound);
   //const gameplay
   const [hideChar, setHideChar] = useState(true);
@@ -201,7 +202,7 @@ function App() {
 
   // handle switch page
   // https://medium.com/nerd-for-tech/a-case-to-switch-using-switch-statements-in-react-e83e01154f60
-  const [game, setGame] = useState('Minigames');
+  const [game, setGame] = useState('start');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
@@ -240,9 +241,7 @@ function App() {
 
   //buat sound
   useEffect(() => {
-    if (game === 'start') {
-      setSong('');
-    } else {
+    if (start === true) {
       setSong('');
     }
   }, [game]);
@@ -388,7 +387,7 @@ function App() {
         )}
 
         {hideChar ? <CreateChar /> : ''}
-
+        { load ? <Player url={menuSound} /> : ""}
         {(() => {
           switch (game) {
             case 'start':
