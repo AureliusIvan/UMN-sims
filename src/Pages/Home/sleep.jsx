@@ -16,13 +16,23 @@ import {
   SliderFilledTrack,
   SliderThumb,
   Tooltip,
-  Image
+  Image,
+  CircularProgress,
+  CircularProgressLabel,
+  VStack,
 } from '@chakra-ui/react';
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { AllContext } from '../../components/Value/CoinContext';
-import shown from '../../components/asset/home/Sleep.png'
+import shown from './asset/sleep.gif';
+//
+import GIFsleep1 from '../../components/asset/gif/mukbang/Mukbangsleep.gif';
+import GIFsleep2 from '../../components/asset/gif/gamers/Gamersleep.gif';
+import GIFsleep3 from '../../components/asset/gif/holkay/Holkaysleep.gif';
+import GIFsleep4 from '../../components/asset/gif/coding/Codingsleep.gif';
 
 function Sleep() {
+  const { character, setCharacter } = useContext(AllContext);
+  const [GIFsleep, setGIFsleep] = useState(GIFsleep1);
   const { hour, setHour } = useContext(AllContext);
   const { tidur, setTidur } = useContext(AllContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -33,20 +43,32 @@ function Sleep() {
     onClose();
     setHour(hour + bar);
   }
+
+  useEffect(() => {
+    if (character === 1) {
+      setGIFsleep(GIFsleep1);
+    } else if (character === 2) {
+      setGIFsleep(GIFsleep2);
+    } else if (character === 3) {
+      setGIFsleep(GIFsleep3);
+    } else if (character === 4) {
+      setGIFsleep(GIFsleep4);
+    }
+  }, []);
   return (
     <>
-      <Tooltip label="sleep" placement='start' zIndex={50}>
-				<Image
-					src={shown}
-					width={{base:85, sm:90, md:125}}
-          height={{base:85, sm:90, md:125}}
+      <Tooltip label="sleep" placement="start" zIndex={50}>
+        <Image
+          src={shown}
+          width={{ base: 85, sm: 90, md: 125 }}
+          height={{ base: 85, sm: 90, md: 125 }}
           filter="drop-shadow(5px 5px white)"
-					cursor="pointer"
-					transition="0.3s"
-					_hover={{transform:"scale(1.1)"}}
-					onClick={onOpen}
-				/>
-			</Tooltip>
+          cursor="pointer"
+          transition="0.3s"
+          _hover={{ transform: 'scale(1.1)' }}
+          onClick={onOpen}
+        />
+      </Tooltip>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
@@ -55,6 +77,7 @@ function Sleep() {
           <ModalCloseButton />
           <ModalBody>
             <Text>Sleep for: </Text>
+            <Image src={GIFsleep} />
             <Slider
               aria-label="slider-ex-4"
               defaultValue={bar}
@@ -76,10 +99,21 @@ function Sleep() {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button
+              fontWeight={'thin'}
+              colorScheme="blue"
+              mr={3}
+              onClick={onClose}
+            >
               Close
             </Button>
-            <Button onClick={sleep} variant="ghost">
+            <Button
+              fontWeight={'thin'}
+              bgColor="green.400"
+              color="white"
+              onClick={sleep}
+              variant="ghost"
+            >
               Sleep
             </Button>
           </ModalFooter>

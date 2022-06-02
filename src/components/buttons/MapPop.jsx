@@ -37,8 +37,8 @@ function MapPop(props) {
           src={mapIcon}
           top="125"
           ml={2}
-          width={{ md: '85px', sm: '80px', base: '75px' }}
-          filter="drop-shadow(10px 5px 4px white)"
+          width={{ base: '85px', sm: '90px', md: '95px' }}
+          filter="drop-shadow(10px 5px 2px white)"
           cursor="pointer"
           transition="0.2s linear"
           _hover={{ transform: 'scale(1.15)' }}
@@ -59,15 +59,15 @@ function MapPop(props) {
               alt="my map"
               filter="drop-shadow(2px 2px 3px burlywood)"
             />
-              <Places
-                name="Mall"
-                icon={mall}
-                width={{ base: '42%', sm: '40%' }}
-                left={{ base: '0', sm: '0' }}
-                top={{ base: '-24', sm: '-20' }}
-                function={props.mall}
-                disabled={hour > 23 || hour < 7 ? true : false}
-              />
+            <Places
+              name="Mall"
+              icon={mall}
+              width={{ base: '42%', sm: '40%' }}
+              left={{ base: '0', sm: '0' }}
+              top={{ base: '-24', sm: '-20' }}
+              function={props.mall}
+              disabled={hour > 23 || hour < 7 ? true : false}
+            />
             <Places
               name="University"
               icon={umn}

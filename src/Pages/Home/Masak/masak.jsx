@@ -394,7 +394,15 @@ function Masak(props) {
   }
 
   return (
-    <Box bgColor={'blue.200'} bgImage={bg} bgPos="center" padding="20px" width="100%" h="100vh">
+    <Box
+      bgColor={'blue.200'}
+      bgImage={bg}
+      bgSize={{ md: 'cover', base: 'contain' }}
+      bgPos="center"
+      padding="20px"
+      width="100%"
+      h="100vh"
+    >
       <Flex
         width={'100%'}
         height="50px"
