@@ -17,12 +17,10 @@ import {
   SliderThumb,
   Tooltip,
   Image,
-  CircularProgress,
-  CircularProgressLabel,
-  VStack,
 } from '@chakra-ui/react';
 import { useState, useContext, useEffect } from 'react';
 import { AllContext } from '../../components/Value/CoinContext';
+import { StatFunction } from '../../components/templateAndFunction/statCoinFunction';
 import shown from './asset/sleep.gif';
 //
 import GIFsleep1 from '../../components/asset/gif/mukbang/Mukbangsleep.gif';
@@ -39,7 +37,7 @@ function Sleep() {
   const [bar, setBar] = useState(6);
   function sleep() {
     const time = bar * 10;
-    setTidur(tidur + time);
+    StatFunction(tidur, setTidur, time, 0)
     onClose();
     setHour(hour + bar);
   }
@@ -55,6 +53,7 @@ function Sleep() {
       setGIFsleep(GIFsleep4);
     }
   }, []);
+  
   return (
     <>
       <Tooltip label="sleep" placement="start" zIndex={50}>
