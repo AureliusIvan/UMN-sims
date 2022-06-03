@@ -1,4 +1,4 @@
-import { ChakraProvider, theme, Button, useToast, Box } from '@chakra-ui/react';
+import { ChakraProvider, theme } from '@chakra-ui/react';
 import React, { useMemo, useState, useEffect, useRef } from 'react';
 import './App.css';
 import PageOne from './Pages/Start/Start';
@@ -25,11 +25,12 @@ import Currency from './components/buttons/Currency';
 import { CreateChar } from './components/character/CharacterCard';
 import { StatFunction } from './components/templateAndFunction/statCoinFunction';
 import Player from './audio';
+
 ///ALL audio
 import cafeSound from './components/asset/sound/cafe/BlueZones.mp3';
-import menuSound from './components/asset/sound/mainmenusong/outthewindow.mp3';
-//
 import EvaluationScreen from './Pages/Eval/Eval' 
+import menuSound from './components/asset/sound/mainmenusong/homebgm.mp3';
+
 /*
 1. nama
 2. jurusan
@@ -84,6 +85,12 @@ function App() {
   const [tidur, setTidur] = useState(50);
   const [main, setMain] = useState(50);
   const [belajar, setBelajar] = useState(70);
+
+  // const counter semua stat
+  const [countMakan, setCountMakan] = useState(0);
+  const [countTidur, setCountTidur] = useState(0);
+  const [countMain, setCountMain] = useState(0);
+  const [countBelajar, setCountBelajar] = useState(0);
 
   //Weather const
   const [weather, setWeather] = useState('');
@@ -326,6 +333,14 @@ function App() {
           setMain,
           belajar,
           setBelajar,
+          countMakan, 
+          setCountMakan,
+          countTidur, 
+          setCountTidur,
+          countMain, 
+          setCountMain,
+          countBelajar,
+          setCountBelajar,
           weather,
           setWeather,
           game,

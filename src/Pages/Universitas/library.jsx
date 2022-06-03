@@ -20,6 +20,7 @@ import gifA from '../../components/asset/gif/mukbang/Mukbangngopi.gif';
 import gifB from '../../components/asset/gif/gamers/Gamerngopi.gif';
 import gifC from '../../components/asset/gif/holkay/Holkayngopi.gif';
 import gifD from '../../components/asset/gif/coding/Codingngopi.gif';
+import { ArrowBackIcon } from '@chakra-ui/icons';
 
 function Univ(props) {
   const { hour, SetHour } = useContext(AllContext);
@@ -75,13 +76,28 @@ function Univ(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Button
-            className="gamebutton"
-            onClick={() => props.handleClick('uni')}
-          >
-            {' '}
-            Back{' '}
-          </Button>
+        <Button
+          zIndex={1}
+          pos={'absolute'}
+          top="10px"
+          left={'60px'}
+          fontWeight={0}
+          borderRadius={'50%'}
+          h="50px"
+          w="50px"
+          padding={0}
+          bgColor="white"
+          onClick={() => props.handleClick('uni')}
+          borderColor="black"
+        >
+          <ArrowBackIcon
+            filter="invert(1)"
+            h="50px"
+            w={'50px'}
+            position={'absolute'}
+            _hover={{ filter: 'invert(0)' }}
+          />
+        </Button>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>

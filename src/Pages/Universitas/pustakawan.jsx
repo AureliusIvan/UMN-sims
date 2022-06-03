@@ -1,8 +1,8 @@
-import { Flex, Image, Box } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import {useContext, useEffect, useState } from 'react'
 import Pop from '../../components/templateAndFunction/tempPopUp'
 import { AllContext} from '../../components/Value/CoinContext';
-import { StatFunction, CoinFunction } from '../../components/templateAndFunction/statCoinFunction';
+import { StatFunction, CoinFunction, CheckStatFull } from '../../components/templateAndFunction/statCoinFunction';
 import shown from "../../components/asset/uni/Iibrary_parttime.png"
 import gif1 from './bg/Mukbangstudy.gif'
 import gif2 from './bg/gamerstudyinclass.gif'
@@ -11,7 +11,7 @@ import gif4 from '../../components/asset/gif/coding/studyinclass.gif'
 
 function Pustakawan() {
     const {tidur, setTidur, makan, setMakan, belajar, setBelajar, character, setCharacter} = useContext(AllContext)
-    const {coin, setCoin} = useContext(AllContext)
+    const {coin, setCoin, countBelajar, setCountBelajar} = useContext(AllContext)
     const [gif, setGif] = useState(gif1);
 
     useEffect(() => {
@@ -34,8 +34,10 @@ function Pustakawan() {
         <Box onClick={() => {
                         StatFunction(tidur, setTidur, 0, 5)
                         StatFunction(makan, setMakan, 0, 5)
-                        StatFunction(belajar, setBelajar, 3, 0)
+                        StatFunction(belajar, setBelajar, 5, 0)
                         CoinFunction(coin, setCoin, 1000, 0)
+
+                        CheckStatFull(belajar, countBelajar, setCountBelajar)
                     }}>
             <Pop 
                 shownIMG={shown}
