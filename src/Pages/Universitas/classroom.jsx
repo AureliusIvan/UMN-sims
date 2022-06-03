@@ -13,6 +13,7 @@ import bgnight from './bg/Sore.png';
 import bgnightrain from './bg/Rain.png';
 import { AllContext } from '../../components/Value/CoinContext';
 import Belajar from './Belajar';
+import Matkul from './matkul';
 import { ArrowBackIcon } from '@chakra-ui/icons';
 
 function Univ(props) {
@@ -108,7 +109,7 @@ function Univ(props) {
                 shadow="xl"
               >
               <Box textAlign="center" color="black" border="2px solid white" bg="rgba(237,100,166, 0.7)" py={1} borderRadius={10} fontSize="xl" >Menu</Box>
-              <Belajar />
+              <Matkul/>
             </Flex>
           </VStack>
         </GridItem>
