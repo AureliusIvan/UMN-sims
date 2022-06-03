@@ -84,7 +84,7 @@ function App() {
   const [makan, setMakan] = useState(50);
   const [tidur, setTidur] = useState(50);
   const [main, setMain] = useState(50);
-  const [belajar, setBelajar] = useState(70);
+  const [belajar, setBelajar] = useState(0);
 
   // const counter semua stat
   const [countMakan, setCountMakan] = useState(0);
