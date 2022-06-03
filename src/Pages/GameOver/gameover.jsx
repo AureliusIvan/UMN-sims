@@ -1,9 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AllContext } from '../../components/Value/CoinContext';
-import over1 from './gameoverimg/Mukbanggameover.png';
-import over2 from './gameoverimg/Gamergameover.png';
-import over3 from './gameoverimg/Holkaygameover.png';
-import over4 from './gameoverimg/Codinggameover.png';
+import gif1 from './gameoverimg/gameover.gif';
 
 import {
   Modal,
@@ -18,29 +15,13 @@ import {
   Image,
 } from '@chakra-ui/react';
 
-
 function GameoverScreen() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { gameOver, setGameover } = useContext(AllContext);
-  const { character, setCharacter } = useContext(AllContext);
-  const {over, SetOver} = useState(over1)
 
-  
   useEffect(() => {
     if (gameOver == true) {
       onOpen();
-        // if (character === 1) {
-        //   SetOver(over1);
-        // }
-        // else if (character === 2) {
-        //   SetOver(over2);
-        // }
-        // else if (character === 3) {
-        //   SetOver(over3);
-        // }
-        // else if (character === 4) {
-        //   SetOver(over4);
-        // }
     }
   }, [gameOver]);
 
@@ -54,15 +35,9 @@ function GameoverScreen() {
       >
         <ModalOverlay />
         <ModalContent>
-
-          <ModalHeader>Game Over</ModalHeader>
-
+          <ModalHeader textAlign={'center'} fontSize={'30px'}>Game Over</ModalHeader>
           <ModalBody pb={10}>
-
-            <Image 
-          src={over3}
-          />
-
+          <Image src={gif1}/>
           </ModalBody>
           <ModalFooter>
             <Button

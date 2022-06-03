@@ -89,8 +89,6 @@ function Content() {
           />
         )}
       </Flex>
-      <Text>*belom ada efek suaranya ya :)</Text>
-      <VolSlider />
       <br />
       <Reset />
     </Box>
