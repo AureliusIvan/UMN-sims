@@ -34,7 +34,7 @@ function Sleep() {
   const { hour, setHour } = useContext(AllContext);
   const { tidur, setTidur, countTidur, setCountTidur } = useContext(AllContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [bar, setBar] = useState(6);
+  const [bar, setBar] = useState(7);
   
   function sleep() {
     const time = bar * 10;
