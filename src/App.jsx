@@ -119,6 +119,12 @@ function App() {
   const [chicken, setChicken] = useState(15);
   const [eggtray, setEggtray] = useState(15);
 
+  //const ngitung matkul
+  const [ngitungmatkul1, setngitungmatkul1 ] = useState(0);
+  const [ngitungmatkul2, setngitungmatkul2 ] = useState(0);
+  const [ngitungmatkul3, setngitungmatkul3 ] = useState(0);
+  const [ngitungmatkul4, setngitungmatkul4 ] = useState(0);
+
   //const waktu
   const [level, setLevel] = useState(1);
   useEffect(() => {
@@ -387,6 +393,14 @@ function App() {
           setStartEat,
           level,
           setLevel,
+          ngitungmatkul1, 
+          setngitungmatkul1,
+          ngitungmatkul2, 
+          setngitungmatkul2,
+          ngitungmatkul3, 
+          setngitungmatkul3,
+          ngitungmatkul4, 
+          setngitungmatkul4,
         }}
       >
         {gameOver ? <GameoverScreen /> : ''}
