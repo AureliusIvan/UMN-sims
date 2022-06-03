@@ -12,7 +12,8 @@ import {
     Flex,
     Image,
     Box,
-    Tooltip
+    Tooltip,
+    Divider
 } from '@chakra-ui/react'
 import { AllContext } from '../../components/Value/CoinContext';
 import { StatFunction } from '../../components/templateAndFunction/statCoinFunction';
@@ -157,12 +158,13 @@ function Matkul() {
             />
         </Tooltip>
 
-        <Modal isOpen={isOpen} onClose={onClose}>
-        <ModalOverlay />
-        <ModalContent>
-            <ModalHeader>
+        <Modal isOpen={isOpen} onClose={onClose} isCentered>
+        <ModalOverlay/>
+        <ModalContent borderRadius={"10px"}>
+            <ModalHeader backgroundColor={"green.200"}>
                 {pilmatkul}
             </ModalHeader>
+            <Divider borderWidth={"2px"} borderColor="blue.200"/>
             <ModalCloseButton />
             <ModalBody>
 
@@ -202,9 +204,6 @@ function Matkul() {
             </ModalBody>
 
             <ModalFooter>
-            <Button colorScheme='red' variant='outline' mr={3} onClick={onClose}>
-                Close
-            </Button>
             </ModalFooter>
         </ModalContent>
         </Modal>
