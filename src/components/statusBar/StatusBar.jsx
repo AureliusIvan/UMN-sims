@@ -7,7 +7,6 @@ import {
   CircularProgress,
   CircularProgressLabel,
 } from '@chakra-ui/react';
-
 import eat from '../asset/stat/lambung1.png';
 import sleep from '../asset/stat/Energy.png';
 import fun from '../asset/stat/fun_1.png';

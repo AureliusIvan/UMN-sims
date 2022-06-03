@@ -13,6 +13,7 @@ import bgnight from './bg/Sore.png';
 import bgnightrain from './bg/Rain.png';
 import { AllContext } from '../../components/Value/CoinContext';
 import Belajar from './Belajar';
+import { ArrowBackIcon } from '@chakra-ui/icons';
 
 function Univ(props) {
   const { hour, SetHour } = useContext(AllContext);
@@ -56,7 +57,27 @@ function Univ(props) {
         <GridItem className="gridItems" rowSpan={1} colSpan={1}></GridItem>
         
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
-          <Button className="gamebutton" onClick={() => props.handleClick('uni')}> Back </Button>
+        <Button
+          zIndex={1}
+          pos={'absolute'}
+          top="10px"
+          left={'60px'}
+          fontWeight={0}
+          borderRadius={'50%'}
+          h="50px"
+          w="50px"
+          padding={0}
+          bgColor="white"
+          onClick={() => props.handleClick('uni')}
+        >
+          <ArrowBackIcon
+            filter="invert(1)"
+            h="50px"
+            w={'50px'}
+            position={'absolute'}
+            _hover={{ filter: 'invert(0)' }}
+          />
+        </Button>
         </GridItem>
         <GridItem className="gridItems" rowSpan={1} colSpan={1}>
         </GridItem>

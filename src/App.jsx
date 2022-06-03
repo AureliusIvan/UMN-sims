@@ -28,9 +28,9 @@ import Player from './audio';
 
 ///ALL audio
 import cafeSound from './components/asset/sound/cafe/BlueZones.mp3';
-import menuSound from './components/asset/sound/mainmenusong/outthewindow.mp3';
-//
 import EvaluationScreen from './Pages/Eval/Eval' 
+import menuSound from './components/asset/sound/mainmenusong/homebgm.mp3';
+
 /*
 1. nama
 2. jurusan
