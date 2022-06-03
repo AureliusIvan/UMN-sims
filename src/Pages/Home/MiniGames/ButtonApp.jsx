@@ -92,7 +92,6 @@ function MiniGamestwo(props) {
 
   const done = () => {
     CoinFunction(coin, setCoin, 1000, 0);
-
     StatFunction(main, setMain, 30, 0);
     StatFunction(tidur, setTidur, 0, 5);
     
