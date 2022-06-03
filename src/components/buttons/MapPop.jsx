@@ -60,7 +60,8 @@ function MapPop(props) {
               filter="drop-shadow(2px 2px 3px burlywood)"
             />
             <Places
-              name="Mall"
+              name="Mall
+                    open on 7AM until 11PM"
               icon={mall}
               width={{ base: '42%', sm: '40%' }}
               left={{ base: '0', sm: '0' }}
@@ -69,7 +70,9 @@ function MapPop(props) {
               disabled={hour > 23 || hour < 7 ? true : false}
             />
             <Places
-              name="University"
+              name="University 
+                    open on 8AM until 17PM"
+              placement="top"
               icon={umn}
               width={{ base: '45%', sm: '42%' }}
               left={{ base: '260', sm: '250' }}
@@ -78,12 +81,13 @@ function MapPop(props) {
               disabled={hour > 17 || hour < 8 ? true : false}
             />
             <Places
-              name="Cafe"
+              name="Cafe
+                    open on 7AM until 11PM"
               icon={cafe}
               width={{ base: '34%', sm: '32%' }}
               left={{ base: '275', sm: '270' }}
               top={{ base: '115', sm: '120' }}
-              function={props.cafe} //belom berfungsi
+              function={props.cafe} 
               disabled={hour > 23 || hour < 7 ? true : false}
             />
             <Places
@@ -129,7 +133,7 @@ function Places(props) {
       shouldWrapChildren
       label={props.name}
       hasArrow
-      placement="auto"
+      placement={props.placement}
       closeDelay={100}
     >
       <Button
