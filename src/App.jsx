@@ -28,7 +28,7 @@ import Player from './audio';
 
 ///ALL audio
 import cafeSound from './components/asset/sound/cafe/BlueZones.mp3';
-import EvaluationScreen from './Pages/Eval/Eval' 
+import EvaluationScreen from './Pages/Eval/Eval';
 import menuSound from './components/asset/sound/mainmenusong/homebgm.mp3';
 
 /*
@@ -75,7 +75,7 @@ function App() {
 
   //time const
   const [Day, setDay] = useState(6);
-  const [hour, setHour] = useState(23);
+  const [hour, setHour] = useState(22);
   const [minute, setCount] = useState(49);
   const [countday, setCountday] = useState(0);
   const [realtime, setRealtime] = useState(0);
@@ -159,13 +159,13 @@ function App() {
     if (start == true) {
       setCount(minute + 1);
       {
-        StatFunction(makan, setMakan, 0, 0.5);
+        StatFunction(makan, setMakan, 0, 0.25);
       }
       {
-        StatFunction(tidur, setTidur, 0, 0.5);
+        StatFunction(tidur, setTidur, 0, 0.25);
       }
       {
-        StatFunction(main, setMain, 0, 0.5);
+        StatFunction(main, setMain, 0, 0.25);
       }
       if (minute >= 59) {
         setHour(hour + 1);
@@ -333,11 +333,11 @@ function App() {
           setMain,
           belajar,
           setBelajar,
-          countMakan, 
+          countMakan,
           setCountMakan,
-          countTidur, 
+          countTidur,
           setCountTidur,
-          countMain, 
+          countMain,
           setCountMain,
           countBelajar,
           setCountBelajar,
@@ -390,7 +390,7 @@ function App() {
         }}
       >
         {gameOver ? <GameoverScreen /> : ''}
-        <EvaluationScreen/>
+        <EvaluationScreen />
         {showPause ? (
           <>
             <Pause />
@@ -403,7 +403,7 @@ function App() {
           ''
         )}
         {hideChar ? <CreateChar /> : ''}
-        { start ? <Player url={menuSound} /> : ""}
+        {start ? <Player url={menuSound} /> : ''}
         {(() => {
           switch (game) {
             case 'start':

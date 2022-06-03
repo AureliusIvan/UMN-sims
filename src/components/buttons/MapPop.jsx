@@ -125,7 +125,13 @@ function MapPop(props) {
 
 function Places(props) {
   return (
-    <Tooltip label={props.name} hasArrow placement="auto" closeDelay={100}>
+    <Tooltip
+      shouldWrapChildren
+      label={props.name}
+      hasArrow
+      placement="auto"
+      closeDelay={100}
+    >
       <Button
         variant={'unstyled'}
         width={props.width}
