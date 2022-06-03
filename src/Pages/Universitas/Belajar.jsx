@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box, Flex, Image } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 import Pop from '../../components/templateAndFunction/tempPopUp';
 import { AllContext } from '../../components/Value/CoinContext';
@@ -50,7 +50,9 @@ function Belajar() {
         setCountBelajar(countBelajar + 1)
       }}
     >
+
       <Pop shownIMG={shown} name="Study" image={gif} alt="part time di mall" />
+
     </Box>
   );
 }
