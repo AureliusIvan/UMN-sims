@@ -11,43 +11,62 @@ import {
   useDisclosure,
   Button,
   Image,
+  Box,
+  VStack,
+  Flex,
 } from '@chakra-ui/react';
+import './Eval.css'
+
 
 function EvaluationScreen() {
+  const { Day, setDay } = useContext(AllContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const { gameOver, setGameover } = useContext(AllContext);
-  const { character, setCharacter } = useContext(AllContext);
-  const { over, SetOver } = useState('');
-
+  const [opened, setOpened ] = useState(false);
   useEffect(() => {
-    if (gameOver == true) {
+    if (Day % 7 === 0 && opened == false) {
       onOpen();
     }
-  }, [gameOver]);
+    if(Day % 7 !== 0 ){
+        setOpened(false);
+    }
+  }, [Day]);
 
   return (
     <>
-      <Modal
-        isCentered="true"
-        closeOnOverlayClick={false}
-        isOpen={isOpen}
-        onClose={onClose}
-      >
+      <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Evaluation</ModalHeader>
-          <ModalBody pb={10}>
-            <Image src={''} />
+          <ModalHeader color={'black'}>Evaluasi dalam seminggu</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody bgColor={'pink '} margin="10px">
+            <VStack align={"stretch"}>
+              <Box  borderRadius={'50%'}>
+                <Flex
+                className='starpoin'
+                  justifyContent={'center'}
+                  alignItems="center"
+                  borderRadius={'50%'}
+                  color={'white'}
+                  width={'100px'}
+                  height="100px"
+                  fontSize={"50px"}
+                  bgGradient={"linear(to-l, purple.600, blue.600)"}
+                  border="dashed 3px pink"
+                >
+                  90
+                </Flex>
+              </Box>
+              <Flex bgColor={"blue.500"} color="white" p="5px" borderRadius="10px">Persentase matkul selesai:</Flex>
+              <Flex bgColor={"blue.500"} color="white" p="5px" borderRadius="10px">Status tidur : </Flex>
+              <Flex bgColor={"blue.500"} color="white" p="5px" borderRadius="10px">Status makan :</Flex>
+              <Flex bgColor={"blue.500"} color="white" p="5px" borderRadius="10px">Status Keuangan: </Flex>
+            </VStack>
           </ModalBody>
           <ModalFooter>
-            <Button
-              onClick={() => {
-                onClose();
-              }}
-              colorScheme="red"
-              mr={3}
-            >
-              close
+            <Button colorScheme="blue" mr={3} onClick={()=>{onClose();
+            setOpened(true)
+            }}>
+              Close
             </Button>
           </ModalFooter>
         </ModalContent>
@@ -55,5 +74,4 @@ function EvaluationScreen() {
     </>
   );
 }
-
 export default EvaluationScreen;
