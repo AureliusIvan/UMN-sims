@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AllContext } from './components/Value/CoinContext';
 import { Box } from '@chakra-ui/react';
-import useSound from 'use-sound';
+// import useSound from 'use-sound';
 
 const useAudio = url => {
   const [audio] = useState(new Audio(url));
