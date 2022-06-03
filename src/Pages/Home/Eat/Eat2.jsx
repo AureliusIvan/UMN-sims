@@ -369,6 +369,7 @@ function Eat2() {
     if (lastfood != 0) {
       StatFunction(makan, setMakan, COLLECTION[foodIndex].hunger, 0);
       CheckStatFull(makan, countMakan, setCountMakan);
+      console.log("count makan:" + countMakan);
 
       if (COLLECTION[foodIndex].name === 'burger') {
         setBurger(burger - 1);

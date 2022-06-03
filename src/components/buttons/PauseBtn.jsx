@@ -15,8 +15,9 @@ import {
 } from '@chakra-ui/react';
 import React, { useState, useContext } from 'react';
 import Reset from './confirmReset';
-import audioOn from '../asset/icon/unmute.png';
-import audioOff from '../asset/icon/mute.png';
+import VolSlider from './volumeSlider';
+import audioOn from './asset/volume_on.svg';
+import audioOff from './asset/volume_off.svg';
 import { AllContext } from '../Value/CoinContext';
 
 function Pause() {
