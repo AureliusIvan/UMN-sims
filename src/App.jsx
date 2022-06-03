@@ -1,4 +1,4 @@
-import { ChakraProvider, theme, Button, useToast, Box } from '@chakra-ui/react';
+import { ChakraProvider, theme } from '@chakra-ui/react';
 import React, { useMemo, useState, useEffect, useRef } from 'react';
 import './App.css';
 import PageOne from './Pages/Start/Start';
@@ -25,6 +25,7 @@ import Currency from './components/buttons/Currency';
 import { CreateChar } from './components/character/CharacterCard';
 import { StatFunction } from './components/templateAndFunction/statCoinFunction';
 import Player from './audio';
+
 ///ALL audio
 import cafeSound from './components/asset/sound/cafe/BlueZones.mp3';
 import menuSound from './components/asset/sound/mainmenusong/outthewindow.mp3';
