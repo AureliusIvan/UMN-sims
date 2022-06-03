@@ -195,7 +195,7 @@ function MiniGamestwo(props) {
           color="white"
           fontWeight={'thin'}
           className="gamebutton"
-          disabled={turns < 8}
+          disabled={turns < 5}
           onClick={done}
         >
           {' '}
