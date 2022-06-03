@@ -10,9 +10,35 @@ function Clock() {
   const formatTime = (time) => {
     return String(time).padStart(2, '0')
   }
+  const [hari, setHari] = useState("");
+
+  useEffect(() => {
+    if (Day%7 === 0) {
+      setHari("Sunday")
+    } 
+    else if (Day%7 === 1) {
+      setHari("Monday")
+    } 
+    else if (Day%7 === 2) {
+      setHari("Tuesday")
+    } 
+    else if (Day%7 === 3) {
+      setHari("Wednesday")
+    }
+    else if (Day%7 === 4) {
+      setHari("Thursday")
+    }
+    else if (Day%7 === 5) {
+      setHari("Friday")
+    }
+    else if (Day%7 === 6) {
+      setHari("Saturday")
+    }
+  }, []);
+
   return (
     <Flex px={3} py={1} justifyContent="space-between">
-      <Text>Day {Day}</Text>
+      <Text>{hari}</Text>
       <Flex justifyContent="space-evenly" alignItems="center" width="40%">
         <FaWifi />
         <FaBatteryHalf />
