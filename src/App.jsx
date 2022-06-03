@@ -16,7 +16,7 @@ import Cart from './Pages/Mall/shoppingCart/appShop';
 import Uni from './Pages/Universitas/UnivHall';
 import Pause from './components/buttons/PauseBtn';
 import Phone from './components/phone/phoneMain';
-import { Toast, Toastwarn } from './components/templateAndFunction/toast';
+import { Toast, Toastwarn, ToastXP } from './components/templateAndFunction/toast';
 import Mall from './Pages/Mall/Mall';
 import Masak from './Pages/Home/Masak/masak';
 import GameoverScreen from './Pages/GameOver/gameover';
@@ -412,6 +412,7 @@ function App() {
             <StatusGroup />
             <Currency />
             <Toast />
+            <ToastXP />
           </>
         ) : (
           ''

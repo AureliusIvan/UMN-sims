@@ -16,7 +16,6 @@ import {
   Flex,
   Text,
 } from '@chakra-ui/react';
-import './Eval.css';
 
 function CreateText(props) {
   return (
@@ -67,6 +66,7 @@ function EvaluationScreen() {
   const [evalTidur, setEvalTidur] = useState('');
   const [evalMain, setEvalMain] = useState('');
   const [evalBelajar, setEvalBelajar] = useState('');
+  
   useEffect(() => {
     if (Day % 7 === 0 && opened == false) {
       onOpen();
