@@ -31,11 +31,14 @@ export function Toast() {
 }
 
 export function Toastwarn() {
-  const { makan, setMakan } = useContext(AllContext);
+  const { makan } = useContext(AllContext);
   const [first, setFirst] = useState(true);
   const toast = useToast();
+
   useEffect(() => {
-    if (first) setFirst(false);
+    if (first) 
+      setFirst(false);
+
     if (!first) {
       toast({
         description: 'Warning anda sekarat',
@@ -45,4 +48,27 @@ export function Toastwarn() {
       });
     }
   }, [makan]);
+}
+
+export function ToastXP() { // pasti belajar sih
+  const { belajar } = useContext(AllContext);
+  const [first, setFirst] = useState(true);
+  const toastXP = useToast();
+
+  useEffect(() => {
+    if (first) 
+      setFirst(false);
+
+    if (!first) {
+      if (belajar >= 100) {
+        console.log("level up")
+        toastXP({
+          description: 'Level Up!',
+          status: 'succeed',
+          position: 'bottom',
+          isClosable: true,
+        });
+      }
+    }
+  }, [belajar]);
 }

@@ -14,7 +14,8 @@ import libraryImg from '../../components/asset/uni/Library.png'
 function Univ(props) {
   const { hour, SetHour } = useContext(AllContext);
   const { weather, SetWeather } = useContext(AllContext);
-  
+  const { belajar } = useContext(AllContext)
+
   function changeBg() {
     if (hour >= 7 && hour < 12 && weather != 'Rain') {
       return bgday;
