@@ -73,9 +73,9 @@ function App() {
   const [nama, setNama] = useState('');
 
   //time const
-  const [Day, setDay] = useState(0);
-  const [hour, setHour] = useState(0);
-  const [minute, setCount] = useState(0);
+  const [Day, setDay] = useState(6);
+  const [hour, setHour] = useState(23);
+  const [minute, setCount] = useState(49);
   const [countday, setCountday] = useState(0);
   const [realtime, setRealtime] = useState(0);
 
@@ -133,13 +133,13 @@ function App() {
   useEffect(
     () => {
       if (makan <= 0) {
-        setGameover(true);
+        setGameover(false);
       }
       if (tidur <= 0) {
-        setGameover(true);
+        setGameover(false);
       }
       if (main <= 0) {
-        setGameover(true);
+        setGameover(false);
       }
     },
     [makan],
@@ -375,7 +375,7 @@ function App() {
         }}
       >
         {gameOver ? <GameoverScreen /> : ''}
-        
+        <EvaluationScreen/>
         {showPause ? (
           <>
             <Pause />
@@ -387,7 +387,6 @@ function App() {
         ) : (
           ''
         )}
-
         {hideChar ? <CreateChar /> : ''}
         { start ? <Player url={menuSound} /> : ""}
         {(() => {
