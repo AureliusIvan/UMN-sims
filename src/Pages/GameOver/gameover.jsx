@@ -9,7 +9,6 @@ import {
   ModalHeader,
   ModalFooter,
   ModalBody,
-  ModalCloseButton,
   useDisclosure,
   Button,
   Image,
@@ -33,7 +32,10 @@ function GameoverScreen() {
         isOpen={isOpen}
         onClose={onClose}
       >
-        <ModalOverlay />
+        <ModalOverlay 
+          bg="rgba(165,42,42, 0.8)"
+          backdropFilter="blur(5px) hue-rotate(90deg)"
+        />
         <ModalContent>
           <ModalHeader textAlign={'center'} fontSize={'30px'}>Game Over</ModalHeader>
           <ModalBody pb={10}>

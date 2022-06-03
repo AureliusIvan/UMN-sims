@@ -18,8 +18,6 @@ function Baca() {
     setMakan,
     main,
     setMain,
-    countBelajar,
-    setCountBelajar,
     character,
   } = useContext(AllContext);
   const [gif, setGif] = useState(gif1);
@@ -48,7 +46,6 @@ function Baca() {
         }
         StatFunction(makan, setMakan, 0, 8);
         StatFunction(main, setMain, 0, 8);
-        CheckStatFull(belajar, countBelajar, setCountBelajar)
       }}
     >
       <Pop
