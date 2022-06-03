@@ -74,9 +74,9 @@ function App() {
   const [nama, setNama] = useState('');
 
   //time const
-  const [Day, setDay] = useState(6);
-  const [hour, setHour] = useState(22);
-  const [minute, setCount] = useState(49);
+  const [Day, setDay] = useState(1);
+  const [hour, setHour] = useState(0);
+  const [minute, setCount] = useState(0);
   const [countday, setCountday] = useState(0);
   const [realtime, setRealtime] = useState(0);
 
@@ -120,10 +120,10 @@ function App() {
   const [eggtray, setEggtray] = useState(15);
 
   //const ngitung matkul
-  const [ngitungmatkul1, setngitungmatkul1 ] = useState(0);
-  const [ngitungmatkul2, setngitungmatkul2 ] = useState(0);
-  const [ngitungmatkul3, setngitungmatkul3 ] = useState(0);
-  const [ngitungmatkul4, setngitungmatkul4 ] = useState(0);
+  const [ngitungmatkul1, setngitungmatkul1] = useState(0);
+  const [ngitungmatkul2, setngitungmatkul2] = useState(0);
+  const [ngitungmatkul3, setngitungmatkul3] = useState(0);
+  const [ngitungmatkul4, setngitungmatkul4] = useState(0);
 
   //const waktu
   const [level, setLevel] = useState(1);
@@ -146,13 +146,13 @@ function App() {
   useEffect(
     () => {
       if (makan <= 0) {
-        setGameover(false);
+        setGameover(true);
       }
       if (tidur <= 0) {
-        setGameover(false);
+        setGameover(true);
       }
       if (main <= 0) {
-        setGameover(false);
+        setGameover(true);
       }
     },
     [makan],
@@ -393,13 +393,13 @@ function App() {
           setStartEat,
           level,
           setLevel,
-          ngitungmatkul1, 
+          ngitungmatkul1,
           setngitungmatkul1,
-          ngitungmatkul2, 
+          ngitungmatkul2,
           setngitungmatkul2,
-          ngitungmatkul3, 
+          ngitungmatkul3,
           setngitungmatkul3,
-          ngitungmatkul4, 
+          ngitungmatkul4,
           setngitungmatkul4,
         }}
       >
