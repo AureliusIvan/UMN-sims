@@ -201,13 +201,14 @@ function ShoppingBag(props) {
       setItem2(false);
     }
   }, [item]);
+
   return (
     <Droppable droppableId="BAG">
       {(provided, snapshot) => (
         <Box ref={provided.innerRef} className="shopping-bag">
           {provided.placeholder}
           {setItem(snapshot.isDraggingOver)}
-          {console.log(item)}
+          {/* {console.log(item)} */}
           <Image
             src={item2 ? gifA : gifB}
             pointerEvents="none"

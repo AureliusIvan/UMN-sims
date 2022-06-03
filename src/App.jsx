@@ -85,6 +85,12 @@ function App() {
   const [main, setMain] = useState(50);
   const [belajar, setBelajar] = useState(70);
 
+  // const counter semua stat
+  // const [countMakan, setCountMakan] = useState(0);
+  // const [countTidur, setCountTidur] = useState(0);
+  // const [countMain, setCountMain] = useState(0);
+  // const [countBelajar, setCountBelajar] = useState(0);
+
   //Weather const
   const [weather, setWeather] = useState('');
 
@@ -318,6 +324,12 @@ function App() {
           setHour,
           minute,
           setCount,
+          // countMakan,
+          // setCountMakan,
+          // countTidur,
+          // setCountTidur,
+          // countMain,
+          // setCountMain,
           makan,
           setMakan,
           tidur,

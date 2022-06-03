@@ -3,7 +3,7 @@ import { Box } from '@chakra-ui/react';
 import { AllContext } from '../../components/Value/CoinContext';
 import {
   StatFunction,
-  checkStat,
+  // checkStatFull,
   CoinFunction,
 } from '../../components/templateAndFunction/statCoinFunction';
 import Pop from '../../components/templateAndFunction/tempPopUp';
@@ -14,8 +14,8 @@ import gif3 from './cafeimg/Holkayngopi.gif';
 import gif4 from './cafeimg/Codingngopi.gif';
 
 function Ngopi() {
-  const { tidur, setTidur, coin, setCoin, makan, setMakan } =
-    useContext(AllContext);
+  const { tidur, setTidur, coin, setCoin, makan, setMakan } = useContext(AllContext);
+  const { countTidur, setCountTidur, countMakan, setCountMakan } = useContext(AllContext);
 
   //buat ganti gif berdasarkan character
   const { character, setCharacter } = useContext(AllContext);
@@ -38,6 +38,8 @@ function Ngopi() {
     <Box
       onClick={() => {
         StatFunction(tidur, setTidur, 10, 0);
+        // checkStatFull(tidur, countTidur, setCountTidur);
+        // console.log(countTidur);
         StatFunction(makan, setMakan, 15, 0);
         CoinFunction(coin, setCoin, 0, 800);
       }}

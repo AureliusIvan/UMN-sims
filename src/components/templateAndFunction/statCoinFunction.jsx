@@ -1,5 +1,11 @@
+import { AllContext } from "../Value/CoinContext";
+import { useContext } from "react";
+
 export function StatFunction(what, setWhat, add, min) {
     // console.log (`${what}, ${setWhat}, ${add}, ${min}`)
+
+    const { countMakan, setCountMakan } = useContext(AllContext)
+
     if (what <= 0 && add !== 0)
         setWhat(add) // sama aja kyk setWhat(what + add)
     else if (what - min <= 0 && min !== 0)
@@ -8,9 +14,8 @@ export function StatFunction(what, setWhat, add, min) {
         setWhat(what - min)
     else if (what + add >= 100 && add !== 0)
         setWhat(100)
-    else {
+    else
         setWhat(what + add - min);
-    }
 }
 
 export function CoinFunction (what, setWhat, add, min) {
@@ -21,3 +26,8 @@ export function CoinFunction (what, setWhat, add, min) {
     else
         setWhat(what + add - min) 
 }
+
+// export function checkStatFull(what, countWhat, setCountWhat) {
+//     if (what >= 100)
+//         setCountWhat(countWhat + 1)
+// }
