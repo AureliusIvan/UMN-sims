@@ -29,7 +29,8 @@ import Player from './audio';
 ///ALL audio
 import cafeSound from './components/asset/sound/cafe/BlueZones.mp3';
 import menuSound from './components/asset/sound/mainmenusong/outthewindow.mp3';
-
+//
+import EvaluationScreen from './Pages/Eval/Eval' 
 /*
 1. nama
 2. jurusan
@@ -86,10 +87,10 @@ function App() {
   const [belajar, setBelajar] = useState(70);
 
   // const counter semua stat
-  // const [countMakan, setCountMakan] = useState(0);
-  // const [countTidur, setCountTidur] = useState(0);
-  // const [countMain, setCountMain] = useState(0);
-  // const [countBelajar, setCountBelajar] = useState(0);
+  const [countMakan, setCountMakan] = useState(0);
+  const [countTidur, setCountTidur] = useState(0);
+  const [countMain, setCountMain] = useState(0);
+  const [countBelajar, setCountBelajar] = useState(0);
 
   //Weather const
   const [weather, setWeather] = useState('');
@@ -139,13 +140,13 @@ function App() {
   useEffect(
     () => {
       if (makan <= 0) {
-        setGameover(false);
+        setGameover(true);
       }
       if (tidur <= 0) {
-        setGameover(false);
+        setGameover(true);
       }
       if (main <= 0) {
-        setGameover(false);
+        setGameover(true);
       }
     },
     [makan],
@@ -324,12 +325,6 @@ function App() {
           setHour,
           minute,
           setCount,
-          // countMakan,
-          // setCountMakan,
-          // countTidur,
-          // setCountTidur,
-          // countMain,
-          // setCountMain,
           makan,
           setMakan,
           tidur,
@@ -338,6 +333,14 @@ function App() {
           setMain,
           belajar,
           setBelajar,
+          countMakan, 
+          setCountMakan,
+          countTidur, 
+          setCountTidur,
+          countMain, 
+          setCountMain,
+          countBelajar,
+          setCountBelajar,
           weather,
           setWeather,
           game,
@@ -387,6 +390,7 @@ function App() {
         }}
       >
         {gameOver ? <GameoverScreen /> : ''}
+        
         {showPause ? (
           <>
             <Pause />
@@ -400,7 +404,7 @@ function App() {
         )}
 
         {hideChar ? <CreateChar /> : ''}
-        { load ? <Player url={menuSound} /> : ""}
+        { start ? <Player url={menuSound} /> : ""}
         {(() => {
           switch (game) {
             case 'start':

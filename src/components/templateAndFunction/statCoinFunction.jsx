@@ -1,10 +1,10 @@
-import { AllContext } from "../Value/CoinContext";
-import { useContext } from "react";
+// import { AllContext } from "../Value/CoinContext";
+// import { useContext } from "react";
 
 export function StatFunction(what, setWhat, add, min) {
     // console.log (`${what}, ${setWhat}, ${add}, ${min}`)
 
-    const { countMakan, setCountMakan } = useContext(AllContext)
+    // const { countMakan, setCountMakan } = useContext(AllContext)
 
     if (what <= 0 && add !== 0)
         setWhat(add) // sama aja kyk setWhat(what + add)
@@ -27,7 +27,11 @@ export function CoinFunction (what, setWhat, add, min) {
         setWhat(what + add - min) 
 }
 
-// export function checkStatFull(what, countWhat, setCountWhat) {
-//     if (what >= 100)
-//         setCountWhat(countWhat + 1)
-// }
+export function CheckStatFull(what, countWhat, setCountWhat) {
+    if (what >= 95) {
+        setCountWhat(countWhat + 1)
+        console.log("percentage : " + countWhat)
+    }
+
+    // sleep utama beda sendiri, krn ada ukurannya sendiri
+}

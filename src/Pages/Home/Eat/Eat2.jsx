@@ -21,7 +21,7 @@ import friedfish from './food/friedfish.png';
 import roastchicken from './food/roastchicken.png';
 import salad from './food/salad.png';
 import steak from './food/steak.png';
-import { StatFunction } from '../../../components/templateAndFunction/statCoinFunction';
+import { StatFunction, CheckStatFull } from '../../../components/templateAndFunction/statCoinFunction';
 import makanbg from './food/makanbg.png';
 import nexticon from '../../../components/asset/icon/next.png';
 import previcon from '../../../components/asset/icon/prev.png';
@@ -274,7 +274,7 @@ function FoodCard(props) {
 
 function Eat2() {
   const { foodIndex, setFoodIndex } = useContext(AllContext);
-  const { makan, setMakan } = useContext(AllContext);
+  const { makan, setMakan, countMakan, setCountMakan } = useContext(AllContext);
   const [lastfood, setLastFood] = useState('');
   const { coin, setCoin } = useContext(AllContext);
   const [total, setTotal] = useState(0);
@@ -368,7 +368,8 @@ function Eat2() {
   useEffect(() => {
     if (lastfood != 0) {
       StatFunction(makan, setMakan, COLLECTION[foodIndex].hunger, 0);
-      // setMakan(makan + COLLECTION[foodIndex].hunger);
+      CheckStatFull(makan, countMakan, setCountMakan);
+
       if (COLLECTION[foodIndex].name === 'burger') {
         setBurger(burger - 1);
         setFoodValue(burger);
