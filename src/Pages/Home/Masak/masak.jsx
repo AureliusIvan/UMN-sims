@@ -76,7 +76,7 @@ function FoodCard(props) {
       padding={'10px'}
       justifyContent="space-between"
     >
-      <Button variant={'ghost'} bgColor={'null'} onClick={prevFood}>
+      <Button marginTop={'30px'}variant={'ghost'} bgColor={'null'} onClick={prevFood}>
         {'<'}
       </Button>
       <Image
@@ -97,7 +97,7 @@ function FoodCard(props) {
           {props.name}
         </Text>
       </Box>
-      <Button variant={'ghost'} onClick={nextFood}>
+      <Button marginTop={'30px'} variant={'ghost'} onClick={nextFood}>
         {'>'}
       </Button>
     </Flex>
