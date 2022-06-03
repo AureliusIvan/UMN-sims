@@ -25,7 +25,9 @@ import chickenimg from '../../Mall/shoppingCart/itemimage/chicken.png';
 import eggimg from '../../Mall/shoppingCart/itemimage/egg.png';
 import saltimg from '../../Mall/shoppingCart/itemimage/saltandpepper.png';
 import tomatoimg from '../../Mall/shoppingCart/itemimage/tomato.png';
-
+import stoveoff from './asset/Stoveoff.png';
+import stoveon from './asset/Stoveon.gif';
+import bg from '../../../components/background/Charselect.png';
 function FoodCard(props) {
   const { foodIndex, setFoodIndex } = useContext(AllContext);
 
@@ -134,7 +136,7 @@ function IngCard(props) {
             textAlign={'center'}
             borderRadius="10px"
           >
-            1 / {props.jumlah1}
+            {props.jumlah1} / 1
           </Text>
         </Flex>
         <Flex justifyContent={'center'}>
@@ -155,7 +157,7 @@ function IngCard(props) {
             textAlign={'center'}
             borderRadius="10px"
           >
-            1 / {props.jumlah2}
+            {props.jumlah2} / 1
           </Text>
         </Flex>
       </Flex>
@@ -306,6 +308,9 @@ function Masak(props) {
   const { chicken, setChicken } = useContext(AllContext);
   const { eggtray, setEggtray } = useContext(AllContext);
 
+  //const stove
+  const [stove, setStove] = useState(stoveoff);
+
   function Operate() {
     if (foodIndex == 0) {
       if (bread > 0 && beef > 0) {
@@ -313,6 +318,10 @@ function Masak(props) {
         setBeef(beef - 1);
         setBread(bread - 1);
         addToastsuccess();
+        setStove(stoveon);
+        setTimeout(() => {
+          setStove(stoveoff);
+        }, 1500);
       } else {
         if (!toast.isActive(id)) addToast(id);
       }
@@ -322,6 +331,10 @@ function Masak(props) {
         setEggtray(eggtray - 1);
         setSalt(salt - 1);
         addToastsuccess();
+        setStove(stoveon);
+        setTimeout(() => {
+          setStove(stoveoff);
+        }, 1500);
       } else {
         if (!toast.isActive(id)) addToast(id);
       }
@@ -331,6 +344,10 @@ function Masak(props) {
         setBeef(beef - 1);
         setSalt(salt - 1);
         addToastsuccess();
+        setStove(stoveon);
+        setTimeout(() => {
+          setStove(stoveoff);
+        }, 1500);
       } else {
         if (!toast.isActive(id)) addToast(id);
       }
@@ -340,6 +357,10 @@ function Masak(props) {
         setChicken(chicken - 1);
         setSalt(salt - 1);
         addToastsuccess();
+        setStove(stoveon);
+        setTimeout(() => {
+          setStove(stoveoff);
+        }, 1500);
       } else {
         if (!toast.isActive(id)) addToast(id);
       }
@@ -349,6 +370,10 @@ function Masak(props) {
         setCabbage(cabbage - 1);
         setTomato(tomato - 1);
         addToastsuccess();
+        setStove(stoveon);
+        setTimeout(() => {
+          setStove(stoveoff);
+        }, 1500);
       } else {
         if (!toast.isActive(id)) addToast(id);
       }
@@ -358,6 +383,10 @@ function Masak(props) {
         setBeef(beef - 1);
         setSalt(salt - 1);
         addToastsuccess();
+        setStove(stoveon);
+        setTimeout(() => {
+          setStove(stoveoff);
+        }, 1500);
       } else {
         if (!toast.isActive(id)) addToast(id);
       }
@@ -365,11 +394,18 @@ function Masak(props) {
   }
 
   return (
-    <Box bgColor={'blue.200'} padding="20px" width="100%" h="100vh">
+    <Box
+      bgColor={'blue.200'}
+      bgImage={bg}
+      bgSize={{ md: 'cover', base: 'contain' }}
+      bgPos="center"
+      padding="20px"
+      width="100%"
+      h="100vh"
+    >
       <Flex
         width={'100%'}
         height="50px"
-        bgColor="blue.300"
         pos={'absolute'}
         top="0"
         margin={'auto'}
@@ -398,7 +434,18 @@ function Masak(props) {
           <SwitchFood />
         </GridItem>
 
-        <GridItem rowSpan={3} colSpan={3} bg=""></GridItem>
+        <GridItem rowSpan={3} colSpan={3} bg="">
+          <Flex>
+            <Image
+              pos={'absolute'}
+              margin="auto"
+              width={'420px'}
+              left="0"
+              right={'0'}
+              src={stove}
+            />
+          </Flex>
+        </GridItem>
         <GridItem
           rowSpan={1}
           colSpan={3}
@@ -417,7 +464,23 @@ function Masak(props) {
           justifyContent="center"
           alignContent={'center'}
         >
-          <Button onClick={Operate}>Cook</Button>
+          <Button
+            width="80px"
+            height="80px"
+            borderRadius="50%"
+            pointerEvents="all"
+            transition="0.5s"
+            _hover={{
+              transform: 'scale(1.2)',
+              bgGradient: 'linear(to-r, red.400, yellow.400)',
+            }}
+            shadow="xl"
+            bgGradient="linear(to-l, red.500, yellow.500)"
+            onClick={Operate}
+            color="white"
+          >
+            Cook
+          </Button>
         </GridItem>
       </Grid>
     </Box>

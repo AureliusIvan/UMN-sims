@@ -13,11 +13,12 @@ import {
   ModalOverlay,
   useDisclosure,
 } from '@chakra-ui/react';
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Reset from './confirmReset';
-import VolSlider from "./volumeSlider";
-import audioOn from '../asset/icon/unmute.png'
-import audioOff from '../asset/icon/mute.png'
+import VolSlider from './volumeSlider';
+import audioOn from '../asset/icon/unmute.png';
+import audioOff from '../asset/icon/mute.png';
+import { AllContext } from '../Value/CoinContext';
 
 function Pause() {
   const PopUp = () => (
@@ -29,7 +30,6 @@ function Pause() {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [overlay, setOverlay] = useState(<PopUp />);
-
   return (
     <>
       <Button
@@ -64,24 +64,37 @@ function Pause() {
 function Content() {
   const [mute, setMute] = useState(false);
   const toggleMute = () => setMute(mute => !mute);
-	return (
-		<Box>
-			<Text>Volume</Text>
-			<Flex 
-				justifyContent='center'
-				height={{base:'50px', sm:'80px'}}
-			>
-				{mute ? 
-					<Image src={audioOff} onClick={toggleMute} cursor='pointer' />
-				:
-					<Image src={audioOn} onClick={toggleMute} cursor='pointer' />
-				}
-			</Flex>
-			<Text>*belom ada efek suaranya ya :)</Text>
-			<VolSlider /><br />
-			<Reset />
-		</Box>
-	);
+  const { playing, setPlaying } = useContext(AllContext);
+  return (
+    <Box>
+      <Text>Volume</Text>
+      <Flex justifyContent="center" height={{ base: '50px', sm: '80px' }}>
+        {mute ? (
+          <Image
+            src={audioOff}
+            onClick={() => {
+              toggleMute();
+              setPlaying(!playing);
+            }}
+            cursor="pointer"
+          />
+        ) : (
+          <Image
+            src={audioOn}
+            onClick={() => {
+              toggleMute();
+              setPlaying(!playing);
+            }}
+            cursor="pointer"
+          />
+        )}
+      </Flex>
+      <Text>*belom ada efek suaranya ya :)</Text>
+      <VolSlider />
+      <br />
+      <Reset />
+    </Box>
+  );
 }
 
 export default Pause;

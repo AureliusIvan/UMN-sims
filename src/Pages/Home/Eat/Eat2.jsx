@@ -25,11 +25,20 @@ import { StatFunction } from '../../../components/templateAndFunction/statCoinFu
 import makanbg from './food/makanbg.png';
 import nexticon from '../../../components/asset/icon/next.png';
 import previcon from '../../../components/asset/icon/prev.png';
-import nyam from '../../../components/asset/home/nyam.png'
+import nyam from '../../../components/asset/home/nyam.png';
 //import gif
 //kang mukbang
 import mukbangA from '../../../components/asset/gif/mukbang/MukbangA.gif';
-import mukbangmunch from '../../../components/asset/gif/mukbang/Mukbangmunch.gif';
+import mukbangmunchA from '../../../components/asset/gif/mukbang/Mukbangmunch.gif';
+//gamers
+import mukbangB from '../../../components/asset/gif/gamers/GamerA.gif';
+import mukbangmunchB from '../../../components/asset/gif/gamers/Gamermunch.gif';
+//holkay
+import mukbangC from '../../../components/asset/gif/holkay/HolkayA.gif';
+import mukbangmunchC from '../../../components/asset/gif/holkay/Holkaymunch.gif';
+//coding
+import mukbangD from '../../../components/asset/gif/coding/CodingA.gif';
+import mukbangmunchD from '../../../components/asset/gif/coding/Codingmunch.gif';
 
 const COLLECTION = [
   {
@@ -139,7 +148,7 @@ function Copyable(props) {
                     {(provided, snapshot) => (
                       <React.Fragment>
                         <GridItem
-                        transform={'translateY(12px)'}
+                          transform={'translateY(12px)'}
                           ref={provided.innerRef}
                           {...provided.draggableProps}
                           {...provided.dragHandleProps}
@@ -164,15 +173,43 @@ function Copyable(props) {
 }
 
 function ShoppingBag(props) {
+  const [item, setItem] = useState(true);
+  const [item2, setItem2] = useState(false);
+  const [gifA, setGifA] = useState(mukbangA);
+  const [gifB, setGifB] = useState(mukbangmunchA);
+  const { character, setCharacter } = useContext(AllContext);
+  useEffect(() => {
+    if (character === 1) {
+      setGifA(mukbangA);
+      setGifB(mukbangmunchA);
+    } else if (character === 2) {
+      setGifA(mukbangB);
+      setGifB(mukbangmunchB);
+    } else if (character === 3) {
+      setGifA(mukbangC);
+      setGifB(mukbangmunchC);
+    } else if (character === 4) {
+      setGifA(mukbangD);
+      setGifB(mukbangmunchD);
+    }
+  }, []);
+  useEffect(() => {
+    if (item == false) {
+      setTimeout(() => {
+        setItem2(true);
+      }, 1000);
+      setItem2(false);
+    }
+  }, [item]);
   return (
     <Droppable droppableId="BAG">
       {(provided, snapshot) => (
         <Box ref={provided.innerRef} className="shopping-bag">
           {provided.placeholder}
-          {
-          }
+          {setItem(snapshot.isDraggingOver)}
+          {console.log(item)}
           <Image
-            src={snapshot.isDraggingOver ? mukbangmunch: mukbangA }
+            src={item2 ? gifA : gifB}
             pointerEvents="none"
             objectFit="cover"
             margin="auto"
@@ -199,7 +236,11 @@ function Shop(props) {
 function FoodCard(props) {
   return (
     <>
-      <Flex justifyContent="center" pos="absolute" transform={'translateY(15px)'}>
+      <Flex
+        justifyContent="center"
+        pos="absolute"
+        transform={'translateY(15px)'}
+      >
         <Flex
           bgColor={'red'}
           color="white"
@@ -362,7 +403,13 @@ function Eat2() {
 
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Box className="Eat" bgImage={makanbg} bgPos="center" bgSize={{md:"cover", base:"contain"}}>
+      <Box
+        className="Eat"
+        bgImage={makanbg}
+        bgPos="center"
+        bgSize={"contain"}
+        overflow="hidden"
+      >
         <Grid
           className="Grid"
           h="100vh"
@@ -386,36 +433,37 @@ function Eat2() {
             </Text>
           </GridItem>
           <GridItem className="gridItems" rowSpan={3} colSpan={3}>
-          <Tooltip 
-                label={`You are ${makan}% full`}
-                placement="top"
-            >
-                <Flex alignItems="center" justifyContent="center">
-                    <Flex 
-                        fontSize="20px"
-                        borderRadius="50%" 
-                        width="40px" 
-                        height="40px" 
-                        bgColor='white'
-                        alignItems="center"
-                        justifyContent="center"
-                        zIndex={5}
-                        boxShadow="2px 2px 5px gray"
-                    >
-                      <Image src={nyam} />
-                    </Flex>
-                    <Progress 
-                        ml="-10px"
-                        w="350px"
-                        h={'20px'}
-                        colorScheme={'green'}
-                        borderRadius="10px"
-                        value={makan}
-                        border="2px solid white"
-                        transition="0.2s"
-                        boxShadow="2px 2px 5px gray"
-                    />
+            <Tooltip label={`You are ${makan}% full`} placement="top">
+              <Flex
+                transform="translateY(50px)"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Flex
+                  fontSize="20px"
+                  borderRadius="50%"
+                  width="40px"
+                  height="40px"
+                  bgColor="white"
+                  alignItems="center"
+                  justifyContent="center"
+                  zIndex={5}
+                  boxShadow="2px 2px 5px gray"
+                >
+                  <Image src={nyam} />
                 </Flex>
+                <Progress
+                  ml="-10px"
+                  w="350px"
+                  h={'20px'}
+                  colorScheme={'green'}
+                  borderRadius="10px"
+                  value={makan}
+                  border="2px solid white"
+                  transition="0.2s"
+                  boxShadow="2px 2px 5px gray"
+                />
+              </Flex>
             </Tooltip>
           </GridItem>
           <GridItem className="gridItems" rowSpan={1} colSpan={3}></GridItem>
@@ -432,7 +480,13 @@ function Eat2() {
               </Flex>
             </Box>
           </GridItem>
-          <GridItem transform={{base:"translateY(30px)", sm:"none"}}zIndex={10} className="gridItems" rowSpan={1} colSpan={3}>
+          <GridItem
+            transform={{ base: 'translateY(30px)', sm: 'none' }}
+            zIndex={10}
+            className="gridItems"
+            rowSpan={1}
+            colSpan={3}
+          >
             <Box
               width="350px"
               h={'200px'}
@@ -472,7 +526,6 @@ function Eat2() {
             <Box></Box>
           </GridItem>
           <GridItem
-            border="2px black solid"
             width={'100%'}
             h="25vh"
             pos={'fixed'}
@@ -534,10 +587,17 @@ function Eat2() {
                       <Shop items={COLLECTION} />
                     ) : (
                       <>
-                        <Text bgColor="orange.100" borderRadius={10} px={3} transform="translateY(70px)">Makanan Habis</Text>
+                        <Text
+                          bgColor="orange.100"
+                          borderRadius={10}
+                          px={3}
+                          transform="translateY(70px)"
+                        >
+                          Makanan Habis
+                        </Text>
                       </>
                     )}
-                    
+
                     {(() => {
                       switch (foodIndex) {
                         case 0:

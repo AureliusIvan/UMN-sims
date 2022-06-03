@@ -1,7 +1,7 @@
 export const Char1 = {
   name: 'Vera',
   tipe: 'Kang mukbang',
-  desc: '[King of Mukbang] Menambah kapasitas perut sebanyak +20%',
+  desc: '[King of Mukbang] Hunger stat +20%',
   lore: 'Diceritakan bahwa Kang mukbang sangat suka makan, bahkan semenjak masih menjadi embrio. Kemampuannya ini mengantarkannya menjuarai lomba makan tingkat kampung.',
   next: 2,
   prev: 4,
@@ -10,7 +10,7 @@ export const Char1 = {
 export const Char2 = {
   name: 'Fiona',
   tipe: 'Gamers',
-  desc: '[Goddess of gaming] Menambah stat bermain sebanyak +20%',
+  desc: '[Goddess of gaming] Happiness stat +20%',
   lore: 'Sewaktu SMA, Gamers pernah menjuarai lomba e-sport, sejak saat itu gamers menyadari potensi besar dalam dirinya untuk menjadi seorang gamers profesional.',
   next: 3,
   prev: 1,

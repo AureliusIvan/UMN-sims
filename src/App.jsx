@@ -1,5 +1,5 @@
 import { ChakraProvider, theme } from '@chakra-ui/react';
-import { useMemo, useState, useEffect, useRef } from 'react';
+import React, { useMemo, useState, useEffect, useRef } from 'react';
 import './App.css';
 import PageOne from './Pages/Start/Start';
 import SelectCharacter from './Pages/SelectChar/SelectChar';
@@ -16,7 +16,7 @@ import Cart from './Pages/Mall/shoppingCart/appShop';
 import Uni from './Pages/Universitas/UnivHall';
 import Pause from './components/buttons/PauseBtn';
 import Phone from './components/phone/phoneMain';
-import Toast from './components/templateAndFunction/toast';
+import { Toast, Toastwarn } from './components/templateAndFunction/toast';
 import Mall from './Pages/Mall/Mall';
 import Masak from './Pages/Home/Masak/masak';
 import GameoverScreen from './Pages/GameOver/gameover';
@@ -25,6 +25,7 @@ import Currency from './components/buttons/Currency';
 import { CreateChar } from './components/character/CharacterCard';
 import { StatFunction } from './components/templateAndFunction/statCoinFunction';
 import Player from './audio';
+
 ///ALL audio
 import cafeSound from './components/asset/sound/cafe/BlueZones.mp3';
 import menuSound from './components/asset/sound/mainmenusong/outthewindow.mp3';
@@ -47,6 +48,7 @@ function DragEat() {
 
 function App() {
   //const buat set mulai
+  const [load, setLoad] = useState(false);
   const [start, setStart] = useState(false);
   //DND
   const [isdrag, setDrag] = useState(false);
@@ -102,13 +104,22 @@ function App() {
   const [ayampanggang, setAyampanggang] = useState(10);
 
   //const buat bahan makanan
-  const [tomato, setTomato] = useState(5);
-  const [bread, setBread] = useState(2);
-  const [beef, setBeef] = useState(1);
-  const [salt, setSalt] = useState(3);
-  const [cabbage, setCabbage] = useState(5);
-  const [chicken, setChicken] = useState(5);
-  const [eggtray, setEggtray] = useState(5);
+  const [tomato, setTomato] = useState(15);
+  const [bread, setBread] = useState(15);
+  const [beef, setBeef] = useState(15);
+  const [salt, setSalt] = useState(15);
+  const [cabbage, setCabbage] = useState(15);
+  const [chicken, setChicken] = useState(15);
+  const [eggtray, setEggtray] = useState(15);
+
+  //const waktu
+  const [level, setLevel] = useState(1);
+  useEffect(() => {
+    if (belajar >= 100) {
+      setLevel(level + 1);
+      setBelajar(0);
+    }
+  }, [belajar]);
 
   //const audio
   const [playing, setPlaying] = useState(true);
@@ -117,8 +128,8 @@ function App() {
   const [hideChar, setHideChar] = useState(true);
   //gameover
   const [gameOver, setGameover] = useState(false);
-//buat makan
-const [startEAT, setStartEat] = useState(true);
+  //buat makan
+  const [startEAT, setStartEat] = useState(true);
   useEffect(
     () => {
       if (makan <= 0) {
@@ -192,7 +203,7 @@ const [startEAT, setStartEat] = useState(true);
 
   // handle switch page
   // https://medium.com/nerd-for-tech/a-case-to-switch-using-switch-statements-in-react-e83e01154f60
-  const [game, setGame] = useState('cart');
+  const [game, setGame] = useState('start');
   const handleClick = gameState => {
     setGame(gameState);
     console.log(game);
@@ -202,6 +213,7 @@ const [startEAT, setStartEat] = useState(true);
   useEffect(() => {
     if (
       game === 'start' ||
+      game === 'Minigames' ||
       game === 'selectchar' ||
       game === 'eat' ||
       game === 'cook' ||
@@ -230,12 +242,60 @@ const [startEAT, setStartEat] = useState(true);
 
   //buat sound
   useEffect(() => {
-    if (game === 'start') {
-      setSong("");
-    } else {
+    if (start === true) {
       setSong('');
     }
   }, [game]);
+
+  //algoritma pulang kalo udah malem
+  // const toast = useToast();
+  // const toastIdRef = React.useRef();
+  // const id = 'test-toast';
+  // function addToast() {
+  //   toastIdRef.current = toast({
+  //     id,
+  //     position: 'top',
+  //     duration: '1000',
+  //     render: () => (
+  //       <Box color="white" width="500px" height="100px" bgColor="whatsapp.100">
+  //         Sudah malam, kamu harus pulang!
+  //       </Box>
+  //     ),
+  //   });
+  // }
+
+  useEffect(() => {
+    if (hour > 23 || (hour < 7 && start === true)) {
+      if (
+        game === 'home' ||
+        game === 'eat' ||
+        game === 'cook' ||
+        game === 'Minigames'
+      ) {
+      } else {
+        setGame('home');
+        // addToast();
+      }
+    }
+  }, [minute]);
+
+  //useEffect for stat bar
+  // const [alreadyToast, setAlreadyToast] = useState(false);
+  // const toast = useToast();
+  // useEffect(() => {
+  //   if (makan <= 30) {
+  //     if (alreadyToast === false) {
+  //       toast({
+  //         description: 'Warning anda sekarat',
+  //         status: 'info',
+  //         position: 'top',
+  //         size: '100px',
+  //         isClosable: true,
+  //       });
+  //       setAlreadyToast(true);
+  //     }
+  //   }
+  // }, [makan]);
 
   return (
     <ChakraProvider theme={theme}>
@@ -309,7 +369,9 @@ const [startEAT, setStartEat] = useState(true);
           filled,
           setFilled,
           startEAT,
-          setStartEat
+          setStartEat,
+          level,
+          setLevel,
         }}
       >
         {gameOver ? <GameoverScreen /> : ''}
@@ -324,8 +386,9 @@ const [startEAT, setStartEat] = useState(true);
         ) : (
           ''
         )}
+
         {hideChar ? <CreateChar /> : ''}
-        <Player url={song} />
+        { load ? <Player url={menuSound} /> : ""}
         {(() => {
           switch (game) {
             case 'start':

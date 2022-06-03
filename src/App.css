@@ -1,37 +1,37 @@
 body {
-    cursor: url('components/asset/cursor/cursor_normal.png'), auto;
-    font-family: "Dimbo" !important;
-    overflow: auto;
-    background-color: rgb(196, 244, 255) ;
-    overflow-x: hidden;
-    /*scrollbar*/
-    -ms-overflow-style: none;  /* Internet Explorer 10+ */
-    scrollbar-width: none;  /* Firefox */
+  cursor: url('components/asset/cursor/cursor_normal.png'), auto;
+  font-family: 'Dimbo' !important;
+  overflow: auto;
+  background-color: rgb(196, 244, 255);
+  overflow-x: hidden;
+  /*scrollbar*/
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+  overflow-x: hidden;
 }
 
-
-.cafe{
-    background-color: rgb(255, 192, 233);
+.cafe {
+  background-color: rgb(255, 192, 233);
 }
 
-.mall{
-    background-color: ghostwhite;
+.mall {
+  background-color: ghostwhite;
 }
 
-.uni{
-    background-color: aquamarine;
+.uni {
+  background-color: aquamarine;
 }
 
-.usePointer{
-    cursor: url('components/asset/cursor/cursor_point.png') !important;
+.usePointer {
+  cursor: url('components/asset/cursor/cursor_point.png') !important;
 }
 
 ::-webkit-scrollbar {
-    width: 0;
-    background: transparent;
+  width: 0;
+  background: transparent;
 }
 
 @font-face {
-    font-family: "Dimbo";
-    src: url(components/asset/font/Dimbo\ Regular.ttf);
+  font-family: 'Dimbo';
+  src: url(components/asset/font/Dimbo\ Regular.ttf);
 }

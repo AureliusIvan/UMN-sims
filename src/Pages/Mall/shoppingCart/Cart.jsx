@@ -126,7 +126,6 @@ function ShoppingBag(props) {
           gap={0}
           bgColor={'blue.100'}
           ref={provided.innerRef}
-          overflow="hidden"
           borderRadius={20}
         >
           {props.items.map((item, index) => (
