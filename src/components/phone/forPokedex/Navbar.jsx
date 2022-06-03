@@ -1,10 +1,10 @@
 import React from 'react';
-import { Box, Text, Image } from '@chakra-ui/react';
+import { Image } from '@chakra-ui/react';
 import logo from './Images/logo.png'
 
 function PokeNavbar() {
     return (
-            <Image margin="auto" w="100px" src={logo}/>
+        <Image my={3} mx="auto" w="100px" src={logo}/>
     );
 }
 

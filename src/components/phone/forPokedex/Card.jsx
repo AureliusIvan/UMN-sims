@@ -7,6 +7,7 @@ function PokeCard({ pokemon }) {
   return (
     <Flex
       margin={'10px'}
+      mb={5}
       padding="10px"
       h={'120px'}
       w="220px"
@@ -18,7 +19,6 @@ function PokeCard({ pokemon }) {
       filter="drop-shadow(2px 1px 1px #222)"
     >
       <Flex
-        margin={'10px'}
         h={'120px'}
         w="120px"
         borderRadius={'50%'}

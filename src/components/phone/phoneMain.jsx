@@ -37,12 +37,13 @@ function Phone() {
             onMouseOver={() => setHover(true)}
             onMouseOut={() => setHover(false)}
             src={!hover ? phone : phoneHover}
-            width={{ base: '20%', sm: '16%', md: '7%' }}
+            width={{ base: 90, sm:110, md: 120 }}
             // className="usePointer"
             cursor="pointer"
           />
         </PopoverTrigger>
         <PopoverContent
+          ml={4}
           bottom={-5}
           borderRadius={25}
           color="white"

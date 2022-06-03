@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
-import { Box, Skeleton, Stack, Text } from "@chakra-ui/react";
+import { Box, Skeleton, Stack } from "@chakra-ui/react";
 import { NewsContext } from "./newsContext";
 import NewsArticle from "./newsArticle";
 
 function News() {
 	const { data } = useContext(NewsContext);
 	console.log(data);
+
 	return (
     <Box>
 		<Box>
