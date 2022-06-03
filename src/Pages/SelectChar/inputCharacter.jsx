@@ -6,12 +6,13 @@ function InputDataChar() {
 	const { nama, setNama, jurusan, setJurusan } = useContext(AllContext);
 	const {filled, setFilled } = useContext(AllContext);
 	useEffect(()=>{
-		if(nama === "" || jurusan === ""){
-			setFilled(false);
-		}else{
+		if(nama != "" && jurusan != ""){
 			setFilled(true);
 		}
-	},[nama])
+		else{
+			setFilled(false);
+		}
+	},[nama][jurusan])
 
 	function handleNama (e) {
 		setNama(e.target.value);
