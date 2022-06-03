@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-import { Box, Center, Text, Image, Flex, VStack } from '@chakra-ui/react';
+import { Box, Center, Text, Image, Flex, VStack, Stack, Skeleton } from '@chakra-ui/react';
 import { AllContext } from '../../Value/CoinContext';
 import PokeCard from '../forPokedex/Card';
 
@@ -66,6 +66,7 @@ const AnimeApp = () => {
   const [desc, setDesc] = useState('');
   const [city, setCity] = useState('Jakarta');
   const [country, setCountry] = useState('ID');
+  const [loading, setLoading] = useState(true);
 
   const getWeatherData = () => {
     axios({
@@ -85,6 +86,7 @@ const AnimeApp = () => {
     async function fetchData() {
       getWeatherData(city, country);
     }
+    setLoading(false);
     fetchData();
   }, []); 
   return (
@@ -92,15 +94,26 @@ const AnimeApp = () => {
       <Center>
         <VStack height={'auto'} width="400px" spacing={8} bgColor={'white'}>
           <Text bgColor={"red.500"} width="100%" h="40px" fontSize={"20px"} color="white" textAlign={"center"}>MY ANIME LIST</Text>
-          {animeData.map((object, i) => {
-              console.log(object.entry)
-            return (
-                <Card
-                image={object.entry.images.jpg.image_url}
-                name={object.entry.title}
-              />
-            );
-          })}
+          {!loading
+            ? 	animeData.map((object, i) => (
+                // console.log(object.entry)
+                  <Card
+                    image={object.entry.images.jpg.image_url}
+                    name={object.entry.title}
+                  />
+            ))
+
+            : (
+            <Stack>
+              <Skeleton height="44px" />
+              <Skeleton height="44px" />
+              <Skeleton height="44px" />
+              <Skeleton height="44px" />
+              <Skeleton height="44px" />
+              <Skeleton height="44px" />
+            </Stack>
+            )
+              }
         </VStack>
       </Center>
     </>

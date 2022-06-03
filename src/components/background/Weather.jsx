@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
-import { Box, Button, Text, Image, Flex } from '@chakra-ui/react';
+import { Image, Flex } from '@chakra-ui/react';
 import { AllContext } from '../Value/CoinContext';
 
 const WeatherApp = () => {
@@ -35,18 +35,18 @@ const WeatherApp = () => {
 
   return (
     <>
-    <Flex
-    height={'70px'}
-    width='100%'
-    bgColor={'blackAlpha.100'}
-    justifyContent={'center'}
-    fontSize={'25px'}
-    transform='translateX(-20px)'
-    >
-      <Image w={'100px'} h='100px' src='http://openweathermap.org/img/w/02d.png'/>
+      <Flex
+        pt={3}
+        height={'70px'}
+        width='100%'
+        justifyContent={'center'}
+        alignItems="center"
+        fontSize={'20px'}
+      >
+        <Image w={'100px'} h='100px' src='http://openweathermap.org/img/w/02d.png'/>
           {/* {Math.round(temperature * 100) / 100} ℉ */}
           {Math.round(temperature * 100) / 100} ℃ - {desc}
-        </Flex>
+      </Flex>
     </>
   );
 };

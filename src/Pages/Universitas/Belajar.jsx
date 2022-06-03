@@ -47,7 +47,7 @@ function Belajar() {
         }
         StatFunction(tidur, setTidur, 0, 5);
         StatFunction(makan, setMakan, 0, 8);
-        CheckStatFull(belajar, countBelajar, setCountBelajar)
+        setCountBelajar(countBelajar + 1)
       }}
     >
       <Pop shownIMG={shown} name="Study" image={gif} alt="part time di mall" />
