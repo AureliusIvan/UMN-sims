@@ -2,7 +2,7 @@ import { Box } from '@chakra-ui/react';
 import { useContext, useEffect, useState } from 'react';
 import Pop from '../../components/templateAndFunction/tempPopUp';
 import { AllContext } from '../../components/Value/CoinContext';
-import { StatFunction } from '../../components/templateAndFunction/statCoinFunction';
+import { StatFunction, CheckStatFull } from '../../components/templateAndFunction/statCoinFunction';
 import shown from '../../components/asset/uni/study.png';
 import gif1 from './bg/Mukbangstudy.gif';
 import gif2 from './bg/gamerstudyinclass.gif';
@@ -17,6 +17,8 @@ function Belajar() {
     setMakan,
     belajar,
     setBelajar,
+    countBelajar,
+    setCountBelajar,
     character,
     setCharacter,
   } = useContext(AllContext);
@@ -39,12 +41,13 @@ function Belajar() {
     <Box
       onClick={() => {
         if (character === 4) {
-          StatFunction(belajar, setBelajar, 12, 0);
+          StatFunction(belajar, setBelajar, 15, 0);
         } else {
           StatFunction(belajar, setBelajar, 10, 0);
         }
         StatFunction(tidur, setTidur, 0, 5);
         StatFunction(makan, setMakan, 0, 8);
+        CheckStatFull(belajar, countBelajar, setCountBelajar)
       }}
     >
       <Pop shownIMG={shown} name="Study" image={gif} alt="part time di mall" />

@@ -15,6 +15,7 @@ import { AllContext } from '../../../components/Value/CoinContext';
 import {
   CoinFunction,
   StatFunction,
+  CheckStatFull
 } from '../../../components/templateAndFunction/statCoinFunction';
 import book from './img/book.png';
 import burger from './img/burger.png';
@@ -82,7 +83,7 @@ function MiniGamestwo(props) {
   const [choice2, setChoice2] = useState(null);
   const [disabled, setDisabled] = useState(false);
   const { coin, setCoin } = useContext(AllContext);
-  const { main, setMain } = useContext(AllContext);
+  const { main, setMain, countMain, setCountMain } = useContext(AllContext);
 
   //start
   useEffect(() => {
@@ -91,8 +92,11 @@ function MiniGamestwo(props) {
 
   const done = () => {
     CoinFunction(coin, setCoin, 1000, 0);
+
     StatFunction(main, setMain, 30, 0);
     StatFunction(tidur, setTidur, 0, 5);
+    
+    CheckStatFull(main, countMain, setCountMain);
     props.handleClick('home');
   };
 
