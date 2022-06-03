@@ -18,8 +18,11 @@ import bg from '../../components/background/splash.png';
 import mainBG from '../../components/background/Charselect.png';
 import splash from './asset/splash.png';
 import './Start.css';
+import useSound from 'use-sound';
+import ClickSound from '../../components/asset/sound/click.mp3';
 
 function PageOne(props) {
+  const [playActive] = useSound(ClickSound, { volume: 0.25 });
   return (
     <Box
       draggable="false"
@@ -102,6 +105,7 @@ function PageOne(props) {
               height="80px"
               borderRadius="50%"
               onClick={() => props.handleClick('selectchar')}
+              onMouseDown={playActive}
               pointerEvents="all"
               transition="0.5s"
               _hover={{

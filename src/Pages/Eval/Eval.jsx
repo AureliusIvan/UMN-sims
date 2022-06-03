@@ -87,13 +87,11 @@ function EvaluationScreen() {
     } else {
       setEvalTidur('Cukup tidur banget');
     }
-    if (countMain < 3){
+    if (countMain < 3) {
       setEvalMain('Kamu ga depresi kan?');
     } else {
       setEvalMain('Udah bahagia banget');
     }
-
-    
   }, [Day]);
   return (
     <>
@@ -125,7 +123,7 @@ function EvaluationScreen() {
                 p="5px"
                 borderRadius="10px"
               >
-                Persentase matkul selesai: 
+                Hasil Evaluasi selama 7 hari
               </Flex>
               <Flex>
                 <CreateText content1={'Status Tidur'} content2={evalTidur} />
