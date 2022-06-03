@@ -2,7 +2,7 @@ import { useContext, useEffect, useState  } from 'react'
 import { Box, Flex, Image } from '@chakra-ui/react'
 import Pop from '../../components/templateAndFunction/tempPopUp'
 import shown from "../../components/asset/mall/Cashier_parttime.png"
-import { CoinFunction, StatFunction } from '../../components/templateAndFunction/statCoinFunction'
+import { CoinFunction, StatFunction, CheckStatFull } from '../../components/templateAndFunction/statCoinFunction'
 import { AllContext } from '../../components/Value/CoinContext'
 import gif1 from './asset/Mukbangmall.gif'
 import gif2 from './asset/Gamermall.gif'
@@ -17,6 +17,7 @@ import gifD from "../../components/asset/gif/coding/Codingmall.gif"
 
 function PartTime() {
     const {tidur, setTidur, main, setMain, makan, setMakan, character, setCharacter} = useContext(AllContext)
+    const { countMakan, setCountMakan} = useContext(AllContext)
     const {coin, setCoin} = useContext(AllContext)
     const [gif, setGif] = useState(gif1);
 
@@ -42,6 +43,8 @@ function PartTime() {
                         StatFunction(main, setMain, 0, 8)
                         StatFunction(makan, setMakan, 5, 0)
                         CoinFunction(coin, setCoin, 1000, 0)
+
+                        CheckStatFull(makan, countMakan, setCountMakan)
                     }}>
             <Pop 
                 shownIMG={shown}

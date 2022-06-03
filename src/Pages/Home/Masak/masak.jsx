@@ -1,3 +1,4 @@
+import { ArrowBackIcon } from '@chakra-ui/icons';
 import React, { useState, useContext } from 'react';
 import { AllContext } from '../../../components/Value/CoinContext';
 import {
@@ -75,7 +76,7 @@ function FoodCard(props) {
       padding={'10px'}
       justifyContent="space-between"
     >
-      <Button variant={'ghost'} bgColor={'null'} onClick={prevFood}>
+      <Button marginTop={'30px'}variant={'ghost'} bgColor={'null'} onClick={prevFood}>
         {'<'}
       </Button>
       <Image
@@ -95,9 +96,8 @@ function FoodCard(props) {
         >
           {props.name}
         </Text>
-        <Text>Hunger : {props.info}</Text>
       </Box>
-      <Button variant={'ghost'} onClick={nextFood}>
+      <Button marginTop={'30px'} variant={'ghost'} onClick={nextFood}>
         {'>'}
       </Button>
     </Flex>
@@ -412,8 +412,26 @@ function Masak(props) {
         left="0"
         right={0}
       >
-        <Button margin={'10px'} onClick={() => props.handleClick('home')}>
-          {'Back'}
+        <Button
+          zIndex={1}
+          pos={'absolute'}
+          top="10px"
+          left={'10px'}
+          fontWeight={0}
+          borderRadius={'50%'}
+          h="50px"
+          w="50px"
+          padding={0}
+          bgColor="blue"
+          onClick={() => props.handleClick('home')}
+        >
+          <ArrowBackIcon
+            filter="invert(1)"
+            h="50px"
+            w={'50px'}
+            position={'absolute'}
+            _hover={{ filter: 'invert(0)' }}
+          />
         </Button>
       </Flex>
       <Grid

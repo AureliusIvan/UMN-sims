@@ -28,7 +28,8 @@ import Player from './audio';
 
 ///ALL audio
 import cafeSound from './components/asset/sound/cafe/BlueZones.mp3';
-import menuSound from './components/asset/sound/mainmenusong/outthewindow.mp3';
+import EvaluationScreen from './Pages/Eval/Eval';
+import menuSound from './components/asset/sound/mainmenusong/homebgm.mp3';
 
 /*
 1. nama
@@ -73,9 +74,9 @@ function App() {
   const [nama, setNama] = useState('');
 
   //time const
-  const [Day, setDay] = useState(0);
-  const [hour, setHour] = useState(0);
-  const [minute, setCount] = useState(0);
+  const [Day, setDay] = useState(6);
+  const [hour, setHour] = useState(22);
+  const [minute, setCount] = useState(49);
   const [countday, setCountday] = useState(0);
   const [realtime, setRealtime] = useState(0);
 
@@ -84,6 +85,12 @@ function App() {
   const [tidur, setTidur] = useState(50);
   const [main, setMain] = useState(50);
   const [belajar, setBelajar] = useState(70);
+
+  // const counter semua stat
+  const [countMakan, setCountMakan] = useState(0);
+  const [countTidur, setCountTidur] = useState(0);
+  const [countMain, setCountMain] = useState(0);
+  const [countBelajar, setCountBelajar] = useState(0);
 
   //Weather const
   const [weather, setWeather] = useState('');
@@ -158,13 +165,13 @@ function App() {
     if (start == true) {
       setCount(minute + 1);
       {
-        StatFunction(makan, setMakan, 0, 0.5);
+        StatFunction(makan, setMakan, 0, 0.25);
       }
       {
-        StatFunction(tidur, setTidur, 0, 0.5);
+        StatFunction(tidur, setTidur, 0, 0.25);
       }
       {
-        StatFunction(main, setMain, 0, 0.5);
+        StatFunction(main, setMain, 0, 0.25);
       }
       if (minute >= 59) {
         setHour(hour + 1);
@@ -332,6 +339,14 @@ function App() {
           setMain,
           belajar,
           setBelajar,
+          countMakan,
+          setCountMakan,
+          countTidur,
+          setCountTidur,
+          countMain,
+          setCountMain,
+          countBelajar,
+          setCountBelajar,
           weather,
           setWeather,
           game,
@@ -389,6 +404,7 @@ function App() {
         }}
       >
         {gameOver ? <GameoverScreen /> : ''}
+        <EvaluationScreen />
         {showPause ? (
           <>
             <Pause />
@@ -400,9 +416,8 @@ function App() {
         ) : (
           ''
         )}
-
         {hideChar ? <CreateChar /> : ''}
-        { load ? <Player url={menuSound} /> : ""}
+        {start ? <Player url={menuSound} /> : ''}
         {(() => {
           switch (game) {
             case 'start':
