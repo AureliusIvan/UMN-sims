@@ -14,7 +14,7 @@ import gif3 from './cafeimg/Holkayngopi.gif';
 import gif4 from './cafeimg/Codingngopi.gif';
 
 function Ngopi() {
-  const { tidur, setTidur, coin, setCoin, makan, setMakan } =
+  const { tidur, setTidur, coin, setCoin, makan, setMakan, main, setMain } =
     useContext(AllContext);
 
   //buat ganti gif berdasarkan character
@@ -38,6 +38,7 @@ function Ngopi() {
     <Box
       onClick={() => {
         StatFunction(tidur, setTidur, 10, 0);
+        StatFunction(main, setMain, 15, 0);
         StatFunction(makan, setMakan, 15, 0);
         CoinFunction(coin, setCoin, 0, 800);
       }}
