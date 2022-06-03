@@ -104,62 +104,6 @@ function Copyable(props) {
           })}
           {provided.placeholder}
         </Flex>
-        // <Grid
-        //   // position={'absolute'}
-        //   // left="0"
-        //   // top={'100px'}
-        //   width="240px"
-        //   h="80vh"
-        //   templateRows="repeat(4, 1fr)"
-        //   templateColumns="repeat(2, 1fr)"
-        //   rowGap={20}
-        //   ref={provided.innerRef}
-        //   className={props.className}
-        //   bgColor="green.100"
-        // >
-        //   {props.items.map((item, index) => {
-        //     const shouldRenderClone = item.id === snapshot.draggingFromThisWith;
-        //     return (
-        //       <React.Fragment key={item.id}>
-        //         {shouldRenderClone ? (
-        //           <Box></Box>
-        //         ) : (
-        //           <Draggable draggableId={item.id} index={index}>
-        //             {(provided, snapshot) => (
-        //               <React.Fragment>
-        //                 <GridItem
-        //                   ref={provided.innerRef}
-        //                   {...provided.draggableProps}
-        //                   {...provided.dragHandleProps}
-        //                   className={
-        //                     snapshot.isDragging ? 'dragging dragbox' : 'dragbox'
-        //                   }
-        //                 >
-        //                   <Text
-        //                     bgColor="red.200"
-        //                     textAlign="center"
-        //                     borderRadius="10px"
-        //                   >
-        //                     {item.label}
-        //                   </Text>
-        //                   <img src={item.url} />
-        //                   <Text
-        //                     bgColor="blue.200"
-        //                     textAlign="center"
-        //                     borderRadius="10px"
-        //                   >
-        //                     {'$'}{item.price}
-        //                   </Text>
-        //                 </GridItem>
-        //               </React.Fragment>
-        //             )}
-        //           </Draggable>
-        //         )}
-        //       </React.Fragment>
-        //     );
-        //   })}
-        //   {provided.placeholder}
-        // </Grid>
       )}
     </Droppable>
   );
@@ -447,52 +391,6 @@ function Cart() {
           </Box>
         </Flex>
       </DragDropContext>
-
-      {/* <DragDropContext onDragEnd={onDragEnd}>
-        <Flex>
-          <Box>
-            <Shop items={COLLECTION} />
-          </Box>
-          <Box pos={'absolute'} right="0" top={'150px'}>
-            {kosong ? (
-              <Flex
-                pos="absolute"
-                bottom="55px"
-                left="0"
-                right={0}
-                margin="auto"
-                w={{ base: '200px', sm: '300px', md: '400px' }}
-                h={{ base: '200px', sm: '300px', md: '400px' }}
-                bgColor="blue.600"
-                justifyContent="center"
-                alignItems={'center'}
-                fontSize="30px"
-                color={"white"}
-                textAlign="center"
-                borderRadius={"10px"}
-              >
-                Keranjang masih kosong
-                <br />
-                Seret Barang kedalam sini!
-              </Flex>
-            ) : (
-              ''
-            )}
-            <ShoppingBag items={shoppingBagItems} />
-            <Flex>
-              <Box color="white" p="10px" bgColor="rgba(0, 0, 0, 0.7);">
-                <Text>Subtotal: {total}</Text>
-              </Box>
-              <Button colorScheme="red" fontWeight="sm" onClick={Reset}>
-                reset{' '}
-              </Button>
-              <Button bgColor={'blue.400'} color="white" onClick={pay}>
-                Pay
-              </Button>
-            </Flex>
-          </Box>
-        </Flex>
-      </DragDropContext> */}
     </Flex>
   );
 }

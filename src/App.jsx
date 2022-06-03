@@ -1,16 +1,4 @@
-import {
-  ChakraProvider,
-  theme,
-  Button,
-  useToast,
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-} from '@chakra-ui/react';
+import { ChakraProvider, theme } from '@chakra-ui/react';
 import { useMemo, useState, useEffect, useRef } from 'react';
 import './App.css';
 import PageOne from './Pages/Start/Start';
