@@ -165,13 +165,13 @@ function App() {
     if (start == true) {
       setCount(minute + 1);
       {
-        StatFunction(makan, setMakan, 0, 0.25);
+        StatFunction(makan, setMakan, 0, 0.05);
       }
       {
-        StatFunction(tidur, setTidur, 0, 0.25);
+        StatFunction(tidur, setTidur, 0, 0.05);
       }
       {
-        StatFunction(main, setMain, 0, 0.25);
+        StatFunction(main, setMain, 0, 0.05);
       }
       if (minute >= 59) {
         setHour(hour + 1);
