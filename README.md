@@ -1,4 +1,4 @@
-# UAS-Keluarga-Bebek
+# UMN Sims
 
 SIMULATOR GAME by Keluarga Bebek \^-^/
 
