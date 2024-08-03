@@ -1,22 +1,21 @@
 .StartBTN {
-  animation: ripple 2s infinite !important;
-  border: none;
-  box-shadow: none;
+    animation: ripple 2s infinite !important;
+    border: none;
+    box-shadow: none;
 }
 
 
-
 @keyframes ripple {
-  0% {
-    box-shadow: 0 0 0 0px rgb(68, 68, 238, 0.0), 0 0 0 0px rgb(0, 0, 0), 0 0 0 0px rgb(68, 68, 238, 0.0),
-      0 0 0 0px rgb(0, 0, 0), 0 0 0 0px rgb(68, 68, 238, 0.0), 0 0 0 0px rgb(0, 0, 0), 0 0 0 0px rgb(68, 68, 238, 0.0),
-      0 0 0 0px rgb(0, 0, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 15px rgb(68, 68, 238, 0.0), 0 0 0 17px rgba(255, 255, 255, 0),
-      0 0 0 40px rgb(68, 68, 238, 0.0), 0 0 0 42px rgba(255, 255, 255, 0), 0 0 0 70px rgb(68, 68, 238, 0.0),
-      0 0 0 72px rgba(255, 255, 255, 0), 0 0 0 105px rgb(68, 68, 238, 0.0),
-      0 0 0 107px rgba(255, 255, 255, 0);
-  }
-  
+    0% {
+        box-shadow: 0 0 0 0px rgb(68, 68, 238, 0.0), 0 0 0 0px rgb(0, 0, 0), 0 0 0 0px rgb(68, 68, 238, 0.0),
+        0 0 0 0px rgb(0, 0, 0), 0 0 0 0px rgb(68, 68, 238, 0.0), 0 0 0 0px rgb(0, 0, 0), 0 0 0 0px rgb(68, 68, 238, 0.0),
+        0 0 0 0px rgb(0, 0, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 15px rgb(68, 68, 238, 0.0), 0 0 0 17px rgba(255, 255, 255, 0),
+        0 0 0 40px rgb(68, 68, 238, 0.0), 0 0 0 42px rgba(255, 255, 255, 0), 0 0 0 70px rgb(68, 68, 238, 0.0),
+        0 0 0 72px rgba(255, 255, 255, 0), 0 0 0 105px rgb(68, 68, 238, 0.0),
+        0 0 0 107px rgba(255, 255, 255, 0);
+    }
+
 }

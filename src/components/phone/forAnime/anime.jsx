@@ -1,13 +1,10 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
-import { Box, Center, Text, Image, Flex, VStack, Stack, Skeleton } from '@chakra-ui/react';
-import { AllContext } from '../../Value/CoinContext';
-import PokeCard from '../forPokedex/Card';
+import {Center, Text, Image, Flex, VStack, Stack, Skeleton} from '@chakra-ui/react';
 
 function Card(props) {
-  return (
-    <>
-      <Flex
+  return (<>
+    <Flex
         margin={'10px'}
         padding="10px"
         h={'200px'}
@@ -19,8 +16,8 @@ function Card(props) {
         textAlign={'center'}
         alignItems={'center'}
         filter="drop-shadow(1px 1px 1px #222)"
-      >
-        <Flex
+    >
+      <Flex
           margin={'10px'}
           h={'120px'}
           w="120px"
@@ -30,16 +27,16 @@ function Card(props) {
           alignContent="center"
           textAlign={'center'}
           alignItems={'center'}
-        >
-          <Image
+      >
+        <Image
             sizes="20"
             src={props.image}
             zIndex={3}
             margin={'10px'}
             borderRadius="10px"
             filter="drop-shadow(5px 5px rgb(0,0,0, .5))"
-          />
-          <Text
+        />
+        <Text
             pos={'absolute'}
             bgColor={'red.600'}
             zIndex={'5'}
@@ -50,74 +47,71 @@ function Card(props) {
             padding="5px"
             w={'110%'}
             color="white"
-          >
-            {props.name}
-          </Text>
-        </Flex>
+        >
+          {props.name}
+        </Text>
       </Flex>
-    </>
-  );
+    </Flex>
+  </>);
 }
 
 
 const AnimeApp = () => {
   const [animeData, setAnimedata] = useState([]);
-  const [temperature, setTemperature] = useState('');
-  const [desc, setDesc] = useState('');
   const [city, setCity] = useState('Jakarta');
   const [country, setCountry] = useState('ID');
   const [loading, setLoading] = useState(true);
 
-  const getWeatherData = () => {
+  const getWeatherData = async () => {
     axios({
-      method: 'GET',
-      url: `https://api.jikan.moe/v4/anime/1/recommendations`,
+      method: 'GET', url: `https://api.jikan.moe/v4/anime/1/recommendations`,
     })
-      .then(response => {
-        setAnimedata(response.data.data);
-        console.log(response.data.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+        .then(response => {
+          setAnimedata(response?.data.data);
+          console.log(response?.data.data);
+        })
+        .catch(error => {
+          console.error(error);
+        });
   };
 
   useEffect(() => {
     async function fetchData() {
-      getWeatherData(city, country);
+      await getWeatherData(city, country);
     }
+
     setLoading(false);
     fetchData();
-  }, []); 
-  return (
-    <>
-      <Center>
-        <VStack height={'auto'} width="400px" spacing={8} bgColor={'white'}>
-          <Text bgColor={"red.500"} width="100%" h="40px" fontSize={"20px"} color="white" textAlign={"center"}>MY ANIME LIST</Text>
-          {!loading
-            ? 	animeData.map((object, i) => (
-                // console.log(object.entry)
-                  <Card
-                    image={object.entry.images.jpg.image_url}
-                    name={object.entry.title}
-                  />
-            ))
+  }, []);
 
-            : (
-            <Stack>
-              <Skeleton height="44px" />
-              <Skeleton height="44px" />
-              <Skeleton height="44px" />
-              <Skeleton height="44px" />
-              <Skeleton height="44px" />
-              <Skeleton height="44px" />
-            </Stack>
-            )
-              }
-        </VStack>
-      </Center>
-    </>
-  );
+  return (<>
+    <Center>
+      <VStack height={'auto'} width="400px" spacing={8} bgColor={'white'}>
+        <Text
+            bgColor={"red.500"}
+            width="100%" h="40px"
+            fontSize={"20px"}
+            color="white"
+            textAlign="center">
+          MY ANIME LIST
+        </Text>
+
+        {!loading ? animeData.map((object, i) => (<Card
+                image={object.entry.images.jpg.image_url}
+                name={object.entry.title}
+            />))
+
+            : (<Stack>
+              <Skeleton height="44px"/>
+              <Skeleton height="44px"/>
+              <Skeleton height="44px"/>
+              <Skeleton height="44px"/>
+              <Skeleton height="44px"/>
+              <Skeleton height="44px"/>
+            </Stack>)}
+      </VStack>
+    </Center>
+  </>);
 };
 
 export default AnimeApp;

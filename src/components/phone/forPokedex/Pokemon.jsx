@@ -52,11 +52,6 @@ function Pokemon() {
     setPokemonData(_pokemonData);
   };
 
-  var pokeSliceA = pokemonData.slice(0, 5);
-  var pokeSliceB = pokemonData.slice(5, 10);
-  var pokeSliceC = pokemonData.slice(10, 15);
-  var pokeSliceD = pokemonData.slice(15, 20);
-  let bg = 'bug';
   return (
     <>
       <PokeNavbar />
@@ -100,22 +95,5 @@ function Pokemon() {
     </>
   );
 }
-
-{/*
-<Box
-  className="HalA"
-  bgColor="blue.200"
-  h={'110%'}
-  w={'100%'}
-  padding="30px"
->
-  {pokemonData.map((pokemon, i) => {
-    return <PokeCard key={i} pokemon={pokemon} />;
-  })}
-  <Flex justifyContent={"space-between"}>
-    <Button marginTop={"10px"} bgColor={"blue.800"} color="white" onClick={prev}>Prev</Button>
-    <Button marginTop={"10px"} bgColor={"blue.800"} color="white" onClick={next}>Next</Button>
-  </Flex>
-</Box> */}
 
 export default Pokemon;

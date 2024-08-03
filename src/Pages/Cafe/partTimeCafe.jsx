@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from 'react';
-import { Box } from '@chakra-ui/react';
-import { AllContext } from '../../components/Value/CoinContext';
+import {useContext, useEffect, useState} from 'react';
+import {Box} from '@chakra-ui/react';
+import {AllContext} from '../../components/Value/CoinContext';
 import {
   StatFunction,
   CoinFunction,
@@ -14,12 +14,21 @@ import gifC from '../../components/asset/gif/holkay/Holkaycafe.gif';
 import gifD from '../../components/asset/gif/coding/Codingcafe.gif';
 
 function PartTimeCafe() {
-  const { tidur, setTidur, coin, setCoin, main, setMain } = useContext(AllContext);
-  const { countTidur, setCountTidur, countMain, setCountMain } = useContext(AllContext);
-  
-
-  const { character, setCharacter } = useContext(AllContext);
+  const {
+    tidur,
+    setTidur,
+    coin,
+    setCoin,
+    main,
+    setMain,
+    character,
+    countTidur,
+    setCountTidur,
+    countMain,
+    setCountMain
+  } = useContext(AllContext);
   const [gif, setGIF] = useState(gifA);
+
   useEffect(() => {
     if (character === 1) {
       setGIF(gifA);
@@ -30,26 +39,26 @@ function PartTimeCafe() {
     } else if (character === 4) {
       setGIF(gifD);
     }
-  });
+  }, [character]);
 
   return (
-    <Box
-      onClick={() => {
-          StatFunction(tidur, setTidur, 0, 10);
-          StatFunction(main, setMain, 0, 5);
-          CoinFunction(coin, setCoin, 1000, 0);
+      <Box
+          onClick={() => {
+            StatFunction(tidur, setTidur, 0, 10);
+            StatFunction(main, setMain, 0, 5);
+            CoinFunction(coin, setCoin, 1000, 0);
 
-          CheckStatFull(tidur, countTidur, setCountTidur);
-          CheckStatFull(main, countMain, setCountMain);
-      }}
-    >
-      <Pop
-        shownIMG={shown}
-        image={gif}
-        name="cafe part time"
-        alt="Kerja part time di cafe"
-      />
-    </Box>
+            CheckStatFull(tidur, countTidur, setCountTidur);
+            CheckStatFull(main, countMain, setCountMain);
+          }}
+      >
+        <Pop
+            shownIMG={shown}
+            image={gif}
+            name="cafe part time"
+            alt="Kerja part time di cafe"
+        />
+      </Box>
   );
 }
 

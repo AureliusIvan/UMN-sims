@@ -1,9 +1,9 @@
-import { useState, useEffect, useContext } from 'react';
-import { useToast } from '@chakra-ui/react';
-import { AllContext } from '../Value/CoinContext';
+import {useState, useEffect, useContext} from 'react';
+import {useToast} from '@chakra-ui/react';
+import {AllContext} from '../Value/CoinContext';
 
 export function Toast() {
-  const { coin, prevCoin } = useContext(AllContext);
+  const {coin, prevCoin} = useContext(AllContext);
   const [first, setFirst] = useState(true);
 
   const toast = useToast();
@@ -30,38 +30,17 @@ export function Toast() {
   }, [coin]);
 }
 
-export function Toastwarn() {
-  const { makan } = useContext(AllContext);
-  const [first, setFirst] = useState(true);
-  const toast = useToast();
-
-  useEffect(() => {
-    if (first) 
-      setFirst(false);
-
-    if (!first) {
-      toast({
-        description: 'Warning anda sekarat',
-        status: 'warning',
-        position: 'top',
-        isClosable: true,
-      });
-    }
-  }, [makan]);
-}
-
-export function ToastXP() { // pasti belajar sih
-  const { belajar } = useContext(AllContext);
+export function ToastXP() {
+  const {belajar} = useContext(AllContext);
   const [first, setFirst] = useState(true);
   const toastXP = useToast();
 
   useEffect(() => {
-    if (first) 
+    if (first)
       setFirst(false);
 
     if (!first) {
       if (belajar >= 100) {
-        console.log("level up")
         toastXP({
           description: 'Level Up!',
           status: 'succeed',
@@ -70,5 +49,5 @@ export function ToastXP() { // pasti belajar sih
         });
       }
     }
-  }, [belajar]);
+  }, [belajar, first, toastXP]);
 }
