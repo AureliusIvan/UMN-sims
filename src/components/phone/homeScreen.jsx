@@ -1,7 +1,6 @@
 import {useState} from 'react';
 import {Box, Text, Divider, Flex, Image, Button, Circle} from '@chakra-ui/react';
 import Clock from '../Clock';
-import WeatherApp from '../background/Weather';
 import homeButton from '../asset/icon/homePhone.png';
 import Greetings from './greetings';
 import NewsApp from './forNews/newsApp';
@@ -84,7 +83,6 @@ const AppLinking = () => {
 function AppList(props) {
   return (
       <>
-        <WeatherApp/>
         <Greetings/>
         <Flex
             borderRadius={10}
