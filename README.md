@@ -1,81 +1,128 @@
-# UMN Sims
+# UMN Sims | By Keluarga Bebek 👨‍🎓🎮
 
-SIMULATOR GAME by Keluarga Bebek \^-^/
+## Journal: [IJRR](https://ijrrjournal.com/IJRR_Vol.10_Issue.1_Jan2023/IJRR-Abstract76.html)
 
-**How To Play :**
-- Tekan tombol play / mulai
-- Sebelum memulai game, pilih karakter, tulis nama player dan pilih jurusan
-- Player akan dibawa ke home sebagai starter poin
-- Pada sisi kiri home page terdapat 3 tombol yaitu **pause, map, dan hp** yang dimana akan muncul juga pada page university, cafe, dan mall.
-- Pada kanan atas, terdapat status banyaknya coin, dibawahnya terdapat 3 status utama (hunger, energy, happiness) dan dibawah 3 status tersebut terdapat XP bar.
-- Persentase status ini dapat berkurang seiring berjalannya waktu
-- Jika salah satu persentase mencapai 0 maka **game selesai** dan player dapat me-reset game.
-- Pada home, terdapat 4 tombol utama, yaitu tombol **makan, tidur, bermain, dan masak**
-- Pada mall, terdapat 2 tombol utama yaitu tombol **Belanja, dan part-time cashier**
-- Pada cafe, terdapat 2 tombol utama yaitu tombol **ngopi, dan part-time cashier**
-- Pada university, terdapat 2 tombol utama yaitu tombol **class, dan library**
-- Semua background di setiap tempat akan berganti menyesuaikan cuaca dan waktu dalam hari
-- Untuk menang player harus bertahan hidup sampai setidaknya 7 hari untuk mendapatkan **review dari kehidupannya sebagai mahasiswa UMN selama 7 hari terakhir** 
+![alt text](./asset/banner.png "Title")
 
--------------------------------------------------------------------------------------------------------------------------------
-**FITUR UTAMA**
-[MAP]
-Didalam map player dapat berpindah pindah tempat sesuai keinginan pada waktu tertentu
-**1. HOME [open all time]**
-- _MAKAN_ :
-  - Pada awal game dimulai, inventory akan terisi dengan beberapa jenis makanan dengan stok yang terbatas.
-  - Sistem makan sendiri menggunakan sistem drag & drop dan nantinya setiap jenis makanan akan memiliki **level pengisian perut yang berbeda-beda**. Sehingga kenaikan status bar juga akan tergantung dari makanan yang dipilih.
-- _MASAK_ :
-  - Fitur ini akan melengkapi persediaan makanan di inventory untuk dimakan.
-  - Untuk memulai masak, semua bahan harus sudah tersedia terlebih dahulu. Bahan makanan ini bisa dibeli di supermarket.
-- _TIDUR_ :
-  - Menu tidur berfungsi untuk meningkatkan status energi karakter, dimana ada **slider untuk menentukan durasi tidurnya** dan jam akan berlalu juga.
-- _BERMAIN_ :
-  - Sebagai tambahan, menu bermain ini berupa minigames **memory card**, dimana dari bermain, karakter dapat menambah status kesenangan dan menambah uang juga.
+This project was developed by Keluarga Bebek as a final project for the course of Game Development and Design at the
+University of Multimedia Nusantara. The game was developed using React & JavaScript programming
+language. The game is a simulation game that tells the story of a student's life at the University of Multimedia
+Nusantara. The game is designed to be played on a web browser.
 
-**2.** **MALL / SUPERMARKET [open jam 7 pagi sampai jam 11 malam]**
-- _BELANJA_
-  - Pada menu ini, karakter dapat berbelanja beberapa kebutuhan yang nantinya dapat digunakan untuk memasak makanan.
-  - Karena pada dasarnya berbelanja, maka uang juga akan dikurangi jika karakter membeli sesuatu
-- _PART-TIME CASHIER_
-  - Disini, karakter diperbolehkan untuk menjalani part time sebagai kasir di supermarket yang dapat menambah uang, namun bisa saja mengurangi stat lainnya.
+## How To Play 🎮
 
-**3. CAFE [open jam 7 pagi sampai jam 11 malam]**
-- _NGOPI_
-  - Di menu ini, karakter dapat menambah stat semua stat yang ada, namun uang yang dimiliki akan berkurang untuk membeli minuman.
-- _PART-TIME CASHIER_
-  - Sebagai mahasiswa, karakter juga dapat menjalani part time sebagai kasir di cafe, sehingga uang juga dapat diperoleh dari hasil bekerja.
+- Press the play / start button
+- Before starting the game, choose a character, write the player's name, and choose a major.
+  ![img.png](asset/select-character.png)
+- The player will be taken to the home as the starting point
+- On the left side of the home page, there are 3 buttons: pause, map, and phone, which will also appear on the
+  university,
+  cafe, and mall pages.
+- On the top right, there is a status of the number of coins, below it there are 3 main statuses (hunger, energy,
+  happiness), and below the 3 statuses, there is an XP bar.
+- The percentage of this status can decrease over time
+- If one of the percentages reaches 0, then the game is over and the player can reset the game.
+- At home, there are 4 main buttons: eat, sleep, play, and cook
+- At the mall, there are 2 main buttons: Shopping, and part-time cashier
+- At the cafe, there are 2 main buttons: coffee, and part-time cashier
+- At the university, there are 2 main buttons: class, and library
+- All backgrounds in each place will change according to the weather and time of day
+- To win, the player must survive for at least 7 days to get a review of their life as a UMN student for the last 7
+  days
 
-**4. UNIVERSITAS [open jam 8 pagi sampai jam 5 sore]**
-- _BELAJAR_
-  -Karakter dapat menambah XP utama (belajar) jika ia belajar.
-  - Setiap jurusan memiliki pilihan mata kuliah yang berbeda-beda tergantung pilihan pemain di awal.
-- _BACA BUKU_
-  - Menu ini terletak di dalam perpustakaan, dimana karakter bisa menambah stat belajar juga dengan membaca buku
-- _PART-TIME LIBRARIAN_
-  - Menu ini juga terletak di dalam perpustakaan, dimana karakter diperbolehkan untuk memperoleh uang extra dari menjadi librarian paruh waktu.
+___
 
--------------------------------------------------------------------------------------------------------------------------------
-**HP**
-- HP merupakan menu yang cukup **powerful** di game ini, dimana di dalamnya terdapat berbagai fitur dan informasi penting.
-- Ada berbagai aplikasi di dalam hp, contohnya aplikasi **berita**, **informasi pemain**(nama, jurusan, level, dan waktu bermain), **pokedex**, dan **anime list**.
-- Di dalam hp, pemain juga dapat melihat informasi mengenai waktu dan cuaca.
+# MAIN FEATURES 🎮
 
--------------------------------------------------------------------------------------------------------------------------------
-**PAUSE**
-- Di bagian atas kiri, terdapat tombol pause
-- Menu menampilkan setttingan suara yang bisa di **mute/unmute**.
-- Menu juga menampilkan tombol reset, dimana jika ditekan akan muncul pop-up konfirmasi untuk **reset game**
+## [MAP]
 
--------------------------------------------------------------------------------------------------------------------------------
-**WAKTU**
-- 1 menit di game = 1 detik (real-life)
+![img.png](asset/map.png)
 
--------------------------------------------------------------------------------------------------------------------------------
+Inside the map, the player can move to different places as desired at certain times
 
-++
-- Ada menu credit untuk melihat anggota
-- Semua animasi yang ada, akan mengikuti karakter pilihan user
-- Setiap karakter memiliki **backstory dan kemampuannya masing-masing** yang bisa berdampak pada status barnya
-- Setiap harinya akan ada sedikit **tambahan uang jajan** dari orang tuanya
+1. HOME [open all time]
+    - EAT :
+      ![img.png](asset/eat.png)
+        - At the start of the game, the inventory will be filled with several types of food with limited stock.
+        - The eating system itself uses a drag & drop system and later each type of food will have a different level of
+          filling
+          the stomach. So the increase in status bar will also depend on the food chosen.
+    - COOK :
+      ![img.png](asset/cook.png)
+        - This feature will complete the food supply in the inventory to be eaten.
+        - To start cooking, all ingredients must be available first. These food ingredients can be purchased at the
+          supermarket.
+    - SLEEP :
+      ![img.png](asset/sleep.png)
+        - The sleep menu functions to increase the energy status of the character, where there is a slider to determine
+          the duration of sleep and the clock will pass as well.
+    - PLAY :
+      ![img.png](asset/play.png)
+        - As an addition, this play menu is in the form of a memory card minigame, where from playing, the character can
+          increase the happiness status and also add money.
 
+2. MALL / SUPERMARKET [open from 7 am to 11 pm]
+    - SHOPPING
+      In this menu, the character can shop for some necessities which can later be used for cooking food.
+      Because basically shopping, money will also be reduced if the character buys something
+    - PART-TIME CASHIER
+      Here, the character is allowed to work part-time as a cashier at the supermarket which can add money, but can also
+      reduce other stats.
+
+3. CAFE [open from 7 am to 11 pm]
+
+    - COFFEE
+      In this menu, the character can increase all existing stats, but the money they have will be reduced to buy
+      drinks.
+    - PART-TIME CASHIER
+      As a student, the character can also work part-time as a cashier at the cafe, so money can also be obtained from
+      the results of work.
+
+4. UNIVERSITY [open from 8 am to 5 pm]
+   ![img.png](asset/university.png)
+    - STUDY
+        - The character can add main XP (study) if they study.
+        - Each department has different course choices depending on the player's choice at the beginning.
+    - READ BOOKS
+        - This menu is located in the library, where the character can also increase study stats by reading books
+    - PART-TIME LIBRARIAN
+        - This menu is also located in the library, where the character is allowed to get extra money from being a
+          part-time librarian.
+
+___ 
+
+### PHONE
+
+![img.png](asset/phone.png)
+
+- The phone is a fairly powerful menu in this game, where there are various features and important information.
+- There are various applications in the phone, for example news applications, player information (name, major, level,
+  and
+  playing time), pokedex, and anime list.
+- In the phone, players can also see information about time and weather.
+
+___ 
+
+### PAUSE
+
+- In the upper left, there is a pause button
+- The menu displays sound settings that can be muted/unmuted.
+- The menu also displays a reset button, which when pressed will bring up a confirmation pop-up to reset the game
+
+___
+
+### TIME
+
+- 1 minute in the game = 1 second (real-life)
+
+--- 
+
+- There is a credit menu to see members
+- All existing animations will follow the user's chosen character
+- Each character has their own backstory and abilities which can affect their status bar
+- Every day there will be a little extra pocket money from their parents
+
+### Game Over
+
+- If one of the status bars reaches 0, the game will be over and the player can reset the game
+  ![img.png](asset/gameover.png)
