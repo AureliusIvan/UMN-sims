@@ -1,6 +1,6 @@
-import { useContext, useEffect, useState } from 'react';
-import { Box } from '@chakra-ui/react';
-import { AllContext } from '../../components/Value/CoinContext';
+import {useContext, useEffect, useState} from 'react';
+import {Box} from '@chakra-ui/react';
+import {AllContext} from '../../components/Value/CoinContext';
 import {
   StatFunction,
   CheckStatFull,
@@ -14,11 +14,23 @@ import gif3 from './cafeimg/Holkayngopi.gif';
 import gif4 from './cafeimg/Codingngopi.gif';
 
 function Ngopi() {
-  const { main, setMain, tidur, setTidur, coin, setCoin, makan, setMakan } = useContext(AllContext);
-  const { countTidur, setCountTidur, countMakan, setCountMakan, countMain, setCountMain } = useContext(AllContext);
-
-  //buat ganti gif berdasarkan character
-  const { character, setCharacter } = useContext(AllContext);
+  const {
+    main,
+    setMain,
+    tidur,
+    setTidur,
+    coin,
+    setCoin,
+    makan,
+    setMakan,
+    countTidur,
+    setCountTidur,
+    countMakan,
+    setCountMakan,
+    countMain,
+    setCountMain,
+    character
+  } = useContext(AllContext);
   const [gif, setGif] = useState(gif1);
 
   useEffect(() => {
@@ -31,24 +43,24 @@ function Ngopi() {
     } else if (character === 4) {
       setGif(gif4);
     }
-  }, []);
+  }, [character]);
 
   return (
-    <Box
-      onClick={() => {
-        StatFunction(tidur, setTidur, 10, 0);
-        StatFunction(main, setMain, 15, 0);
-        StatFunction(makan, setMakan, 15, 0);
-        CoinFunction(coin, setCoin, 0, 800);
-        
-        // check
-        CheckStatFull(tidur, countTidur, setCountTidur);
-        CheckStatFull(main, countMain, setCountMain);
-        CheckStatFull(makan, countMakan, setCountMakan);
-      }}
-    >
-      <Pop shownIMG={shown} image={gif} name="ngopi" alt="Ngopi di cafe" />
-    </Box>
+      <Box
+          onClick={() => {
+            StatFunction(tidur, setTidur, 10, 0);
+            StatFunction(main, setMain, 15, 0);
+            StatFunction(makan, setMakan, 15, 0);
+            CoinFunction(coin, setCoin, 0, 800);
+
+            // check
+            CheckStatFull(tidur, countTidur, setCountTidur);
+            CheckStatFull(main, countMain, setCountMain);
+            CheckStatFull(makan, countMakan, setCountMakan);
+          }}
+      >
+        <Pop shownIMG={shown} image={gif} name="ngopi" alt="Ngopi di cafe"/>
+      </Box>
   );
 }
 

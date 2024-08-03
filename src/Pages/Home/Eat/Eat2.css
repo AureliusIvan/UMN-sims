@@ -1,45 +1,46 @@
 .react-beatiful-dnd-copy ~ Box {
-  transform: none !important;
+    transform: none !important;
 }
 
 .dragging {
-  text-align: center;
-  font-family: sans-serif;
+    text-align: center;
+    font-family: sans-serif;
 }
 
 .react-beatiful-dnd-copy {
-  opacity: 0;
+    opacity: 0;
 }
 
 .react-beatiful-dnd-copy ~ [data-rbd-placeholder-context-id] {
-  display: none !important;
+    display: none !important;
 }
 
 .shop {
-  padding: 10px;
-  width: 140px;
-  height: 100%;
-  overflow-y: scroll;
-  transition: 0.4s !important;
+    padding: 10px;
+    width: 140px;
+    height: 100%;
+    overflow-y: scroll;
+    transition: 0.4s !important;
 }
 
 .shopping-bag {
-  width: 270px;
-  height: 270px;
-  border-radius: 100px;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-top: 140px;
+    width: 270px;
+    height: 270px;
+    border-radius: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 140px;
 }
 
 .dragbox {
-  width: 120px;
-  height: 120px;
-  transition: 0.3s;
+    width: 120px;
+    height: 120px;
+    transition: 0.3s;
 }
+
 .dragbox:hover {
-  width: 130px;
-  height: 130px;
-  background-color: rgb(0, 0, 0, 0.1);
-  border-radius: 10px;
+    width: 130px;
+    height: 130px;
+    background-color: rgb(0, 0, 0, 0.1);
+    border-radius: 10px;
 }
